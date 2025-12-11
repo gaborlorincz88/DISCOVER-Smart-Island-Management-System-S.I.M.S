@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Place - Discover Gozo Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Edit Place</h1>
+        <nav>
+            <a href="admin.html">Dashboard</a>
+            <a href="maps.html">Map Manager</a>
+            <a href="places.html">Place Manager</a>
+            <a href="events.html">Event Manager</a>
+        </nav>
+    </header>
+    <main>
+        <section id="edit-place">
+            <form id="edit-place-form">
+                <input type="hidden" id="place-id" name="id">
+                <input type="hidden" id="category" name="category">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"></textarea>
+                <label for="latitude">Latitude:</label>
+                <input type="number" id="latitude" name="latitude" step="any" required>
+                <label for="longitude">Longitude:</label>
+                <input type="number" id="longitude" name="longitude" step="any" required>
+                <label for="website">Website:</label>
+                <input type="url" id="website" name="website">
+                
+                <label>Existing Images:</label>
+                <div id="existing-images-container" style="margin-bottom: 1rem;">
+                    <p style="color: #666; font-style: italic;">No images currently</p>
+                </div>
+                <input type="hidden" id="existing-images" name="existingImages">
+                
+                <label for="images">Upload New Images:</label>
+                <input type="file" id="images" name="images" multiple accept="image/*">
+                
+                <label for="existing-icon-display">Current Custom Icon:</label>
+                <div id="existing-icon-container" style="margin-bottom: 1rem;">
+                    <p style="color: #666; font-style: italic;">No custom icon</p>
+                </div>
+                <input type="hidden" id="existing-icon" name="existingIcon">
+                
+                <label for="icon">Upload New Custom Icon:</label>
+                <input type="file" id="icon" name="icon" accept="image/*">
+                
+                <label for="iconSize">Icon Size:</label>
+                <input type="number" id="iconSize" name="iconSize" value="32" min="16" max="128">
+                
+                <label for="custom_pin">Custom Pin:</label>
+                <input type="text" id="custom_pin" name="custom_pin">
+                <label for="is_default">
+                    <input type="checkbox" id="is_default" name="is_default">
+                    Show on map by default
+                </label>
+                <button type="submit">Save Place</button>
+            </form>
+            <div id="map" class="map-container"></div>
+        </section>
+    </main>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="image-upload-progress.js"></script>
+    <script src="edit-place.js"></script>
+</body>
+</html>

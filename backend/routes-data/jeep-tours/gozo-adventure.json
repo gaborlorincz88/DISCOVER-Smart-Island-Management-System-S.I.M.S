@@ -1,0 +1,59 @@
+{
+  "id": "gozo-adventure",
+  "name": "Gozo Adventure Jeep Tour",
+  "description": "Explore the hidden gems of Gozo in a thrilling 4x4 jeep adventure. Visit remote villages, ancient sites, and breathtaking viewpoints.",
+  "icon": "/tours.svg",
+  "iconSize": 32,
+  "type": "jeep-tour",
+  "currency": "EUR",
+  "prices": {
+    "adult": 45,
+    "child": 30,
+    "senior": 40
+  },
+  "duration": "4 hours",
+  "maxParticipants": 6,
+  "difficulty": "Easy",
+  "points": [
+    {
+      "id": 1,
+      "type": "start",
+      "lat": 36.046,
+      "lng": 14.26,
+      "name": "Victoria Start Point",
+      "description": "Meeting point at Victoria bus terminus"
+    },
+    {
+      "id": 2,
+      "type": "stop",
+      "lat": 36.056,
+      "lng": 14.25,
+      "name": "Ta' Pinu Basilica",
+      "description": "Famous pilgrimage site with stunning architecture"
+    },
+    {
+      "id": 3,
+      "type": "stop",
+      "lat": 36.066,
+      "lng": 14.24,
+      "name": "Għarb Village",
+      "description": "Traditional Gozitan village with authentic charm"
+    },
+    {
+      "id": 4,
+      "type": "stop",
+      "lat": 36.076,
+      "lng": 14.23,
+      "name": "Dwejra Bay",
+      "description": "Famous Azure Window location and diving spot"
+    },
+    {
+      "id": 5,
+      "type": "end",
+      "lat": 36.046,
+      "lng": 14.26,
+      "name": "Victoria Return",
+      "description": "Return to starting point"
+    }
+  ]
+}

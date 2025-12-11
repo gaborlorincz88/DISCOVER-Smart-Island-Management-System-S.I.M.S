@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Admin - Discover Gozo</title>
+    <link rel="stylesheet" href="lib/leaflet.css" />
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="lib/inter-font.css">
+    <link href="lib/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="theme-toggle.js"></script>
+    <script src="admin-check.js"></script>
+    <style>
+        /* Modern iPhone-style Design */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .content {
+            background-color: transparent !important;
+        }
+        
+        .tab-container {
+            background-color: transparent !important;
+        }
+        
+        .sidebar {
+            background-color: transparent !important;
+        }
+        
+        .sidebar-section {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* FontAwesome Icon Fixes */
+        .fas, .far, .fab {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands" !important;
+            font-weight: 900;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .far {
+            font-weight: 400;
+        }
+        
+        .fab {
+            font-weight: 400;
+        }
+        
+        .main-container {
+            background: transparent;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 30px;
+        }
+        
+        .main-header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px 30px;
+        }
+        
+        .main-header h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .main-header h1 i {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .top-menu {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .top-menu .btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .top-menu .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .top-menu .btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .page-actions {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .btn i {
+            font-size: 16px;
+            width: 16px;
+            height: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Slider styling */
+        .slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider:hover::-webkit-slider-thumb {
+            transform: scale(1.1);
+        }
+
+        .slider:hover::-moz-range-thumb {
+            transform: scale(1.1);
+        }
+        
+        .btn-info {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+        }
+        
+        /* Alarm list styling */
+        .alarms-list {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+        
+        .alarm-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .alarm-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
+        }
+        
+        .alarm-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .alarm-type {
+            font-size: 18px;
+            margin-right: 8px;
+        }
+        
+        .alarm-title {
+            font-weight: 600;
+            color: white;
+            flex: 1;
+        }
+        
+        .alarm-severity {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .severity-low { background: rgba(16, 185, 129, 0.3); color: #10b981; }
+        .severity-medium { background: rgba(245, 158, 11, 0.3); color: #f59e0b; }
+        .severity-high { background: rgba(239, 68, 68, 0.3); color: #ef4444; }
+        .severity-critical { background: rgba(220, 38, 38, 0.3); color: #dc2626; }
+        
+        .alarm-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .alarm-coords {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 11px;
+            font-family: monospace;
+        }
+        
+        .alarm-actions {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+        }
+        
+        .alarm-actions .btn {
+            padding: 4px 8px;
+            font-size: 11px;
+            min-width: auto;
+        }
+        
+        .alarm-status {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+        
+        .status-indicator.inactive {
+            background: #6b7280;
+        }
+        
+        /* Pulse animation for alarm markers */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-warning:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+        
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .stat-icon i {
+            font-size: 20px;
+            color: white;
+        }
+        
+        .stat-content {
+            flex: 1;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 0 4px 0;
+        }
+        
+        .stat-value {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h3 {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-header h3 i {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .card-body {
+            padding: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .form-group label {
+            display: block;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+        
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-input::placeholder, .form-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Ensure form inputs don't overflow their containers */
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="password"],
+        .form-group textarea {
+            min-width: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        /* Specific styling for narrow input fields */
+        .form-group input[type="number"] {
+            text-align: center;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: transparent;
+        }
+        
+        .data-table th {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-weight: 600;
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        .data-table td {
+            color: white;
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+        }
+        
+        .data-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            margin: 20px;
+            animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px 30px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .modal-header h3 i {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .modal-close {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .modal-close:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .modal-body {
+            padding: 30px;
+            max-height: 70vh;
+            overflow-y: auto;
+            background: transparent;
+        }
+        
+        .modal-footer {
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 30px;
+            border-radius: 0 0 20px 20px;
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+        
+        .notification {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .notification-success {
+            border-color: rgba(34, 197, 94, 0.3);
+            background: rgba(34, 197, 94, 0.15);
+        }
+        
+        .notification-error {
+            border-color: rgba(239, 68, 68, 0.3);
+            background: rgba(239, 68, 68, 0.15);
+        }
+        
+        .notification i {
+            font-size: 18px;
+        }
+        
+        .notification-success i {
+            color: #4ade80;
+        }
+        
+        .notification-error i {
+            color: #f87171;
+        }
+        
+        /* Weather Admin Specific Styles */
+        .sidebar {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 30px;
+            overflow-y: auto;
+            max-height: calc(100vh - 140px);
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .sidebar-section h2 {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sidebar-section h2 i {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        #map {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+        
+        /* Coastline drawing styles */
+        .coastline-marker {
+            background-color: #10b981 !important;
+            border: 3px solid white !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4) !important;
+        }
+        
+        .coastline-line {
+            stroke: #10b981;
+            stroke-width: 4;
+            stroke-opacity: 0.8;
+            fill: none;
+            stroke-dasharray: 10, 5;
+            animation: dash 2s linear infinite;
+        }
+        
+        @keyframes dash {
+            to { stroke-dashoffset: -15; }
+        }
+        
+        /* Weather data cards */
+        .weather-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .weather-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .weather-card h3 {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .weather-card h3 i {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .weather-value {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+        
+        .weather-unit {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .weather-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        
+        /* API Status indicators */
+        .api-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .api-status.connected {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .api-status.disconnected {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .api-status.loading {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Drawing mode indicators */
+        .drawing-mode {
+            background: rgba(16, 185, 129, 0.2);
+            border: 2px solid #10b981;
+            color: #10b981;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .drawing-mode.active {
+            background: rgba(16, 185, 129, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Coastline list */
+        .coastline-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .coastline-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .coastline-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
+        }
+        
+        .coastline-item.selected {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Dark Theme Support */
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #2d1b69 0%, #1a0d4a 100%);
+        }
+        
+        [data-theme="dark"] .main-header {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .content {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .card-header {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        [data-theme="dark"] .stat-card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .stat-card:hover {
+            background: rgba(0, 0, 0, 0.35);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        [data-theme="dark"] .stat-icon {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-primary {
+            background: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(76, 29, 149, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-success {
+            background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-success:hover {
+            box-shadow: 0 8px 25px rgba(22, 101, 52, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        [data-theme="dark"] .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        [data-theme="dark"] .btn-info {
+            background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-info:hover {
+            box-shadow: 0 8px 25px rgba(12, 74, 110, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-warning {
+            background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-warning:hover {
+            box-shadow: 0 8px 25px rgba(146, 64, 14, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-danger {
+            background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-danger:hover {
+            box-shadow: 0 8px 25px rgba(153, 27, 27, 0.4);
+        }
+        
+        [data-theme="dark"] .form-input, [data-theme="dark"] .form-select, [data-theme="dark"] .form-textarea {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        [data-theme="dark"] .form-input:focus, [data-theme="dark"] .form-select:focus, [data-theme="dark"] .form-textarea:focus {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+        }
+        
+        [data-theme="dark"] .data-table th {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        [data-theme="dark"] .data-table td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        
+        [data-theme="dark"] .data-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        [data-theme="dark"] .modal {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        [data-theme="dark"] .modal-content {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+        }
+        
+        [data-theme="dark"] .modal-header {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        [data-theme="dark"] .modal-footer {
+            background: rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        [data-theme="dark"] .notification {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .notification-success {
+            border-color: rgba(34, 197, 94, 0.3);
+            background: rgba(34, 197, 94, 0.15);
+        }
+        
+        [data-theme="dark"] .notification-error {
+            border-color: rgba(239, 68, 68, 0.3);
+            background: rgba(239, 68, 68, 0.15);
+        }
+        
+        [data-theme="dark"] .sidebar {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .weather-card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .coastline-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .coastline-item:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        [data-theme="dark"] .coastline-item.selected {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1><i class="fas fa-cloud-sun"></i> Discover Gozo Admin</h1>
+        <nav class="top-menu">
+            <a href="/admin.html" class="btn btn-secondary"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="/analytics.html" class="btn btn-secondary"><i class="fas fa-chart-line"></i> Analytics</a>
+            <a href="/weather-admin.html" class="btn btn-primary active"><i class="fas fa-cloud-sun"></i> Weather</a>
+            <a href="/bus-editor.html" class="btn btn-secondary"><i class="fas fa-bus"></i> Bus Routes</a>
+            <a href="/new-route-editor.html" class="btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Tour Routes</a>
+            <a href="/category-editor.html" class="btn btn-secondary"><i class="fas fa-tags"></i> Category Editor</a>
+            <a href="/gallery-manager.html" class="btn btn-secondary"><i class="fas fa-images"></i> Gallery</a>
+            <a href="/users.html" class="btn btn-secondary"><i class="fas fa-users"></i> Users</a>
+            <a href="/reservations.html" class="btn btn-secondary"><i class="fas fa-calendar-check"></i> Reservations</a>
+            <a href="/merchants.html" class="btn btn-secondary"><i class="fas fa-store"></i> Merchants</a>
+            <a href="/user-reviews.html" class="btn btn-secondary"><i class="fas fa-star"></i> User Reviews</a>
+            <a href="/user-alarms.html" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i> User Alarms</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <!-- Coastline Drawing Section -->
+            <div class="sidebar-section">
+                <h2><i class="fas fa-draw-polygon"></i> Coastline Drawing</h2>
+                <div class="form-group">
+                    <div class="drawing-mode" id="drawing-status">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <span>Click to start drawing coastline</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button id="start-drawing-btn" class="btn btn-success">
+                        <i class="fas fa-play"></i> Start Drawing
+                    </button>
+                    <button id="finish-drawing-btn" class="btn btn-warning" disabled>
+                        <i class="fas fa-stop"></i> Finish Drawing
+                    </button>
+                </div>
+                <div class="form-group">
+                    <button id="clear-coastline-btn" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                    <button id="save-coastline-btn" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Coastline
+                    </button>
+                </div>
+                <div class="form-group">
+                    <label for="coastline-name">Coastline Name</label>
+                    <input type="text" id="coastline-name" class="form-input" placeholder="e.g., Gozo Main Coastline">
+                </div>
+                <div class="coastline-list" id="coastline-list">
+                    <!-- Coastlines will be listed here -->
+                </div>
+            </div>
+
+            <!-- Weather API Configuration -->
+            <div class="sidebar-section">
+                <h2><i class="fas fa-cog"></i> Weather API</h2>
+                <div class="weather-card">
+                    <h3><i class="fas fa-cloud"></i> OpenWeatherMap (Free)</h3>
+                    <div class="form-group">
+                        <label for="openweathermap-api-key">API Key</label>
+                        <input type="password" id="openweathermap-api-key" class="form-input" placeholder="Enter OpenWeatherMap API key">
+                        <small style="color: rgba(255, 255, 255, 0.7); font-size: 12px; margin-top: 4px; display: block;">
+                            Get your <strong>FREE</strong> API key at <a href="https://openweathermap.org/api" target="_blank" style="color: #60A5FA;">openweathermap.org/api</a><br>
+                            <span style="color: #10b981;">✓ No payment required ✓ 1000 calls/day free</span>
+                        </small>
+                    </div>
+                    <div class="api-status" id="openweathermap-status">Disconnected</div>
+                </div>
+                
+                <div class="form-group">
+                    <button id="test-apis-btn" class="btn btn-primary">
+                        <i class="fas fa-flask"></i> Test API
+                    </button>
+                    <button id="save-api-keys-btn" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Key
+                    </button>
+                    <button id="update-weather-btn" class="btn btn-warning">
+                        <i class="fas fa-sync"></i> Update Now
+                    </button>
+                    <button id="test-weather-btn" class="btn btn-danger">
+                        <i class="fas fa-bug"></i> Test Fetch
+                    </button>
+                </div>
+                
+                <div class="weather-card" id="cache-status-card" style="display: none;">
+                    <h3><i class="fas fa-database"></i> Cache Status</h3>
+                    <div class="weather-description" id="cache-status">Loading...</div>
+                    <div class="weather-description" id="next-update">Next update: --</div>
+                </div>
+            </div>
+
+            <!-- Current Weather Data -->
+            <div class="sidebar-section">
+                <h2><i class="fas fa-thermometer-half"></i> Current Weather</h2>
+                <div class="weather-card">
+                    <h3><i class="fas fa-thermometer-half"></i> Temperature</h3>
+                    <div class="weather-value" id="current-temp">--°C</div>
+                    <div class="weather-description" id="temp-description">Loading...</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-tint"></i> Humidity</h3>
+                    <div class="weather-value" id="current-humidity">--%</div>
+                    <div class="weather-description" id="humidity-description">Loading...</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-cloud-rain"></i> Rain Chance</h3>
+                    <div class="weather-value" id="rain-chance">--%</div>
+                    <div class="weather-description" id="rain-description">Loading...</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-water"></i> Water Temperature</h3>
+                    <div class="weather-value" id="water-temp">--°C</div>
+                    <div class="weather-description" id="water-description">Loading...</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-wind"></i> Wave Height</h3>
+                    <div class="weather-value" id="wave-height">--m</div>
+                    <div class="weather-description" id="wave-description">Loading...</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-wind"></i> Wind Speed</h3>
+                    <div class="weather-value" id="wind-speed">--km/h</div>
+                    <div class="weather-description" id="wind-description">Loading...</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-compass"></i> Wind Direction</h3>
+                    <div class="weather-value" id="wind-direction">--°</div>
+                    <div class="weather-description" id="wind-direction-text">Loading...</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-eye"></i> Visibility</h3>
+                    <div class="weather-value" id="visibility">--km</div>
+                    <div class="weather-description" id="visibility-description">Loading...</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-tachometer-alt"></i> Pressure</h3>
+                    <div class="weather-value" id="pressure">--hPa</div>
+                    <div class="weather-description" id="pressure-description">Loading...</div>
+                </div>
+            </div>
+
+            <!-- Wave Testing Controls -->
+            <div class="sidebar-section">
+                <h2><i class="fas fa-cogs"></i> Wave Testing Controls</h2>
+                <div class="weather-card">
+                    <h3><i class="fas fa-wind"></i> Wind Speed Test</h3>
+                    <div class="form-group">
+                        <label for="test-wind-speed">Wind Speed (km/h): <span id="wind-speed-value">0</span></label>
+                        <input type="range" id="test-wind-speed" min="0" max="100" value="0" class="slider">
+                    </div>
+                    <div class="weather-description">Adjust to test wave intensity</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-compass"></i> Wind Direction Test</h3>
+                    <div class="form-group">
+                        <label for="test-wind-direction">Wind Direction: <span id="wind-direction-value">0°</span></label>
+                        <input type="range" id="test-wind-direction" min="0" max="360" value="0" class="slider">
+                    </div>
+                    <div class="weather-description">Adjust to test wave direction</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-water"></i> Wave Height Test</h3>
+                    <div class="form-group">
+                        <label for="test-wave-height">Wave Height (m): <span id="wave-height-value">0.5</span></label>
+                        <input type="range" id="test-wave-height" min="0.1" max="5.0" step="0.1" value="0.5" class="slider">
+                    </div>
+                    <div class="weather-description">Adjust to test wave size</div>
+                </div>
+            </div>
+
+            <!-- Wave Animation Controls -->
+            <div class="sidebar-section">
+                <h2><i class="fas fa-cogs"></i> Wave Animation Controls</h2>
+                <div class="weather-card">
+                    <h3><i class="fas fa-clock"></i> Animation Speed</h3>
+                    <div class="form-group">
+                        <label for="wave-speed">Animation Speed: <span id="wave-speed-value">1.0x</span></label>
+                        <input type="range" id="wave-speed" min="0.1" max="3.0" step="0.1" value="1.0" class="slider">
+                    </div>
+                    <div class="weather-description">How fast waves move (0.1x = very slow, 3.0x = very fast)</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-arrows-alt-h"></i> Wave Travel Distance</h3>
+                    <div class="form-group">
+                        <label for="wave-distance">Travel Distance: <span id="wave-distance-value">100%</span></label>
+                        <input type="range" id="wave-distance" min="20" max="200" step="10" value="100" class="slider">
+                    </div>
+                    <div class="weather-description">How far waves travel across the water (20% = short, 200% = very long)</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-arrows-alt-v"></i> Wave Amplitude</h3>
+                    <div class="form-group">
+                        <label for="wave-amplitude">Wave Height Multiplier: <span id="wave-amplitude-value">1.0x</span></label>
+                        <input type="range" id="wave-amplitude" min="0.2" max="3.0" step="0.1" value="1.0" class="slider">
+                    </div>
+                    <div class="weather-description">Multiplier for wave height (0.2x = very small, 3.0x = very large)</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-sync"></i> Animation Frequency</h3>
+                    <div class="form-group">
+                        <label for="wave-frequency">Refresh Rate: <span id="wave-frequency-value">2 min</span></label>
+                        <input type="range" id="wave-frequency" min="0.5" max="10" step="0.5" value="2" class="slider">
+                    </div>
+                    <div class="weather-description">How often wave data refreshes (0.5 min = very frequent, 10 min = less frequent)</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-layer-group"></i> Wave Layers</h3>
+                    <div class="form-group">
+                        <label for="wave-layers">Number of Wave Layers: <span id="wave-layers-value">3</span></label>
+                        <input type="range" id="wave-layers" min="1" max="5" step="1" value="3" class="slider">
+                    </div>
+                    <div class="weather-description">How many wave layers to show (1 = simple, 5 = complex)</div>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-palette"></i> Wave Opacity</h3>
+                    <div class="form-group">
+                        <label for="wave-opacity">Wave Opacity: <span id="wave-opacity-value">70%</span></label>
+                        <input type="range" id="wave-opacity" min="10" max="100" step="5" value="70" class="slider">
+                    </div>
+                    <div class="weather-description">How visible the waves are (10% = very faint, 100% = very visible)</div>
+                </div>
+                
+                <div class="page-actions">
+                    <button id="apply-wave-settings" class="btn btn-primary">
+                        <i class="fas fa-magic"></i> Apply Wave Settings
+                    </button>
+                    <button id="reset-wave-settings" class="btn btn-secondary">
+                        <i class="fas fa-undo"></i> Reset Wave Settings
+                    </button>
+                </div>
+            </div>
+
+            <!-- Test Weather Controls -->
+            <div class="sidebar-section">
+                <h2><i class="fas fa-flask"></i> Test Weather Controls</h2>
+                <div class="page-actions">
+                    <button id="apply-test-weather" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Apply Test Weather
+                    </button>
+                    <button id="refresh-waves" class="btn btn-info">
+                        <i class="fas fa-sync"></i> Refresh Waves
+                    </button>
+                    <button id="test-localstorage" class="btn btn-warning">
+                        <i class="fas fa-flask"></i> Test localStorage
+                    </button>
+                    <button id="reset-test-weather" class="btn btn-secondary">
+                        <i class="fas fa-undo"></i> Reset to Real Data
+                    </button>
+                </div>
+            </div>
+
+            <!-- Condition Alarm Management -->
+            <div class="sidebar-section">
+                <h2><i class="fas fa-exclamation-triangle"></i> Condition Alarms</h2>
+                
+                <!-- Add New Alarm Form -->
+                <div class="weather-card">
+                    <h3><i class="fas fa-plus"></i> Add New Alarm</h3>
+                    <div class="form-group">
+                        <label for="alarm-type">Alarm Type</label>
+                        <select id="alarm-type" class="form-input">
+                            <option value="jellyfish">🪼 Jellyfish Alert</option>
+                            <option value="tsunami">🌊 Tsunami Warning</option>
+                            <option value="shark">🦈 Shark Alert</option>
+                            <option value="storm">⛈️ Storm Warning</option>
+                            <option value="wind">💨 High Wind Alert</option>
+                            <option value="current">🌊 Strong Current</option>
+                            <option value="pollution">☠️ Water Pollution</option>
+                            <option value="fire">🔥 Fire Alert</option>
+                            <option value="ice">🧊 Ice Warning</option>
+                            <option value="fog">🌫️ Fog Alert</option>
+                            <option value="tornado">🌪️ Tornado Warning</option>
+                            <option value="earthquake">🌍 Earthquake Alert</option>
+                            <option value="flood">🌧️ Flood Warning</option>
+                            <option value="diving">🤿 Diving Area</option>
+                            <option value="swimming">🏊 Swimming Area</option>
+                            <option value="fishing">🎣 Fishing Area</option>
+                            <option value="boat">⛵ Boat Zone</option>
+                            <option value="restricted">🚫 Restricted Area</option>
+                            <option value="danger">⚠️ Danger Zone</option>
+                            <option value="info">ℹ️ Information</option>
+                            <option value="other">❓ Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alarm-icon">Custom Icon</label>
+                        <select id="alarm-icon" class="form-input">
+                            <option value="🪼">🪼 Jellyfish</option>
+                            <option value="🌊">🌊 Wave</option>
+                            <option value="🦈">🦈 Shark</option>
+                            <option value="⛈️">⛈️ Storm</option>
+                            <option value="💨">💨 Wind</option>
+                            <option value="☠️">☠️ Danger</option>
+                            <option value="🔥">🔥 Fire</option>
+                            <option value="🧊">🧊 Ice</option>
+                            <option value="🌫️">🌫️ Fog</option>
+                            <option value="🌪️">🌪️ Tornado</option>
+                            <option value="🌍">🌍 Earthquake</option>
+                            <option value="🌧️">🌧️ Rain</option>
+                            <option value="🤿">🤿 Diving</option>
+                            <option value="🏊">🏊 Swimming</option>
+                            <option value="🎣">🎣 Fishing</option>
+                            <option value="⛵">⛵ Boat</option>
+                            <option value="🚫">🚫 Restricted</option>
+                            <option value="⚠️">⚠️ Warning</option>
+                            <option value="ℹ️">ℹ️ Info</option>
+                            <option value="❓">❓ Question</option>
+                            <option value="🚨">🚨 Emergency</option>
+                            <option value="🆘">🆘 SOS</option>
+                            <option value="🏥">🏥 Medical</option>
+                            <option value="🚑">🚑 Ambulance</option>
+                            <option value="🚒">🚒 Fire Truck</option>
+                            <option value="🚁">🚁 Helicopter</option>
+                            <option value="⛑️">⛑️ Safety</option>
+                            <option value="🔒">🔒 Secure</option>
+                            <option value="🔓">🔓 Open</option>
+                            <option value="⭐">⭐ Star</option>
+                            <option value="💎">💎 Diamond</option>
+                            <option value="🎯">🎯 Target</option>
+                            <option value="📍">📍 Pin</option>
+                            <option value="🔴">🔴 Red Circle</option>
+                            <option value="🟡">🟡 Yellow Circle</option>
+                            <option value="🟢">🟢 Green Circle</option>
+                            <option value="🔵">🔵 Blue Circle</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alarm-icon-size">Icon Size: <span id="icon-size-value">50px</span></label>
+                        <input type="range" id="alarm-icon-size" min="20" max="100" step="5" value="50" class="slider">
+                        <div class="weather-description">Size of the alarm icon on the map (20px = small, 100px = large)</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alarm-title">Alarm Title</label>
+                        <input type="text" id="alarm-title" class="form-input" placeholder="e.g., Jellyfish Spotted at Ramla Bay">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alarm-description">Description</label>
+                        <textarea id="alarm-description" class="form-input" rows="2" placeholder="Additional details about the alarm..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alarm-severity">Severity Level</label>
+                        <select id="alarm-severity" class="form-input">
+                            <option value="low">🟢 Low - Informational</option>
+                            <option value="medium" selected>🟡 Medium - Caution</option>
+                            <option value="high">🟠 High - Warning</option>
+                            <option value="critical">🔴 Critical - Danger</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alarm-lat">Latitude</label>
+                        <input type="number" id="alarm-lat" class="form-input" step="0.000001" placeholder="36.0444">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alarm-lng">Longitude</label>
+                        <input type="number" id="alarm-lng" class="form-input" step="0.000001" placeholder="14.2397">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="alarm-active" checked> Active Alarm
+                        </label>
+                    </div>
+                    
+                    <div class="page-actions">
+                        <button id="add-alarm-btn" class="btn btn-success">
+                            <i class="fas fa-plus"></i> Add Alarm
+                        </button>
+                        <button id="clear-alarm-form" class="btn btn-secondary">
+                            <i class="fas fa-eraser"></i> Clear Form
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Active Alarms List -->
+                <div class="weather-card">
+                    <h3><i class="fas fa-list"></i> Active Alarms</h3>
+                    <div id="alarms-list" class="alarms-list">
+                        <!-- Alarms will be listed here -->
+                    </div>
+                </div>
+                
+                <!-- Map Click Instructions -->
+                <div class="weather-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Set Location</h3>
+                    <div class="weather-description">
+                        Click on the map to set alarm coordinates automatically
+                    </div>
+                    <button id="use-map-coords" class="btn btn-info">
+                        <i class="fas fa-crosshairs"></i> Use Map Click
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div id="map"></div>
+        </main>
+    </div>
+
+    <!-- API Configuration Modal -->
+    <div id="api-config-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-cog"></i> Weather API Configuration</h3>
+                <button class="modal-close" onclick="closeApiConfigModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="modal-owm-key">OpenWeatherMap API Key</label>
+                    <input type="password" id="modal-owm-key" placeholder="Enter your OpenWeatherMap API key">
+                    <small style="color: rgba(255, 255, 255, 0.7);">Get your free API key at openweathermap.org</small>
+                </div>
+                <div class="form-group">
+                    <label for="modal-stormglass-key">Stormglass API Key</label>
+                    <input type="password" id="modal-stormglass-key" placeholder="Enter your Stormglass API key">
+                    <small style="color: rgba(255, 255, 255, 0.7);">Get your free API key at stormglass.io</small>
+                </div>
+                <div class="form-group">
+                    <label for="update-interval">Update Interval (minutes)</label>
+                    <select id="update-interval">
+                        <option value="5">5 minutes</option>
+                        <option value="10" selected>10 minutes</option>
+                        <option value="15">15 minutes</option>
+                        <option value="30">30 minutes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeApiConfigModal()">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="saveApiConfiguration()">Save Configuration</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <svg id="theme-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </div>
+
+    <script src="lib/leaflet.js"></script>
+    <script src="weather-admin.js"></script>
+</body>
+</html>

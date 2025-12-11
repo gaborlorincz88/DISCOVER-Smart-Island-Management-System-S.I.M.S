@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Editor</title>
+    <link rel="stylesheet" href="lib/leaflet.css" />
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="admin-check.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <h1><i class="fas fa-map-marked-alt"></i> Route Editor</h1>
+        <nav class="top-menu">
+            <a href="/admin.html" class="btn btn-secondary"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="/new-route-editor.html" class="btn btn-secondary"><i class="fas fa-route"></i> Tour Routes</a>
+            <a href="/bus-editor.html" class="btn btn-secondary"><i class="fas fa-bus"></i> Bus Routes</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="controls">
+            <div class="control-group">
+                <label for="route-type-select">Route Type:</label>
+                <select id="route-type-select">
+                    <option value="bus">Bus</option>
+                    <option value="hiking">Hiking</option>
+                    <option value="cycling">Cycling</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="route-select">Select Route:</label>
+                <select id="route-select"></select>
+            </div>
+            <div class="control-group">
+                <button id="save-stops-btn">Save Stops</button>
+                <button id="save-shape-btn">Save Shape</button>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <script src="lib/leaflet.js"></script>
+    <script src="route-editor.js"></script>
+</body>
+</html>

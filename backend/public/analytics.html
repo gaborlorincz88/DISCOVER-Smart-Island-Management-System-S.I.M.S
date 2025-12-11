@@ -1,0 +1,2291 @@
+<!--
+  © 2025 Lőrincz Gábor – All Rights Reserved
+  Unauthorized copying or use is strictly prohibited.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Discover Gozo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="admin-check.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .main-header {
+            background: rgba(0, 0, 0, 0.3) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="dark"] .top-menu .btn {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+        }
+
+        [data-theme="dark"] .top-menu .btn:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        [data-theme="dark"] .top-menu .btn.active,
+        [data-theme="dark"] .top-menu .btn.btn-primary.active {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        [data-theme="dark"] .analytics-header {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .stat-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .stat-card:hover {
+            background: rgba(30, 41, 59, 0.7);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] .chart-card,
+        [data-theme="dark"] .heatmap-card,
+        [data-theme="dark"] .realtime-card,
+        [data-theme="dark"] .analytics-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .tab-button {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .tab-button:hover {
+            background: rgba(30, 41, 59, 0.7);
+        }
+
+        [data-theme="dark"] .tab-button.active {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] .form-select {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .admin-section {
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .analytics-card p,
+        [data-theme="dark"] .analytics-card div,
+        [data-theme="dark"] .analytics-card span,
+        [data-theme="dark"] .analytics-card td,
+        [data-theme="dark"] .analytics-card th {
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .analytics-card td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="dark"] .analytics-card th {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-header {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-radius: 16px !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+            margin: 20px !important;
+            padding: 20px 30px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+        }
+
+        .main-header h1 {
+            color: white !important;
+            font-size: 28px !important;
+            font-weight: 700 !important;
+            margin: 0 !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+        }
+
+        .main-header h1 i {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .top-menu {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .top-menu .btn {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            color: white !important;
+            padding: 10px 20px !important;
+            border-radius: 8px !important;
+            text-decoration: none !important;
+            font-weight: 500 !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            min-height: auto !important;
+        }
+
+        .top-menu .btn:hover {
+            background: rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .top-menu .btn.active {
+            background: rgba(255, 255, 255, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .top-menu .btn.btn-primary {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        }
+
+        .top-menu .btn.btn-primary.active {
+            background: rgba(255, 255, 255, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .top-menu .btn.btn-secondary {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-header {
+                margin: 10px;
+                padding: 15px 20px;
+            }
+
+            .main-header h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .top-menu {
+                gap: 8px;
+            }
+
+            .top-menu .btn {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .top-menu .btn i {
+                font-size: 12px;
+            }
+        }
+
+        /* Analytics content container */
+        .analytics-content {
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+            min-height: 600px;
+            /* Ensure minimum height for heatmap */
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Fix for heatmap container */
+        .heatmap-container {
+            position: relative !important;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            height: 585px !important;
+            min-height: 585px !important;
+            max-height: 585px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box;
+        }
+
+        /* Ensure proper sizing for analytics charts */
+        #analytics-charts {
+            max-height: none;
+            overflow: visible;
+        }
+
+        /* Modern Chart Card Styling */
+        .chart-card,
+        .analytics-card,
+        .realtime-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 24px;
+            min-height: 300px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Allow analytics cards to grow taller for content */
+        .analytics-card {
+            max-height: none;
+            min-height: auto;
+        }
+
+        .chart-card:hover,
+        .analytics-card:hover,
+        .realtime-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .chart-card h3,
+        .analytics-card h3,
+        .realtime-card h3,
+        .heatmap-card h3 {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .chart-card h3 i,
+        .analytics-card h3 i,
+        .realtime-card h3 i,
+        .heatmap-card h3 i {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .chart-card canvas,
+        .analytics-card canvas {
+            max-height: 350px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .chart-card canvas:hover,
+        .analytics-card canvas:hover {
+            opacity: 0.9;
+        }
+
+        .analytics-card {
+            position: relative;
+        }
+
+        /* Chart Expand Icon */
+        .chart-card {
+            position: relative;
+        }
+
+        .chart-expand-icon {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: white;
+            font-size: 14px;
+            z-index: 10;
+        }
+
+        .chart-expand-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Chart Modal */
+        .chart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .chart-modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .chart-modal-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 32px;
+            max-width: 90vw;
+            max-height: 85vh;
+            width: 1200px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .chart-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .chart-modal-title {
+            color: white;
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .chart-modal-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 10px 16px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .chart-modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .chart-modal-body {
+            max-height: calc(85vh - 120px);
+            overflow: auto;
+        }
+
+        .chart-modal-body canvas {
+            width: 100% !important;
+            height: 450px !important;
+            max-height: none !important;
+        }
+
+        /* Analytics-specific styles */
+        .tab-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .tab-button {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(76, 29, 149, 0.4);
+        }
+
+        .tab-button i {
+            font-size: 18px;
+        }
+
+        .analytics-subtab {
+            display: none;
+        }
+
+        .analytics-subtab.active {
+            display: block;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 25px;
+            width: 100%;
+            margin: 0;
+            padding: 0 20px;
+        }
+
+        .heatmap-section {
+            margin-bottom: 20px;
+            grid-column: 1 / -1;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .heatmap-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 24px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .heatmap-container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            height: 585px !important;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .heatmap-container .leaflet-container {
+            border-radius: 12px;
+        }
+
+        /* Analytics Dashboard Styling */
+        .analytics-header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            margin: 0 20px 30px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .analytics-header:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .analytics-header h2 {
+            color: white;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .analytics-header h2 i {
+            font-size: 36px;
+        }
+
+        .admin-section h2 {
+            color: white;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .admin-section h2 i {
+            font-size: 32px;
+        }
+
+        .analytics-controls {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-group label {
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .form-select {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            min-width: 150px;
+        }
+
+        .form-select option {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 0 20px 30px 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .stat-content {
+            flex: 1;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-size: 11px;
+        }
+
+        .stat-value {
+            color: white;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Loading & Real-time Feed Styling */
+        .realtime-section {
+            padding: 40px 20px 0 20px;
+        }
+
+        .loading {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 20px;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+
+        .realtime-feed {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 16px;
+        }
+
+        .realtime-item {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 12px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.2px;
+        }
+
+        .realtime-item i {
+            opacity: 0.7;
+        }
+
+        .realtime-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .realtime-status {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        /* Analytics Container */
+        .analytics-container {
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .analytics-container.side-by-side {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* Ensure all analytics cards have consistent spacing */
+        .analytics-container+.analytics-container {
+            margin-top: 30px;
+        }
+
+        .admin-section {
+            padding: 20px;
+            color: white;
+        }
+
+        .admin-section #registration-overview {
+            margin-bottom: 30px;
+        }
+
+        .analytics-card p,
+        .analytics-card div,
+        .analytics-card span,
+        .analytics-card table,
+        .analytics-card td,
+        .analytics-card th {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .analytics-card table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .analytics-card th {
+            font-weight: 700;
+            text-align: left;
+            padding: 12px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+        }
+
+        .analytics-card td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .analytics-card tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Tourist Origins Table Styles */
+        .origins-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .origins-table thead th {
+            font-weight: 700;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .origins-table tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        .origins-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(4px);
+        }
+
+        .origins-table tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .rank-cell {
+            width: 60px;
+            text-align: center;
+        }
+
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .location-cell {
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .location-cell i {
+            margin-right: 10px;
+            color: #667eea;
+            font-size: 14px;
+        }
+
+        .count-cell {
+            text-align: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: #3b82f6;
+        }
+
+        .percentage-cell {
+            width: 200px;
+        }
+
+        .percentage-bar-container {
+            position: relative;
+            width: 100%;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .percentage-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 6px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .percentage-text {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-weight: 700;
+            font-size: 13px;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        /* Dark theme adjustments for tables */
+        [data-theme="dark"] .origins-table thead th {
+            background: rgba(15, 23, 42, 0.4);
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .origins-table tbody tr:hover {
+            background: rgba(30, 41, 59, 0.5);
+        }
+
+        [data-theme="dark"] .origins-table tbody td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #e2e8f0;
+        }
+
+        /* Scrollbar Styling */
+        .realtime-feed::-webkit-scrollbar,
+        .analytics-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .realtime-feed::-webkit-scrollbar-track,
+        .analytics-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .realtime-feed::-webkit-scrollbar-thumb,
+        .analytics-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        .realtime-feed::-webkit-scrollbar-thumb:hover,
+        .analytics-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <h1><i class="fas fa-chart-line"></i> Discover Gozo Admin</h1>
+        <nav class="top-menu">
+            <a href="/admin.html" class="btn btn-secondary"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="/analytics.html" class="btn btn-primary active"><i class="fas fa-chart-line"></i> Analytics</a>
+            <a href="/weather-admin.html" class="btn btn-secondary"><i class="fas fa-cloud-sun"></i> Weather</a>
+            <a href="/bus-editor.html" class="btn btn-secondary"><i class="fas fa-bus"></i> Bus Routes</a>
+            <a href="/new-route-editor.html" class="btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Tour
+                Routes</a>
+            <a href="/category-editor.html" class="btn btn-secondary"><i class="fas fa-tags"></i> Category Editor</a>
+            <a href="/gallery-manager.html" class="btn btn-secondary"><i class="fas fa-images"></i> Gallery</a>
+            <a href="/users.html" class="btn btn-secondary"><i class="fas fa-users"></i> Users</a>
+            <a href="/reservations.html" class="btn btn-secondary"><i class="fas fa-calendar-check"></i>
+                Reservations</a>
+            <a href="/merchants.html" class="btn btn-secondary"><i class="fas fa-store"></i> Merchants</a>
+            <a href="/user-reviews.html" class="btn btn-secondary"><i class="fas fa-star"></i> User Reviews</a>
+            <a href="/user-alarms.html" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i> User
+                Alarms</a>
+        </nav>
+    </header>
+
+    <!-- Analytics Content Container -->
+    <div id="analytics-content" class="analytics-content">
+        <!-- Analytics Sub-Tabs -->
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="showAnalyticsSubTab('general-analytics')">
+                <i class="fas fa-chart-bar"></i> General Analytics
+            </button>
+            <button class="tab-button" onclick="showAnalyticsSubTab('tourist-origins')">
+                <i class="fas fa-globe"></i> Tourist Origins
+            </button>
+            <button class="tab-button" onclick="showAnalyticsSubTab('reservations-merchants')">
+                <i class="fas fa-ticket-alt"></i> Reservations & Merchants
+            </button>
+            <button class="tab-button" onclick="window.location.href='ai-analytics-report.html'">
+                <i class="fas fa-robot"></i> AI Analytics Report
+            </button>
+        </div>
+
+        <!-- General Analytics Sub-Tab -->
+        <div id="general-analytics-subtab" class="analytics-subtab active">
+            <div class="analytics-header">
+                <h2><i class="fas fa-chart-bar"></i> Comprehensive Analytics Dashboard</h2>
+
+                <!-- Analytics Controls -->
+                <div class="analytics-controls">
+                    <a href="ai-analytics-report.html" class="btn btn-primary"
+                        style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-right: 10px;">
+                        <i class="fas fa-robot"></i> AI Analytics Report
+                    </a>
+                    <div class="control-group">
+                        <label for="analytics-period">Time Period:</label>
+                        <select id="analytics-period" class="form-select">
+                            <option value="7d">Last 7 Days</option>
+                            <option value="30d" selected>Last 30 Days</option>
+                            <option value="90d">Last 90 Days</option>
+                            <option value="1y">Last Year</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <button id="refresh-analytics" class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                        <button id="export-analytics" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-time Stats Cards -->
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Active Users</div>
+                        <div class="stat-value" id="active-users">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Views</div>
+                        <div class="stat-value" id="total-views">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Avg Session</div>
+                        <div class="stat-value" id="avg-session">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Places Visited</div>
+                        <div class="stat-value" id="places-visited">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="analytics-loading" class="analytics-loading">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading comprehensive analytics data...</p>
+                </div>
+            </div>
+
+            <!-- Charts Container (Hidden initially) -->
+            <div id="analytics-charts" class="analytics-container" style="display: none;">
+                <!-- Gozo Heatmap Section -->
+                <div class="heatmap-section">
+                    <div class="chart-card heatmap-card">
+                        <h3><i class="fas fa-map"></i> Gozo Tourist Traffic Heatmap</h3>
+                        <div id="gozo-heatmap" class="heatmap-container"></div>
+                    </div>
+                </div>
+
+                <!-- Main Analytics Grid -->
+                <div class="chart-grid">
+                    <!-- User Engagement Charts -->
+                    <div class="chart-card">
+                        <h3><i class="fas fa-chart-line"></i> User Engagement Trends</h3>
+                        <canvas id="engagement-trends-chart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3><i class="fas fa-mobile-alt"></i> Device & Browser Usage</h3>
+                        <canvas id="device-stats-chart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3><i class="fas fa-clock"></i> Peak Usage Hours</h3>
+                        <canvas id="hourly-stats-chart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3><i class="fas fa-calendar"></i> Daily Activity Trends</h3>
+                        <canvas id="daily-stats-chart"></canvas>
+                    </div>
+
+                    <!-- Tourism Analytics -->
+                    <div class="chart-card">
+                        <h3><i class="fas fa-star"></i> Top 10 Most Viewed Places</h3>
+                        <canvas id="top-places-chart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3><i class="fas fa-tags"></i> Category Popularity</h3>
+                        <canvas id="top-categories-chart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3><i class="fas fa-search"></i> Search Analytics</h3>
+                        <canvas id="search-analytics-chart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3><i class="fas fa-shopping-cart"></i> Economic Activity</h3>
+                        <canvas id="economic-activity-chart"></canvas>
+                    </div>
+
+                    <!-- Trip Analytics -->
+                    <div class="chart-card">
+                        <h3><i class="fas fa-route"></i> Most Popular Trip Names</h3>
+                        <canvas id="top-trips-chart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3><i class="fas fa-plus-circle"></i> Most Added Places to Trips</h3>
+                        <canvas id="popular-places-trips-chart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3><i class="fas fa-user-friends"></i> User Trip Statistics</h3>
+                        <canvas id="user-trip-stats-chart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3><i class="fas fa-chart-area"></i> Trip Creation Trends</h3>
+                        <canvas id="trip-creation-trends-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Real-time Activity Feed -->
+                <div class="realtime-section">
+                    <div class="chart-card realtime-card">
+                        <h3><i class="fas fa-broadcast-tower"></i> Real-time Activity Feed</h3>
+                        <div class="realtime-controls">
+                            <button id="toggle-realtime" class="btn btn-primary btn-sm">
+                                <i class="fas fa-play"></i> Start Live Feed
+                            </button>
+                            <span class="realtime-status">Stopped</span>
+                        </div>
+                        <div id="realtime-feed" class="realtime-feed">
+                            <div class="realtime-item">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Click "Start Live Feed" to see real-time activity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reservations & Merchants Sub-Tab -->
+        <div id="reservations-merchants-subtab" class="analytics-subtab" style="display: none;">
+            <div class="analytics-header">
+                <h2><i class="fas fa-ticket-alt"></i> Reservations & Merchants Analytics</h2>
+
+                <div class="analytics-controls">
+                    <div class="control-group">
+                        <label for="rm-period">Time Period:</label>
+                        <select id="rm-period" class="form-select">
+                            <option value="7d">Last 7 Days</option>
+                            <option value="30d" selected>Last 30 Days</option>
+                            <option value="90d">Last 90 Days</option>
+                            <option value="1y">Last Year</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="merchant-filter">Merchant:</label>
+                        <select id="merchant-filter" class="form-select">
+                            <option value="">All Merchants</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <button id="refresh-rm-analytics" class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="rm-analytics-loading" class="analytics-loading">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading reservations & merchants analytics...</p>
+                </div>
+            </div>
+
+            <!-- Summary Stats Section -->
+            <div id="rm-summary-stats" class="stats-overview" style="margin-bottom: 30px;">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Revenue</div>
+                        <div class="stat-value" id="total-revenue-value">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Tickets</div>
+                        <div class="stat-value" id="total-tickets-value">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(139, 92, 246, 0.2); color: #a78bfa;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Active Merchants</div>
+                        <div class="stat-value" id="active-merchants-value">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Avg. Order Value</div>
+                        <div class="stat-value" id="avg-order-value">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row: Validation & Funnel Stats -->
+            <div id="rm-validation-stats" class="stats-overview" style="margin-bottom: 30px;">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Validated Tickets</div>
+                        <div class="stat-value" id="validated-tickets-value">-</div>
+                        <div class="stat-sublabel" id="validated-pct" style="font-size: 11px; opacity: 0.7;"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Unvalidated Tickets</div>
+                        <div class="stat-value" id="unvalidated-tickets-value">-</div>
+                        <div class="stat-sublabel" id="unvalidated-pct" style="font-size: 11px; opacity: 0.7;"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(249, 115, 22, 0.2); color: #f97316;">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Checkout Abandonment</div>
+                        <div class="stat-value" id="abandonment-rate-value">-</div>
+                        <div class="stat-sublabel" id="abandonment-detail" style="font-size: 11px; opacity: 0.7;"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(234, 179, 8, 0.2); color: #eab308;">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Pending Payments</div>
+                        <div class="stat-value" id="pending-payments-value">-</div>
+                        <div class="stat-sublabel" style="font-size: 11px; opacity: 0.7;">awaiting completion</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkout Funnel Section -->
+            <div class="analytics-section" style="margin-bottom: 30px;">
+                <h3><i class="fas fa-funnel-dollar"></i> Checkout Funnel</h3>
+                <div class="chart-card" style="padding: 25px;">
+                    <div id="checkout-funnel-container"
+                        style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                        <div class="funnel-step" style="text-align: center; flex: 1; min-width: 120px;">
+                            <div class="funnel-value" id="funnel-views"
+                                style="font-size: 28px; font-weight: 700; color: #3b82f6;">-</div>
+                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Tour Views</div>
+                        </div>
+                        <div style="font-size: 24px; opacity: 0.5;"><i class="fas fa-chevron-right"></i></div>
+                        <div class="funnel-step" style="text-align: center; flex: 1; min-width: 120px;">
+                            <div class="funnel-value" id="funnel-checkouts"
+                                style="font-size: 28px; font-weight: 700; color: #8b5cf6;">-</div>
+                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Checkouts Started</div>
+                            <div id="funnel-view-rate" style="font-size: 10px; color: #22c55e;"></div>
+                        </div>
+                        <div style="font-size: 24px; opacity: 0.5;"><i class="fas fa-chevron-right"></i></div>
+                        <div class="funnel-step" style="text-align: center; flex: 1; min-width: 120px;">
+                            <div class="funnel-value" id="funnel-payments"
+                                style="font-size: 28px; font-weight: 700; color: #22c55e;">-</div>
+                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Completed Payments</div>
+                            <div id="funnel-checkout-rate" style="font-size: 10px; color: #22c55e;"></div>
+                        </div>
+                        <div style="font-size: 24px; opacity: 0.5;"><i class="fas fa-chevron-right"></i></div>
+                        <div class="funnel-step" style="text-align: center; flex: 1; min-width: 120px;">
+                            <div class="funnel-value" id="funnel-validated"
+                                style="font-size: 28px; font-weight: 700; color: #14b8a6;">-</div>
+                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Tickets Validated</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour Analytics Section -->
+            <div class="analytics-section">
+                <h3><i class="fas fa-ship"></i> Tour Performance</h3>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h4>Most Viewed Tours</h4>
+                        <canvas id="most-viewed-tours-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h4>Most Booked Tours</h4>
+                        <canvas id="most-booked-tours-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Merchant Performance Section (New Table Layout) -->
+            <div class="analytics-section">
+                <h3><i class="fas fa-store"></i> Merchant Performance</h3>
+
+                <div class="chart-card" style="min-height: auto; padding: 0; overflow: hidden;">
+                    <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+                        <table class="table table-hover" id="merchant-performance-table"
+                            style="width: 100%; text-align: left; border-collapse: collapse;">
+                            <thead style="position: sticky; top: 0; z-index: 10;">
+                                <tr>
+                                    <th style="padding: 15px 20px;">Merchant</th>
+                                    <th style="padding: 15px 20px; text-align: right;">Revenue</th>
+                                    <th style="padding: 15px 20px; text-align: center;">Validated</th>
+                                    <th style="padding: 15px 20px; text-align: center;">Unvalidated</th>
+                                    <th style="padding: 15px 20px; text-align: center;">Val. Rate</th>
+                                    <th style="padding: 15px 20px; text-align: center;">Reservations</th>
+                                </tr>
+                            </thead>
+                            <tbody id="merchant-table-body">
+                                <!-- Populated via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Miscellaneous Section -->
+            <div class="analytics-section" style="margin-top: 30px;">
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h4>Checkout Abandonment</h4>
+                        <canvas id="checkout-abandonment-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h4>Tickets Sold per Tour</h4>
+                        <canvas id="tickets-sold-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tourist Origins Sub-Tab -->
+        <div id="tourist-origins-subtab" class="analytics-subtab">
+            <div class="admin-section">
+                <h2><i class="fas fa-globe"></i> Tourist Origins Analytics</h2>
+                <div id="registration-overview" class="stats-overview">
+                    <div class="loading">Loading registration data...</div>
+                </div>
+                <div class="analytics-container side-by-side">
+                    <div class="analytics-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Top Tourist Origins</h3>
+                        <div id="top-origins">
+                            <div class="loading">Loading location data...</div>
+                        </div>
+                    </div>
+                    <div class="analytics-card">
+                        <h3><i class="fas fa-list"></i> Complete Location Breakdown</h3>
+                        <div id="location-breakdown">
+                            <div class="loading">Loading detailed breakdown...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Close analytics-content -->
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('admin-theme', newTheme);
+
+            // Dispatch theme changed event
+            window.dispatchEvent(new CustomEvent('themeChanged', {
+                detail: { theme: newTheme }
+            }));
+
+            const button = document.querySelector('.theme-toggle');
+            const svg = button.querySelector('svg');
+            if (svg) {
+                // Update SVG content based on theme
+                if (newTheme === 'dark') {
+                    svg.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+                } else {
+                    svg.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+                }
+            }
+        }
+
+        // Analytics sub-tab functionality
+        function showAnalyticsSubTab(tabId) {
+            console.log('Switching to analytics sub-tab:', tabId);
+
+            // Hide all sub-tabs
+            const subTabs = document.querySelectorAll('.analytics-subtab');
+            subTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected sub-tab
+            const selectedTab = document.getElementById(tabId + '-subtab');
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+                selectedTab.style.display = 'block';
+
+                // Load data when switching to Reservations & Merchants tab
+                if (tabId === 'reservations-merchants') {
+                    loadReservationsMerchantsAnalytics();
+                }
+            }
+
+            // Hide other sub-tabs
+            subTabs.forEach(tab => {
+                if (tab.id !== tabId + '-subtab') {
+                    tab.style.display = 'none';
+                }
+            });
+
+            // Add active class to clicked button
+            const clickedButton = event.target.closest('.tab-button');
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
+
+            // Load appropriate analytics data
+            if (tabId === 'general-analytics') {
+                loadGeneralAnalytics();
+            } else if (tabId === 'tourist-origins') {
+                loadTouristOriginsAnalytics();
+            }
+        }
+
+        // Load general analytics
+        function loadGeneralAnalytics() {
+            console.log('Loading general analytics...');
+            if (typeof loadAnalytics === 'function') {
+                console.log('Calling loadAnalytics function...');
+                loadAnalytics();
+            } else {
+                console.error('loadAnalytics function not found. Make sure admin.js is loaded.');
+            }
+        }
+
+        // Load tourist origins analytics
+        function loadTouristOriginsAnalytics() {
+            console.log('Loading tourist origins analytics...');
+
+            // Check if tourist origins data is already loaded
+            const touristOriginsTab = document.getElementById('tourist-origins-subtab');
+            const registrationOverview = document.getElementById('registration-overview');
+
+            if (touristOriginsTab && touristOriginsTab.classList.contains('active') &&
+                registrationOverview && !registrationOverview.querySelector('.loading')) {
+                console.log('Tourist origins data already loaded, skipping reload');
+                return;
+            }
+
+            // Call the dedicated tourist origins loading function
+            if (typeof loadTouristOrigins === 'function') {
+                console.log('Calling loadTouristOrigins function...');
+                loadTouristOrigins();
+            } else {
+                console.error('loadTouristOrigins function not found. Make sure tourist-origins-admin.js is loaded.');
+                // Fallback to general analytics if tourist origins function not available
+                if (typeof loadAnalytics === 'function') {
+                    console.log('Falling back to general analytics...');
+                    loadAnalytics();
+                }
+            }
+        }
+
+        // Load saved theme from global admin theme
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('admin-theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+
+            const button = document.querySelector('.theme-toggle');
+            const svg = button.querySelector('svg');
+            if (svg) {
+                // Update SVG content based on theme
+                if (savedTheme === 'dark') {
+                    svg.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+                } else {
+                    svg.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+                }
+            }
+
+            // Listen for theme changes from other admin pages
+            window.addEventListener('storage', function (e) {
+                if (e.key === 'admin-theme') {
+                    const newTheme = e.newValue || 'light';
+                    document.body.setAttribute('data-theme', newTheme);
+
+                    // Update toggle button icon
+                    const button = document.querySelector('.theme-toggle');
+                    const svg = button.querySelector('svg');
+                    if (svg) {
+                        if (newTheme === 'dark') {
+                            svg.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+                        } else {
+                            svg.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+                        }
+                    }
+                }
+            });
+
+            // Initialize analytics
+            if (typeof initializeAnalyticsControls === 'function') {
+                initializeAnalyticsControls();
+            }
+
+            // Load analytics on page load
+            if (typeof loadAnalytics === 'function') {
+                console.log('Analytics page loaded, calling loadAnalytics...');
+                // Add a small delay to ensure the container is properly sized
+                setTimeout(() => {
+                    console.log('Calling loadAnalytics after delay...');
+                    loadAnalytics();
+                }, 100);
+            } else {
+                console.error('loadAnalytics function not found!');
+            }
+
+            // Force heatmap container dimensions
+            const heatmapContainer = document.getElementById('gozo-heatmap');
+            if (heatmapContainer) {
+                console.log('Heatmap container found, setting dimensions...');
+                heatmapContainer.style.width = '100%';
+                heatmapContainer.style.height = '585px';
+                heatmapContainer.style.minHeight = '585px';
+                heatmapContainer.style.maxHeight = '585px';
+                console.log('Heatmap container dimensions set:', {
+                    width: heatmapContainer.style.width,
+                    height: heatmapContainer.style.height,
+                    offsetWidth: heatmapContainer.offsetWidth,
+                    offsetHeight: heatmapContainer.offsetHeight
+                });
+            } else {
+                console.error('Heatmap container not found!');
+            }
+            // Listen for theme changes to reload charts
+            window.addEventListener('themeChanged', function (e) {
+                console.log('Theme changed to:', e.detail.theme);
+
+                // Reload the active tab's analytics to fix chart colors
+                const activeTab = document.querySelector('.analytics-subtab.active');
+                if (activeTab) {
+                    if (activeTab.id === 'general-analytics-subtab' && typeof loadAnalytics === 'function') {
+                        loadAnalytics();
+                    } else if (activeTab.id === 'reservations-merchants-subtab' && typeof loadReservationsMerchantsAnalytics === 'function') {
+                        loadReservationsMerchantsAnalytics();
+                    } else if (activeTab.id === 'tourist-origins-subtab' && typeof loadTouristOrigins === 'function') {
+                        loadTouristOrigins();
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Load external JavaScript files -->
+    <script src="lib/leaflet.js"></script>
+    <!-- Chart Modal -->
+    <div id="chart-modal" class="chart-modal" onclick="closeChartModal(event)">
+        <div class="chart-modal-content" onclick="event.stopPropagation()">
+            <div class="chart-modal-header">
+                <div class="chart-modal-title" id="modal-chart-title">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Chart Details</span>
+                </div>
+                <button class="chart-modal-close" onclick="closeChartModal()">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </div>
+            <div class="chart-modal-body">
+                <canvas id="modal-chart-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <svg id="theme-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </div>
+
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="lib/chart.js"></script>
+    <script src="admin.js"></script>
+    <script src="tourist-origins-admin.js"></script>
+
+    <script>
+        // Chart Enlarge Functionality
+        let modalChart = null;
+        let originalChartData = null;
+
+        function openChartModal(chartId, chartTitle) {
+            const sourceCanvas = document.getElementById(chartId);
+            if (!sourceCanvas) return;
+
+            const modal = document.getElementById('chart-modal');
+            const modalCanvas = document.getElementById('modal-chart-canvas');
+            const modalTitleEl = document.querySelector('#modal-chart-title span');
+
+            // Get the chart instance
+            const sourceChart = Chart.getChart(sourceCanvas);
+            if (!sourceChart) return;
+
+            // Set modal title
+            modalTitleEl.textContent = chartTitle;
+
+            // Store original chart data
+            originalChartData = {
+                type: sourceChart.config.type,
+                data: JSON.parse(JSON.stringify(sourceChart.data)),
+                options: JSON.parse(JSON.stringify(sourceChart.options))
+            };
+
+            // Destroy previous modal chart if exists
+            if (modalChart) {
+                modalChart.destroy();
+            }
+
+            // Show modal first
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Reset canvas dimensions to ensure proper sizing
+            modalCanvas.style.width = '';
+            modalCanvas.style.height = '';
+            modalCanvas.width = modalCanvas.offsetWidth;
+            modalCanvas.height = 450;
+
+            // Create enlarged chart with better options for readability
+            const enlargedOptions = {
+                ...originalChartData.options,
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    ...originalChartData.options.plugins,
+                    legend: {
+                        ...originalChartData.options.plugins?.legend,
+                        labels: {
+                            ...originalChartData.options.plugins?.legend?.labels,
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                },
+                scales: originalChartData.options.scales ? {
+                    ...originalChartData.options.scales,
+                    x: {
+                        ...originalChartData.options.scales.x,
+                        ticks: {
+                            ...originalChartData.options.scales.x?.ticks,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    y: {
+                        ...originalChartData.options.scales.y,
+                        ticks: {
+                            ...originalChartData.options.scales.y?.ticks,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                } : undefined
+            };
+
+            // Small delay to ensure modal is fully rendered
+            setTimeout(() => {
+                modalChart = new Chart(modalCanvas, {
+                    type: originalChartData.type,
+                    data: originalChartData.data,
+                    options: enlargedOptions
+                });
+
+                // Force chart to resize to container after creation
+                setTimeout(() => {
+                    if (modalChart) {
+                        modalChart.resize();
+                    }
+                }, 50);
+            }, 50);
+        }
+
+        function closeChartModal(event) {
+            if (event && event.target.className !== 'chart-modal') return;
+
+            const modal = document.getElementById('chart-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+
+            if (modalChart) {
+                modalChart.destroy();
+                modalChart = null;
+            }
+        }
+
+        // Function to add expand functionality to a chart card
+        function addExpandToChart(card) {
+            // Skip if already has expand icon
+            if (card.querySelector('.chart-expand-icon')) {
+                return;
+            }
+
+            const canvas = card.querySelector('canvas');
+            const title = card.querySelector('h3');
+
+            if (canvas && title) {
+                // Add expand icon
+                const expandIcon = document.createElement('div');
+                expandIcon.className = 'chart-expand-icon';
+                expandIcon.innerHTML = '<i class="fas fa-expand"></i>';
+                expandIcon.title = 'Click to enlarge';
+                card.appendChild(expandIcon);
+
+                // Add click handlers
+                const clickHandler = () => {
+                    openChartModal(canvas.id, title.textContent.trim());
+                };
+
+                canvas.addEventListener('click', clickHandler);
+                expandIcon.addEventListener('click', clickHandler);
+            }
+        }
+
+        // Add click handlers to all chart canvases after page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initial scan for charts
+            function scanForCharts() {
+                const chartCards = document.querySelectorAll('.chart-card:not(.heatmap-card), .analytics-card');
+                chartCards.forEach(card => {
+                    addExpandToChart(card);
+                });
+            }
+
+            // Scan immediately
+            scanForCharts();
+
+            // Scan after delays (for dynamically loaded charts)
+            setTimeout(scanForCharts, 2000);
+            setTimeout(scanForCharts, 4000);
+            setTimeout(scanForCharts, 6000);
+
+            // Watch for dynamically added charts using MutationObserver
+            const observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
+                    mutation.addedNodes.forEach(function (node) {
+                        if (node.nodeType === 1) { // Element node
+                            // Check if the added node is a canvas
+                            if (node.tagName === 'CANVAS') {
+                                const card = node.closest('.chart-card, .analytics-card');
+                                if (card && !card.classList.contains('heatmap-card')) {
+                                    addExpandToChart(card);
+                                }
+                            }
+                            // Check if the added node contains canvases
+                            const canvases = node.querySelectorAll ? node.querySelectorAll('canvas') : [];
+                            canvases.forEach(canvas => {
+                                const card = canvas.closest('.chart-card, .analytics-card');
+                                if (card && !card.classList.contains('heatmap-card')) {
+                                    addExpandToChart(card);
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+
+            // Start observing
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeChartModal();
+            }
+        });
+
+        // Reservations & Merchants Analytics
+        let rmCharts = {};
+
+        // Load merchants list for filter
+        async function loadMerchantsList() {
+            try {
+                const response = await fetch('/api/analytics/merchants/list', { credentials: 'include' });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    const text = await response.text();
+                    throw new Error(`Expected JSON but got: ${contentType}. Response: ${text.substring(0, 200)}`);
+                }
+                const result = await response.json();
+
+                if (result.success && result.data) {
+                    const select = document.getElementById('merchant-filter');
+                    if (select) {
+                        // Clear existing options except "All Merchants"
+                        select.innerHTML = '<option value="">All Merchants</option>';
+                        result.data.forEach(merchant => {
+                            const option = document.createElement('option');
+                            option.value = merchant.id;
+                            option.textContent = merchant.business_name || merchant.name;
+                            select.appendChild(option);
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading merchants list:', error);
+            }
+        }
+
+        // Load Reservations & Merchants Analytics
+        async function loadReservationsMerchantsAnalytics() {
+            const loadingDiv = document.getElementById('rm-analytics-loading');
+            const period = document.getElementById('rm-period')?.value || '30d';
+            const merchantId = document.getElementById('merchant-filter')?.value || '';
+
+            if (loadingDiv) {
+                loadingDiv.style.display = 'block';
+            }
+
+            try {
+                // Load merchants list if not loaded
+                await loadMerchantsList();
+
+                // Helper function to safely fetch and parse JSON
+                const safeFetchJson = async (url) => {
+                    const response = await fetch(url, { credentials: 'include' });
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status} for ${url}`);
+                    }
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        const text = await response.text();
+                        throw new Error(`Expected JSON but got: ${contentType} for ${url}. Response: ${text.substring(0, 200)}`);
+                    }
+                    return response.json();
+                };
+
+                // Fetch all analytics data including new endpoints
+                const [mostViewed, mostBooked, revenue, ticketsSold, abandoned, unpaid, scans, merchantRevenue, reservations, unused, validationStats, checkoutFunnel] = await Promise.all([
+                    safeFetchJson(`/api/analytics/tours/most-viewed?period=${period}`),
+                    safeFetchJson(`/api/analytics/tours/most-booked?period=${period}`),
+                    safeFetchJson(`/api/analytics/tours/revenue?period=${period}`),
+                    safeFetchJson(`/api/analytics/tours/tickets-sold?period=${period}`),
+                    safeFetchJson(`/api/analytics/tours/abandoned-checkouts?period=${period}`),
+                    safeFetchJson(`/api/analytics/tours/unpaid?period=${period}`),
+                    safeFetchJson(`/api/analytics/merchants/scans?period=${period}${merchantId ? '&merchantId=' + merchantId : ''}`),
+                    safeFetchJson(`/api/analytics/merchants/revenue?period=${period}${merchantId ? '&merchantId=' + merchantId : ''}`),
+                    safeFetchJson(`/api/analytics/merchants/reservations?period=${period}${merchantId ? '&merchantId=' + merchantId : ''}`),
+                    safeFetchJson(`/api/analytics/merchants/unused-tickets?period=${period}${merchantId ? '&merchantId=' + merchantId : ''}`),
+                    safeFetchJson(`/api/analytics/merchants/validation-stats?period=${period}${merchantId ? '&merchantId=' + merchantId : ''}`),
+                    safeFetchJson(`/api/analytics/checkout-funnel?period=${period}`)
+                ]);
+
+                // Calculate and Display Summary Stats
+                const totalRev = merchantRevenue.data ? merchantRevenue.data.reduce((sum, item) => sum + (parseFloat(item.total_revenue) || 0), 0) : 0;
+                const totalTickets = ticketsSold.data ? ticketsSold.data.reduce((sum, item) => sum + (parseInt(item.tickets_sold) || 0), 0) : 0;
+                // Active merchants is unique count from revenue or scans
+                const allMerchants = new Set();
+                if (merchantRevenue.data) merchantRevenue.data.forEach(m => allMerchants.add(m.merchant_id));
+                if (scans.data) scans.data.forEach(m => allMerchants.add(m.merchant_id));
+
+                document.getElementById('total-revenue-value').textContent = '€' + totalRev.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                document.getElementById('total-tickets-value').textContent = totalTickets.toLocaleString();
+                document.getElementById('active-merchants-value').textContent = allMerchants.size;
+                document.getElementById('avg-order-value').textContent = '€' + (totalTickets > 0 ? (totalRev / totalTickets).toFixed(2) : '0.00');
+
+                // Display Validation Stats
+                if (validationStats.data) {
+                    const totalValidated = validationStats.data.reduce((sum, m) => sum + (m.validated_count || 0), 0);
+                    const totalUnvalidated = validationStats.data.reduce((sum, m) => sum + (m.unvalidated_count || 0), 0);
+                    const totalSold = totalValidated + totalUnvalidated;
+
+                    document.getElementById('validated-tickets-value').textContent = totalValidated.toLocaleString();
+                    document.getElementById('unvalidated-tickets-value').textContent = totalUnvalidated.toLocaleString();
+
+                    const validatedPct = totalSold > 0 ? Math.round((totalValidated / totalSold) * 100) : 0;
+                    const unvalidatedPct = totalSold > 0 ? Math.round((totalUnvalidated / totalSold) * 100) : 0;
+                    document.getElementById('validated-pct').textContent = `${validatedPct}% of sold tickets`;
+                    document.getElementById('unvalidated-pct').textContent = `${unvalidatedPct}% not yet used`;
+                }
+
+                // Display Checkout Funnel
+                if (checkoutFunnel.data) {
+                    const funnel = checkoutFunnel.data;
+                    document.getElementById('funnel-views').textContent = (funnel.tour_views || 0).toLocaleString();
+                    document.getElementById('funnel-checkouts').textContent = (funnel.checkouts_started || 0).toLocaleString();
+                    document.getElementById('funnel-payments').textContent = (funnel.payments_completed || 0).toLocaleString();
+                    document.getElementById('funnel-validated').textContent = (funnel.tickets_validated || 0).toLocaleString();
+
+                    // Display conversion rates
+                    document.getElementById('funnel-view-rate').textContent = `${funnel.view_to_checkout_rate || 0}% conversion`;
+                    document.getElementById('funnel-checkout-rate').textContent = `${funnel.checkout_to_payment_rate || 0}% conversion`;
+
+                    // Abandonment rate
+                    document.getElementById('abandonment-rate-value').textContent = `${funnel.abandonment_rate || 0}%`;
+                    document.getElementById('abandonment-detail').textContent = `${(funnel.checkouts_started || 0) - (funnel.payments_completed || 0)} abandoned`;
+
+                    // Pending payments
+                    document.getElementById('pending-payments-value').textContent = (funnel.pending_payments || 0).toLocaleString();
+                }
+
+                // Render charts (Consolidated)
+                renderToursCharts({
+                    mostViewed: mostViewed.data || [],
+                    mostBooked: mostBooked.data || [],
+                    ticketsSold: ticketsSold.data || [],
+                    abandoned: abandoned.data || []
+                });
+
+                // Render Merchant Table with validation data
+                renderMerchantTable({
+                    revenue: merchantRevenue.data || [],
+                    scans: scans.data || [],
+                    reservations: reservations.data || [],
+                    unused: unused.data || [],
+                    validationStats: validationStats.data || []
+                });
+
+                if (loadingDiv) {
+                    loadingDiv.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error loading reservations & merchants analytics:', error);
+                if (loadingDiv) {
+                    loadingDiv.innerHTML = '<div class="error">Failed to load analytics data. Please try again.</div>';
+                }
+            }
+        }
+
+        // Render Merchant Table
+        function renderMerchantTable(data) {
+            const tableBody = document.getElementById('merchant-table-body');
+            if (!tableBody) return;
+
+            // Consolidate data by merchant using validation stats as primary source
+            const merchants = {};
+
+            // Process validation stats (primary source for new columns)
+            if (data.validationStats) {
+                data.validationStats.forEach(item => {
+                    const id = item.merchant_id;
+                    if (!id) return;
+                    merchants[id] = {
+                        name: item.merchant_name || item.business_name || 'Unknown',
+                        revenue: parseFloat(item.validated_revenue) || 0,
+                        validated: parseInt(item.validated_count) || 0,
+                        unvalidated: parseInt(item.unvalidated_count) || 0,
+                        validationRate: parseInt(item.validation_rate) || 0,
+                        reservations: parseInt(item.total_sold) || 0
+                    };
+                });
+            }
+
+            // Supplement with revenue data if no validation stats
+            if (data.revenue && Object.keys(merchants).length === 0) {
+                data.revenue.forEach(item => {
+                    const id = item.merchant_id;
+                    if (!id) return;
+                    if (!merchants[id]) {
+                        merchants[id] = {
+                            name: item.merchant_name || item.business_name || 'Unknown',
+                            revenue: parseFloat(item.total_revenue) || 0,
+                            validated: 0,
+                            unvalidated: 0,
+                            validationRate: 0,
+                            reservations: parseInt(item.reservation_count) || 0
+                        };
+                    }
+                });
+            }
+
+            // Add reservation counts from reservations data
+            if (data.reservations) {
+                data.reservations.forEach(item => {
+                    const id = item.merchant_id;
+                    if (merchants[id]) {
+                        merchants[id].reservations = Math.max(merchants[id].reservations, parseInt(item.reservation_count) || 0);
+                    }
+                });
+            }
+
+            const sortedMerchants = Object.values(merchants).sort((a, b) => b.revenue - a.revenue);
+            const totalRevenue = sortedMerchants.reduce((sum, m) => sum + m.revenue, 0);
+
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            const cellColor = isDark ? '#e2e8f0' : '#333';
+            const borderColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+
+            let html = '';
+            sortedMerchants.forEach(m => {
+                const percentage = totalRevenue > 0 ? (m.revenue / totalRevenue) * 100 : 0;
+                const rateColor = m.validationRate >= 80 ? '#22c55e' : (m.validationRate >= 50 ? '#eab308' : '#ef4444');
+
+                html += `<tr style="border-bottom: 1px solid ${borderColor}; color: ${cellColor};">
+                    <td style="padding: 15px 20px;">
+                        <div style="font-weight: 600;">${m.name}</div>
+                    </td>
+                    <td style="padding: 15px 20px; text-align: right;">
+                        <div style="font-weight: 700;">€${m.revenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div style="font-size: 11px; opacity: 0.7;">${percentage.toFixed(1)}% of total</div>
+                        <div style="width: 100%; height: 4px; background: rgba(59, 130, 246, 0.2); border-radius: 2px; margin-top: 4px;">
+                            <div style="width: ${percentage}%; height: 100%; background: #3b82f6; border-radius: 2px;"></div>
+                        </div>
+                    </td>
+                    <td style="padding: 15px 20px; text-align: center;">
+                        <div style="font-size: 16px; font-weight: 600; color: #22c55e;">${m.validated}</div>
+                    </td>
+                    <td style="padding: 15px 20px; text-align: center;">
+                        <div style="font-size: 16px; font-weight: 600; color: #ef4444;">${m.unvalidated}</div>
+                    </td>
+                    <td style="padding: 15px 20px; text-align: center;">
+                        <div style="font-size: 16px; font-weight: 700; color: ${rateColor};">${m.validationRate}%</div>
+                        <div style="width: 100%; height: 4px; background: rgba(${rateColor === '#22c55e' ? '34, 197, 94' : rateColor === '#eab308' ? '234, 179, 8' : '239, 68, 68'}, 0.2); border-radius: 2px; margin-top: 4px;">
+                            <div style="width: ${m.validationRate}%; height: 100%; background: ${rateColor}; border-radius: 2px;"></div>
+                        </div>
+                    </td>
+                    <td style="padding: 15px 20px; text-align: center;">
+                        <div style="font-size: 16px; font-weight: 600;">${m.reservations}</div>
+                    </td>
+                </tr>`;
+            });
+
+            if (sortedMerchants.length === 0) {
+                html = `<tr><td colspan="6" style="padding: 30px; text-align: center; color: ${cellColor}; opacity: 0.7;">No merchant data available for this period.</td></tr>`;
+            }
+
+            tableBody.innerHTML = html;
+
+            // Apply header styles dynamically based on theme
+            const ths = document.querySelectorAll('#merchant-performance-table th');
+            ths.forEach(th => {
+                th.style.color = cellColor;
+                th.style.backgroundColor = isDark ? 'rgba(30, 41, 59, 0.9)' : 'rgba(248, 250, 252, 0.9)';
+                th.style.borderBottom = `2px solid ${borderColor}`;
+                th.style.backdropFilter = 'blur(10px)';
+            });
+        }
+
+        // Render Tour Charts
+        function renderToursCharts(data) {
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            const textColor = isDark ? '#e2e8f0' : '#333';
+            const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+
+            const createChart = (id, label, chartData, color) => {
+                const ctx = document.getElementById(id);
+                if (!ctx) return;
+
+                // Destroy existing chart if it exists
+                const existingChart = Chart.getChart(ctx);
+                if (existingChart) existingChart.destroy();
+
+                if (!chartData || chartData.length === 0) return;
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: chartData.slice(0, 10).map(t => t.tour_name || 'Unknown'),
+                        datasets: [{
+                            label: label,
+                            data: chartData.slice(0, 10).map(t => {
+                                if (id.includes('revenue')) return t.total_revenue;
+                                if (id.includes('booked')) return t.booking_count;
+                                if (id.includes('viewed')) return t.view_count;
+                                if (id.includes('tickets')) return t.tickets_sold;
+                                if (id.includes('abandoned')) return t.abandoned_count;
+                                return 0;
+                            }),
+                            backgroundColor: color.replace('1)', '0.6)'),
+                            borderColor: color,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                        plugins: {
+                            legend: { display: false },
+                            title: { display: false }
+                        },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                ticks: { color: textColor },
+                                grid: { color: gridColor },
+                                border: { color: gridColor }
+                            },
+                            y: {
+                                ticks: { color: textColor },
+                                grid: { color: gridColor, display: false },
+                                border: { color: gridColor }
+                            }
+                        }
+                    }
+                });
+            };
+
+            createChart('most-viewed-tours-chart', 'Views', data.mostViewed, 'rgba(54, 162, 235, 1)');
+            createChart('most-booked-tours-chart', 'Bookings', data.mostBooked, 'rgba(75, 192, 192, 1)');
+            // Note: revenue chart removed from this section's HTML in refactor
+            createChart('tickets-sold-chart', 'Tickets', data.ticketsSold, 'rgba(153, 102, 255, 1)');
+            createChart('checkout-abandonment-chart', 'Abandoned', data.abandoned, 'rgba(255, 159, 64, 1)');
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function () {
+            // Refresh button
+            const refreshBtn = document.getElementById('refresh-rm-analytics');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', loadReservationsMerchantsAnalytics);
+            }
+
+            // Period change
+            const periodSelect = document.getElementById('rm-period');
+            if (periodSelect) {
+                periodSelect.addEventListener('change', loadReservationsMerchantsAnalytics);
+            }
+
+            // Merchant filter change
+            const merchantFilter = document.getElementById('merchant-filter');
+            if (merchantFilter) {
+                merchantFilter.addEventListener('change', loadReservationsMerchantsAnalytics);
+            }
+        });
+    </script>
+</body>
+
+</html>

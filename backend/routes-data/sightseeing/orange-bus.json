@@ -1,0 +1,955 @@
+{
+  "id": "orange-bus",
+  "name": "Orange Bus",
+  "type": "sightseeing",
+  "description": "Gozo round trip",
+  "icon": "🚌",
+  "iconSize": 32,
+  "polylineColor": "#f79308",
+  "mainImage": "/uploads/1758104764364-56944378-city-sightseeing-gozo.jpg",
+  "currency": "EUR",
+  "prices": {
+    "adult": 10,
+    "child": 10,
+    "senior": 10
+  },
+  "duration": "4h",
+  "maxParticipants": 50,
+  "importantInfo": "",
+  "points": [
+    {
+      "type": "stop",
+      "lat": 36.025301,
+      "lng": 14.2994283,
+      "name": "Mgarr Harbour",
+      "description": "Tour starting point, \nYou will find our bus next to the ferry terminal building in the parking area.\nPlease present your tickets to the bus driver for validation",
+      "images": [
+        "/uploads/optimized/Images/mgarr-harbour.webp"
+      ]
+    },
+    {
+      "type": "shape",
+      "lat": 36.0253,
+      "lng": 14.29943
+    },
+    {
+      "type": "shape",
+      "lat": 36.02418,
+      "lng": 14.29835
+    },
+    {
+      "type": "shape",
+      "lat": 36.02362,
+      "lng": 14.29784
+    },
+    {
+      "type": "shape",
+      "lat": 36.02332,
+      "lng": 14.2981
+    },
+    {
+      "type": "shape",
+      "lat": 36.02264,
+      "lng": 14.29759
+    },
+    {
+      "type": "shape",
+      "lat": 36.02403,
+      "lng": 14.29691
+    },
+    {
+      "type": "shape",
+      "lat": 36.0256,
+      "lng": 14.29543
+    },
+    {
+      "type": "shape",
+      "lat": 36.02631,
+      "lng": 14.29538
+    },
+    {
+      "type": "shape",
+      "lat": 36.0277,
+      "lng": 14.29712
+    },
+    {
+      "type": "shape",
+      "lat": 36.03245,
+      "lng": 14.2965
+    },
+    {
+      "type": "shape",
+      "lat": 36.03346,
+      "lng": 14.29696
+    },
+    {
+      "type": "shape",
+      "lat": 36.03395,
+      "lng": 14.29528
+    },
+    {
+      "type": "shape",
+      "lat": 36.0349,
+      "lng": 14.29628
+    },
+    {
+      "type": "shape",
+      "lat": 36.03631,
+      "lng": 14.29803
+    },
+    {
+      "type": "shape",
+      "lat": 36.0372,
+      "lng": 14.29699
+    },
+    {
+      "type": "stop",
+      "lat": 36.0379138,
+      "lng": 14.2942965,
+      "name": "Nadur Parish Church, R Camilleri, Nadur",
+      "description": "",
+      "images": [
+        "/uploads/optimized/Images/nadur.png"
+      ]
+    },
+    {
+      "type": "shape",
+      "lat": 36.03787,
+      "lng": 14.29445
+    },
+    {
+      "type": "shape",
+      "lat": 36.03877,
+      "lng": 14.29419
+    },
+    {
+      "type": "shape",
+      "lat": 36.03952,
+      "lng": 14.29184
+    },
+    {
+      "type": "shape",
+      "lat": 36.03975,
+      "lng": 14.28815
+    },
+    {
+      "type": "shape",
+      "lat": 36.04014,
+      "lng": 14.28828
+    },
+    {
+      "type": "shape",
+      "lat": 36.0407,
+      "lng": 14.28866
+    },
+    {
+      "type": "shape",
+      "lat": 36.04103,
+      "lng": 14.28843
+    },
+    {
+      "type": "shape",
+      "lat": 36.04288,
+      "lng": 14.28974
+    },
+    {
+      "type": "shape",
+      "lat": 36.04464,
+      "lng": 14.29161
+    },
+    {
+      "type": "shape",
+      "lat": 36.04582,
+      "lng": 14.29205
+    },
+    {
+      "type": "shape",
+      "lat": 36.04879,
+      "lng": 14.29166
+    },
+    {
+      "type": "shape",
+      "lat": 36.05063,
+      "lng": 14.29126
+    },
+    {
+      "type": "shape",
+      "lat": 36.05353,
+      "lng": 14.29127
+    },
+    {
+      "type": "shape",
+      "lat": 36.05576,
+      "lng": 14.28758
+    },
+    {
+      "type": "shape",
+      "lat": 36.0577,
+      "lng": 14.28431
+    },
+    {
+      "type": "stop",
+      "lat": 36.0606784,
+      "lng": 14.2831895,
+      "name": "Ramla Bay",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.05927,
+      "lng": 14.28358
+    },
+    {
+      "type": "shape",
+      "lat": 36.05862,
+      "lng": 14.2825
+    },
+    {
+      "type": "shape",
+      "lat": 36.05808,
+      "lng": 14.28123
+    },
+    {
+      "type": "shape",
+      "lat": 36.05808,
+      "lng": 14.27752
+    },
+    {
+      "type": "shape",
+      "lat": 36.05831,
+      "lng": 14.27566
+    },
+    {
+      "type": "shape",
+      "lat": 36.05804,
+      "lng": 14.27427
+    },
+    {
+      "type": "shape",
+      "lat": 36.05493,
+      "lng": 14.2717
+    },
+    {
+      "type": "shape",
+      "lat": 36.05355,
+      "lng": 14.26978
+    },
+    {
+      "type": "shape",
+      "lat": 36.05246,
+      "lng": 14.26893
+    },
+    {
+      "type": "shape",
+      "lat": 36.05187,
+      "lng": 14.26988
+    },
+    {
+      "type": "shape",
+      "lat": 36.05002,
+      "lng": 14.2699
+    },
+    {
+      "type": "stop",
+      "lat": 36.0489976,
+      "lng": 14.2676187,
+      "name": "Ġgantija Temples, Triq John Otto Bayer, Xagħra",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.04791,
+      "lng": 14.26694
+    },
+    {
+      "type": "shape",
+      "lat": 36.04659,
+      "lng": 14.26649
+    },
+    {
+      "type": "shape",
+      "lat": 36.04551,
+      "lng": 14.26588
+    },
+    {
+      "type": "shape",
+      "lat": 36.04544,
+      "lng": 14.26632
+    },
+    {
+      "type": "shape",
+      "lat": 36.04593,
+      "lng": 14.26812
+    },
+    {
+      "type": "shape",
+      "lat": 36.04382,
+      "lng": 14.26719
+    },
+    {
+      "type": "shape",
+      "lat": 36.04163,
+      "lng": 14.26531
+    },
+    {
+      "type": "shape",
+      "lat": 36.04046,
+      "lng": 14.25765
+    },
+    {
+      "type": "shape",
+      "lat": 36.04086,
+      "lng": 14.25544
+    },
+    {
+      "type": "shape",
+      "lat": 36.04178,
+      "lng": 14.25099
+    },
+    {
+      "type": "shape",
+      "lat": 36.0418,
+      "lng": 14.24979
+    },
+    {
+      "type": "shape",
+      "lat": 36.04232,
+      "lng": 14.24962
+    },
+    {
+      "type": "shape",
+      "lat": 36.0434,
+      "lng": 14.24612
+    },
+    {
+      "type": "stop",
+      "lat": 36.0447162,
+      "lng": 14.2409965,
+      "name": "Victoria",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "stop",
+      "lat": 36.0447161,
+      "lng": 14.2409965,
+      "name": "Victoria",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.04471,
+      "lng": 14.24106
+    },
+    {
+      "type": "shape",
+      "lat": 36.04494,
+      "lng": 14.23816
+    },
+    {
+      "type": "shape",
+      "lat": 36.04468,
+      "lng": 14.23723
+    },
+    {
+      "type": "shape",
+      "lat": 36.04443,
+      "lng": 14.23508
+    },
+    {
+      "type": "shape",
+      "lat": 36.04286,
+      "lng": 14.23287
+    },
+    {
+      "type": "shape",
+      "lat": 36.04164,
+      "lng": 14.23069
+    },
+    {
+      "type": "shape",
+      "lat": 36.04202,
+      "lng": 14.22903
+    },
+    {
+      "type": "shape",
+      "lat": 36.04075,
+      "lng": 14.22475
+    },
+    {
+      "type": "shape",
+      "lat": 36.04058,
+      "lng": 14.22229
+    },
+    {
+      "type": "shape",
+      "lat": 36.0395,
+      "lng": 14.21973
+    },
+    {
+      "type": "shape",
+      "lat": 36.03886,
+      "lng": 14.21806
+    },
+    {
+      "type": "shape",
+      "lat": 36.03694,
+      "lng": 14.21469
+    },
+    {
+      "type": "shape",
+      "lat": 36.03637,
+      "lng": 14.21194
+    },
+    {
+      "type": "shape",
+      "lat": 36.03635,
+      "lng": 14.20958
+    },
+    {
+      "type": "shape",
+      "lat": 36.03592,
+      "lng": 14.20645
+    },
+    {
+      "type": "shape",
+      "lat": 36.03575,
+      "lng": 14.20051
+    },
+    {
+      "type": "shape",
+      "lat": 36.03667,
+      "lng": 14.19887
+    },
+    {
+      "type": "shape",
+      "lat": 36.03765,
+      "lng": 14.19778
+    },
+    {
+      "type": "shape",
+      "lat": 36.0387,
+      "lng": 14.19702
+    },
+    {
+      "type": "shape",
+      "lat": 36.03973,
+      "lng": 14.19649
+    },
+    {
+      "type": "shape",
+      "lat": 36.04136,
+      "lng": 14.19621
+    },
+    {
+      "type": "shape",
+      "lat": 36.04208,
+      "lng": 14.19568
+    },
+    {
+      "type": "shape",
+      "lat": 36.04319,
+      "lng": 14.19584
+    },
+    {
+      "type": "shape",
+      "lat": 36.04367,
+      "lng": 14.19578
+    },
+    {
+      "type": "shape",
+      "lat": 36.045,
+      "lng": 14.19543
+    },
+    {
+      "type": "shape",
+      "lat": 36.04557,
+      "lng": 14.19537
+    },
+    {
+      "type": "stop",
+      "lat": 36.0459241,
+      "lng": 14.1949057,
+      "name": "Dwejra Bay",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.04582,
+      "lng": 14.19512
+    },
+    {
+      "type": "shape",
+      "lat": 36.04547,
+      "lng": 14.19533
+    },
+    {
+      "type": "shape",
+      "lat": 36.04462,
+      "lng": 14.19551
+    },
+    {
+      "type": "shape",
+      "lat": 36.04353,
+      "lng": 14.1959
+    },
+    {
+      "type": "shape",
+      "lat": 36.04304,
+      "lng": 14.1958
+    },
+    {
+      "type": "shape",
+      "lat": 36.04192,
+      "lng": 14.19579
+    },
+    {
+      "type": "shape",
+      "lat": 36.04107,
+      "lng": 14.19655
+    },
+    {
+      "type": "shape",
+      "lat": 36.03957,
+      "lng": 14.19663
+    },
+    {
+      "type": "shape",
+      "lat": 36.03842,
+      "lng": 14.19706
+    },
+    {
+      "type": "shape",
+      "lat": 36.03726,
+      "lng": 14.1982
+    },
+    {
+      "type": "shape",
+      "lat": 36.03655,
+      "lng": 14.1989
+    },
+    {
+      "type": "shape",
+      "lat": 36.03537,
+      "lng": 14.20148
+    },
+    {
+      "type": "shape",
+      "lat": 36.03615,
+      "lng": 14.20668
+    },
+    {
+      "type": "shape",
+      "lat": 36.03657,
+      "lng": 14.21038
+    },
+    {
+      "type": "shape",
+      "lat": 36.03633,
+      "lng": 14.21217
+    },
+    {
+      "type": "shape",
+      "lat": 36.03803,
+      "lng": 14.21617
+    },
+    {
+      "type": "shape",
+      "lat": 36.03895,
+      "lng": 14.21833
+    },
+    {
+      "type": "shape",
+      "lat": 36.03976,
+      "lng": 14.22025
+    },
+    {
+      "type": "shape",
+      "lat": 36.04071,
+      "lng": 14.22334
+    },
+    {
+      "type": "shape",
+      "lat": 36.03978,
+      "lng": 14.22633
+    },
+    {
+      "type": "shape",
+      "lat": 36.03838,
+      "lng": 14.22571
+    },
+    {
+      "type": "shape",
+      "lat": 36.03689,
+      "lng": 14.2266
+    },
+    {
+      "type": "shape",
+      "lat": 36.03591,
+      "lng": 14.22822
+    },
+    {
+      "type": "shape",
+      "lat": 36.03629,
+      "lng": 14.23032
+    },
+    {
+      "type": "shape",
+      "lat": 36.03697,
+      "lng": 14.23172
+    },
+    {
+      "type": "shape",
+      "lat": 36.03663,
+      "lng": 14.23209
+    },
+    {
+      "type": "shape",
+      "lat": 36.03633,
+      "lng": 14.23229
+    },
+    {
+      "type": "shape",
+      "lat": 36.03566,
+      "lng": 14.23193
+    },
+    {
+      "type": "shape",
+      "lat": 36.03495,
+      "lng": 14.23206
+    },
+    {
+      "type": "shape",
+      "lat": 36.03377,
+      "lng": 14.2288
+    },
+    {
+      "type": "shape",
+      "lat": 36.03343,
+      "lng": 14.22617
+    },
+    {
+      "type": "shape",
+      "lat": 36.03308,
+      "lng": 14.22467
+    },
+    {
+      "type": "shape",
+      "lat": 36.03231,
+      "lng": 14.22197
+    },
+    {
+      "type": "shape",
+      "lat": 36.03108,
+      "lng": 14.21874
+    },
+    {
+      "type": "shape",
+      "lat": 36.02909,
+      "lng": 14.21577
+    },
+    {
+      "type": "stop",
+      "lat": 36.0286421,
+      "lng": 14.2155817,
+      "name": "Xlendi Bay",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.0287,
+      "lng": 14.21557
+    },
+    {
+      "type": "shape",
+      "lat": 36.02966,
+      "lng": 14.21725
+    },
+    {
+      "type": "shape",
+      "lat": 36.0312,
+      "lng": 14.21894
+    },
+    {
+      "type": "shape",
+      "lat": 36.03235,
+      "lng": 14.22281
+    },
+    {
+      "type": "shape",
+      "lat": 36.03309,
+      "lng": 14.2247
+    },
+    {
+      "type": "shape",
+      "lat": 36.03372,
+      "lng": 14.22716
+    },
+    {
+      "type": "shape",
+      "lat": 36.0338,
+      "lng": 14.22893
+    },
+    {
+      "type": "shape",
+      "lat": 36.03559,
+      "lng": 14.23363
+    },
+    {
+      "type": "shape",
+      "lat": 36.03746,
+      "lng": 14.2352
+    },
+    {
+      "type": "shape",
+      "lat": 36.03813,
+      "lng": 14.23608
+    },
+    {
+      "type": "shape",
+      "lat": 36.04009,
+      "lng": 14.23708
+    },
+    {
+      "type": "shape",
+      "lat": 36.04151,
+      "lng": 14.23692
+    },
+    {
+      "type": "shape",
+      "lat": 36.04238,
+      "lng": 14.23586
+    },
+    {
+      "type": "shape",
+      "lat": 36.04441,
+      "lng": 14.23678
+    },
+    {
+      "type": "shape",
+      "lat": 36.04508,
+      "lng": 14.23847
+    },
+    {
+      "type": "shape",
+      "lat": 36.04506,
+      "lng": 14.2414
+    },
+    {
+      "type": "shape",
+      "lat": 36.04891,
+      "lng": 14.24417
+    },
+    {
+      "type": "shape",
+      "lat": 36.0497,
+      "lng": 14.24628
+    },
+    {
+      "type": "shape",
+      "lat": 36.05142,
+      "lng": 14.24741
+    },
+    {
+      "type": "shape",
+      "lat": 36.05699,
+      "lng": 14.25084
+    },
+    {
+      "type": "shape",
+      "lat": 36.05924,
+      "lng": 14.25212
+    },
+    {
+      "type": "shape",
+      "lat": 36.06106,
+      "lng": 14.25429
+    },
+    {
+      "type": "shape",
+      "lat": 36.06412,
+      "lng": 14.25709
+    },
+    {
+      "type": "shape",
+      "lat": 36.06622,
+      "lng": 14.25877
+    },
+    {
+      "type": "shape",
+      "lat": 36.06772,
+      "lng": 14.25951
+    },
+    {
+      "type": "shape",
+      "lat": 36.07059,
+      "lng": 14.25892
+    },
+    {
+      "type": "shape",
+      "lat": 36.0714,
+      "lng": 14.25778
+    },
+    {
+      "type": "shape",
+      "lat": 36.07198,
+      "lng": 14.25694
+    },
+    {
+      "type": "stop",
+      "lat": 36.0718573,
+      "lng": 14.2556781,
+      "name": "Marsalforn",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.0721,
+      "lng": 14.25521
+    },
+    {
+      "type": "shape",
+      "lat": 36.07115,
+      "lng": 14.25596
+    },
+    {
+      "type": "shape",
+      "lat": 36.07018,
+      "lng": 14.25907
+    },
+    {
+      "type": "shape",
+      "lat": 36.06772,
+      "lng": 14.25951
+    },
+    {
+      "type": "shape",
+      "lat": 36.06622,
+      "lng": 14.25877
+    },
+    {
+      "type": "shape",
+      "lat": 36.06412,
+      "lng": 14.25709
+    },
+    {
+      "type": "shape",
+      "lat": 36.06106,
+      "lng": 14.25429
+    },
+    {
+      "type": "shape",
+      "lat": 36.05966,
+      "lng": 14.25401
+    },
+    {
+      "type": "shape",
+      "lat": 36.05888,
+      "lng": 14.25591
+    },
+    {
+      "type": "shape",
+      "lat": 36.05724,
+      "lng": 14.25841
+    },
+    {
+      "type": "shape",
+      "lat": 36.05112,
+      "lng": 14.25933
+    },
+    {
+      "type": "shape",
+      "lat": 36.04898,
+      "lng": 14.26132
+    },
+    {
+      "type": "shape",
+      "lat": 36.04661,
+      "lng": 14.26247
+    },
+    {
+      "type": "shape",
+      "lat": 36.04561,
+      "lng": 14.26488
+    },
+    {
+      "type": "shape",
+      "lat": 36.04532,
+      "lng": 14.26572
+    },
+    {
+      "type": "shape",
+      "lat": 36.04573,
+      "lng": 14.26724
+    },
+    {
+      "type": "shape",
+      "lat": 36.04567,
+      "lng": 14.26817
+    },
+    {
+      "type": "shape",
+      "lat": 36.04191,
+      "lng": 14.26563
+    },
+    {
+      "type": "shape",
+      "lat": 36.03967,
+      "lng": 14.26546
+    },
+    {
+      "type": "shape",
+      "lat": 36.03847,
+      "lng": 14.26518
+    },
+    {
+      "type": "shape",
+      "lat": 36.03843,
+      "lng": 14.26504
+    },
+    {
+      "type": "shape",
+      "lat": 36.03824,
+      "lng": 14.26392
+    },
+    {
+      "type": "shape",
+      "lat": 36.03628,
+      "lng": 14.26063
+    },
+    {
+      "type": "shape",
+      "lat": 36.03617,
+      "lng": 14.26069
+    },
+    {
+      "type": "shape",
+      "lat": 36.03604,
+      "lng": 14.26057
+    },
+    {
+      "type": "shape",
+      "lat": 36.03542,
+      "lng": 14.26028
+    },
+    {
+      "type": "stop",
+      "lat": 36.0322119,
+      "lng": 14.2608509,
+      "name": "Xewkija",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.03221,
+      "lng": 14.26085
+    }
+  ]
+}

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchant Setup - Discover Gozo Admin</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="modern-admin.css">
+    <link rel="stylesheet" href="lib/inter-font.css">
+    <link href="lib/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="theme-toggle.js"></script>
+    <style>
+        /* iPhone-style modern design */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .page-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-header h1 {
+            margin: 0;
+            color: #1d1d1f;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .back-button {
+            background: rgba(0, 122, 255, 0.1);
+            border: none;
+            color: #007AFF;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .back-button:hover {
+            background: rgba(0, 122, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .setup-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem 2rem;
+        }
+        
+        .setup-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: none;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .setup-section h2 {
+            margin: 0 0 2rem 0;
+            color: #1d1d1f;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .setup-section h2 i {
+            color: #007AFF;
+            font-size: 1.2rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            font-size: 0.9rem;
+        }
+        
+        .form-input, .form-select {
+            padding: 1rem 1.25rem;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #1d1d1f;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+        }
+        
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #007AFF;
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(0, 122, 255, 0.2);
+        }
+        
+        .form-help {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #8e8e93;
+        }
+        
+        .tour-category {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            border: none;
+            border-radius: 16px;
+            background: rgba(0, 122, 255, 0.05);
+        }
+        
+        .category-title {
+            margin: 0 0 1.5rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tour-checkboxes {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+        
+        .tour-checkbox {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .tour-checkbox:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: #007AFF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 122, 255, 0.15);
+        }
+        
+        .tour-checkbox input[type="checkbox"] {
+            margin-right: 1rem;
+            width: 20px;
+            height: 20px;
+            accent-color: #007AFF;
+        }
+        
+        .tour-name {
+            flex: 1;
+            font-weight: 500;
+            color: #1d1d1f;
+            font-size: 1rem;
+        }
+        
+        .tour-price {
+            color: #8e8e93;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .inactive-tour {
+            opacity: 0.5;
+            background: rgba(142, 142, 147, 0.1) !important;
+        }
+        
+        .inactive-tour .tour-name {
+            color: #8e8e93 !important;
+        }
+        
+        .inactive-tour .tour-price {
+            color: #8e8e93 !important;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 122, 255, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(142, 142, 147, 0.1);
+            color: #1d1d1f;
+            border: 2px solid rgba(142, 142, 147, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(142, 142, 147, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF9500 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(255, 59, 48, 0.3);
+        }
+        
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 59, 48, 0.4);
+        }
+        
+        .validation-history {
+            margin-top: 1.5rem;
+        }
+        
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .history-table th,
+        .history-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .history-table th {
+            background: rgba(0, 122, 255, 0.1);
+            font-weight: 600;
+            color: #1d1d1f;
+            font-size: 0.9rem;
+        }
+        
+        .history-table td {
+            color: #1d1d1f;
+            font-size: 0.9rem;
+        }
+        
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-validated {
+            background: rgba(52, 199, 89, 0.2);
+            color: #34C759;
+        }
+        
+        .status-pending {
+            background: rgba(255, 149, 0, 0.2);
+            color: #FF9500;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #8e8e93;
+            font-size: 1rem;
+        }
+        
+        .tour-assignment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 122, 255, 0.05);
+            border-radius: 16px;
+        }
+        
+        .tour-assignment-header p {
+            margin: 0;
+            flex: 1;
+            color: #1d1d1f;
+            font-size: 0.9rem;
+        }
+        
+        .tour-assignment-header .btn {
+            margin-left: 1rem;
+        }
+        
+        /* Modern icons */
+        .fas.fa-user::before { content: "👤"; }
+        .fas.fa-key::before { content: "🔑"; }
+        .fas.fa-map-marked-alt::before { content: "🗺️"; }
+        .fas.fa-history::before { content: "📊"; }
+        .fas.fa-arrow-left::before { content: "←"; }
+        .fas.fa-sync-alt::before { content: "🔄"; }
+        .fas.fa-save::before { content: "💾"; }
+        .fas.fa-trash::before { content: "🗑️"; }
+        .fas.fa-times::before { content: "✕"; }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .tour-checkboxes {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .setup-container {
+                padding: 0 1rem 2rem;
+            }
+            
+            .setup-section {
+                padding: 1.5rem;
+            }
+            
+            .tour-assignment-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .tour-assignment-header .btn {
+                margin-left: 0;
+            }
+        }
+        
+        /* Dark Theme Styles */
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #2d1b69 0%, #1a0d4a 100%);
+        }
+        
+        [data-theme="dark"] .page-header h1 {
+            color: white;
+        }
+        
+        [data-theme="dark"] .setup-header h1 {
+            color: white;
+        }
+        
+        [data-theme="dark"] .setup-section h2 {
+            color: white;
+        }
+        
+        [data-theme="dark"] .setup-section h2 i {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        [data-theme="dark"] .form-group label {
+            color: white;
+        }
+        
+        [data-theme="dark"] .form-group label i {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        [data-theme="dark"] .form-help {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        [data-theme="dark"] .tour-assignment-header .form-help {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        [data-theme="dark"] .category-title {
+            color: white;
+        }
+        
+        [data-theme="dark"] .tour-name {
+            color: white;
+        }
+        
+        [data-theme="dark"] .tour-price {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        [data-theme="dark"] .back-button {
+            color: white;
+        }
+        
+        [data-theme="dark"] .back-button:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        [data-theme="dark"] .loading {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        [data-theme="dark"] .no-data {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        [data-theme="dark"] .setup-container {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .setup-header {
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .setup-section {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-primary {
+            background: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(76, 29, 149, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        [data-theme="dark"] .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        [data-theme="dark"] .btn-danger {
+            background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-danger:hover {
+            box-shadow: 0 8px 25px rgba(153, 27, 27, 0.4);
+        }
+        
+        [data-theme="dark"] .form-input {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        [data-theme="dark"] .form-input:focus {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+        }
+        
+        [data-theme="dark"] .form-select {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        [data-theme="dark"] .form-select:focus {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+        }
+        
+        [data-theme="dark"] .data-table th {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        [data-theme="dark"] .data-table td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        
+        [data-theme="dark"] .data-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        [data-theme="dark"] .tour-category {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .tour-checkbox {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .tour-checkbox:hover {
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        [data-theme="dark"] .inactive-tour {
+            background: rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        [data-theme="dark"] .status-active {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        
+        [data-theme="dark"] .status-inactive {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <h1>
+            <a href="merchants.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Merchants
+            </a>
+            <span id="pageTitle">Merchant Setup</span>
+        </h1>
+    </div>
+
+    <div class="setup-container">
+        <!-- Merchant Information Section -->
+        <div class="setup-section">
+            <h2><i class="fas fa-user"></i> Merchant Information</h2>
+            <form id="merchantSetupForm">
+                <input type="hidden" id="setupMerchantId" name="id">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="setupMerchantName">Name *</label>
+                        <input type="text" id="setupMerchantName" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="setupMerchantEmail">Email *</label>
+                        <input type="email" id="setupMerchantEmail" name="email" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="setupMerchantBusiness">Business Name *</label>
+                        <input type="text" id="setupMerchantBusiness" name="business_name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="setupMerchantLocation">Location</label>
+                        <input type="text" id="setupMerchantLocation" name="location" class="form-input">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="setupMerchantStatus">Status</label>
+                        <select id="setupMerchantStatus" name="is_active" class="form-select">
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Login Credentials Section -->
+        <div class="setup-section">
+            <h2><i class="fas fa-key"></i> Login Credentials</h2>
+            <form id="credentialsForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="setupMerchantPassword">New Password</label>
+                        <input type="password" id="setupMerchantPassword" name="password" class="form-input">
+                        <small class="form-help">Leave blank to keep current password</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="setupMerchantPasswordConfirm">Confirm Password</label>
+                        <input type="password" id="setupMerchantPasswordConfirm" name="password_confirm" class="form-input">
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Tour Assignment Section -->
+        <div class="setup-section">
+            <h2><i class="fas fa-map-marked-alt"></i> Tour Assignments</h2>
+            <div class="tour-assignment-header">
+                <p class="form-help">Select which tours this merchant can validate tickets for. Leave empty to allow validation of all tours.</p>
+                <button type="button" onclick="loadAvailableTours()" class="btn btn-secondary">
+                    <i class="fas fa-sync-alt"></i> Refresh Tours
+                </button>
+            </div>
+            <div id="setupToursList">
+                <div class="loading">Loading tours...</div>
+            </div>
+        </div>
+        
+        <!-- Validation History Section -->
+        <div class="setup-section">
+            <h2><i class="fas fa-history"></i> Validation History</h2>
+            <div id="validationHistoryContainer">
+                <div class="loading">Loading validation history...</div>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button type="button" onclick="saveMerchantSetup()" class="btn btn-primary">
+                <i class="fas fa-save"></i> Save Changes
+            </button>
+            <button type="button" onclick="deleteMerchant()" class="btn btn-danger">
+                <i class="fas fa-trash"></i> Delete Merchant
+            </button>
+            <button type="button" onclick="window.close()" class="btn btn-secondary">
+                <i class="fas fa-times"></i> Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentMerchant = null;
+        let availableTours = [];
+
+        // Load merchant data when page loads
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const merchantId = urlParams.get('id');
+            
+            if (merchantId) {
+                loadMerchantData(merchantId);
+            } else {
+                alert('No merchant ID provided');
+                window.close();
+            }
+        });
+
+        async function loadMerchantData(merchantId) {
+            try {
+                console.log('Loading merchant data for ID:', merchantId);
+                const response = await fetch(`/api/admin/merchants/${merchantId}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Merchant data loaded:', data);
+                
+                currentMerchant = data;
+                populateMerchantForm(data);
+                
+                // Update page title
+                document.getElementById('pageTitle').textContent = `Setup - ${data.name}`;
+                
+                // Load available tours and validation history
+                await loadAvailableTours();
+                await loadValidationHistory(merchantId);
+                
+            } catch (error) {
+                console.error('Error loading merchant data:', error);
+                alert('Failed to load merchant data: ' + error.message);
+            }
+        }
+
+        function populateMerchantForm(merchant) {
+            document.getElementById('setupMerchantId').value = merchant.id;
+            document.getElementById('setupMerchantName').value = merchant.name || '';
+            document.getElementById('setupMerchantEmail').value = merchant.email || '';
+            document.getElementById('setupMerchantBusiness').value = merchant.business_name || '';
+            document.getElementById('setupMerchantLocation').value = merchant.location || '';
+            document.getElementById('setupMerchantStatus').value = merchant.is_active ? '1' : '0';
+        }
+
+        async function loadAvailableTours() {
+            try {
+                console.log('Loading available tours...');
+                const response = await fetch('/api/admin/tours/available');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Available tours loaded:', data);
+                
+                // Convert toursByCategory object to flat array
+                availableTours = [];
+                Object.keys(data).forEach(category => {
+                    if (Array.isArray(data[category])) {
+                        availableTours = availableTours.concat(data[category]);
+                    }
+                });
+                
+                console.log('Flattened tours:', availableTours);
+                renderToursList();
+                
+            } catch (error) {
+                console.error('Error loading available tours:', error);
+                document.getElementById('setupToursList').innerHTML = '<div class="loading">Error loading tours</div>';
+            }
+        }
+
+        function renderToursList() {
+            const container = document.getElementById('setupToursList');
+            
+            if (!availableTours || availableTours.length === 0) {
+                container.innerHTML = '<div class="loading">No tours available</div>';
+                return;
+            }
+
+            // Group tours by category
+            const groupedTours = {};
+            availableTours.forEach(tour => {
+                if (!groupedTours[tour.category]) {
+                    groupedTours[tour.category] = [];
+                }
+                groupedTours[tour.category].push(tour);
+            });
+
+            let html = '';
+            Object.keys(groupedTours).forEach(category => {
+                const tours = groupedTours[category];
+                html += `
+                    <div class="tour-category">
+                        <h3 class="category-title">${category.charAt(0).toUpperCase() + category.slice(1)} Tours</h3>
+                        <div class="tour-checkboxes">
+                            ${tours.map(tour => `
+                                <label class="tour-checkbox ${!tour.is_active ? 'inactive-tour' : ''}">
+                                    <input type="checkbox" 
+                                           value="${tour.id}" 
+                                           ${currentMerchant && currentMerchant.assigned_tours && currentMerchant.assigned_tours.includes(tour.id) ? 'checked' : ''}
+                                           ${!tour.is_active ? 'disabled' : ''}>
+                                    <span class="tour-name">${tour.name}</span>
+                                    <span class="tour-price">€${tour.price}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        async function loadValidationHistory(merchantId) {
+            try {
+                console.log('Loading validation history for merchant:', merchantId);
+                const response = await fetch(`/api/admin/merchants/${merchantId}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Validation history loaded:', data);
+                
+                // The API returns 'validations' not 'validationHistory'
+                displayValidationHistory(data.validations || []);
+                
+            } catch (error) {
+                console.error('Error loading validation history:', error);
+                document.getElementById('validationHistoryContainer').innerHTML = '<div class="loading">Error loading validation history</div>';
+            }
+        }
+
+        function displayValidationHistory(history) {
+            const container = document.getElementById('validationHistoryContainer');
+            
+            if (!history || history.length === 0) {
+                container.innerHTML = '<div class="loading">No validation history found</div>';
+                return;
+            }
+
+            const html = `
+                <div class="validation-history">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Tour</th>
+                                <th>Contact Email</th>
+                                <th>Status</th>
+                                <th>Scanned At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${history.map(record => `
+                                <tr>
+                                    <td>${record.ticket_id}</td>
+                                    <td>${record.tour_name || 'N/A'}</td>
+                                    <td>${record.contact_email || 'N/A'}</td>
+                                    <td><span class="status-badge status-${record.status}">${record.status}</span></td>
+                                    <td>${new Date(record.scanned_at).toLocaleString()}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        async function saveMerchantSetup() {
+            try {
+                const formData = new FormData(document.getElementById('merchantSetupForm'));
+                const credentialsData = new FormData(document.getElementById('credentialsForm'));
+                
+                // Get selected tours
+                const selectedTours = Array.from(document.querySelectorAll('#setupToursList input[type="checkbox"]:checked'))
+                    .map(checkbox => checkbox.value);
+                
+                const updateData = {
+                    id: formData.get('id'),
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    business_name: formData.get('business_name'),
+                    location: formData.get('location'),
+                    is_active: formData.get('is_active') === '1',
+                    assigned_tours: selectedTours
+                };
+                
+                // Add password if provided
+                const newPassword = credentialsData.get('password');
+                const confirmPassword = credentialsData.get('password_confirm');
+                
+                if (newPassword) {
+                    if (newPassword !== confirmPassword) {
+                        alert('Passwords do not match');
+                        return;
+                    }
+                    updateData.password = newPassword;
+                }
+                
+                console.log('Saving merchant setup:', updateData);
+                
+                const response = await fetch(`/api/admin/merchants/${updateData.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updateData)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                console.log('Merchant setup saved:', result);
+                
+                alert('Merchant setup saved successfully!');
+                
+                // Refresh the parent window if it exists
+                if (window.opener) {
+                    window.opener.location.reload();
+                }
+                
+            } catch (error) {
+                console.error('Error saving merchant setup:', error);
+                alert('Failed to save merchant setup: ' + error.message);
+            }
+        }
+
+        async function deleteMerchant() {
+            if (!currentMerchant) {
+                alert('No merchant selected');
+                return;
+            }
+            
+            if (!confirm(`Are you sure you want to delete merchant "${currentMerchant.name}"? This action cannot be undone.`)) {
+                return;
+            }
+            
+            try {
+                console.log('Deleting merchant:', currentMerchant.id);
+                
+                const response = await fetch(`/api/admin/merchants/${currentMerchant.id}`, {
+                    method: 'DELETE'
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                console.log('Merchant deleted successfully');
+                
+                alert('Merchant deleted successfully!');
+                
+                // Close the window and refresh the parent
+                if (window.opener) {
+                    window.opener.location.reload();
+                }
+                window.close();
+                
+            } catch (error) {
+                console.error('Error deleting merchant:', error);
+                alert('Failed to delete merchant: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

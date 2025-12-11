@@ -1,0 +1,721 @@
+{
+  "id": "comino-tour",
+  "name": "Comino Tour",
+  "type": "boat-tour",
+  "description": "<![CDATA[Starting: Blue Lagoon<br><br>Ending: Blue Lagoon<br><br>Length: 7km<br><br>Grading: Easy<br><br>Landscape: Coastal, valleys<br><br>Trail markings<br><br>Getting there and back: Various passenger boats from iċ-Ċirkewwa, Marfa in Malta and from L-Imġarr Harbour in Gozo. The Comino Hotel also operates a scheduled service when the Hotel is open.<br><br>Recommended Walking season: October to May<br><br><br>Overview<br><br>Kemmuna (Comino) and its islets, a highly protected area of a bit less than 3km² form part of the municipality of Għajnsielem Gozo. Historically a preferred hideaway by corsairs, Comino is now a haven for birds and tranquillity — hunting is not allowed, nor are vehicles other than those used by the resident population or by hotel staff. Currently the main island has a permanent population of three people and a seasonal hotel operates from San Niklaw Bay. The short walking route described here is a circular one which starts and ends at Bejn il-Kmiemen (Blue Lagoon) in an anticlockwise direction. The trail follows the main pathways but can easily be extended by going off the beaten track to explore the island in more detail especially along the wild cliffs on the east side. The Blue Lagoon is the most popular site among day trippers — it can get quite crowded on sunny days as early as May but otherwise few people venture along the coast or into the heart of Comino.]]>",
+  "icon": "🚤",
+  "iconSize": 32,
+  "polylineColor": "#8A2BE2",
+  "mainImage": "",
+  "currency": "EUR",
+  "prices": {
+    "adult": 25,
+    "child": 20,
+    "senior": 20
+  },
+  "duration": "3h",
+  "maxParticipants": 50,
+  "points": [
+    {
+      "type": "stop",
+      "lat": 36.024874431259,
+      "lng": 14.298743378632755,
+      "name": "Comino Island tour",
+      "description": "Starting point in Mgarr Harbour Parking area pontoon",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.025134584882274,
+      "lng": 14.299059784432876
+    },
+    {
+      "type": "shape",
+      "lat": 36.02525174266881,
+      "lng": 14.299446039271672
+    },
+    {
+      "type": "shape",
+      "lat": 36.02539059611611,
+      "lng": 14.300073703384674
+    },
+    {
+      "type": "shape",
+      "lat": 36.02550341436188,
+      "lng": 14.301017881879503
+    },
+    {
+      "type": "shape",
+      "lat": 36.02556416258111,
+      "lng": 14.301597264137671
+    },
+    {
+      "type": "shape",
+      "lat": 36.02544266609577,
+      "lng": 14.302493160777626
+    },
+    {
+      "type": "shape",
+      "lat": 36.02502176610838,
+      "lng": 14.30331931696061
+    },
+    {
+      "type": "shape",
+      "lat": 36.0215632545835,
+      "lng": 14.310119590202165
+    },
+    {
+      "type": "shape",
+      "lat": 36.01677243654732,
+      "lng": 14.320119298806324
+    },
+    {
+      "type": "shape",
+      "lat": 36.01583506851802,
+      "lng": 14.322265159021804
+    },
+    {
+      "type": "shape",
+      "lat": 36.015307207225824,
+      "lng": 14.3223629484193
+    },
+    {
+      "type": "shape",
+      "lat": 36.01465190652891,
+      "lng": 14.322352219118255
+    },
+    {
+      "type": "stop",
+      "lat": 36.014322071071874,
+      "lng": 14.322556067003386,
+      "name": "Blue Lagoon",
+      "description": "Blue Lagoon Stop for 1 hour breakfast and snorkeling\r\n",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.01443491834247,
+      "lng": 14.322497064682796
+    },
+    {
+      "type": "shape",
+      "lat": 36.01436980859249,
+      "lng": 14.322303928428049
+    },
+    {
+      "type": "shape",
+      "lat": 36.0145520788598,
+      "lng": 14.322019601949487
+    },
+    {
+      "type": "shape",
+      "lat": 36.01501007279433,
+      "lng": 14.32205085873025
+    },
+    {
+      "type": "shape",
+      "lat": 36.015652351406466,
+      "lng": 14.321020845826801
+    },
+    {
+      "type": "shape",
+      "lat": 36.016051603040836,
+      "lng": 14.319497285073805
+    },
+    {
+      "type": "shape",
+      "lat": 36.01589650763007,
+      "lng": 14.315570666861225
+    },
+    {
+      "type": "shape",
+      "lat": 36.01532366657045,
+      "lng": 14.31522732922674
+    },
+    {
+      "type": "shape",
+      "lat": 36.014507794843446,
+      "lng": 14.31522732922674
+    },
+    {
+      "type": "shape",
+      "lat": 36.01311905758864,
+      "lng": 14.315978380302152
+    },
+    {
+      "type": "shape",
+      "lat": 36.01162613775045,
+      "lng": 14.3172873550336
+    },
+    {
+      "type": "shape",
+      "lat": 36.01072342831727,
+      "lng": 14.318059864711186
+    },
+    {
+      "type": "shape",
+      "lat": 36.01074078821155,
+      "lng": 14.31911133621677
+    },
+    {
+      "type": "shape",
+      "lat": 36.010966466489286,
+      "lng": 14.319755094281424
+    },
+    {
+      "type": "shape",
+      "lat": 36.01174765553854,
+      "lng": 14.320828024389147
+    },
+    {
+      "type": "shape",
+      "lat": 36.012025409779326,
+      "lng": 14.32093531739994
+    },
+    {
+      "type": "shape",
+      "lat": 36.012025409779326,
+      "lng": 14.321235737830115
+    },
+    {
+      "type": "shape",
+      "lat": 36.01143518084781,
+      "lng": 14.322051164711972
+    },
+    {
+      "type": "shape",
+      "lat": 36.010653988701925,
+      "lng": 14.3229953432068
+    },
+    {
+      "type": "shape",
+      "lat": 36.01018526969843,
+      "lng": 14.323767852884346
+    },
+    {
+      "type": "shape",
+      "lat": 36.009890096182794,
+      "lng": 14.325548925233552
+    },
+    {
+      "type": "shape",
+      "lat": 36.009177999777314,
+      "lng": 14.326826292613061
+    },
+    {
+      "type": "shape",
+      "lat": 36.00916706177855,
+      "lng": 14.327249926966697
+    },
+    {
+      "type": "shape",
+      "lat": 36.009262543034836,
+      "lng": 14.327727380864635
+    },
+    {
+      "type": "shape",
+      "lat": 36.00957068630032,
+      "lng": 14.32789904968188
+    },
+    {
+      "type": "shape",
+      "lat": 36.00986146827727,
+      "lng": 14.327936602235665
+    },
+    {
+      "type": "shape",
+      "lat": 36.010117529130035,
+      "lng": 14.328049259896984
+    },
+    {
+      "type": "stop",
+      "lat": 36.01030414922756,
+      "lng": 14.32826921056906,
+      "name": "Crystal Laoon",
+      "description": "1 hour stop snorkeling ",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.010312829221355,
+      "lng": 14.328183376160439
+    },
+    {
+      "type": "shape",
+      "lat": 36.00999166881484,
+      "lng": 14.328279939870148
+    },
+    {
+      "type": "shape",
+      "lat": 36.00973560755324,
+      "lng": 14.32825311661745
+    },
+    {
+      "type": "shape",
+      "lat": 36.009492565586434,
+      "lng": 14.328290669171235
+    },
+    {
+      "type": "shape",
+      "lat": 36.009336323926384,
+      "lng": 14.328537443096009
+    },
+    {
+      "type": "shape",
+      "lat": 36.00915838165863,
+      "lng": 14.329014896993948
+    },
+    {
+      "type": "shape",
+      "lat": 36.00904119994588,
+      "lng": 14.32897734444016
+    },
+    {
+      "type": "shape",
+      "lat": 36.008407540418666,
+      "lng": 14.32837651078761
+    },
+    {
+      "type": "shape",
+      "lat": 36.00735341386171,
+      "lng": 14.327410906241887
+    },
+    {
+      "type": "shape",
+      "lat": 36.00666330965431,
+      "lng": 14.326273595677524
+    },
+    {
+      "type": "shape",
+      "lat": 36.00580394585276,
+      "lng": 14.325206030220329
+    },
+    {
+      "type": "shape",
+      "lat": 36.00540030204632,
+      "lng": 14.324894880489067
+    },
+    {
+      "type": "shape",
+      "lat": 36.004263634582806,
+      "lng": 14.324127794121283
+    },
+    {
+      "type": "shape",
+      "lat": 36.003273985316696,
+      "lng": 14.32409559452561
+    },
+    {
+      "type": "shape",
+      "lat": 36.003178496807806,
+      "lng": 14.324353097751475
+    },
+    {
+      "type": "shape",
+      "lat": 36.00306564660276,
+      "lng": 14.324852010251549
+    },
+    {
+      "type": "shape",
+      "lat": 36.003221900689816,
+      "lng": 14.326048340807207
+    },
+    {
+      "type": "shape",
+      "lat": 36.003464961987575,
+      "lng": 14.326445324947088
+    },
+    {
+      "type": "shape",
+      "lat": 36.003647257469204,
+      "lng": 14.328435610296937
+    },
+    {
+      "type": "shape",
+      "lat": 36.00318509877513,
+      "lng": 14.331986652465131
+    },
+    {
+      "type": "shape",
+      "lat": 36.003159070934025,
+      "lng": 14.333048889078162
+    },
+    {
+      "type": "shape",
+      "lat": 36.00357574731775,
+      "lng": 14.333757022949262
+    },
+    {
+      "type": "shape",
+      "lat": 36.004053186300474,
+      "lng": 14.335055268379621
+    },
+    {
+      "type": "shape",
+      "lat": 36.00440909347959,
+      "lng": 14.335763402250723
+    },
+    {
+      "type": "shape",
+      "lat": 36.004313473234916,
+      "lng": 14.336868335649617
+    },
+    {
+      "type": "shape",
+      "lat": 36.003940204236244,
+      "lng": 14.338885444252169
+    },
+    {
+      "type": "shape",
+      "lat": 36.004356963475175,
+      "lng": 14.34017280227539
+    },
+    {
+      "type": "shape",
+      "lat": 36.00453057626506,
+      "lng": 14.342222098781201
+    },
+    {
+      "type": "shape",
+      "lat": 36.00476937846448,
+      "lng": 14.34460350734183
+    },
+    {
+      "type": "shape",
+      "lat": 36.005099240713115,
+      "lng": 14.34584810626679
+    },
+    {
+      "type": "shape",
+      "lat": 36.00522076856209,
+      "lng": 14.34874501755772
+    },
+    {
+      "type": "shape",
+      "lat": 36.005863126937896,
+      "lng": 14.349560444439579
+    },
+    {
+      "type": "shape",
+      "lat": 36.008328361448214,
+      "lng": 14.351126937277463
+    },
+    {
+      "type": "shape",
+      "lat": 36.010167284568325,
+      "lng": 14.351668982959204
+    },
+    {
+      "type": "shape",
+      "lat": 36.01114812874548,
+      "lng": 14.351727986674836
+    },
+    {
+      "type": "shape",
+      "lat": 36.012993245979594,
+      "lng": 14.349303051992502
+    },
+    {
+      "type": "shape",
+      "lat": 36.014480559260136,
+      "lng": 14.348348391690612
+    },
+    {
+      "type": "shape",
+      "lat": 36.01564832048082,
+      "lng": 14.347017663896212
+    },
+    {
+      "type": "shape",
+      "lat": 36.01655097351333,
+      "lng": 14.344700134863494
+    },
+    {
+      "type": "shape",
+      "lat": 36.01625039351599,
+      "lng": 14.343380993142036
+    },
+    {
+      "type": "shape",
+      "lat": 36.01705354457974,
+      "lng": 14.340092514443807
+    },
+    {
+      "type": "stop",
+      "lat": 36.01702316258327,
+      "lng": 14.340248107910158,
+      "name": "Cave",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.01700382511329,
+      "lng": 14.340360539055512
+    },
+    {
+      "type": "shape",
+      "lat": 36.01683891906709,
+      "lng": 14.341240344766476
+    },
+    {
+      "type": "shape",
+      "lat": 36.017016843996984,
+      "lng": 14.341444201486942
+    },
+    {
+      "type": "shape",
+      "lat": 36.01762004991629,
+      "lng": 14.340816534351315
+    },
+    {
+      "type": "stop",
+      "lat": 36.01801052283428,
+      "lng": 14.34036590789121,
+      "name": "Santa Marija Cave",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.01801052283428,
+      "lng": 14.34036590789121
+    },
+    {
+      "type": "shape",
+      "lat": 36.01802980734942,
+      "lng": 14.340317839996823
+    },
+    {
+      "type": "shape",
+      "lat": 36.01807127683037,
+      "lng": 14.340773625517308
+    },
+    {
+      "type": "shape",
+      "lat": 36.01814070991138,
+      "lng": 14.341100869200181
+    },
+    {
+      "type": "shape",
+      "lat": 36.01837938566088,
+      "lng": 14.341202797560411
+    },
+    {
+      "type": "shape",
+      "lat": 36.018704851427074,
+      "lng": 14.341031128743172
+    },
+    {
+      "type": "shape",
+      "lat": 36.01906937148948,
+      "lng": 14.34074680226465
+    },
+    {
+      "type": "shape",
+      "lat": 36.0195267681589,
+      "lng": 14.340537795086606
+    },
+    {
+      "type": "shape",
+      "lat": 36.01985030498172,
+      "lng": 14.340044099076612
+    },
+    {
+      "type": "shape",
+      "lat": 36.02018437308503,
+      "lng": 14.339073131042875
+    },
+    {
+      "type": "shape",
+      "lat": 36.02036662990516,
+      "lng": 14.338397185074998
+    },
+    {
+      "type": "shape",
+      "lat": 36.02023210705485,
+      "lng": 14.337388630773724
+    },
+    {
+      "type": "shape",
+      "lat": 36.01987627131143,
+      "lng": 14.336884353623088
+    },
+    {
+      "type": "shape",
+      "lat": 36.018648091564884,
+      "lng": 14.337200934502437
+    },
+    {
+      "type": "shape",
+      "lat": 36.01781525696888,
+      "lng": 14.337324311466922
+    },
+    {
+      "type": "stop",
+      "lat": 36.01716865636384,
+      "lng": 14.33715264264968,
+      "name": "Santa Marija Bay",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.01718167522031,
+      "lng": 14.337227747757215
+    },
+    {
+      "type": "shape",
+      "lat": 36.01793242563826,
+      "lng": 14.336911233375469
+    },
+    {
+      "type": "shape",
+      "lat": 36.01858336149484,
+      "lng": 14.336176273461543
+    },
+    {
+      "type": "shape",
+      "lat": 36.0196574279824,
+      "lng": 14.334057162973656
+    },
+    {
+      "type": "shape",
+      "lat": 36.01993515434954,
+      "lng": 14.332190264586215
+    },
+    {
+      "type": "shape",
+      "lat": 36.01980497023682,
+      "lng": 14.330763267542926
+    },
+    {
+      "type": "shape",
+      "lat": 36.018060482376725,
+      "lng": 14.330098050876092
+    },
+    {
+      "type": "shape",
+      "lat": 36.01776539105942,
+      "lng": 14.329958569962114
+    },
+    {
+      "type": "shape",
+      "lat": 36.01835557258903,
+      "lng": 14.329786901144873
+    },
+    {
+      "type": "shape",
+      "lat": 36.01917140448465,
+      "lng": 14.329368458402856
+    },
+    {
+      "type": "shape",
+      "lat": 36.02016080630219,
+      "lng": 14.328703241736067
+    },
+    {
+      "type": "shape",
+      "lat": 36.01972684385394,
+      "lng": 14.327576660937776
+    },
+    {
+      "type": "shape",
+      "lat": 36.018893620083205,
+      "lng": 14.326557742374415
+    },
+    {
+      "type": "shape",
+      "lat": 36.01847702465948,
+      "lng": 14.325527729470966
+    },
+    {
+      "type": "shape",
+      "lat": 36.01898433671431,
+      "lng": 14.324112007764219
+    },
+    {
+      "type": "shape",
+      "lat": 36.01898041051932,
+      "lng": 14.322888321405937
+    },
+    {
+      "type": "shape",
+      "lat": 36.01935772027365,
+      "lng": 14.321129286245647
+    },
+    {
+      "type": "shape",
+      "lat": 36.024980408326655,
+      "lng": 14.320421174230342
+    },
+    {
+      "type": "shape",
+      "lat": 36.0249213901036,
+      "lng": 14.31808071600004
+    },
+    {
+      "type": "shape",
+      "lat": 36.02519909791793,
+      "lng": 14.315913397182387
+    },
+    {
+      "type": "shape",
+      "lat": 36.025390021472475,
+      "lng": 14.313316906321669
+    },
+    {
+      "type": "shape",
+      "lat": 36.02519909791793,
+      "lng": 14.309111020299333
+    },
+    {
+      "type": "shape",
+      "lat": 36.02512874084693,
+      "lng": 14.306300982266908
+    },
+    {
+      "type": "shape",
+      "lat": 36.025666797432166,
+      "lng": 14.30213801344888
+    },
+    {
+      "type": "shape",
+      "lat": 36.025527053989556,
+      "lng": 14.300503133564929
+    },
+    {
+      "type": "shape",
+      "lat": 36.0254340767043,
+      "lng": 14.299564100180001
+    },
+    {
+      "type": "shape",
+      "lat": 36.025338615038244,
+      "lng": 14.299108104884196
+    },
+    {
+      "type": "shape",
+      "lat": 36.02515636971822,
+      "lng": 14.29853408727655
+    },
+    {
+      "type": "shape",
+      "lat": 36.0248396089922,
+      "lng": 14.298330230556084
+    },
+    {
+      "type": "stop",
+      "lat": 36.02474848580776,
+      "lng": 14.29867356819057,
+      "name": "Tour Ends in Mgarr harbour ",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.02478521309418,
+      "lng": 14.29865242283019
+    }
+  ]
+}

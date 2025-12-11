@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Comino Walk</name>
+    <description><![CDATA[Starting: Blue Lagoon<br><br>Ending: Blue Lagoon<br><br>Length: 7km<br><br>Grading: Easy<br><br>Landscape: Coastal, valleys<br><br>Trail markings<br><br>Getting there and back: Various passenger boats from iċ-Ċirkewwa, Marfa in Malta and from L-Imġarr Harbour in Gozo. The Comino Hotel also operates a scheduled service when the Hotel is open.<br><br>Recommended Walking season: October to May<br><br><br>Overview<br><br>Kemmuna (Comino) and its islets, a highly protected area of a bit less than 3km² form part of the municipality of Għajnsielem Gozo. Historically a preferred hideaway by corsairs, Comino is now a haven for birds and tranquillity — hunting is not allowed, nor are vehicles other than those used by the resident population or by hotel staff. Currently the main island has a permanent population of three people and a seasonal hotel operates from San Niklaw Bay. The short walking route described here is a circular one which starts and ends at Bejn il-Kmiemen (Blue Lagoon) in an anticlockwise direction. The trail follows the main pathways but can easily be extended by going off the beaten track to explore the island in more detail especially along the wild cliffs on the east side. The Blue Lagoon is the most popular site among day trippers — it can get quite crowded on sunny days as early as May but otherwise few people venture along the coast or into the heart of Comino.]]></description>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-DB4436-nodesc-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-nodesc-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-00AA00-normal">
+      <IconStyle>
+        <color>ff00aa00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-00AA00-highlight">
+      <IconStyle>
+        <color>ff00aa00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-00AA00">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-00AA00-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-00AA00-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-D60303-nodesc-normal">
+      <IconStyle>
+        <color>ff0303d6</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-D60303-nodesc-highlight">
+      <IconStyle>
+        <color>ff0303d6</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-D60303-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-D60303-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-D60303-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-D60303-5000-normal">
+      <LineStyle>
+        <color>ff0303d6</color>
+        <width>5</width>
+      </LineStyle>
+    </Style>
+    <Style id="line-D60303-5000-highlight">
+      <LineStyle>
+        <color>ff0303d6</color>
+        <width>7.5</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-D60303-5000">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-D60303-5000-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-D60303-5000-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FFFF00-1000-179-normal">
+      <LineStyle>
+        <color>ff00ffff</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>b300ffff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FFFF00-1000-179-highlight">
+      <LineStyle>
+        <color>ff00ffff</color>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>b300ffff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FFFF00-1000-179">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FFFF00-1000-179-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FFFF00-1000-179-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Walking Path</name>
+      <Placemark>
+        <name>Start</name>
+        <description><![CDATA[Bejn il-Kmiemen, translated as “between the Cominos” but popularly known as the Blue Lagoon is where the walk starts and ends — most day trippers to the island alight here for swimming and sunbathing. If you want to enjoy a swim the best time is as soon as you get here with the first boat — in sunny weather the deserted beach will be transformed into a busy space by midday and will hardly be recognisable.<br><br>Less than 200 meters away lies the sister islet of Kemmunett (Cominotto), the diminutive for Kemmuna. The islet has been proposed as a strict nature reserve for its important ecology whilst the sea around the islands was designated as protected.]]></description>
+        <styleUrl>#icon-503-00AA00</styleUrl>
+        <Point>
+          <coordinates>
+            14.324739,36.013921,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Part 1</name>
+        <description><![CDATA[Leaving the turquoise hues behind you head up to the right to start your walk alongside the coast and its string of attractive islets which despite their hardstone nature are all subject to the forceful action of the waves piercing holes right through. Just be cautious along a few stretches where the terrain may be a bit tricky. The garigue vegetation becomes more widespread and diverse as you proceed along this aromatic path of wild plants whose dwarf shrubs are ideal hiding and resting places for the population of Maltese Wall Lizards which race you along the way. On warm sunny days this is also a good place to spot the black Western Whip Snake, as it basks in the sun gathering its energy. The four species of snake known from the Maltese Islands are protected by law as are all reptile species in Malta. None of them is considered as poisonous.<br><br>Heading towards the sombre tower crowning the majestic cliffs of Western Comino, the path continues upwards along the cliff. Keeping a safe distance away from the fragile edge do have a look or go down to the crystal clear waters of the next popular spot for pleasure boats — the Crystal Lagoon — known locally as Il-Bejta tal-Fenek (the rabbit’s nest). Indeed the island is renowned for its wild rabbit population which are easier spotted here rather than on the main islands. <br><br>The path goes close to one of the few valleys of the island — Il-Wied ta’ Skalanova (the valley of the new port). If you are in an adventurous mode to explore the rugged terrain venture offroute down the valley slope but be warned — there is a massive gaping hole in the rock measuring more than 20 meters in width and lying open just below. This collapsed limestone cave, aptly called L-Għar ta’ Bla Saqaf (the roofless cave), connects to the sea below via a large natural arched entrance home now to several wild pigeons. At sea level, seen only from a boat, is a small hidden pebble cove - one of the many backdrops to the film the Count of MonteCristo (2002) whose Château d’If was the nearby tower. The narrow promontory of land offers striking views to the tower and vertiginous cliffs below including the massive stack of Il-Mazz — probably what remains of a large eroded arch. The valley is one of the few sheltered pockets of this windswept area and is a good hiding place not only for rabbits or reptiles but also, it seems, for soldiers in wartime. Locals remember them posted on guard here in two rock cut chambers excavated in the valley side — features which are as yet undated and unclassified but nevertheless interesting as at first glance they resemble ancient rock tombs. Despite the small surface area of the island to date no extensive archaeological survey has been carried out. <br><br>Proceeding towards the Santa Marija Tower the Shrubby Kidney Vetch colours the landscape yellow with many tiny flowers in Spring whilst the high and exposed plateau is enlivened by minute Scarlet and Blue Pimpernels. To the left lies the inhabited section of the island. Don’t miss a visit to the Knights’ seventeenth century tower when the flag is flying — the view from the roof is breathtaking. And if you have planned for a longer stay on the island don’t miss the appointment with sunset from these wild cliffs. <br><br>Best seen from roof of tower is the whole landscape of the island with the highest section rising in the East. A striking feature is the large number of dry stone walls traversing the island — a sign of agricultural activity of the past. Most of the land today is largely abandoned — some areas which where under cultivation are slowly being taken over again by wild plants but in many areas the discontinuation of farming has resulted in soil erosion as dry stone walls lacking maintenance collapse and lose their soil retaining role.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.324725,36.013906,0
+            14.324725,36.013889,0
+            14.324545,36.013589,0
+            14.324545,36.013572,0
+            14.324588,36.013158,0
+            14.324588,36.01315,0
+            14.32478,36.012658,0
+            14.325182,36.012279,0
+            14.325645,36.0119,0
+            14.326055,36.011564,0
+            14.326524,36.011264,0
+            14.327182,36.010992,0
+            14.327541,36.010947,0
+            14.327954,36.010898,0
+            14.328291,36.010947,0
+            14.328467,36.011017,0
+            14.328549,36.010826,0
+            14.329042,36.01038,0
+            14.329331,36.010237,0
+            14.329709,36.010098,0
+            14.329729,36.010098,0
+            14.329966,36.010074,0
+            14.330265,36.010016,0
+            14.330255,36.009774,0
+            14.330188,36.009503,0
+            14.330187,36.009491,0
+            14.330187,36.009467,0
+            14.330064,36.009157,0
+            14.329909,36.00865,0
+            14.329895,36.008643,0
+            14.329829,36.008492,0
+            14.329834,36.008476,0
+            14.329971,36.008397,0
+            14.330156,36.008307,0
+            14.330336,36.008158,0
+            14.330361,36.007985,0
+            14.330361,36.007965,0
+            14.330415,36.007857,0
+            14.330302,36.007761,0
+            14.330115,36.007696,0
+            14.330055,36.007552,0
+            14.329902,36.007516,0
+            14.329664,36.007455,0
+            14.329431,36.007377,0
+            14.329366,36.007224,0
+            14.329351,36.007101,0
+            14.329351,36.007089,0
+            14.3294,36.007011,0
+            14.329464,36.006989,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 2</name>
+        <description><![CDATA[When you are ready to detach yourself from the view, head towards Il-Palazz (the palace) which served as an isolation hospital in colonial times and then turn right. Follow the road which was constructed by the Knights to link the Santa Marija Tower with the Santa Marija Battery erected a century later. A small track with a few trees to the right leads down to the small bay of Wied Ernu which used to serve for a while as an unloading jetty. Continue straight ahead amidst wind sculpted cushion-like shrubs of endemic Maltese Spurge and Olive-leaved Germander holding their ground together with larger shrubs of African Wolfbane. By the start of Summer the latter’s horn-like pods burst open to release large amounts of plumed seeds which cover the shrub in silky hairs until the wind carries them away. A few planted Aleppo Pine Trees line the parallel road following the ridge above. The “tail” of Malta comes into full view guarded by the White Tower on its Eastern end and the Red Tower to the West. The Comino channels were always busy with corsairs, pirates and incursors attacking from all sides so it was necessary to have several coastal forts at close range to drive the message through that the island was well guarded. In this peaceful atmosphere it is hard to imagine such hazardous times along the coast.<br><br>Arriving at the defensive battery take some time to enjoy this restored fort (the only shade you will find) which has had its cannons brought back on site from the various locations in which they were dispersed for years. Have a look at the coast beneath to spot a beautiful arch at Il-Ħnejja and the rich vegetation of spurges with their changing hues.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.329472,36.007009,0
+            14.329411,36.007054,0
+            14.329399,36.00716,0
+            14.329432,36.007267,0
+            14.329482,36.007355,0
+            14.329701,36.007415,0
+            14.329956,36.007485,0
+            14.330084,36.007522,0
+            14.330144,36.00761,0
+            14.330173,36.007686,0
+            14.330311,36.007724,0
+            14.330396,36.007771,0
+            14.330403,36.007777,0
+            14.330471,36.007846,0
+            14.330531,36.007819,0
+            14.330538,36.007813,0
+            14.33061,36.007712,0
+            14.330617,36.007698,0
+            14.330807,36.007481,0
+            14.331047,36.007273,0
+            14.331359,36.007035,0
+            14.331521,36.006894,0
+            14.331855,36.006684,0
+            14.332588,36.006749,0
+            14.332992,36.006843,0
+            14.333642,36.007033,0
+            14.334099,36.007184,0
+            14.334298,36.00721,0
+            14.334613,36.007132,0
+            14.336898,36.006402,0
+            14.337478,36.006316,0
+            14.339052,36.006288,0
+            14.340693,36.006336,0
+            14.342011,36.006489,0
+            14.343375,36.006784,0
+            14.343828,36.006828,0
+            14.343838,36.006828,0
+            14.344256,36.006787,0
+            14.344755,36.006826,0
+            14.345107,36.006868,0
+            14.345345,36.006906,0
+            14.345611,36.006902,0
+            14.345864,36.00683,0
+            14.346043,36.006746,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 3</name>
+        <description><![CDATA[From the battery the route climbs up to go past what used to be an experimental isolation farm.<br><br>At the top of the path keep straight to start the gentle descent into Wied l-Aħmar (the red valley). The small valley system here is quite distinct from the rest of the rugged landscape where the sea seems to dominate all the senses. The sheltered nature of the site and some slightly deeper soils allow the growth of small trees amongst which are the handsome almond trees with their delicately scented short-lived pale flowers in early Winter and some ancient olive trees as well as planted citrus. Some of the terracing remains intact as parts of the valley are cared for by the residents who produce a few crops for themselves as well as some fine honey. Few people visit in early Winter but if you do you may be greeted by one of the sweetest surprises — bunches of superbly scented French Daffodils. Although this used to be a very common plant on Malta, it declined extremely rapidly in the last few decades due to the widespread indiscriminate picking of its flowers. Midway down to Santa Marija Bay a small room and reservoir to the left used to house one of the island’s boreholes for pumping up water from the aquifer — today it houses Malta’s only ringing station operated as part of an international research project by volunteers from BirdLife Malta.<br><br>Soon the valley widens up and brings into view a small chapel, Santa Marija Bay with its camping area and Hotel bungalows and Gozo in the distance. A small fortified building to the left houses the police station with officers from Gozo staying on the island on a shift basis. The bay can get busy with boats seeking shelter here in the warmer months — a practise for which evidence has been found dating at least to Classical times with Roman wrecks discovered on the seabed. A unique archaeological find was made on shore when a skeleton was found buried under a split amphora dating to Roman times. Before returning to your starting point allow some time to go off route to explore the headland to the East at the tip of which is a high double arch sculpted in sharply pointed rock where only the hardiest of plants dare to grow. There are several interesting marine caves along the coast beneath the high cliffs — some large ones can be appreciated from land with some memorable views if you follow the cliffs all along — another large archway can also be seen at the point known as Id-Darsa (the molar) — resembling an elephant’s trunk as if drinking seawater.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.346063,36.006777,0
+            14.345829,36.00688,0
+            14.345545,36.006952,0
+            14.345526,36.006952,0
+            14.345208,36.006931,0
+            14.345147,36.006919,0
+            14.345149,36.007016,0
+            14.345086,36.007111,0
+            14.344986,36.007169,0
+            14.344951,36.007287,0
+            14.345002,36.007392,0
+            14.345117,36.007536,0
+            14.345196,36.00766,0
+            14.345168,36.007754,0
+            14.345153,36.007754,0
+            14.345058,36.007772,0
+            14.345051,36.007772,0
+            14.344963,36.007742,0
+            14.344863,36.007691,0
+            14.344838,36.007685,0
+            14.344753,36.007664,0
+            14.344666,36.007665,0
+            14.344659,36.007665,0
+            14.344608,36.007671,0
+            14.344578,36.007739,0
+            14.344571,36.007748,0
+            14.344512,36.007928,0
+            14.344388,36.008317,0
+            14.344268,36.008649,0
+            14.344166,36.008837,0
+            14.344297,36.008962,0
+            14.344323,36.009162,0
+            14.344214,36.009271,0
+            14.344049,36.009349,0
+            14.343477,36.009559,0
+            14.342653,36.010318,0
+            14.34201,36.011018,0
+            14.341554,36.011521,0
+            14.341204,36.011626,0
+            14.340728,36.01167,0
+            14.340318,36.011725,0
+            14.340307,36.011734,0
+            14.340284,36.011733,0
+            14.340033,36.01177,0
+            14.339465,36.012051,0
+            14.339242,36.012135,0
+            14.339066,36.012431,0
+            14.338821,36.012713,0
+            14.33866,36.01283,0
+            14.338204,36.013151,0
+            14.337879,36.013451,0
+            14.337548,36.013832,0
+            14.337532,36.013838,0
+            14.337356,36.01414,0
+            14.337278,36.01447,0
+            14.337265,36.014816,0
+            14.337395,36.015198,0
+            14.337524,36.015496,0
+            14.337602,36.015693,0
+            14.337475,36.015833,0
+            14.337364,36.015926,0
+            14.337275,36.016031,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 4</name>
+        <description>The return route goes up past the picturesque Santa Marija Chapel dedicated to the Flight of the Holy Family to Egypt — one of the oldest chapels of the islands with quite a unique belfry. The road is flanked by a small wood consisting mainly of Aleppo Pine filling the air with its aromatic resinous smell on hot days whilst closer to the ground the yellow-flowered Seaside Ox-Eye Daisy is ubiquitous in Spring. The building to the left is the Old Bakery which currently lies in an abandoned state and ahead on the hillock is the Comino Cemetery. Turn left to proceed on the walk to see one more small bay at Għar Għana where the large bulbs of Sea Squill sprout from all over the rocky terrain and Wild Thyme fills the air with its aroma. As you approach Blue Lagoon a small arch next to a small flight of steps is a perfect cooling down place before heading back to the boat.</description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.337279,36.016026,0
+            14.337157,36.016003,0
+            14.336914,36.015976,0
+            14.336653,36.01591,0
+            14.336557,36.015891,0
+            14.33641,36.015946,0
+            14.336216,36.016001,0
+            14.336064,36.016003,0
+            14.335994,36.015889,0
+            14.335993,36.01588,0
+            14.335851,36.01534,0
+            14.335819,36.015229,0
+            14.335594,36.015133,0
+            14.335229,36.014992,0
+            14.334944,36.014872,0
+            14.334665,36.014562,0
+            14.334184,36.013944,0
+            14.333891,36.013628,0
+            14.333395,36.013324,0
+            14.332895,36.01283,0
+            14.332649,36.012476,0
+            14.332547,36.012288,0
+            14.33242,36.012259,0
+            14.33228,36.012323,0
+            14.330986,36.013057,0
+            14.330135,36.01354,0
+            14.329341,36.013974,0
+            14.329238,36.014111,0
+            14.329186,36.014233,0
+            14.32911,36.014333,0
+            14.328897,36.014498,0
+            14.328652,36.014554,0
+            14.328372,36.01456,0
+            14.327956,36.014544,0
+            14.327852,36.014541,0
+            14.327716,36.014569,0
+            14.327298,36.014775,0
+            14.326724,36.015058,0
+            14.326511,36.015544,0
+            14.326369,36.015855,0
+            14.326277,36.016166,0
+            14.326109,36.016479,0
+            14.32601,36.016626,0
+            14.325755,36.016837,0
+            14.325572,36.017018,0
+            14.325427,36.017152,0
+            14.325225,36.017378,0
+            14.324928,36.017614,0
+            14.324909,36.01763,0
+            14.324625,36.017793,0
+            14.324436,36.017916,0
+            14.324348,36.018013,0
+            14.32412,36.018146,0
+            14.323898,36.018152,0
+            14.323671,36.018091,0
+            14.32336,36.017912,0
+            14.323226,36.01756,0
+            14.323188,36.017345,0
+            14.323231,36.017151,0
+            14.323402,36.016957,0
+            14.323408,36.016947,0
+            14.323677,36.016758,0
+            14.323677,36.016753,0
+            14.324016,36.0166,0
+            14.324036,36.016585,0
+            14.324308,36.016428,0
+            14.324554,36.016357,0
+            14.324655,36.016093,0
+            14.324643,36.016083,0
+            14.324917,36.015495,0
+            14.324836,36.015353,0
+            14.324623,36.015192,0
+            14.324439,36.015031,0
+            14.324246,36.014865,0
+            14.324168,36.014733,0
+            14.324168,36.014717,0
+            14.324347,36.014412,0
+            14.324564,36.014106,0
+            14.324669,36.013995,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>End</name>
+        <styleUrl>#icon-503-D60303-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.324684,36.013973,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Snippets</name>
+      <Placemark>
+        <name>Chapel of the Return from Egypt </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsgiB0XVKOmGB6agYJVZMiWkzj_pKI3IWxURUZpzMgO9CQf4P21M9xQ8Al9FHtc5wts0yXY-1pFuWOf4ss3pROgYk_N0LFAMwbFXFiRwCqNuQ1b_5mMuCLELyEPxydcKGX5fFYI6YANLGrx3nIX56XXBTtNo8G0ctT4q_aoAsUnWj600s4h5AfzyqdOorEwUyOeLq2-K9QjOA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The small chapel lies on the St Mary’s Tower/Qala Santa Marija road. It is dedicated to the Flight of the Holy Family to Egypt. It dates from the early 16th century as is shown by its architecture and more significantly its wooden screen separating the officiating priest from the congregation — a feature which was present in rural chapels from which the original wooden screen has disappeared.<br><br>Religious services are held regularly for the few residents on the island and, in Summer, for the guests at the hotel. Another small church dedicated to Saint Nicholas once stood in the vicinity of Qala San Niklaw road but now no traces remain of that structure.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKs7mtAJVVQ7eSExyavh9J91h7t9u_I-EFFNKgGwUsng6qZUzCXMsrfYGMriR__CauBvKSM22S0Uoz007a4TZmRDPCJrCWhcGH4OEMC11D21oFt66Z_L3BVCwJgl31vflQpOM8-gVpLDMFVDkzpnIOP4YSHhRaJAAMBPMqG-6H7SeySuv0Aj9QCxfBq1G-1axDH0yn05bpUVVA?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#poly-FFFF00-1000-179</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsgiB0XVKOmGB6agYJVZMiWkzj_pKI3IWxURUZpzMgO9CQf4P21M9xQ8Al9FHtc5wts0yXY-1pFuWOf4ss3pROgYk_N0LFAMwbFXFiRwCqNuQ1b_5mMuCLELyEPxydcKGX5fFYI6YANLGrx3nIX56XXBTtNo8G0ctT4q_aoAsUnWj600s4h5AfzyqdOorEwUyOeLq2-K9QjOA?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKs7mtAJVVQ7eSExyavh9J91h7t9u_I-EFFNKgGwUsng6qZUzCXMsrfYGMriR__CauBvKSM22S0Uoz007a4TZmRDPCJrCWhcGH4OEMC11D21oFt66Z_L3BVCwJgl31vflQpOM8-gVpLDMFVDkzpnIOP4YSHhRaJAAMBPMqG-6H7SeySuv0Aj9QCxfBq1G-1axDH0yn05bpUVVA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.335751,36.015184,0
+                14.335738,36.015066,0
+                14.335867,36.015053,0
+                14.335882,36.015174,0
+                14.335751,36.015184,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Isolation Hospital</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtSrwYszG81lJXhP13xbFEeoQKeZAuzcFidO8P97Cizqq8LYnXYk8MsMyxer5i5p5KKxsUNeO0SYctBOGL4_yb45QRIQUbHy_N9d9NLjHNpCbEIY7ICIBuJuJGinMCPaUN21fSFW7Fov_TEVyhNtv2J6bVoYj-5lDKnT_znQfN0c-Eqot9BoOAX33c0qX9LjCnOdXW2KGi-GfA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The largest building on Comino (if one excludes the hotel) is the Isolation Hospital erected by the British military authorities in the last decade of the 19th century to provide a quarantine station for troops returning to Malta from plague-stricken ports in the Levant.<br><br>Regulations published in the official Malta Government Gazette state that “As from 6 February 1897 the islands of Comino and Cominotto shall be considered as places for the custody of persons subject to quarantine… no person shall be allowed to land in those islands or approach within 300 yards.” The isolation hospital was fully equipped and manned to deal with eventualities, which in reality rarely arose. The hospital now lies in large part abandoned.]]></description>
+        <styleUrl>#poly-FFFF00-1000-179</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtSrwYszG81lJXhP13xbFEeoQKeZAuzcFidO8P97Cizqq8LYnXYk8MsMyxer5i5p5KKxsUNeO0SYctBOGL4_yb45QRIQUbHy_N9d9NLjHNpCbEIY7ICIBuJuJGinMCPaUN21fSFW7Fov_TEVyhNtv2J6bVoYj-5lDKnT_znQfN0c-Eqot9BoOAX33c0qX9LjCnOdXW2KGi-GfA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.330389,36.008074,0
+                14.33048,36.007952,0
+                14.330791,36.008143,0
+                14.330998,36.007869,0
+                14.330805,36.007711,0
+                14.330876,36.007651,0
+                14.33112,36.007869,0
+                14.330879,36.008196,0
+                14.331127,36.008339,0
+                14.331052,36.008433,0
+                14.330389,36.008074,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Points</name>
+      <Placemark>
+        <name><![CDATA[Saint Mary's Tower]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsTTIVRUZY-G68IIJFHEH01vdnu4-Gy_K8kHv9h5I_DUcsNZcfTmDPBSIpuf0KMzlxmN99iQDXENDEbyQB6f40RsTJRDyyk14ZeShz16PytD-H0Pt2SS1Wbk3_NeG2nh3210qNQYAap01qLSi0g5pVt-0sE0-FPfS4g-swnZI2u0yaiAOpCNfn5xoKNp78-09IRNgwHqa988GQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Built in 1618 by Grand Master de Wignacourt, it formed part of a system of towers providing defence and communication between the Cittadella in Gozo and Mdina.<br><br>The Santa Marija Tower on Comino formed part of the early system of towers which the Order set up to facilitate defence and communication between the Cittadella in Gozo and Mdina. It later became a key location of the system of towers built along the coast. The decision to build this Tower was taken by Grand Master Alof de Wignacourt in 1618, and was financed by the Grand Master himself, by the sale of the brushwood on the island and from the profits made by the resettled farmers. The site chosen was some eighty metres above sea level.<br><br>The design of the Tower was square in plan with four corner turrets. The bulk of the Tower is twelve metres high and stands on a plinth some eight metres high. A three metre wide strip was laid along the top surface of the plinth to enable the defenders to move easily to any endangered point. The walls of the Tower are about six metres thick and the four corner turrets are extended perpendicularly and crowned with a battlement top.<br><br>The Tower is surrounded by a thick, high rubble wall made of loose stones, which gave the impression that the Tower was surrounded by a ditch. During the British period the Tower was important for the protection of the anchorage and communications between Gozo and Malta, together with Fort St Agatha (the Red Tower) in Mellieha and Fort Chambrai in Gozo. It was during this period that the internal fabric of the Tower was significantly changed, and it seems likely that it was used as an isolation hospital at some point, while the lower chamber was converted into a stable for animals.<br><br>St. Mary’s Tower has been exposed to the sea and winds for many years and the stone work had greatly deteriorated. The roof waterproofing was cracked in many places and had been crudely covered to stop water leakage. Vegetation had taken root in the crevices and roof, further dislodging stone blocks. In recent years vandalism had taken its toll and there was an almost complete absence of the parapet wall on the roof and turrets. A great number of large stone blocks had been taken from the plinth wall for other uses. Restoration commenced in 2002 and the exterior was completed in 2004.<br><br>The Tower is open on Wednesdays, Fridays, Saturdays and Sundays from April to end of October between 10.30am and 3.00pm if the flag is flying.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvrhngOVvmSStRNJ4B_NMhUwJ2myhqhVrTURTmrDd0D9JkhuF5lIh5-4_ToMUw_Lxr_-tYXANhwJr5xDK8zTtKcpOQn_XdRjrM94Lra2jX8m9-SoGTU0fiS2D6nCZtdOiyWrwnO2_NRBzLLGF7qSZA80abPEoXaOF559cmzylFB7UqwiYQq6Pe1AU0c89t8YhY0v9U1qMWd9Q?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsTTIVRUZY-G68IIJFHEH01vdnu4-Gy_K8kHv9h5I_DUcsNZcfTmDPBSIpuf0KMzlxmN99iQDXENDEbyQB6f40RsTJRDyyk14ZeShz16PytD-H0Pt2SS1Wbk3_NeG2nh3210qNQYAap01qLSi0g5pVt-0sE0-FPfS4g-swnZI2u0yaiAOpCNfn5xoKNp78-09IRNgwHqa988GQ?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvrhngOVvmSStRNJ4B_NMhUwJ2myhqhVrTURTmrDd0D9JkhuF5lIh5-4_ToMUw_Lxr_-tYXANhwJr5xDK8zTtKcpOQn_XdRjrM94Lra2jX8m9-SoGTU0fiS2D6nCZtdOiyWrwnO2_NRBzLLGF7qSZA80abPEoXaOF559cmzylFB7UqwiYQq6Pe1AU0c89t8YhY0v9U1qMWd9Q?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3298648,36.0069199,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Comino Ferry</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsRBJvddmAI7jOtTEZdQMzhf2Mc4ZU7d36sy8pERNpSyAWobqcnVcdacB34oSCkfY3YE6zXEJ-wncMk8KenPPibeL4aqEVQ7AuwmzNcMDZJHHCl9Eg_tPJU0g_rd4Oe7iQ6jFG_q7YbE3Mwie_agssRr6Oq7dyfx_SLX8xc8goMmrh-IqWMPLDqklgShuXraKEN7KPd-xuza5I?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsRBJvddmAI7jOtTEZdQMzhf2Mc4ZU7d36sy8pERNpSyAWobqcnVcdacB34oSCkfY3YE6zXEJ-wncMk8KenPPibeL4aqEVQ7AuwmzNcMDZJHHCl9Eg_tPJU0g_rd4Oe7iQ6jFG_q7YbE3Mwie_agssRr6Oq7dyfx_SLX8xc8goMmrh-IqWMPLDqklgShuXraKEN7KPd-xuza5I?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3232356,36.0150553,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Swimming Zone</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuMzEeRPhb9a5tO_ib1VbSV1gLXvrrgkyCTtqjGAnk3nHpdHLKphSo1i_Beret_tdpCGzkEbtaO2j66olSk0xswn4zN46HLBT4zCQVdaFcyV4_Vu1H4fqfB3sMLskAFIc3LV-2jFlHYReH-z7GzPuhiMnZEEwx1jKV61Vwl_olapB5tBxbi1EdwFIhpH8n7MRyjFCLO_JLD4w?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Blue Lagoon]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuMzEeRPhb9a5tO_ib1VbSV1gLXvrrgkyCTtqjGAnk3nHpdHLKphSo1i_Beret_tdpCGzkEbtaO2j66olSk0xswn4zN46HLBT4zCQVdaFcyV4_Vu1H4fqfB3sMLskAFIc3LV-2jFlHYReH-z7GzPuhiMnZEEwx1jKV61Vwl_olapB5tBxbi1EdwFIhpH8n7MRyjFCLO_JLD4w?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3233857,36.013473,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Swimming Zone</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKspYY02vd09g4nKesMh_Dcyz-zOVBzFLS_O2TB6Ss3KWUqy7aYjuMiu9lW9Yt21379eHrZASX-UBVs_HsjNyjosUJ8SrwuXbcCTsS4Xdl8gAaZtMZ876sxLODLl51m_1WCRQD7bT3mIEy47ZikWHgpG1whjByZd6V8GGRMiS_DdBXnHutuQX8WjU4QQAbPOnZYLaO_TNTj5Wg?authuser=0&fife=s16383" height="200" width="auto" /><br><br>San Niklaw Bay]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKspYY02vd09g4nKesMh_Dcyz-zOVBzFLS_O2TB6Ss3KWUqy7aYjuMiu9lW9Yt21379eHrZASX-UBVs_HsjNyjosUJ8SrwuXbcCTsS4Xdl8gAaZtMZ876sxLODLl51m_1WCRQD7bT3mIEy47ZikWHgpG1whjByZd6V8GGRMiS_DdBXnHutuQX8WjU4QQAbPOnZYLaO_TNTj5Wg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3297471,36.0174218,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Public Toilet</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.3359453,36.0163168,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Swimming Zone</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvGsKW6ZARBAn6BKz_ofBGYN1U5WdbrXd3VUlzUqR5rviQ994CnGCHjml03QNf30HsPm45duCdAiG-XxHvzv5Sa-hL4mtnq6saP76WeQngaUGHtaVodOKIRZG9r_NwF2oXpP0p3Zt1VBdVX2gMtv65RkLXsIcI55kppsg2COHkIaoyjSLveRHM0sHjbwNMOTthv8hehEKCD3A?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvGsKW6ZARBAn6BKz_ofBGYN1U5WdbrXd3VUlzUqR5rviQ994CnGCHjml03QNf30HsPm45duCdAiG-XxHvzv5Sa-hL4mtnq6saP76WeQngaUGHtaVodOKIRZG9r_NwF2oXpP0p3Zt1VBdVX2gMtv65RkLXsIcI55kppsg2COHkIaoyjSLveRHM0sHjbwNMOTthv8hehEKCD3A?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.337198,36.017633,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.3387752,36.0195291,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvzQIbv5QX4zIlKYc1y4eyOKuYx7LP69PAYqRPGauWD_bhAVG3ZDb2bIBcOUOaV8dUx86A4r8RCew2B3QdO4Gh8ci7VvoXIIY9WOi0hRGs6vNXkSFCIl_KkDob40ooTQ2NyMImtCjmYqH8dMDjoEJZDeiBQBsc9A-HpLzjt7tZcBnsF9toIQe8Sc-8OBoVZlQsO3ndsPxAbAeQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsvQiIz_ChVv_w8ctrWkfN2JysCbBynS_GQ3K7ahJANUAMSARHbgLQ6YvT_JfFweUCa11cINWTJtn1TuSmTGjqZo5kl0N9feZxuWMptgeECFkmtCo4l3U3U_ivkMrU1rRvxd1IYRjMCmOohY-LppEUs8nrq-qGL7FFA-NIzI0S4oaLrsVnsuAnnc3wZqaPOmLgkdcXDLnQ2Lw?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvzQIbv5QX4zIlKYc1y4eyOKuYx7LP69PAYqRPGauWD_bhAVG3ZDb2bIBcOUOaV8dUx86A4r8RCew2B3QdO4Gh8ci7VvoXIIY9WOi0hRGs6vNXkSFCIl_KkDob40ooTQ2NyMImtCjmYqH8dMDjoEJZDeiBQBsc9A-HpLzjt7tZcBnsF9toIQe8Sc-8OBoVZlQsO3ndsPxAbAeQ?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsvQiIz_ChVv_w8ctrWkfN2JysCbBynS_GQ3K7ahJANUAMSARHbgLQ6YvT_JfFweUCa11cINWTJtn1TuSmTGjqZo5kl0N9feZxuWMptgeECFkmtCo4l3U3U_ivkMrU1rRvxd1IYRjMCmOohY-LppEUs8nrq-qGL7FFA-NIzI0S4oaLrsVnsuAnnc3wZqaPOmLgkdcXDLnQ2Lw?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3386165,36.0060089,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Saint Mary's Battery
+]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKu_HgO9Yf4lroMmZMt6bkZB0xyHWfpumX9MW0W_u02XcT1KhVUuEIgu-Ri2MsbNQhYmldD9xeV3fvLDgRzHpGkn2LcMizcCOodDz_Mp-saFB525Jx74sx1_FGoXQHN2bT4VJoqQ5yfy6n7JWXZzw09AWwCrlQEAzUwgCQLPLKz57c2wI2YDOLV9feAFwUy-5rovLZXigJxomg?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Saint Mary's Battery (Maltese: Batterija ta' Santa Marija), also known as Comino Battery (Maltese: Batterija ta' Kemmuna), is an artillery battery on the island of Comino in Malta. It was built by the Order of Saint John between 1715 and 1716 as one of a series of coastal fortifications around the coasts of the Maltese Islands.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKu_HgO9Yf4lroMmZMt6bkZB0xyHWfpumX9MW0W_u02XcT1KhVUuEIgu-Ri2MsbNQhYmldD9xeV3fvLDgRzHpGkn2LcMizcCOodDz_Mp-saFB525Jx74sx1_FGoXQHN2bT4VJoqQ5yfy6n7JWXZzw09AWwCrlQEAzUwgCQLPLKz57c2wI2YDOLV9feAFwUy-5rovLZXigJxomg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3461807,36.006892,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chapel of the Return from Egypt </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtxK9B-AMbOpB-76cKPYXUcN2Yln4ZiSVDEMMD2Iw26ztQJxm-69IRyPTzXDbMnhYPRv9oEOYt76DdOW69fsj6IMxkrRUwnEN12SjXtdeMSherTl2lPbrANekSys1L3GV6t8JBWBdrr8GfSKGC8k45EuzrZTJlmsTPdYouv-Ni7ipFOZ0mrhTk4BtZFg4_WL0PyJnbLRWGyBFQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>A tiny Roman Catholic chapel dedicated to the Holy Family Upon its Return from Egypt is located above Santa Marija Bay. Built in 1618, and enlarged in 1667 and again in 1716, the chapel was originally dedicated to the Annunciation. It has been deconsecrated and reconsecrated at least once in its history, when Comino was devoid of residents. The earliest record of a chapel on this site dates back to the 12th century, and can be seen in a navigational map of the period, located in the National Maritime Museum and Royal Observatory in Greenwich, London.<br><br>In the past, and well into the 20th century, whenever the seas were too rough for the Gozitan priest to make the crossing to Comino for the celebration of Holy Mass, the local community would gather on the rocks at a part of the Island known as Tal-Ħmara, and gaze across the channel towards the Chapel of Our Lady of the Rocks (Maltese: il-Madonna tal-Blat), in Ħondoq ir-Rummien, Gozo, where Mass was being celebrated. They followed the Mass by means of a complex flag code.<br><br>Looking at the church from the outside one sees a very primitive, plain church however the interior of the church contrasts with the exterior. The interior is constructed on a Neo-Gothic style, with pointed archways. The sanctuary is separated from the main body of the church by an Iconostasis, one of the few churches left with it intact, indicating its origins at a time when the Maltese Church fell under the Byzantine Church. The main painting depicts the return of the Holy Family from Egypt and has influences from Francesco Zahra. It was restored in 1928 by Vincenzo Bonello. The church has one altar and three statues, the Virgin Mary, the Sacred Heart and Saint Joseph.<br><br>Researched and written by Federica Fluca<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtR_uBbAxvKEXfTQY2wHk1C5gDRT22xUjz8dGlMPpPbiMeL9s7tKmSMWzsmj4xmbfpzraKiQZHTrvisvmRX7AA1aAZJhn9_MhoRxhanRnD5kJqF0O3-KR15ywgg8vN6Rz6z70Bo9G5We6F5Oet2z1zfHGpwCCWwONZzHQgsHgHW2MzuPvfS0bxl56aWK14Z7CGauhMMR2kP1g?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtxK9B-AMbOpB-76cKPYXUcN2Yln4ZiSVDEMMD2Iw26ztQJxm-69IRyPTzXDbMnhYPRv9oEOYt76DdOW69fsj6IMxkrRUwnEN12SjXtdeMSherTl2lPbrANekSys1L3GV6t8JBWBdrr8GfSKGC8k45EuzrZTJlmsTPdYouv-Ni7ipFOZ0mrhTk4BtZFg4_WL0PyJnbLRWGyBFQ?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtR_uBbAxvKEXfTQY2wHk1C5gDRT22xUjz8dGlMPpPbiMeL9s7tKmSMWzsmj4xmbfpzraKiQZHTrvisvmRX7AA1aAZJhn9_MhoRxhanRnD5kJqF0O3-KR15ywgg8vN6Rz6z70Bo9G5We6F5Oet2z1zfHGpwCCWwONZzHQgsHgHW2MzuPvfS0bxl56aWK14Z7CGauhMMR2kP1g?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3358254,36.0151265,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Isolation Hospital</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKs4Wp1fe9sMEJC2EYOQCqeqsOVOQJEnCbcNnkEhRMScRL66yYCc49Fm1lQcEnhwMDw62ksze38jLwaH4Tcsj23IBlc87Mj9j0zfriQLrVPO4BWrXnCYsb6V3Bsm0DrVM4rM-cCntiRTjKfzlyST9zLqEnhy0SfFH_CHDi-5C8vMESsiqXpGzjx2jFU8sl-sr3BoUkAy1UaNi40?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The largest building on Comino (if one excludes the hotel) is the Isolation Hospital erected by the British military authorities in the last decade of the 19th century to provide a quarantine station for troops returning to Malta from plague-stricken ports in the Levant.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsmPe90ZxYhCgP4H0d5DCyFLVWPIyY4hlUP9tDSRukVcM6y4M423Vcrl_se-VkWXBB9DZF4cp2fLqNRJebYoseEOdy8Wptue4p3pokfLDPcFmygC_RCOZaPFC6-pVEKmDRFd80Yx2CERb_6IWG8euI5K0Edl8UBnMcf6QPj4nEEt3-R5-p6r9h7paP-KzYRVc0XCdDKadblRw?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKs4Wp1fe9sMEJC2EYOQCqeqsOVOQJEnCbcNnkEhRMScRL66yYCc49Fm1lQcEnhwMDw62ksze38jLwaH4Tcsj23IBlc87Mj9j0zfriQLrVPO4BWrXnCYsb6V3Bsm0DrVM4rM-cCntiRTjKfzlyST9zLqEnhy0SfFH_CHDi-5C8vMESsiqXpGzjx2jFU8sl-sr3BoUkAy1UaNi40?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsmPe90ZxYhCgP4H0d5DCyFLVWPIyY4hlUP9tDSRukVcM6y4M423Vcrl_se-VkWXBB9DZF4cp2fLqNRJebYoseEOdy8Wptue4p3pokfLDPcFmygC_RCOZaPFC6-pVEKmDRFd80Yx2CERb_6IWG8euI5K0Edl8UBnMcf6QPj4nEEt3-R5-p6r9h7paP-KzYRVc0XCdDKadblRw?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3313933,36.0081472,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Old Building - the Bakery</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtAz8yTKxa00fhbz9nC5BQ7lg1hDjspkLHaRYJcEmNWJm2Tr9UZI2AbzxOAW-GfP2HZN7-YD4vhoTjUkzBBBFbjzTgBYlqTbKU404OfJ0xS84K5KwLV3vtd8vsEhKde8t-M0nPehsV5jJTNfbxHfJy4eGC8owPS-VBQp8JiajmzxKq84ePbK7YTXtYuNSHhUP--yY5iqMVh-Q?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Further in from Santa Maria bay and past the Chapel, we find the bakery, il-Forn in Maltese. The bakery used to provide bread for Comino’s residents but then was abandoned and left derelict given that the population of the island dwindled into nothing.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtWA6kXPWQijfKZFRF9GnUircOWzXLSXTKAnEBjn54szN3ctGiEGYnDu52S987xSK_iA46TxeamUuDreYOFTVpw7y11LJm5f5ZVyJqd3lUpStSNi9lbYHnjlhIRR1jwzZxNohaUT1Qhr9X04x_gPb1diexg32MWyKNHPYlb1C08UOgRJS-undyYZIpT1mRqAjf7eKY1eDF7bA?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtAz8yTKxa00fhbz9nC5BQ7lg1hDjspkLHaRYJcEmNWJm2Tr9UZI2AbzxOAW-GfP2HZN7-YD4vhoTjUkzBBBFbjzTgBYlqTbKU404OfJ0xS84K5KwLV3vtd8vsEhKde8t-M0nPehsV5jJTNfbxHfJy4eGC8owPS-VBQp8JiajmzxKq84ePbK7YTXtYuNSHhUP--yY5iqMVh-Q?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtWA6kXPWQijfKZFRF9GnUircOWzXLSXTKAnEBjn54szN3ctGiEGYnDu52S987xSK_iA46TxeamUuDreYOFTVpw7y11LJm5f5ZVyJqd3lUpStSNi9lbYHnjlhIRR1jwzZxNohaUT1Qhr9X04x_gPb1diexg32MWyKNHPYlb1C08UOgRJS-undyYZIpT1mRqAjf7eKY1eDF7bA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3325589,36.0130726,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Public Toilet</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.3243943,36.0148562,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

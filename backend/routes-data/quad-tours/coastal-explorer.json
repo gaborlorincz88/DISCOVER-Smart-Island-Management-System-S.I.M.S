@@ -1,0 +1,61 @@
+{
+  "id": "coastal-explorer",
+  "name": "Coastal Explorer Quad Tour",
+  "description": "Ride along Gozo's stunning coastline on a quad bike adventure. Experience the thrill of off-road riding with spectacular sea views.",
+  "icon": "/tours.svg",
+  "iconSize": 32,
+  "type": "quad-tour",
+  "polylineColor": "#8A2BE2",
+  "mainImage": "/uploads/1757747389451-783177977-quadtours.avif",
+  "currency": "EUR",
+  "prices": {
+    "adult": 35,
+    "child": 25,
+    "senior": 25
+  },
+  "duration": "3 hours",
+  "maxParticipants": 2,
+  "difficulty": "Medium",
+  "points": [
+    {
+      "type": "start",
+      "lat": 36.046,
+      "lng": 14.26,
+      "name": "Victoria Quad Station",
+      "description": "Quad bike pickup and safety briefing location",
+      "images": []
+    },
+    {
+      "type": "stop",
+      "lat": 36.036,
+      "lng": 14.27,
+      "name": "Xlendi Bay",
+      "description": "Beautiful coastal bay perfect for photos",
+      "images": []
+    },
+    {
+      "type": "stop",
+      "lat": 36.026,
+      "lng": 14.28,
+      "name": "Mġarr Harbour",
+      "description": "Historic harbour with ferry connections",
+      "images": []
+    },
+    {
+      "type": "stop",
+      "lat": 36.016,
+      "lng": 14.29,
+      "name": "Hondoq Bay",
+      "description": "Secluded bay with crystal clear waters",
+      "images": []
+    },
+    {
+      "type": "end",
+      "lat": 36.046,
+      "lng": 14.26,
+      "name": "Victoria Return",
+      "description": "Return to quad station",
+      "images": []
+    }
+  ]
+}

@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Route Editor - Discover Gozo</title>
+    <link rel="stylesheet" href="lib/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="lib/inter-font.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="admin-check.js"></script>
+    <style>
+        /* Modern iPhone-style Design */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .content {
+            background-color: transparent !important;
+        }
+        
+        .tab-container {
+            background-color: transparent !important;
+        }
+        
+        .sidebar {
+            background-color: transparent !important;
+        }
+        
+        .sidebar-section {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Dropdown/Select styling */
+        form select, select {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        form select:focus, select:focus {
+            border-color: rgba(255, 255, 255, 0.4) !important;
+            background: rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        form select option, select option {
+            background: rgba(102, 126, 234, 0.9) !important;
+            color: white !important;
+        }
+        
+        /* Custom marker styling for tour route editor */
+        .stop-marker div {
+            color: white;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .shape-marker div {
+            color: white;
+            font-size: 16px !important;
+        }
+        
+        /* Point containers styling */
+        .point-container {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            padding: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .point-container:hover {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            transform: translateY(-1px);
+        }
+        
+        .point-container.dragging {
+            opacity: 0.5;
+            transform: rotate(5deg);
+        }
+        
+        .point-container.drag-over {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        
+        .point-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .point-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .point-number {
+            background-color: #3b82f6;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .point-text {
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .point-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .edit-stop-btn, .remove-stop-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .edit-stop-btn:hover {
+            background-color: #dbeafe;
+        }
+        
+        .remove-stop-btn:hover {
+            background-color: #fee2e2;
+        }
+        
+        .add-shape-container {
+            text-align: center;
+            margin: 8px 0;
+        }
+        
+        .add-shape-btn {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        
+        .add-shape-btn:hover {
+            background-color: #059669;
+            transform: scale(1.1);
+        }
+        
+        /* Ensure color input is visible in all themes */
+        input[type="color"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+        
+        input[type="color"]::-webkit-color-swatch {
+            border: none;
+            border-radius: 2px;
+        }
+        
+        input[type="color"]::-moz-color-swatch {
+            border: none;
+            border-radius: 2px;
+        }
+        
+        /* Modern Body & Layout */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 120px);
+            gap: 0;
+        }
+
+        /* Modern Header */
+        .main-header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px 30px;
+        }
+
+        .main-header h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .main-header h1 i {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .top-menu {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .top-menu .btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .top-menu .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .top-menu .btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Button Styling */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-info {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-warning:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 30px;
+            overflow-y: auto;
+            max-height: calc(100vh - 140px);
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h2 {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-section h2 i {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Content Styling */
+        .content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: 20px 20px 20px 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        /* Form Styling */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+
+        .input-group input::placeholder,
+        .input-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Light Theme Support */
+        [data-theme="light"] body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        [data-theme="light"] .main-header h1 {
+            color: white;
+        }
+
+        [data-theme="light"] .main-header h1 i {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        [data-theme="light"] .top-menu .btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+        
+        [data-theme="light"] .top-menu .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+        
+        [data-theme="light"] .top-menu .btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: white;
+        }
+
+        [data-theme="light"] .sidebar-section h2 {
+            color: white;
+        }
+
+        [data-theme="light"] .sidebar-section h2 i {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        [data-theme="light"] .input-group label {
+            color: white;
+        }
+
+        [data-theme="light"] .input-group input,
+        [data-theme="light"] .input-group select,
+        [data-theme="light"] .input-group textarea {
+            color: white;
+        }
+
+        [data-theme="light"] .input-group input:focus,
+        [data-theme="light"] .input-group select:focus,
+        [data-theme="light"] .input-group textarea:focus {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="light"] .input-group input::placeholder,
+        [data-theme="light"] .input-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        [data-theme="light"] .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="light"] .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        [data-theme="light"] .btn-success {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="light"] .btn-success:hover {
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.4);
+        }
+        
+        [data-theme="light"] .btn-secondary {
+            color: white;
+        }
+        
+        [data-theme="light"] .btn-secondary:hover {
+            color: white;
+        }
+        
+        [data-theme="light"] .btn-info {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="light"] .btn-info:hover {
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+        }
+        
+        [data-theme="light"] .btn-warning {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="light"] .btn-warning:hover {
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        [data-theme="light"] .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="light"] .btn-danger:hover {
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+
+        [data-theme="light"] #stops-list li {
+            color: white;
+        }
+
+        [data-theme="light"] .instructions {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        [data-theme="light"] .modal-content h2 {
+            color: white;
+        }
+
+        [data-theme="light"] .filter-buttons .btn.active {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+            color: white;
+        }
+
+        /* Dark Theme Support */
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #2d1b69 0%, #1a0d4a 100%);
+        }
+
+        [data-theme="dark"] .main-header {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .sidebar {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .content {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .input-group input,
+        [data-theme="dark"] .input-group select,
+        [data-theme="dark"] .input-group textarea {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        [data-theme="dark"] .input-group input:focus,
+        [data-theme="dark"] .input-group select:focus,
+        [data-theme="dark"] .input-group textarea:focus {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="dark"] .input-group input::placeholder,
+        [data-theme="dark"] .input-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        [data-theme="dark"] .btn-primary {
+            background: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(76, 29, 149, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-success {
+            background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-success:hover {
+            box-shadow: 0 8px 25px rgba(22, 101, 52, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        [data-theme="dark"] .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        [data-theme="dark"] .btn-info {
+            background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-info:hover {
+            box-shadow: 0 8px 25px rgba(12, 74, 110, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-warning {
+            background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-warning:hover {
+            box-shadow: 0 8px 25px rgba(146, 64, 14, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-danger {
+            background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-danger:hover {
+            box-shadow: 0 8px 25px rgba(153, 27, 27, 0.4);
+        }
+
+        /* Additional Styling for Route Editor Elements */
+        #stops-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #stops-list li {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #stops-list li:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .instructions {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .filter-buttons .btn {
+            flex: 1;
+            text-align: center;
+        }
+
+        .filter-buttons .btn.active {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Modal Styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h2 {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Dark Theme for Additional Elements */
+        [data-theme="dark"] #stops-list li {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] #stops-list li:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="dark"] .instructions {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        [data-theme="dark"] .modal-content {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .modal-content h2 {
+            color: white;
+        }
+
+        [data-theme="dark"] .filter-buttons .btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1><i class="fas fa-map-marked-alt"></i> Discover Gozo Admin</h1>
+        <nav class="top-menu">
+            <a href="/admin.html" class="btn btn-secondary"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="/analytics.html" class="btn btn-secondary"><i class="fas fa-chart-line"></i> Analytics</a>
+            <a href="/weather-admin.html" class="btn btn-secondary"><i class="fas fa-cloud-sun"></i> Weather</a>
+            <a href="/bus-editor.html" class="btn btn-secondary"><i class="fas fa-bus"></i> Bus Routes</a>
+            <a href="/new-route-editor.html" class="btn btn-primary active"><i class="fas fa-map-marked-alt"></i> Tour Routes</a>
+            <a href="/category-editor.html" class="btn btn-secondary"><i class="fas fa-tags"></i> Category Editor</a>
+            <a href="/gallery-manager.html" class="btn btn-secondary"><i class="fas fa-images"></i> Gallery</a>
+            <a href="/users.html" class="btn btn-secondary"><i class="fas fa-users"></i> Users</a>
+            <a href="/reservations.html" class="btn btn-secondary"><i class="fas fa-calendar-check"></i> Reservations</a>
+            <a href="/merchants.html" class="btn btn-secondary"><i class="fas fa-store"></i> Merchants</a>
+            <a href="/user-reviews.html" class="btn btn-secondary"><i class="fas fa-star"></i> User Reviews</a>
+            <a href="/user-alarms.html" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i> User Alarms</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h2><i class="fas fa-cogs"></i> Route Controls</h2>
+                <div class="input-group">
+                    <label for="route-type-selector">Route Type</label>
+                    <select id="route-type-selector">
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="route-selector">Select Route</label>
+                    <select id="route-selector">
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="new-route-name">Or Create New Route</label>
+                    <input type="text" id="new-route-name" placeholder="Enter new route name...">
+                    <button id="create-route-btn" class="btn">Create</button>
+                </div>
+                
+                <!-- KML Import Section -->
+                <div class="input-group" style="margin-top: 20px; padding: 16px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 12px;">
+                    <label style="color: white; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-file-import"></i>
+                        Import from Google My Maps
+                    </label>
+                    <p style="color: rgba(255, 255, 255, 0.8); font-size: 12px; margin: 0 0 12px 0; line-height: 1.5;">
+                        Upload a KML file exported from Google My Maps to quickly import a tour route.
+                    </p>
+                    <input type="file" id="kml-file-input" accept=".kml" style="margin-bottom: 8px;">
+                    <button id="import-kml-btn" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-upload"></i> Import KML
+                    </button>
+                    <details style="margin-top: 12px;">
+                        <summary style="color: rgba(255, 255, 255, 0.9); cursor: pointer; font-size: 12px; font-weight: 500;">
+                            📖 How to export from Google My Maps
+                        </summary>
+                        <div style="margin-top: 8px; padding: 12px; background: rgba(0, 0, 0, 0.2); border-radius: 8px; font-size: 12px; color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
+                            <ol style="margin: 0; padding-left: 20px;">
+                                <li>Open your map in <strong>Google My Maps</strong></li>
+                                <li>Click the <strong>⋮ menu</strong> (three dots)</li>
+                                <li>Select <strong>"Export to KML/KMZ"</strong></li>
+                                <li><strong>Uncheck</strong> "Export to KMZ" option</li>
+                                <li>Click <strong>Download</strong></li>
+                                <li>Upload the downloaded <strong>.kml file</strong> here</li>
+                            </ol>
+                        </div>
+                    </details>
+                </div>
+                
+                <!-- Tour Icon Settings -->
+                <div class="input-group">
+                    <label for="tour-icon-selector">Select Travel Icon</label>
+                    <select id="tour-icon-selector" class="icon-selector">
+                        <option value="">-- Choose a travel icon --</option>
+                        <option value="🚗" data-icon="🚗">🚗 Car Tour</option>
+                        <option value="🚌" data-icon="🚌">🚌 Bus Tour</option>
+                        <option value="🚁" data-icon="🚁">🚁 Helicopter Tour</option>
+                        <option value="🚤" data-icon="🚤">🚤 Boat Tour</option>
+                        <option value="🚲" data-icon="🚲">🚲 Bike Tour</option>
+                        <option value="🏍️" data-icon="🏍️">🏍️ Motorcycle Tour</option>
+                        <option value="🚙" data-icon="🚙">🚙 Jeep Tour</option>
+                        <option value="🛵" data-icon="🛵">🛵 Quad Tour</option>
+                        <option value="🚶" data-icon="🚶">🚶 Walking Tour</option>
+                        <option value="🏃" data-icon="🏃">🏃 Hiking Tour</option>
+                        <option value="🏖️" data-icon="🏖️">🏖️ Beach Tour</option>
+                        <option value="🏛️" data-icon="🏛️">🏛️ Cultural Tour</option>
+                        <option value="🌄" data-icon="🌄">🌄 Scenic Tour</option>
+                        <option value="🍽️" data-icon="🍽️">🍽️ Food Tour</option>
+                        <option value="🍷" data-icon="🍷">🍷 Wine Tour</option>
+                        <option value="🏺" data-icon="🏺">🏺 Historical Tour</option>
+                        <option value="🌊" data-icon="🌊">🌊 Water Sports</option>
+                        <option value="🤿" data-icon="🤿">🤿 Diving Tour</option>
+                        <option value="🎭" data-icon="🎭">🎭 Entertainment Tour</option>
+                        <option value="🛍️" data-icon="🛍️">🛍️ Shopping Tour</option>
+                        <option value="🏨" data-icon="🏨">🏨 Hotel Tour</option>
+                        <option value="⛰️" data-icon="⛰️">⛰️ Mountain Tour</option>
+                        <option value="🌳" data-icon="🌳">🌳 Nature Tour</option>
+                        <option value="🏰" data-icon="🏰">🏰 Castle Tour</option>
+                        <option value="⛪" data-icon="⛪">⛪ Religious Tour</option>
+                        <option value="🎨" data-icon="🎨">🎨 Art Tour</option>
+                        <option value="📚" data-icon="📚">📚 Educational Tour</option>
+                        <option value="🎪" data-icon="🎪">🎪 Adventure Tour</option>
+                        <option value="🏕️" data-icon="🏕️">🏕️ Camping Tour</option>
+                        <option value="🌅" data-icon="🌅">🌅 Sunset Tour</option>
+                        <option value="🌌" data-icon="🌌">🌌 Night Tour</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="tour-icon">Custom Icon Upload</label>
+                    <div id="tour-icon-preview-container" style="margin-bottom: 10px; display: none;">
+                        <img id="tour-icon-preview" src="" alt="Icon Preview" style="max-width: 50px; max-height: 50px; border-radius: 5px;">
+                        <button type="button" id="remove-tour-icon-btn" class="btn btn-danger" style="margin-left: 10px; font-size: 12px; padding: 5px 8px;">Remove</button>
+                    </div>
+                    <input type="file" id="tour-icon" name="tour-icon" accept="image/*">
+                    <input type="hidden" id="existing-tour-icon" name="existing-tour-icon">
+                </div>
+                
+                <div class="input-group">
+                    <label for="tour-icon-size">Icon Size: <span id="tour-icon-size-value">32</span>px</label>
+                    <input type="range" id="tour-icon-size" name="tour-icon-size" min="16" max="64" value="32">
+                </div>
+                
+                <div class="input-group">
+                    <label for="tour-description">Tour Description</label>
+                    <textarea id="tour-description" name="tour-description" rows="3" placeholder="Enter tour description..."></textarea>
+                </div>
+                
+                <!-- Ticket Pricing -->
+                <div class="input-group">
+                    <label>Ticket Pricing</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div>
+                            <label for="tour-currency" style="font-size: 0.9em; color: #666;">Currency</label>
+                            <select id="tour-currency" name="tour-currency">
+                                <option value="EUR">EUR (€)</option>
+                                <option value="USD">USD ($)</option>
+                                <option value="GBP">GBP (£)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="price-adult" style="font-size: 0.9em; color: #666;">Adult Price</label>
+                            <input type="number" id="price-adult" name="price-adult" min="0" step="0.01" placeholder="e.g. 49.99">
+                        </div>
+                        <div>
+                            <label for="price-child" style="font-size: 0.9em; color: #666;">Child Price</label>
+                            <input type="number" id="price-child" name="price-child" min="0" step="0.01" placeholder="e.g. 29.99">
+                        </div>
+                        <div>
+                            <label for="price-senior" style="font-size: 0.9em; color: #666;">Senior Price</label>
+                            <input type="number" id="price-senior" name="price-senior" min="0" step="0.01" placeholder="e.g. 39.99">
+                        </div>
+                    </div>
+                    <span style="font-size: 0.8em; color: #666;">Set ticket prices. Adult price will also be used as base price if tiers are not supported by the client.</span>
+                </div>
+
+                <!-- Tour Details -->
+                <div class="input-group">
+                    <label>Tour Details</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div>
+                            <label for="tour-duration" style="font-size: 0.9em; color: #666;">Duration</label>
+                            <input type="text" id="tour-duration" name="tour-duration" placeholder="e.g. 3h 30m">
+                        </div>
+                        <div>
+                            <label for="tour-max-participants" style="font-size: 0.9em; color: #666;">Max Participants</label>
+                            <input type="number" id="tour-max-participants" name="tour-max-participants" min="1" step="1" placeholder="e.g. 10">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Important Information -->
+                <div class="input-group">
+                    <label for="tour-important-info">Important Information</label>
+                    <textarea 
+                        id="tour-important-info" 
+                        name="tour-important-info" 
+                        rows="4" 
+                        placeholder="Enter important information for ticket holders (e.g., arrival time, what to bring, contact info, etc.)"
+                        style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; resize: vertical; min-height: 80px;"
+                    ></textarea>
+                    <span style="font-size: 0.8em; color: #666;">This information will be displayed on the ticket details modal. Use bullet points (•) for each line item.</span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="tour-main-image">Main Tour Image</label>
+                    <div id="tour-main-image-preview-container" style="margin-bottom: 10px; display: none;">
+                        <img id="tour-main-image-preview" src="" alt="Main Tour Image Preview" style="max-width: 200px; max-height: 150px; border-radius: 5px; object-fit: cover;">
+                        <button type="button" id="remove-tour-main-image-btn" class="btn btn-danger" style="margin-left: 10px; font-size: 12px; padding: 5px 8px;">Remove</button>
+                    </div>
+                    <input type="file" id="tour-main-image" name="tour-main-image" accept="image/*">
+                    <input type="hidden" id="existing-tour-main-image" name="existing-tour-main-image">
+                    <span style="font-size: 0.8em; color: #666;">Upload a main image for the entire tour</span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="tour-polyline-color">Polyline Color</label>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <input type="color" id="tour-polyline-color" name="tour-polyline-color" value="#8A2BE2" style="width: 60px; height: 40px; border: 2px solid #ccc; border-radius: 4px; cursor: pointer;">
+                        <div id="color-preview" style="width: 40px; height: 40px; border: 2px solid #ccc; border-radius: 4px; background-color: #8A2BE2;"></div>
+                    </div>
+                    <span style="font-size: 0.8em; color: #666;">Choose the color for the tour route line</span>
+                </div>
+                <div class="input-group">
+                    <label>Editing Mode</label>
+                    <div id="mode-selector" class="filter-buttons">
+                        <button id="mode-stop" class="btn active">Add Stops</button>
+                        <button id="mode-shape" class="btn">Add Shape Points</button>
+                    </div>
+                </div>
+                <div class="form-buttons">
+                    <button id="save-route-btn" class="btn btn-primary">Save Current Route</button>
+                    <button id="clear-route-btn" class="btn btn-secondary">Clear Map</button>
+                    <button id="delete-route-btn" class="btn btn-danger">Delete Route</button>
+                </div>
+                <p class="instructions" style="margin-top: 1rem; font-size: 0.9em;">
+                    <strong>Instructions:</strong><br>
+                    1. Select a route type and a route to load it, or create a new one.<br>
+                    2. Choose "Add Stops" or "Add Shape Points" mode.<br>
+                    3. Click on the map to add points. Stops require a name.<br>
+                    4. Drag any point to move it.<br>
+                    5. Click a point's remove button (✖) in the list to delete it.<br>
+                    6. Click 'Save' to update the route's JSON file.
+                </p>
+            </div>
+            <div class="sidebar-section">
+                <h2><i class="fas fa-map-pin"></i> Stops & Points</h2>
+                <ul id="stops-list">
+                    <!-- Stops will be listed here -->
+                </ul>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div id="map"></div>
+        </main>
+    </div>
+
+    <!-- Stop Edit Modal -->
+    <div id="stop-editor-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2 id="stop-form-title">Edit Point Details</h2>
+            <form id="stop-form">
+                <input type="hidden" id="stop-id">
+                <div class="input-group">
+                    <label for="stop-name">Point Name</label>
+                    <input type="text" id="stop-name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="stop-description">Description</label>
+                    <textarea id="stop-description" name="description"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="stop-images">Upload Images</label>
+                    <input type="file" id="stop-images" name="images" multiple accept="image/*">
+                    <span style="font-size: 0.8em; color: #666;">Select multiple images for this stop</span>
+                </div>
+                <div id="existing-stop-images-container" class="input-group">
+                    <label>Existing Images</label>
+                    <div id="existing-stop-images-preview" class="grid grid-cols-3 gap-2 mt-2"></div>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">Save Details</button>
+                    <button type="button" id="cancel-stop-edit-btn" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="lib/leaflet.js"></script>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <svg id="theme-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </div>
+
+    <script src="image-gallery-modal.js"></script>
+    <script src="image-upload-progress.js"></script>
+    <script src="theme-toggle.js"></script>
+    <script src="new-route-editor.js"></script>
+</body>
+</html>

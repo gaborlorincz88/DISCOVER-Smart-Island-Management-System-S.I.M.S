@@ -1,0 +1,97 @@
+{
+  "id": "parasailing-1",
+  "name": "Parasailing 1",
+  "type": "parasailing",
+  "description": "parasailing tour: Parasailing 1",
+  "icon": "🚁",
+  "iconSize": 32,
+  "polylineColor": "#cdb518",
+  "mainImage": "",
+  "currency": "EUR",
+  "prices": {
+    "adult": 50,
+    "child": 40,
+    "senior": 50
+  },
+  "duration": "1h 15m",
+  "maxParticipants": 8,
+  "importantInfo": "Important Information\n• Arrive 15 minutes before your tour start time\n• Your ticket number and QR code will be needed for validating the tickets, please make sure the tickets will be available for scanning\n• Contact Parasailing Gozo directly if you need to make changes",
+  "points": [
+    {
+      "type": "stop",
+      "lat": 36.02474433023761,
+      "lng": 14.301874144859944,
+      "name": "Start ",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.02370358397471,
+      "lng": 14.303976427396677
+    },
+    {
+      "type": "shape",
+      "lat": 36.02283628492098,
+      "lng": 14.305220635428599
+    },
+    {
+      "type": "shape",
+      "lat": 36.02141389380664,
+      "lng": 14.304362560923828
+    },
+    {
+      "type": "shape",
+      "lat": 36.01933229955378,
+      "lng": 14.304105138572393
+    },
+    {
+      "type": "shape",
+      "lat": 36.01669553456525,
+      "lng": 14.305349346604318
+    },
+    {
+      "type": "shape",
+      "lat": 36.01489138137474,
+      "lng": 14.30968262285354
+    },
+    {
+      "type": "shape",
+      "lat": 36.01614041490532,
+      "lng": 14.314788166157031
+    },
+    {
+      "type": "shape",
+      "lat": 36.0185297072599,
+      "lng": 14.317279219733646
+    },
+    {
+      "type": "shape",
+      "lat": 36.02113171798489,
+      "lng": 14.317407930909361
+    },
+    {
+      "type": "shape",
+      "lat": 36.023525270541896,
+      "lng": 14.311787693949979
+    },
+    {
+      "type": "shape",
+      "lat": 36.02449663634662,
+      "lng": 14.307926358678412
+    },
+    {
+      "type": "shape",
+      "lat": 36.02453132776102,
+      "lng": 14.305437942614525
+    },
+    {
+      "type": "stop",
+      "lat": 36.025119048332634,
+      "lng": 14.301721630283653,
+      "name": "End",
+      "description": "",
+      "images": []
+    }
+  ]
+}

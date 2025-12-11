@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Test Analytics Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            min-height: 50px;
+        }
+        .success {
+            color: #4CAF50;
+        }
+        .error {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Generate Test Analytics Data</h1>
+        <p>This tool will generate sample analytics events to populate your analytics dashboard.</p>
+        
+        <button onclick="generateViewPlaceEvents()">Generate 50 View Place Events</button>
+        <button onclick="generateSearchEvents()">Generate 30 Search Events</button>
+        <button onclick="generateTripEvents()">Generate 20 Trip Events</button>
+        <button onclick="generateAllEvents()">Generate All Test Data</button>
+        
+        <div class="status" id="status">Click a button above to start generating test data...</div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3003';
+        
+        const places = [
+            { id: 1, name: 'Citadella - Victoria', category: 'Historical Sites', lat: 36.0448, lng: 14.2394 },
+            { id: 2, name: 'It-Tempji tal-Ggantija', category: 'Historical Sites', lat: 36.0470, lng: 14.2675 },
+            { id: 3, name: 'Ta Pinu Shrine', category: 'Churches', lat: 36.0554, lng: 14.2297 },
+            { id: 4, name: 'The Statue of Jesus Christ', category: 'Viewpoints', lat: 36.0612, lng: 14.2532 },
+            { id: 5, name: 'Azure Window (former location)', category: 'Natural Attractions', lat: 36.0563, lng: 14.1895 },
+            { id: 6, name: 'Ramla Bay', category: 'Beaches', lat: 36.0655, lng: 14.2858 },
+            { id: 7, name: 'Xlendi Bay', category: 'Beaches', lat: 36.0272, lng: 14.2128 },
+            { id: 8, name: 'Dwejra Bay', category: 'Natural Attractions', lat: 36.0547, lng: 14.1894 },
+            { id: 9, name: 'Mgarr Harbour', category: 'Transport', lat: 36.0268, lng: 14.2959 },
+            { id: 10, name: 'Victoria Market', category: 'Shopping', lat: 36.0441, lng: 14.2398 }
+        ];
+        
+        const searches = [
+            'beach', 'historical', 'church', 'food', 'restaurant', 'hotel', 'tour', 
+            'bus', 'diving', 'hiking', 'museum', 'azure window', 'citadel', 'ramla',
+            'xlendi', 'gozo cathedral', 'ggantija temples', 'ferry', 'rent a car'
+        ];
+        
+        const tripNames = [
+            'My Gozo Adventure', 'Historical Tour', 'Beach Day', 'Cultural Experience',
+            'Weekend Getaway', 'Family Trip', 'Romantic Escape', 'Photography Tour',
+            'Nature Walk', 'Food & Wine Tour', 'Diving Trip', 'Hiking Adventure'
+        ];
+        
+        function updateStatus(message, type = 'info') {
+            const status = document.getElementById('status');
+            status.innerHTML = `<div class="${type}">${message}</div>`;
+        }
+        
+        async function sendAnalyticsEvent(eventType, eventData) {
+            try {
+                const response = await fetch(`${API_BASE}/api/analytics/event`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ event_type: eventType, event_data: eventData })
+                });
+                return response.ok;
+            } catch (error) {
+                console.error('Failed to send event:', error);
+                return false;
+            }
+        }
+        
+        async function generateViewPlaceEvents() {
+            updateStatus('Generating view place events...', 'info');
+            let successCount = 0;
+            
+            for (let i = 0; i < 50; i++) {
+                const place = places[Math.floor(Math.random() * places.length)];
+                const success = await sendAnalyticsEvent('view_place', {
+                    place_id: place.id,
+                    place_name: place.name,
+                    category: place.category,
+                    latitude: place.lat,
+                    longitude: place.lng
+                });
+                if (success) successCount++;
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+            
+            updateStatus(`✅ Generated ${successCount}/50 view place events successfully!`, 'success');
+        }
+        
+        async function generateSearchEvents() {
+            updateStatus('Generating search events...', 'info');
+            let successCount = 0;
+            
+            for (let i = 0; i < 30; i++) {
+                const query = searches[Math.floor(Math.random() * searches.length)];
+                const success = await sendAnalyticsEvent('search_query', { query: query });
+                if (success) successCount++;
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+            
+            updateStatus(`✅ Generated ${successCount}/30 search events successfully!`, 'success');
+        }
+        
+        async function generateTripEvents() {
+            updateStatus('Generating trip creation events...', 'info');
+            let successCount = 0;
+            
+            for (let i = 0; i < 20; i++) {
+                const tripName = tripNames[Math.floor(Math.random() * tripNames.length)];
+                const success = await sendAnalyticsEvent('create_trip', { trip_name: tripName });
+                if (success) successCount++;
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+            
+            updateStatus(`✅ Generated ${successCount}/20 trip events successfully!`, 'success');
+        }
+        
+        async function generateAllEvents() {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => btn.disabled = true);
+            
+            updateStatus('🚀 Generating all test data... This will take about 5 seconds.', 'info');
+            
+            await generateViewPlaceEvents();
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            await generateSearchEvents();
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            await generateTripEvents();
+            
+            updateStatus('🎉 All test data generated successfully! You can now check your analytics dashboard.', 'success');
+            buttons.forEach(btn => btn.disabled = false);
+        }
+    </script>
+</body>
+</html>
+
+

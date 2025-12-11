@@ -1,0 +1,3593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Management - Discover Gozo Admin</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="lib/inter-font.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="theme-toggle.js"></script>
+    <script src="admin-check.js"></script>
+    <style>
+        /* Modern iPhone-style Design */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .content {
+            background-color: transparent !important;
+        }
+        
+        .tab-container {
+            background-color: transparent !important;
+        }
+        
+        .sidebar {
+            background-color: transparent !important;
+        }
+        
+        .sidebar-section {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Modern Body & Layout */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 120px);
+            gap: 0;
+        }
+
+        /* Modern Header */
+        .main-header {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-radius: 16px !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+            margin: 20px !important;
+            padding: 20px 30px !important;
+        }
+
+        .main-header h1 {
+            color: white !important;
+            font-size: 28px !important;
+            font-weight: 700 !important;
+            margin: 0 0 15px 0 !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+        }
+
+        .main-header h1 i {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .top-menu {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .top-menu .btn {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            color: white !important;
+            padding: 10px 20px !important;
+            border-radius: 8px !important;
+            text-decoration: none !important;
+            font-weight: 500 !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            min-height: auto !important;
+        }
+        
+        .top-menu .btn:hover {
+            background: rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        .top-menu .btn.active {
+            background: rgba(255, 255, 255, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        /* Button Styling */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-info {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-warning:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+
+        /* Content Styling */
+        .content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: 20px 20px 20px 0;
+            padding: 30px;
+            overflow: hidden;
+        }
+
+        /* Form Styling */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+
+        .input-group input::placeholder,
+        .input-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Card Styling */
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 24px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h2 {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-header h2 i {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-body {
+            padding: 0;
+            overflow-x: auto;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .stat-icon i {
+            font-size: 20px;
+            color: white;
+        }
+
+        .stat-content {
+            flex: 1;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 0 4px 0;
+        }
+
+        .stat-value {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: transparent;
+        }
+
+        .data-table th {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-weight: 600;
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .data-table th i {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-right: 8px;
+        }
+
+        .data-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .data-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Status Badge */
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-active {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .status-inactive {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-buttons .btn i {
+            font-size: 14px;
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Dark Theme Support */
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #2d1b69 0%, #1a0d4a 100%);
+        }
+
+        [data-theme="dark"] .main-header {
+            background: rgba(0, 0, 0, 0.3) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        [data-theme="dark"] .top-menu .btn {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+        }
+        
+        [data-theme="dark"] .top-menu .btn:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        [data-theme="dark"] .top-menu .btn.active,
+        [data-theme="dark"] .top-menu .btn.btn-primary.active {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        [data-theme="dark"] .content {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .card-header {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="dark"] .stat-card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .stat-card:hover {
+            background: rgba(0, 0, 0, 0.35);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] .stat-icon {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .btn-primary {
+            background: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(76, 29, 149, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-success {
+            background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-success:hover {
+            box-shadow: 0 8px 25px rgba(22, 101, 52, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        [data-theme="dark"] .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        [data-theme="dark"] .btn-info {
+            background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-info:hover {
+            box-shadow: 0 8px 25px rgba(12, 74, 110, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-warning {
+            background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-warning:hover {
+            box-shadow: 0 8px 25px rgba(146, 64, 14, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-danger {
+            background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-danger:hover {
+            box-shadow: 0 8px 25px rgba(153, 27, 27, 0.4);
+        }
+
+        [data-theme="dark"] .input-group input,
+        [data-theme="dark"] .input-group select,
+        [data-theme="dark"] .input-group textarea {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        [data-theme="dark"] .input-group input:focus,
+        [data-theme="dark"] .input-group select:focus,
+        [data-theme="dark"] .input-group textarea:focus {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="dark"] .input-group input::placeholder,
+        [data-theme="dark"] .input-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        [data-theme="dark"] .data-table th {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="dark"] .data-table td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        [data-theme="dark"] .data-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        [data-theme="dark"] .data-table {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .data-table tbody tr {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="dark"] .data-table tbody tr:nth-child(even) {
+            background: rgba(0, 0, 0, 0.15);
+        }
+        
+        [data-theme="dark"] .data-table td {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        [data-theme="dark"] .data-table th {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        [data-theme="dark"] .status-active {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        [data-theme="dark"] .status-inactive {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1><i class="fas fa-users"></i> Discover Gozo Admin</h1>
+        <nav class="top-menu">
+            <a href="/admin.html" class="btn btn-secondary"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="/analytics.html" class="btn btn-secondary"><i class="fas fa-chart-line"></i> Analytics</a>
+            <a href="/weather-admin.html" class="btn btn-secondary"><i class="fas fa-cloud-sun"></i> Weather</a>
+            <a href="/bus-editor.html" class="btn btn-secondary"><i class="fas fa-bus"></i> Bus Routes</a>
+            <a href="/new-route-editor.html" class="btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Tour Routes</a>
+            <a href="/category-editor.html" class="btn btn-secondary"><i class="fas fa-tags"></i> Category Editor</a>
+            <a href="/gallery-manager.html" class="btn btn-secondary"><i class="fas fa-images"></i> Gallery</a>
+            <a href="/users.html" class="btn btn-primary active"><i class="fas fa-users"></i> Users</a>
+            <a href="/reservations.html" class="btn btn-secondary"><i class="fas fa-calendar-check"></i> Reservations</a>
+            <a href="/merchants.html" class="btn btn-secondary"><i class="fas fa-store"></i> Merchants</a>
+            <a href="/user-reviews.html" class="btn btn-secondary"><i class="fas fa-star"></i> User Reviews</a>
+            <a href="/user-alarms.html" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i> User Alarms</a>
+        </nav>
+    </header>
+
+    <main class="content">
+            <!-- Page Actions -->
+            <div class="page-actions">
+                <button onclick="refreshUsers()" class="btn btn-primary">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh Users
+                </button>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Users</div>
+                        <div class="stat-value" id="totalUsers">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Active Users</div>
+                        <div class="stat-value" id="activeUsers">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Trips</div>
+                        <div class="stat-value" id="totalTrips">-</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">New This Month</div>
+                        <div class="stat-value" id="newThisMonth">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-users"></i> Registered Users</h2>
+                    <button onclick="openCreateUserModal()" class="btn btn-primary" style="margin-left: auto;">
+                        <i class="fas fa-user-plus"></i> Create New User
+                    </button>
+                </div>
+                <div class="card-body">
+                    <!-- Search and Filter Controls -->
+                    <div class="users-controls" style="margin-bottom: 20px; display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                        <!-- Search Input -->
+                        <div class="search-group" style="flex: 1; min-width: 200px;">
+                            <input type="text" id="userSearchInput" placeholder="Search users by email or role..." 
+                                   style="width: 100%; padding: 10px 15px; border: 1px solid rgba(255, 255, 255, 0.2); 
+                                          border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: white; 
+                                          font-size: 14px; box-sizing: border-box;">
+                        </div>
+                        
+                        <!-- Sort Dropdown -->
+                        <div class="sort-group" style="min-width: 150px;">
+                            <div class="custom-select" style="width: 100%; position: relative;">
+                                <div class="custom-select-trigger" id="customSelectTrigger" style="width: 100%; padding: 10px 15px; border-radius: 8px; font-size: 14px; box-sizing: border-box; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.2); color: white; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                    <span id="customSelectText">Newest First</span>
+                                    <i class="fas fa-chevron-down" style="transition: transform 0.3s ease;"></i>
+                                </div>
+                                <div class="custom-select-options" id="customSelectOptions" style="position: absolute; top: 100%; left: 0; right: 0; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; margin-top: 4px; z-index: 1000; display: none; max-height: 200px; overflow-y: auto;">
+                                    <div class="custom-option" data-value="created_at_DESC" style="padding: 10px 15px; color: white; cursor: pointer; transition: background 0.2s ease;">Newest First</div>
+                                    <div class="custom-option" data-value="created_at_ASC" style="padding: 10px 15px; color: white; cursor: pointer; transition: background 0.2s ease;">Oldest First</div>
+                                    <div class="custom-option" data-value="email_ASC" style="padding: 10px 15px; color: white; cursor: pointer; transition: background 0.2s ease;">Name A-Z</div>
+                                    <div class="custom-option" data-value="email_DESC" style="padding: 10px 15px; color: white; cursor: pointer; transition: background 0.2s ease;">Name Z-A</div>
+                                    <div class="custom-option" data-value="last_login_DESC" style="padding: 10px 15px; color: white; cursor: pointer; transition: background 0.2s ease;">Last Login (Recent)</div>
+                                    <div class="custom-option" data-value="last_login_ASC" style="padding: 10px 15px; color: white; cursor: pointer; transition: background 0.2s ease;">Last Login (Oldest)</div>
+                                    <div class="custom-option" data-value="total_trips_DESC" style="padding: 10px 15px; color: white; cursor: pointer; transition: background 0.2s ease;">Most Trips</div>
+                                    <div class="custom-option" data-value="total_trips_ASC" style="padding: 10px 15px; color: white; cursor: pointer; transition: background 0.2s ease;">Least Trips</div>
+                                    <div class="custom-option" data-value="total_reservations_DESC" style="padding: 10px 15px; color: white; cursor: pointer; transition: background 0.2s ease;">Most Reservations</div>
+                                    <div class="custom-option" data-value="total_reservations_ASC" style="padding: 10px 15px; color: white; cursor: pointer; transition: background 0.2s ease;">Least Reservations</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Refresh Button -->
+                        <button onclick="loadUsers()" class="btn btn-secondary" style="padding: 10px 15px; white-space: nowrap;">
+                            <i class="fas fa-sync"></i> Refresh
+                        </button>
+                    </div>
+                    
+                    <!-- Pagination Info and Controls -->
+                    <div class="pagination-info" style="display: flex; justify-content: space-between; align-items: center; 
+                                                      margin-bottom: 15px; color: rgba(255, 255, 255, 0.8); font-size: 14px;">
+                        <div id="paginationInfo">
+                            Loading users...
+                        </div>
+                        <div class="pagination-controls" style="display: flex; gap: 10px; align-items: center;">
+                            <button id="prevPageBtn" onclick="goToPreviousPage()" class="btn btn-secondary" 
+                                    style="padding: 8px 12px; font-size: 12px;" disabled>
+                                <i class="fas fa-chevron-left"></i> Previous
+                            </button>
+                            <span id="pageNumbers" style="color: white; font-weight: 500;"></span>
+                            <button id="nextPageBtn" onclick="goToNextPage()" class="btn btn-secondary" 
+                                    style="padding: 8px 12px; font-size: 12px;" disabled>
+                                Next <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Role</th>
+                                <th>Trips</th>
+                                <th>Reservations</th>
+                                <th>Registered</th>
+                                <th>Last Login</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Users will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Orphaned Trips Section -->
+            <div class="card" style="margin-top: 30px;">
+                <div class="card-header">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Orphaned Trips</h2>
+                    <button onclick="loadOrphanedTrips()" class="btn btn-secondary" style="margin-left: auto;">
+                        <i class="fas fa-sync"></i> Show
+                    </button>
+                </div>
+                <div class="card-body">
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 16px;">
+                        Trips that belong to deleted user accounts. You can migrate them to existing users or delete them.
+                    </p>
+                    <div id="orphanedTripsContainer">
+                        <p style="color: rgba(255, 255, 255, 0.5); text-align: center; padding: 40px;">
+                            Click "Show" to load orphaned trips
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Activity Logs Section -->
+            <div class="card" style="margin-top: 30px;">
+                <div class="card-header">
+                    <h2><i class="fas fa-history"></i> Admin Activity Logs</h2>
+                    <div style="display: flex; gap: 10px; margin-left: auto;">
+                        <button onclick="loadActivityLogs()" class="btn btn-secondary">
+                            <i class="fas fa-sync"></i> Show
+                        </button>
+                        <a href="/secure-logs.html" class="btn" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 20px; border: none; border-radius: 12px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-shield-alt"></i> Secure Logs
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 16px;">
+                        Track all admin actions to monitor changes and identify issues. 
+                        <br><strong>Database Logs:</strong> Quick view of recent activities | 
+                        <strong>Secure Logs:</strong> Tamper-proof, searchable, exportable audit trail
+                    </p>
+                    <div id="activityLogsContainer">
+                        <p style="color: rgba(255, 255, 255, 0.5); text-align: center; padding: 40px;">
+                            Click "Show" to load activity logs
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    <!-- User Details Modal -->
+    <div id="userDetailsModal" class="modal-overlay hidden">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h2 id="userDetailsTitle">User Details</h2>
+                <button onclick="closeUserDetailsModal()" class="btn btn-secondary">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- User Info Section -->
+                <div class="user-info-section">
+                    <h3>User Information</h3>
+                    <div class="user-info-grid">
+                        <div class="info-item">
+                            <label>Email:</label>
+                            <span id="userEmail">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Username:</label>
+                            <span id="userUsername">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Location:</label>
+                            <span id="userLocation">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>User ID:</label>
+                            <span id="userId">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Role:</label>
+                            <span id="userRole">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Created:</label>
+                            <span id="userCreated">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Last Login:</label>
+                            <span id="userLastLogin">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Total Trips:</label>
+                            <span id="userTotalTrips">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Total Reservations:</label>
+                            <span id="userTotalReservations">-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="user-actions">
+                        <button onclick="resetUserPassword()" class="btn btn-warning">
+                            <i class="fas fa-key"></i>
+                            Reset Password
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trips Section -->
+                <div class="trips-section">
+                    <h3>User Trips</h3>
+                    <div id="userTripsList" class="trips-list">
+                        <!-- Trips will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Reservations Section -->
+                <div class="reservations-section">
+                    <h3>Ticket Reservations</h3>
+                    <div id="userReservationsList" class="reservations-list">
+                        <!-- Reservations will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Password Reset Modal -->
+    <div id="passwordResetModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Reset User Password</h2>
+            <p class="text-muted mb-4">Enter a new password for this user</p>
+            
+            <div class="input-group">
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" class="form-input" minlength="6" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" class="form-input" minlength="6" required>
+            </div>
+            
+            <div class="button-group">
+                <button onclick="confirmPasswordReset()" class="btn btn-primary">
+                    <i class="fas fa-key"></i>
+                    Reset Password
+                </button>
+                <button onclick="closePasswordResetModal()" class="btn btn-secondary">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create User Modal -->
+    <div id="createUserModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Create New User</h2>
+            <p class="text-muted mb-4">Add a new user or admin account</p>
+            
+            <div class="input-group">
+                <label for="newUserEmail">Email Address: *</label>
+                <input type="email" id="newUserEmail" class="form-input" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="newUserUsername">Username: *</label>
+                <input type="text" id="newUserUsername" class="form-input" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="newUserPassword">Password: *</label>
+                <input type="password" id="newUserPassword" class="form-input" minlength="6" required>
+                <small style="color: rgba(255, 255, 255, 0.6);">Minimum 6 characters</small>
+            </div>
+            
+            <div class="input-group">
+                <label for="newUserLocation">Location: (Optional)</label>
+                <input type="text" id="newUserLocation" class="form-input" placeholder="e.g. Malta, UK, etc.">
+            </div>
+            
+            <div class="input-group">
+                <label for="newUserRole">Role: *</label>
+                <select id="newUserRole" class="form-input">
+                    <option value="user">Regular User</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <small style="color: rgba(255, 255, 255, 0.6);">Admins have access to backend management</small>
+            </div>
+            
+            <div class="button-group">
+                <button onclick="confirmCreateUser()" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i>
+                    Create User
+                </button>
+                <button onclick="closeCreateUserModal()" class="btn btn-secondary">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle notification-icon"></i>
+            <span id="notificationText">Operation completed successfully</span>
+        </div>
+    </div>
+
+    <style>
+        /* Custom styles for users page */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all var(--transition-normal);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-content {
+            flex: 1;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .card-header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 24px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h2 {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-header h2 i {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin: 0;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .data-table th {
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .data-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .data-table td {
+            color: white;
+        }
+
+        .orphaned-trips-controls,
+        .migration-controls {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .orphaned-trips-list,
+        .user-trips-list {
+            padding: 1.5rem;
+        }
+
+        .orphaned-trip-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .orphaned-trip-item h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .orphaned-trip-item p {
+            color: var(--text-muted);
+            margin: 0 0 1rem 0;
+            font-size: 0.875rem;
+        }
+
+        .orphaned-trip-controls {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Modern Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.25rem;
+            border: none;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            white-space: nowrap;
+            min-height: 44px;
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-info {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-warning:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+        
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 20px;
+        }
+        
+        .stat-content {
+            flex: 1;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 0 4px 0;
+        }
+        
+        .stat-value {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+
+        /* Modern Body & Layout */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .main-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 2rem;
+            background: transparent;
+        }
+
+        /* Page Actions */
+        .page-actions {
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-actions .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Modern iPhone-style CSS Variables */
+        :root {
+            /* Color Palette */
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-500: #3b82f6;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-900: #1e3a8a;
+            
+            --success-50: #f0fdf4;
+            --success-100: #dcfce7;
+            --success-500: #22c55e;
+            --success-600: #16a34a;
+            
+            --error-50: #fef2f2;
+            --error-100: #fee2e2;
+            --error-500: #ef4444;
+            --error-600: #dc2626;
+            
+            --warning-50: #fffbeb;
+            --warning-100: #fef3c7;
+            --warning-500: #f59e0b;
+            --warning-600: #d97706;
+            
+            --purple-50: #faf5ff;
+            --purple-100: #f3e8ff;
+            --purple-500: #a855f7;
+            --purple-600: #9333ea;
+            
+            --orange-50: #fff7ed;
+            --orange-100: #ffedd5;
+            --orange-500: #f97316;
+            --orange-600: #ea580c;
+            
+            /* Light Theme */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --bg-elevated: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+            
+            /* Spacing & Effects */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Dark Theme Variables */
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --bg-elevated: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --border-hover: #475569;
+            --accent-color: #60a5fa;
+            --accent-hover: #93c5fd;
+        }
+
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--success-500);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform var(--transition-normal);
+            max-width: 400px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .notification.error {
+            background: var(--error-500);
+        }
+
+        .notification.info {
+            background: var(--primary-500);
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .notification-icon {
+            font-size: 1.25rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .orphaned-trip-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.hidden {
+            display: none;
+        }
+
+        .modal-content {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .modal-content h2 {
+            margin: 0 0 1rem 0;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-content .text-muted {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Large modal styles */
+        .large-modal {
+            max-width: 90vw;
+            width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .user-info-section,
+        .trips-section,
+        .reservations-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .user-info-section h3,
+        .trips-section h3,
+        .reservations-section h3 {
+            margin: 0 0 1rem 0;
+            color: var(--text-primary);
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .user-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .info-item label {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .info-item span {
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .trips-list,
+        .reservations-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .trip-item,
+        .reservation-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+        }
+
+        .trip-item h4,
+        .reservation-item h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .trip-item p,
+        .reservation-item p {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .reservation-item .reservation-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .reservation-item .reservation-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-confirmed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-cancelled {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status-completed {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-small {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        /* FontAwesome Icon Fixes */
+        .fas, .far, .fab {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands" !important;
+            font-weight: 900;
+        }
+
+        .far {
+            font-weight: 400;
+        }
+
+        .fab {
+            font-weight: 400;
+        }
+
+        /* Icon specific styles */
+        .btn i, .stat-icon i, .card-header i {
+            font-size: inherit;
+            line-height: 1;
+        }
+
+        /* Dark Theme Styles */
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #2d1b69 0%, #1a0d4a 100%);
+        }
+
+        [data-theme="dark"] .main-header h1 {
+            color: white;
+        }
+
+        [data-theme="dark"] .card-header {
+            background: rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .card-header h2 {
+            color: white;
+        }
+
+        [data-theme="dark"] .stat-card {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .stat-icon {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        [data-theme="dark"] .stat-value {
+            color: white;
+        }
+
+        [data-theme="dark"] .btn-primary {
+            background: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(76, 29, 149, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-success {
+            background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-success:hover {
+            box-shadow: 0 8px 25px rgba(22, 101, 52, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        [data-theme="dark"] .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        [data-theme="dark"] .btn-info {
+            background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-info:hover {
+            box-shadow: 0 8px 25px rgba(12, 74, 110, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-warning {
+            background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-warning:hover {
+            box-shadow: 0 8px 25px rgba(146, 64, 14, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-danger {
+            background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-danger:hover {
+            box-shadow: 0 8px 25px rgba(153, 27, 27, 0.4);
+        }
+
+        
+        [data-theme="dark"] .card-header {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        [data-theme="dark"] .stat-card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .stat-card:hover {
+            background: rgba(0, 0, 0, 0.35);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        [data-theme="dark"] .stat-icon {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .btn-warning:hover {
+            background: linear-gradient(135deg, #b45309, #92400e);
+        }
+
+        [data-theme="dark"] .btn-danger {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        }
+
+        [data-theme="dark"] .btn-danger:hover {
+            background: linear-gradient(135deg, #b91c1c, #991b1b);
+        }
+
+        [data-theme="dark"] .data-table th {
+            background: rgba(0, 0, 0, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        [data-theme="dark"] .data-table tbody tr:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .data-table td {
+            color: white;
+        }
+
+        [data-theme="dark"] .modal-content {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .modal-header {
+            background: rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .modal-content h2 {
+            color: white;
+        }
+
+        [data-theme="dark"] .form-input, [data-theme="dark"] .form-select {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        [data-theme="dark"] .form-input:focus, [data-theme="dark"] .form-select:focus {
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        [data-theme="dark"] .input-group label {
+            color: white;
+        }
+
+        [data-theme="dark"] .text-muted {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        [data-theme="dark"] .user-info-section,
+        [data-theme="dark"] .trips-section,
+        [data-theme="dark"] .reservations-section {
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .user-info-section h3,
+        [data-theme="dark"] .trips-section h3,
+        [data-theme="dark"] .reservations-section h3 {
+            color: white;
+        }
+
+        [data-theme="dark"] .info-item label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        [data-theme="dark"] .info-item span {
+            color: white;
+        }
+
+        [data-theme="dark"] .trip-item,
+        [data-theme="dark"] .reservation-item {
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .trip-item h4,
+        [data-theme="dark"] .reservation-item h4 {
+            color: white;
+        }
+
+        [data-theme="dark"] .trip-item p,
+        [data-theme="dark"] .reservation-item p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        [data-theme="dark"] .empty-state {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        [data-theme="dark"] .empty-state i {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Light Theme Modal Styling - Transparent with blueish hue */
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.6) !important;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 1px solid rgba(59, 130, 246, 0.2) !important;
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.15) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .modal-header {
+            background: rgba(59, 130, 246, 0.1) !important;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2) !important;
+            padding: 1.5rem 2rem !important;
+            border-radius: 0.75rem 0.75rem 0 0 !important;
+        }
+
+        .modal-content h2 {
+            color: white !important;
+            font-weight: 700 !important;
+            margin: 0 !important;
+        }
+
+        .modal-body {
+            padding: 2rem !important;
+            color: #1e40af !important;
+        }
+
+        .modal-body h3 {
+            color: #1e40af !important;
+            font-weight: 600 !important;
+            margin: 0 0 1rem 0 !important;
+            padding-bottom: 0.5rem !important;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3) !important;
+        }
+
+        .user-info-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+            gap: 1rem !important;
+            margin-bottom: 2rem !important;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.2) !important;
+            padding: 1rem !important;
+            border-radius: 0.5rem !important;
+            border: 1px solid rgba(59, 130, 246, 0.2) !important;
+            box-shadow: 0 1px 3px rgba(59, 130, 246, 0.1) !important;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .info-item label {
+            color: rgba(30, 64, 175, 0.8) !important;
+            font-weight: 600 !important;
+            font-size: 0.875rem !important;
+            margin-bottom: 0.25rem !important;
+            display: block !important;
+        }
+
+        .info-item span {
+            color: #1e40af !important;
+            font-weight: 500 !important;
+            font-size: 0.95rem !important;
+        }
+
+        .user-actions {
+            margin-top: 1.5rem !important;
+            padding-top: 1.5rem !important;
+            border-top: 1px solid rgba(59, 130, 246, 0.2) !important;
+        }
+
+        .trips-section, .reservations-section {
+            margin-top: 2rem !important;
+            padding-top: 2rem !important;
+            border-top: 1px solid rgba(59, 130, 246, 0.2) !important;
+        }
+
+        .trips-list, .reservations-list {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-radius: 0.5rem !important;
+            padding: 1rem !important;
+            border: 1px solid rgba(59, 130, 246, 0.2) !important;
+            max-height: 300px !important;
+            overflow-y: auto !important;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .trip-item, .reservation-item {
+            background: rgba(255, 255, 255, 0.25) !important;
+            padding: 1rem !important;
+            margin-bottom: 0.75rem !important;
+            border-radius: 0.375rem !important;
+            border: 1px solid rgba(59, 130, 246, 0.2) !important;
+            box-shadow: 0 1px 2px rgba(59, 130, 246, 0.1) !important;
+        }
+
+        .trip-item:last-child, .reservation-item:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .trip-item h4, .reservation-item h4 {
+            color: #1e40af !important;
+            font-weight: 600 !important;
+            margin: 0 0 0.5rem 0 !important;
+        }
+
+        .trip-item p, .reservation-item p {
+            color: rgba(30, 64, 175, 0.8) !important;
+            margin: 0.25rem 0 !important;
+            font-size: 0.875rem !important;
+        }
+
+        .btn {
+            transition: all 0.2s ease !important;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #d97706, #b45309) !important;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6b7280, #4b5563) !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #4b5563, #374151) !important;
+        }
+
+        /* Dark Theme Modal Styling - Override light theme for dark mode */
+        [data-theme="dark"] .modal-content {
+            background: rgba(0, 0, 0, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="dark"] .modal-header {
+            background: rgba(0, 0, 0, 0.1) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="dark"] .modal-content h2 {
+            color: white !important;
+        }
+
+        [data-theme="dark"] .modal-body {
+            color: white !important;
+        }
+
+        [data-theme="dark"] .modal-body h3 {
+            color: white !important;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+        }
+
+        [data-theme="dark"] .info-item {
+            background: rgba(0, 0, 0, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="dark"] .info-item label {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        [data-theme="dark"] .info-item span {
+            color: white !important;
+        }
+
+        [data-theme="dark"] .user-actions {
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="dark"] .trips-section, 
+        [data-theme="dark"] .reservations-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="dark"] .trips-list, 
+        [data-theme="dark"] .reservations-list {
+            background: rgba(0, 0, 0, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="dark"] .trip-item, 
+        [data-theme="dark"] .reservation-item {
+            background: rgba(0, 0, 0, 0.3) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="dark"] .trip-item h4, 
+        [data-theme="dark"] .reservation-item h4 {
+            color: white !important;
+        }
+
+        [data-theme="dark"] .trip-item p, 
+        [data-theme="dark"] .reservation-item p {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        /* Search and Pagination Controls Styling */
+        .users-controls input,
+        .users-controls select {
+            transition: all 0.3s ease;
+        }
+
+        .users-controls input:focus,
+        .users-controls select:focus,
+        .users-controls .form-select:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+        }
+
+        /* Dark theme support for search and sort inputs */
+        [data-theme="dark"] .users-controls input,
+        [data-theme="dark"] .users-controls select {
+            background: rgba(0, 0, 0, 0.3) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+        }
+
+        [data-theme="dark"] .users-controls input:focus,
+        [data-theme="dark"] .users-controls select:focus {
+            border-color: rgba(255, 255, 255, 0.4) !important;
+            background: rgba(0, 0, 0, 0.4) !important;
+            color: white !important;
+        }
+
+        [data-theme="dark"] .users-controls input::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        /* Light theme support for search and sort inputs */
+        .users-controls input::placeholder {
+            color: rgba(0, 0, 0, 0.6) !important;
+        }
+
+        .users-controls input {
+            color: white !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        .users-controls select,
+        .users-controls .form-select {
+            color: white !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+
+        /* Light theme specific overrides with higher specificity */
+        [data-theme="light"] .users-controls input,
+        [data-theme="light"] .users-controls select {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+        }
+
+        [data-theme="light"] .users-controls input:focus,
+        [data-theme="light"] .users-controls select:focus {
+            border-color: rgba(255, 255, 255, 0.4) !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        .users-controls select option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Force dropdown options styling */
+        .users-controls select option:checked {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        .users-controls select option:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            background-color: rgba(255, 255, 255, 0.25) !important;
+            color: white !important;
+        }
+
+        .users-controls select option:focus {
+            background: rgba(255, 255, 255, 0.25) !important;
+            background-color: rgba(255, 255, 255, 0.25) !important;
+            color: white !important;
+        }
+
+        .users-controls select option:active {
+            background: rgba(255, 255, 255, 0.25) !important;
+            background-color: rgba(255, 255, 255, 0.25) !important;
+            color: white !important;
+        }
+
+        /* Override any browser defaults */
+        .users-controls select option:not(:checked) {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Nuclear option - try to override everything */
+        .users-controls select,
+        .users-controls select:focus,
+        .users-controls select:active,
+        .users-controls select:visited,
+        .users-controls select:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        .users-controls select option,
+        .users-controls select option:checked,
+        .users-controls select option:focus,
+        .users-controls select option:hover,
+        .users-controls select option:active {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Try to override the dropdown list itself */
+        .users-controls select:focus option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Additional overrides for dropdown appearance */
+        .users-controls select option[selected] {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        .users-controls select option[value] {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Override the dropdown list container */
+        .users-controls select:focus {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        /* Force the dropdown options to inherit the select background */
+        .users-controls select option {
+            background: inherit !important;
+            background-color: inherit !important;
+        }
+
+        /* If inherit doesn't work, force the specific color */
+        .users-controls select option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        /* More specific selectors to override everything */
+        .content .users-controls select option,
+        .main-container .users-controls select option,
+        body .users-controls select option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Override any form-select class that might be interfering */
+        .users-controls .form-select option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Target the specific select element by ID */
+        #userSortSelect option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Nuclear option - target everything possible */
+        select#userSortSelect option,
+        .users-controls select#userSortSelect option,
+        .content .users-controls select#userSortSelect option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Override any potential browser default styling */
+        select option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Force override with maximum specificity */
+        html body .content .users-controls select option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Override admin-styles.css specifically */
+        form select option,
+        .users-controls form select option,
+        .content .users-controls form select option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Target the specific form-select class from admin-styles.css */
+        .form-select option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Override any potential CSS from admin-styles.css that targets form elements */
+        form input[type="text"],
+        form input[type="number"],
+        form input[type="url"],
+        form textarea,
+        form select {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Nuclear option - override everything with maximum specificity */
+        html body .content .users-controls .sort-group .form-select option,
+        html body .content .users-controls .sort-group select option,
+        html body .content .users-controls .sort-group #userSortSelect option {
+            background: rgba(255, 255, 255, 0.15) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+        }
+
+        /* Ensure text color is white when typing */
+        .users-controls input[type="text"] {
+            color: white !important;
+        }
+
+        .users-controls input[type="text"]:not(:placeholder-shown) {
+            color: white !important;
+        }
+
+        .pagination-controls button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-controls button:not(:disabled):hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .pagination-info {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Table Container Styling */
+        .data-table {
+            margin: 0;
+        }
+        
+        .data-table thead th {
+            background: rgba(0, 0, 0, 0.8) !important;
+            color: white !important;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .data-table tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .data-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .users-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .users-controls .search-group,
+            .users-controls .sort-group {
+                min-width: auto;
+            }
+            
+            .pagination-info {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+    <script>
+        let users = [];
+        let trips = [];
+        let currentMigrationUser = null;
+        let currentUserDetails = null;
+        let currentPage = 1;
+        let totalPages = 1;
+        let totalUsers = 0;
+        let currentSearch = '';
+        let currentSort = 'created_at_DESC';
+
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUsers();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // Search input with debounce
+            const searchInput = document.getElementById('userSearchInput');
+            let searchTimeout;
+            searchInput.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    currentSearch = this.value;
+                    currentPage = 1; // Reset to first page when searching
+                    loadUsers();
+                }, 500); // 500ms debounce
+            });
+
+            // Custom dropdown functionality
+            const customSelectTrigger = document.getElementById('customSelectTrigger');
+            const customSelectOptions = document.getElementById('customSelectOptions');
+            const customSelectText = document.getElementById('customSelectText');
+            const customOptions = document.querySelectorAll('.custom-option');
+
+            // Toggle dropdown
+            customSelectTrigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isOpen = customSelectOptions.style.display === 'block';
+                customSelectOptions.style.display = isOpen ? 'none' : 'block';
+                
+                // Rotate arrow
+                const arrow = this.querySelector('i');
+                arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+            });
+
+            // Handle option selection
+            customOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    const text = this.textContent;
+                    
+                    // Update display
+                    customSelectText.textContent = text;
+                    customSelectOptions.style.display = 'none';
+                    
+                    // Rotate arrow back
+                    const arrow = customSelectTrigger.querySelector('i');
+                    arrow.style.transform = 'rotate(0deg)';
+                    
+                    // Update sort and reload
+                    currentSort = value;
+                    currentPage = 1;
+                    loadUsers();
+                });
+
+                // Hover effects
+                option.addEventListener('mouseenter', function() {
+                    this.style.background = 'rgba(255, 255, 255, 0.25)';
+                });
+                
+                option.addEventListener('mouseleave', function() {
+                    this.style.background = 'transparent';
+                });
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!customSelectTrigger.contains(e.target) && !customSelectOptions.contains(e.target)) {
+                    customSelectOptions.style.display = 'none';
+                    const arrow = customSelectTrigger.querySelector('i');
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            });
+        }
+
+        async function loadUsers() {
+            try {
+                // Split by last underscore to handle fields like 'created_at'
+                const lastUnderscoreIndex = currentSort.lastIndexOf('_');
+                const sortBy = currentSort.substring(0, lastUnderscoreIndex);
+                const sortOrder = currentSort.substring(lastUnderscoreIndex + 1);
+                const params = new URLSearchParams({
+                    search: currentSearch,
+                    sortBy: sortBy,
+                    sortOrder: sortOrder,
+                    page: currentPage,
+                    limit: 10
+                });
+
+                console.log('API Request params:', {
+                    search: currentSearch,
+                    sortBy: sortBy,
+                    sortOrder: sortOrder,
+                    page: currentPage,
+                    limit: 10
+                });
+
+                const response = await fetch(`/api/admin/users?${params}`);
+                const data = await response.json();
+                
+                console.log('API Response:', data); // Debug log
+                
+                if (response.ok && data.users) {
+                    users = data.users;
+                    
+                    console.log(`Frontend received ${users.length} users for page ${currentPage}`);
+                    
+                    // Handle pagination data with fallbacks
+                    if (data.pagination) {
+                        currentPage = data.pagination.currentPage || 1;
+                        totalPages = data.pagination.totalPages || 1;
+                        totalUsers = data.pagination.totalUsers || users.length;
+                        console.log(`Pagination: page ${currentPage}/${totalPages}, total users: ${totalUsers}`);
+                    } else {
+                        // Fallback for old API format
+                        currentPage = 1;
+                        totalPages = 1;
+                        totalUsers = users.length;
+                    }
+                    
+                    displayUsers();
+                    updatePaginationControls();
+                    updateStats();
+                    // Load trips after users are loaded
+                    await loadTrips();
+                } else {
+                    console.error('Invalid response format:', data);
+                    showNotification('Invalid response from server', 'error');
+                }
+            } catch (error) {
+                console.error('Error loading users:', error);
+                showNotification('Error loading users', 'error');
+                
+                // Fallback: try to load users without pagination
+                try {
+                    const fallbackResponse = await fetch('/api/admin/users');
+                    const fallbackData = await fallbackResponse.json();
+                    
+                    if (fallbackResponse.ok && fallbackData.users) {
+                        users = fallbackData.users;
+                        currentPage = 1;
+                        totalPages = 1;
+                        totalUsers = users.length;
+                        
+                        displayUsers();
+                        updatePaginationControls();
+                        updateStats();
+                        await loadTrips();
+                    }
+                } catch (fallbackError) {
+                    console.error('Fallback also failed:', fallbackError);
+                }
+            }
+        }
+
+        async function loadTrips() {
+            try {
+                const response = await fetch('/api/admin/trips');
+                if (response.ok) {
+                    const data = await response.json();
+                    trips = data.trips || [];
+                    updateStats();
+                } else {
+                    console.error('Error loading trips:', response.status);
+                }
+            } catch (error) {
+                console.error('Error loading trips:', error);
+            }
+        }
+
+
+        function displayUsers() {
+            const tbody = document.getElementById('usersTableBody');
+            tbody.innerHTML = '';
+
+            if (!users || users.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td colspan="7" style="text-align: center; padding: 2rem; color: rgba(255, 255, 255, 0.6);">
+                        <i class="fas fa-users" style="font-size: 2rem; margin-bottom: 0.5rem; display: block;"></i>
+                        ${currentSearch ? 'No users found matching your search' : 'No users found'}
+                    </td>
+                `;
+                tbody.appendChild(row);
+                return;
+            }
+
+            users.forEach(user => {
+                const userTrips = trips.filter(trip => trip.user_id === user.id);
+                const row = document.createElement('tr');
+                
+                const lastLogin = user.last_login ? new Date(user.last_login).toLocaleDateString() : 'Never';
+                const createdDate = new Date(user.created_at).toLocaleDateString();
+                
+                row.innerHTML = `
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-user" style="color: white;"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: white; font-size: 0.875rem;">${user.username || user.email}</div>
+                                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.75rem;">${user.email}</div>
+                                ${user.location ? `<div style="color: rgba(255, 255, 255, 0.5); font-size: 0.7rem;">📍 ${user.location}</div>` : ''}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <select onchange="updateUserRole('${user.id}', this.value, event)" 
+                                style="padding: 0.5rem 0.75rem; font-size: 0.75rem; font-weight: 600; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.1); color: white; cursor: pointer; min-width: 100px;" 
+                                value="${user.role || 'user'}">
+                            <option value="user" ${user.role === 'user' ? 'selected' : ''} style="background: #1a1a1a; color: #86efac;">User</option>
+                            <option value="admin" ${user.role === 'admin' ? 'selected' : ''} style="background: #1a1a1a; color: #fca5a5;">Admin</option>
+                        </select>
+                    </td>
+                    <td style="color: white; font-weight: 500; text-align: center;">
+                        ${user.total_trips || 0}
+                    </td>
+                    <td style="color: white; font-weight: 500; text-align: center;">
+                        ${user.total_reservations || 0}
+                    </td>
+                    <td style="color: rgba(255, 255, 255, 0.7);">
+                        ${createdDate}
+                    </td>
+                    <td style="color: rgba(255, 255, 255, 0.7);">
+                        ${lastLogin}
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button onclick="viewUserDetails('${user.id}')" class="btn btn-primary btn-small">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button onclick="deleteUser('${user.id}', '${user.email}')" class="btn btn-danger btn-small">
+                                <i class="fas fa-trash"></i> Delete User
+                            </button>
+                        </div>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+
+
+        function updateStats() {
+            const now = new Date();
+            const thisMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+            
+            const totalUsers = users ? users.length : 0;
+            const activeUsers = users ? users.filter(u => u.last_login && new Date(u.last_login) > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)).length : 0;
+            const totalTrips = trips ? trips.length : 0;
+            const newThisMonth = users ? users.filter(u => new Date(u.created_at) >= thisMonth).length : 0;
+            
+            document.getElementById('totalUsers').textContent = totalUsers;
+            document.getElementById('activeUsers').textContent = activeUsers;
+            document.getElementById('totalTrips').textContent = totalTrips;
+            document.getElementById('newThisMonth').textContent = newThisMonth;
+        }
+
+
+        async function deleteUser(userId, email) {
+            // Triple confirmation for safety
+            if (!confirm(`⚠️ WARNING: You are about to delete user "${email}"`)) {
+                return;
+            }
+            
+            if (!confirm(`🚨 SECOND WARNING: This will permanently delete user "${email}" and ALL their trips. This cannot be undone.`)) {
+                return;
+            }
+            
+            if (!confirm(`💀 FINAL WARNING: Are you absolutely certain you want to delete "${email}"? This action is irreversible.`)) {
+                return;
+            }
+            
+            try {
+                // Delete the user (this will also delete their trips due to the backend logic)
+                const deleteUserResponse = await fetch(`/api/auth/users/${userId}`, {
+                    method: 'DELETE'
+                });
+                
+                if (deleteUserResponse.ok) {
+                    showNotification(`User "${email}" deleted successfully`);
+                    loadUsers(); // This will also reload trips
+                } else {
+                    const errorData = await deleteUserResponse.json();
+                    showNotification(errorData.error || 'Error deleting user', 'error');
+                }
+            } catch (error) {
+                console.error('Error deleting user:', error);
+                showNotification('Error deleting user', 'error');
+            }
+        }
+
+        async function updateUserRole(userId, newRole, event) {
+            try {
+                // Get the current user to show in confirmation
+                const user = users.find(u => u.id === userId);
+                const currentRole = user ? user.role : 'user';
+                
+                if (currentRole === newRole) {
+                    return; // No change needed
+                }
+                
+                // Confirm the role change
+                const confirmMessage = `Are you sure you want to change ${user ? user.email : userId}'s role from "${currentRole}" to "${newRole}"?`;
+                if (!confirm(confirmMessage)) {
+                    // Revert the dropdown to the original value
+                    const dropdown = document.getElementById(`roleSelect_${userId}`);
+                    if (dropdown) {
+                        dropdown.value = currentRole;
+                    }
+                    return;
+                }
+                
+                // Update the user role
+                const response = await fetch(`/api/admin/users/${userId}/role`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ role: newRole })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    showNotification(`User role updated successfully from "${currentRole}" to "${newRole}"`);
+                    
+                    // Update the local users array
+                    if (user) {
+                        user.role = newRole;
+                    }
+                    
+                    // Refresh the display
+                    displayUsers();
+                    updateStats();
+                } else {
+                    const errorData = await response.json();
+                    showNotification(errorData.error || 'Error updating user role', 'error');
+                    
+                    // Revert the dropdown to the original value
+                    const dropdown = document.getElementById(`roleSelect_${userId}`);
+                    if (dropdown) {
+                        dropdown.value = currentRole;
+                    }
+                    
+                    // Reload users to get fresh data
+                    loadUsers();
+                }
+            } catch (error) {
+                console.error('Error updating user role:', error);
+                showNotification('Error updating user role', 'error');
+                
+                // Revert the dropdown and reload users
+                const user = users.find(u => u.id === userId);
+                if (user) {
+                    const dropdown = document.getElementById(`roleSelect_${userId}`);
+                    if (dropdown) {
+                        dropdown.value = user.role;
+                    }
+                }
+                loadUsers();
+            }
+        }
+
+        function refreshUsers() {
+            loadUsers(); // This will also load trips
+        }
+
+        // Pagination Functions
+        function updatePaginationControls() {
+            const paginationInfo = document.getElementById('paginationInfo');
+            const prevBtn = document.getElementById('prevPageBtn');
+            const nextBtn = document.getElementById('nextPageBtn');
+            const pageNumbers = document.getElementById('pageNumbers');
+
+            // Update pagination info
+            const startUser = (currentPage - 1) * 10 + 1;
+            const endUser = Math.min(currentPage * 10, totalUsers);
+            paginationInfo.textContent = `Showing ${startUser}-${endUser} of ${totalUsers} users`;
+
+            // Update button states
+            prevBtn.disabled = !(currentPage > 1);
+            nextBtn.disabled = !(currentPage < totalPages);
+
+            // Update page numbers
+            let pageNumbersHtml = '';
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+            if (endPage - startPage + 1 < maxVisiblePages) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+
+            if (startPage > 1) {
+                pageNumbersHtml += `<button onclick="goToPage(1)" class="btn btn-secondary btn-small" style="margin: 0 2px;">1</button>`;
+                if (startPage > 2) {
+                    pageNumbersHtml += `<span style="margin: 0 5px; color: rgba(255, 255, 255, 0.5);">...</span>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const isActive = i === currentPage;
+                pageNumbersHtml += `<button onclick="goToPage(${i})" 
+                    class="btn ${isActive ? 'btn-primary' : 'btn-secondary'} btn-small" 
+                    style="margin: 0 2px; ${isActive ? 'opacity: 1;' : ''}">${i}</button>`;
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    pageNumbersHtml += `<span style="margin: 0 5px; color: rgba(255, 255, 255, 0.5);">...</span>`;
+                }
+                pageNumbersHtml += `<button onclick="goToPage(${totalPages})" class="btn btn-secondary btn-small" style="margin: 0 2px;">${totalPages}</button>`;
+            }
+
+            pageNumbers.innerHTML = pageNumbersHtml;
+        }
+
+        function goToPage(page) {
+            if (page >= 1 && page <= totalPages && page !== currentPage) {
+                currentPage = page;
+                loadUsers();
+            }
+        }
+
+        function goToNextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                loadUsers();
+            }
+        }
+
+        function goToPreviousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                loadUsers();
+            }
+        }
+
+        // User Details Modal Functions
+        async function viewUserDetails(userId) {
+            try {
+                const response = await fetch(`/api/admin/user/${userId}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    currentUserDetails = data;
+                    displayUserDetails(data);
+                    document.getElementById('userDetailsModal').classList.remove('hidden');
+                } else {
+                    showNotification('Error loading user details', 'error');
+                }
+            } catch (error) {
+                console.error('Error loading user details:', error);
+                showNotification('Error loading user details', 'error');
+            }
+        }
+
+        function displayUserDetails(data) {
+            const { user, trips, reservations } = data;
+            
+            // Update user info
+            document.getElementById('userDetailsTitle').textContent = `User Details - ${user.username || user.email}`;
+            document.getElementById('userEmail').textContent = user.email;
+            document.getElementById('userUsername').textContent = user.username || 'Not set';
+            document.getElementById('userLocation').textContent = user.location || 'Not specified';
+            document.getElementById('userId').textContent = user.id;
+            document.getElementById('userRole').textContent = user.role;
+            document.getElementById('userCreated').textContent = new Date(user.created_at).toLocaleDateString();
+            document.getElementById('userLastLogin').textContent = user.last_login ? new Date(user.last_login).toLocaleDateString() : 'Never';
+            document.getElementById('userTotalTrips').textContent = trips.length;
+            document.getElementById('userTotalReservations').textContent = reservations.length;
+            
+            // Display trips
+            displayUserTripsInModal(trips);
+            
+            // Display reservations
+            displayUserReservationsInModal(reservations);
+        }
+
+        function displayUserTripsInModal(trips) {
+            const container = document.getElementById('userTripsList');
+            
+            if (trips.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-route"></i>
+                        <p>No trips found for this user</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            trips.forEach(trip => {
+                html += `
+                    <div class="trip-item">
+                        <h4>${trip.name}</h4>
+                        <p><strong>Trip ID:</strong> ${trip.id}</p>
+                        <p><strong>Places:</strong> ${trip.places.length} places</p>
+                        <p><strong>Created:</strong> ${new Date(trip.created_at).toLocaleDateString()}</p>
+                        <p><strong>Updated:</strong> ${new Date(trip.updated_at).toLocaleDateString()}</p>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function displayUserReservationsInModal(reservations) {
+            const container = document.getElementById('userReservationsList');
+            
+            if (reservations.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-ticket-alt"></i>
+                        <p>No reservations found for this user</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            reservations.forEach(reservation => {
+                // Use validation_status for display, fallback to status
+                const displayStatus = reservation.validation_status === 'completed' ? 'Completed' : 
+                                    reservation.validation_status === 'pending' ? 'Pending' : 
+                                    reservation.validation_status || reservation.status;
+                const statusClass = `status-${reservation.validation_status || reservation.status}`;
+                html += `
+                    <div class="reservation-item">
+                        <h4>${reservation.tour_name || reservation.ticket_name}</h4>
+                        <p><strong>Category:</strong> ${reservation.ticket_category}</p>
+                        <p><strong>Status:</strong> <span class="status-badge ${statusClass}">${displayStatus}</span></p>
+                        
+                        <div class="reservation-details">
+                            <div><strong>Quantity:</strong> ${reservation.quantity}</div>
+                            <div><strong>Total Price:</strong> €${reservation.total_price}</div>
+                            <div><strong>Date:</strong> ${reservation.reservation_date}</div>
+                            <div><strong>Time:</strong> ${reservation.reservation_time || 'Not specified'}</div>
+                            <div><strong>Contact Email:</strong> ${reservation.contact_email || 'Not provided'}</div>
+                            <div><strong>Contact Phone:</strong> ${reservation.contact_phone || 'Not provided'}</div>
+                        </div>
+                        
+                        ${reservation.special_requests ? `<p><strong>Special Requests:</strong> ${reservation.special_requests}</p>` : ''}
+                        
+                        <div class="reservation-actions">
+                            <select onchange="updateReservationStatus('${reservation.id}', this.value)" class="form-select btn-small">
+                                <option value="pending" ${(reservation.validation_status || reservation.status) === 'pending' ? 'selected' : ''}>Pending</option>
+                                <option value="confirmed" ${(reservation.validation_status || reservation.status) === 'confirmed' ? 'selected' : ''}>Confirmed</option>
+                                <option value="completed" ${(reservation.validation_status || reservation.status) === 'completed' ? 'selected' : ''}>Completed</option>
+                                <option value="cancelled" ${(reservation.validation_status || reservation.status) === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                            </select>
+                            <button onclick="editReservation('${reservation.id}')" class="btn btn-secondary btn-small">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button onclick="deleteReservation('${reservation.id}')" class="btn btn-danger btn-small">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function closeUserDetailsModal() {
+            document.getElementById('userDetailsModal').classList.add('hidden');
+            currentUserDetails = null;
+        }
+
+        async function updateReservationStatus(reservationId, newStatus) {
+            try {
+                const response = await fetch(`/api/admin/reservations/${reservationId}/status`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        status: newStatus,
+                        validation_status: newStatus === 'completed' ? 'completed' : 
+                                        newStatus === 'pending' ? 'pending' : 
+                                        newStatus === 'confirmed' ? 'pending' : 
+                                        newStatus
+                    })
+                });
+                
+                if (response.ok) {
+                    showNotification('Reservation status updated successfully');
+                    // Reload user details
+                    if (currentUserDetails) {
+                        await viewUserDetails(currentUserDetails.user.id);
+                    }
+                } else {
+                    const error = await response.json();
+                    showNotification(error.error || 'Failed to update reservation status', 'error');
+                }
+            } catch (error) {
+                console.error('Error updating reservation status:', error);
+                showNotification('Error updating reservation status', 'error');
+            }
+        }
+
+        function editReservation(reservationId) {
+            // Find the reservation in current user details
+            const reservation = currentUserDetails.reservations.find(r => r.id === reservationId);
+            if (!reservation) return;
+            
+            // Create a simple edit form
+            const newQuantity = prompt('Enter new quantity:', reservation.quantity);
+            if (newQuantity === null) return;
+            
+            const newTotalPrice = prompt('Enter new total price:', reservation.total_price);
+            if (newTotalPrice === null) return;
+            
+            const newDate = prompt('Enter new reservation date (YYYY-MM-DD):', reservation.reservation_date);
+            if (newDate === null) return;
+            
+            const newTime = prompt('Enter new reservation time (HH:MM):', reservation.reservation_time || '');
+            if (newTime === null) return;
+            
+            const newEmail = prompt('Enter new contact email:', reservation.contact_email || '');
+            if (newEmail === null) return;
+            
+            const newPhone = prompt('Enter new contact phone:', reservation.contact_phone || '');
+            if (newPhone === null) return;
+            
+            const newRequests = prompt('Enter special requests:', reservation.special_requests || '');
+            if (newRequests === null) return;
+            
+            // Update the reservation
+            updateReservationDetails(reservationId, {
+                quantity: parseInt(newQuantity),
+                total_price: parseFloat(newTotalPrice),
+                reservation_date: newDate,
+                reservation_time: newTime,
+                contact_email: newEmail,
+                contact_phone: newPhone,
+                special_requests: newRequests
+            });
+        }
+
+        async function updateReservationDetails(reservationId, details) {
+            try {
+                const response = await fetch(`/api/admin/reservations/${reservationId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(details)
+                });
+                
+                if (response.ok) {
+                    showNotification('Reservation updated successfully');
+                    // Reload user details
+                    if (currentUserDetails) {
+                        await viewUserDetails(currentUserDetails.user.id);
+                    }
+                } else {
+                    const error = await response.json();
+                    showNotification(error.error || 'Failed to update reservation', 'error');
+                }
+            } catch (error) {
+                console.error('Error updating reservation:', error);
+                showNotification('Error updating reservation', 'error');
+            }
+        }
+
+        async function deleteReservation(reservationId) {
+            if (!confirm('Are you sure you want to delete this reservation? This action cannot be undone.')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/admin/reservations/${reservationId}`, {
+                    method: 'DELETE'
+                });
+                
+                if (response.ok) {
+                    showNotification('Reservation deleted successfully');
+                    // Reload user details
+                    if (currentUserDetails) {
+                        await viewUserDetails(currentUserDetails.user.id);
+                    }
+                } else {
+                    const error = await response.json();
+                    showNotification(error.error || 'Failed to delete reservation', 'error');
+                }
+            } catch (error) {
+                console.error('Error deleting reservation:', error);
+                showNotification('Error deleting reservation', 'error');
+            }
+        }
+
+        function resetUserPassword() {
+            if (!currentUserDetails) return;
+            
+            document.getElementById('passwordResetModal').classList.remove('hidden');
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+        }
+
+        function closePasswordResetModal() {
+            document.getElementById('passwordResetModal').classList.add('hidden');
+        }
+
+        async function confirmPasswordReset() {
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (!newPassword || newPassword.length < 6) {
+                showNotification('Password must be at least 6 characters long', 'error');
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                showNotification('Passwords do not match', 'error');
+                return;
+            }
+            
+            if (!currentUserDetails) return;
+            
+            try {
+                const response = await fetch(`/api/admin/users/${currentUserDetails.user.id}/reset-password`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ newPassword })
+                });
+                
+                if (response.ok) {
+                    showNotification('Password reset successfully');
+                    closePasswordResetModal();
+                } else {
+                    const error = await response.json();
+                    showNotification(error.error || 'Failed to reset password', 'error');
+                }
+            } catch (error) {
+                console.error('Error resetting password:', error);
+                showNotification('Error resetting password', 'error');
+            }
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            
+            // Set the appropriate class based on type
+            notification.className = `notification ${type}`;
+            
+            // Show the notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            // Hide the notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // ==========================================
+        // CREATE USER FUNCTIONS
+        // ==========================================
+        
+        function openCreateUserModal() {
+            document.getElementById('createUserModal').classList.remove('hidden');
+            // Clear form
+            document.getElementById('newUserEmail').value = '';
+            document.getElementById('newUserUsername').value = '';
+            document.getElementById('newUserPassword').value = '';
+            document.getElementById('newUserLocation').value = '';
+            document.getElementById('newUserRole').value = 'user';
+        }
+        
+        function closeCreateUserModal() {
+            document.getElementById('createUserModal').classList.add('hidden');
+        }
+        
+        async function confirmCreateUser() {
+            const email = document.getElementById('newUserEmail').value.trim();
+            const username = document.getElementById('newUserUsername').value.trim();
+            const password = document.getElementById('newUserPassword').value;
+            const location = document.getElementById('newUserLocation').value.trim();
+            const role = document.getElementById('newUserRole').value;
+            
+            if (!email || !username || !password) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showNotification('Password must be at least 6 characters', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/admin/users/create', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, username, password, location, role })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showNotification(`User "${username}" created successfully!`, 'success');
+                    closeCreateUserModal();
+                    loadUsers(); // Reload the users table
+                } else {
+                    showNotification(data.error || 'Failed to create user', 'error');
+                }
+            } catch (error) {
+                console.error('Error creating user:', error);
+                showNotification('Error creating user', 'error');
+            }
+        }
+
+        // ==========================================
+        // ORPHANED TRIPS FUNCTIONS
+        // ==========================================
+        
+        async function loadOrphanedTrips() {
+            try {
+                const response = await fetch('/api/admin/orphaned-trips');
+                const data = await response.json();
+                
+                const container = document.getElementById('orphanedTripsContainer');
+                
+                if (data.trips && data.trips.length > 0) {
+                    // Create table with orphaned trips
+                    let html = `
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Trip Name</th>
+                                    <th>User ID</th>
+                                    <th>Places</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    
+                    data.trips.forEach(trip => {
+                        const places = trip.places ? JSON.parse(trip.places) : [];
+                        const createdDate = new Date(trip.created_at).toLocaleDateString();
+                        
+                        html += `
+                            <tr>
+                                <td><strong>${trip.name || 'Untitled Trip'}</strong></td>
+                                <td><code style="font-size: 11px;">${trip.user_id}</code></td>
+                                <td>${places.length} places</td>
+                                <td>${createdDate}</td>
+                                <td>
+                                    <button onclick="showMigrateModal('${trip.id}', '${trip.name || 'Untitled'}')" 
+                                            class="btn btn-secondary btn-sm" 
+                                            style="margin-right: 8px;">
+                                        <i class="fas fa-share"></i> Migrate
+                                    </button>
+                                    <button onclick="deleteOrphanedTrip('${trip.id}', '${trip.name || 'Untitled'}')" 
+                                            class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    
+                    html += `
+                            </tbody>
+                        </table>
+                    `;
+                    
+                    container.innerHTML = html;
+                } else {
+                    container.innerHTML = `
+                        <p style="color: rgba(255, 255, 255, 0.5); text-align: center; padding: 40px;">
+                            <i class="fas fa-check-circle" style="font-size: 48px; margin-bottom: 16px; display: block;"></i>
+                            No orphaned trips found! 🎉
+                        </p>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading orphaned trips:', error);
+                showNotification('Error loading orphaned trips', 'error');
+            }
+        }
+        
+        function showMigrateModal(tripId, tripName) {
+            const userId = prompt(`Migrate trip "${tripName}" to which user ID?\n\nEnter the user ID:`);
+            
+            if (userId && userId.trim()) {
+                migrateOrphanedTrip(tripId, userId.trim());
+            }
+        }
+        
+        async function migrateOrphanedTrip(tripId, userId) {
+            try {
+                const response = await fetch(`/api/admin/orphaned-trips/${tripId}/migrate`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ userId })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showNotification(data.message || 'Trip migrated successfully!', 'success');
+                    loadOrphanedTrips(); // Reload orphaned trips
+                } else {
+                    showNotification(data.error || 'Failed to migrate trip', 'error');
+                }
+            } catch (error) {
+                console.error('Error migrating trip:', error);
+                showNotification('Error migrating trip', 'error');
+            }
+        }
+        
+        async function deleteOrphanedTrip(tripId, tripName) {
+            if (!confirm(`Are you sure you want to permanently delete the trip "${tripName}"?\n\nThis action cannot be undone.`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/admin/orphaned-trips/${tripId}`, {
+                    method: 'DELETE'
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showNotification('Trip deleted successfully', 'success');
+                    loadOrphanedTrips(); // Reload orphaned trips
+                } else {
+                    showNotification(data.error || 'Failed to delete trip', 'error');
+                }
+            } catch (error) {
+                console.error('Error deleting trip:', error);
+                showNotification('Error deleting trip', 'error');
+            }
+        }
+
+        // ==========================================
+        // ACTIVITY LOGS FUNCTIONS
+        // ==========================================
+        
+        async function loadActivityLogs() {
+            try {
+                const response = await fetch('/api/admin/activity-logs?limit=50');
+                const data = await response.json();
+                
+                const container = document.getElementById('activityLogsContainer');
+                
+                if (data.logs && data.logs.length > 0) {
+                    // Create table with activity logs
+                    let html = `
+                        <div style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.6);">
+                            Showing ${data.logs.length} of ${data.totalCount} total logs
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Admin</th>
+                                    <th>Action</th>
+                                    <th>Description</th>
+                                    <th>IP Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    
+                    data.logs.forEach(log => {
+                        const timestamp = new Date(log.created_at).toLocaleString();
+                        const actionColors = {
+                            'LOGIN_SUCCESS': 'color: #10b981;',
+                            'LOGIN_ATTEMPT': 'color: #ef4444;',
+                            'LOGOUT': 'color: #6b7280;',
+                            'USER_CREATE': 'color: #3b82f6;',
+                            'USER_DELETE': 'color: #ef4444;',
+                            'TRIP_MIGRATE': 'color: #f59e0b;',
+                            'TRIP_DELETE': 'color: #ef4444;'
+                        };
+                        const actionStyle = actionColors[log.action_type] || '';
+                        
+                        html += `
+                            <tr>
+                                <td style="font-size: 12px;">${timestamp}</td>
+                                <td><strong>${log.admin_email}</strong></td>
+                                <td><code style="${actionStyle} font-size: 11px;">${log.action_type}</code></td>
+                                <td>${log.action_description}</td>
+                                <td style="font-size: 11px; color: rgba(255, 255, 255, 0.5);">${log.ip_address || 'N/A'}</td>
+                            </tr>
+                        `;
+                    });
+                    
+                    html += `
+                            </tbody>
+                        </table>
+                    `;
+                    
+                    container.innerHTML = html;
+                } else {
+                    container.innerHTML = `
+                        <p style="color: rgba(255, 255, 255, 0.5); text-align: center; padding: 40px;">
+                            <i class="fas fa-inbox" style="font-size: 48px; margin-bottom: 16px; display: block;"></i>
+                            No activity logs found
+                        </p>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading activity logs:', error);
+                showNotification('Error loading activity logs', 'error');
+            }
+        }
+    </script>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <svg id="theme-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </div>
+
+</body>
+</html>

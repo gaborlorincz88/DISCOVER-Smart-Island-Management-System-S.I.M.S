@@ -1,0 +1,1640 @@
+{
+  "id": "daħlet-qorrot-walk",
+  "name": "Daħlet Qorrot Walk",
+  "type": "hiking",
+  "description": "<![CDATA[Starting: In-Nadur<br><br>Ending: In-Nadur<br><br>Length: 10km<br><br>Grading: Moderate, difficulty with some steep inclines and a few rocky areas<br><br>Landscape: Urban, coastal, countryside roads and paths<br><br>Trail markings<br><br>Getting there and back: Gozo Channel operates regular ferries to L-Imġarr Harbour leaving from Iċ-Ċirkewwa in Malta. Buses leave regularly from the harbour to In-Nadur and back.<br><br>Recommended Walking season: October to May<br><br>Overview<br><br><br>This circular walk starts and ends in In-Nadur. It leads from In-Nadur to the plateau of Il-Qortin t’Isopu where, towards the sea you can see the Ta’ Sopu Watchtower surrounded by wonderful garrigue terrain known for its wild rock roses and endemic Maltese spurge. There is also a panoramic view over the rocky coastline and the blue waters of the north-eastern coast.<br><br>The route then takes you to Daħlet Qorrot bay, skirting Mistra Rocks – a rocky shore. Admiring the wonderful views and the rich variety of wild plants among the cliff-side boulder scree, you go downhill to the small bay of Daħlet Qorrot, where fishermen have carved boathouses in the limestone cliffs: an ideal spot for swimming and fishing.<br><br>After a short ramble along the coastal limestone shelf you turn inland and head uphill through an unspoiled wilderness area, with breathtaking views of the valley of Il-Wied ta’ Grejgel. In this valley both modern and traditional farming methods are used to reap the succulent fruits yielded by Mother Earth.<br><br>The walk then leads the hiker to the village of Il-Qala, the easternmost village in Gozo, which boasts fabulous views over the sea to Comino and Malta.<br><br>On the way back to In-Nadur you can admire an 18th century windmill and an ancient dovecote. In-Nadur is a typical Gozitan village, where houses nestle around the dominant Baroque or Romanesque place of worship.<br><br>The route map in the centre pages of this booklet, together with the frequent signposts located along the route, will help you follow the walk more easily. It is advisable to stick to the set route so that you can appreciate more fully the Gozitan landscape, rural way of life and other curiosities.]]>",
+  "icon": "🚶",
+  "iconSize": 32,
+  "points": [
+    {
+      "id": "stop_0",
+      "type": "stop",
+      "lat": 36.0378326,
+      "lng": 14.2937197,
+      "name": "Start",
+      "description": "<![CDATA[This route starts from the village square of In-Nadur. The town’s name originates from the Arabic “nadar”, meaning a look-out point, reflecting the strategic position that this village occupies on the island. Indeed, large stretches of Gozo, Malta and Comino can be seen from the various vantage points that this village affords. This is one of the most picturesque villages of Gozo, with a population of around 4000. InNadur is situated on a plateau, 512 feet (around 170 metres) above sea level. All activity in the village square takes place in the shadow of the parish church, dedicated to the apostles Peter and Paul (1), which is certainly worth a visit.<br><br>The village’s main square also hosts a police station, two banks and a pharmacy. It is the venue for many activities during the year but its busiest days are on the 27th, 28th and 29th of June when l-Imnarja, the traditional village feast is celebrated. In-Nadur is also famous for its annual Carnival which takes place during February.]]>"
+    },
+    {
+      "id": "stop_1",
+      "type": "stop",
+      "lat": 36.0377342,
+      "lng": 14.2938616,
+      "name": "Part 1",
+      "description": "The walk proceeds through Triq It-Tramuntana, the street that starts from the left-hand side of the basilica. Triq It-Tramuntana leads to a T-junction where on your left you can see a niche proudly displaying a reproduction of a painting of Our Lady of Ta’ Pinu. Take the turning to the right, Triq Ta’ Said, which leads to Triq San Gwann. The last few metres of Triq San Gwann lead you on to one of In-Nadur’s main roads — Triq it-Tigrija or Racecourse Street."
+    },
+    {
+      "id": "stop_2",
+      "type": "stop",
+      "lat": 36.0376971,
+      "lng": 14.2943429,
+      "name": "<![CDATA[Church Of Saints Peter & Paul In In-Nadur]]>",
+      "description": "<![CDATA[<img src=\"https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuBT_6VEI_WuTRN1AUOeMiaWsiTGSPCl5Y1yl3AvVpqZkWFTq-XMeRq7zuXqZjmy9SYC9C68ae7dxaB3Ys6A7q3TKzUW6y2D0rpxRHGMgE2KqgHAZoFEaoYCxG6YVkFOk8cGg40SEwVeKtjiIfGxwLawkdp0ogPU0g77denoFnWYsk1_a9zIZYiyeo9DmZZwNRDs_mp1XDaP9Q?authuser=0&fife=s16383\" height=\"200\" width=\"auto\" /><br><br>Today, the main attraction of In-Nadur is undoubtedly its magnificent Basilica dedicated to the apostles Saint Peter and Saint Paul. This wonderful monumental temple evokes to memory centuries of old historical facts. Over 300 years ago, in 1688, the Bishop of Malta and Gozo Davide Cocco-Palmeri created four new parishes for Gozo. One of them was that of In-Nadur. The church’s site was determined by a generous donation of the ground on which it stands by Grand Master Gregorio Carafa. Since the population of In-Nadur increased without any interruption, Parish priest Salvatore Galea engaged the Maltese architect Giuseppe Bonnici, a Capomastro of the Order, to prepare plans for the building of a new and much bigger church on the same site as the first one. Construction on the church began on 28 September 1760. Its foundation stone was laid on 17 December of that year. The master mason was Mikielangelo Pisano who unfortunately, died while the church was only half finished. This new chuch, built in the form of a Latin cross, unaisled and with a three-bay nave, the choir and two transepts, had a two-storeyed facade. Two belfry towers were attached to the arms of the transepts. Construction dragged on for forty-four years. In 1882, the Archpriest John Camilleri had brought from Marseille in France, a beautiful titular statue made of papiermache, by the firm Galard et Fils, that represents the patron saints of InNadur. Archpriest Camilleri, with the help of his nephew Martin Camilleri decided on enlarging the church to its present form, by the construction of the aisles, dome and facade, all designed by the Maltese architect Francesco Saverio Sciortino. This work was carried out between 1906 and 1914. The cross crowning the dome was placed on 24 September 1913. The whole masonry work was finished in 1914. <br><br>The In-Nadur church can be described as an architectural gem on the Italian Renaissance style on its exterior and splendid baroque in its interior. The paintings of the main vault of the church, the choir, the two transepts, the four pendentives, the dome and in both side aisles are the work of the Maltese painter Lazzaro Pisani. The vault and both transepts are adorned with paintings depicting episodes that refer to the life of St. Peter and St. Paul. There are fifteen stained-glass windows, twelve of which represents the twelve apostles, in the nave, transepts and choir. These are flanked by paintings of popes, martyrs and doctors of the Church. The architectural decorations and ornate sculpture are the work of the Roman sculptor and decorator Pio Cellini. The colour scheme of the interior of the church is pleasant and harmonious. The vault and pendentives above the main cornice are gilded and painted in such manner to be in tune with the lower parts. From the floor to the main cornice, the interior is encased in beautiful marble. The main altar, in the centre of the presbytery is the work of the Maltese artist Emvin Cremona representing the typology of the Eucharistic sacrifice. Throughout the years, the parish of In-Nadur received many titles, namely: a matrice or motherchurch when the parish of Għajnsielem (1855) and then Il-Qala (1872) were dismembered from its territory. The parish church was granted the title of a minor Basilica on 26 June 1967.]]>"
+    },
+    {
+      "id": "stop_3",
+      "type": "stop",
+      "lat": 36.0554423,
+      "lng": 14.3091456,
+      "name": "Parking Area",
+      "description": "<![CDATA[<img src=\"https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv-RKUPu-dP4HnSKzXRhjisZPEnQUL-H-lSiYfxdJue2fo1TqgUv05DpwakEyHSQjgheoQ9dSdYiYUJvzpbOU8_cn4J3hZHnKwZSpBlMJEIyHG4zgUEc8fGokp6gsJ6sB03wap-Z94LtU09hNo8_JXkLWROIdiFhx5Eugofmu016o9lmoRF64g-FDd8-EK7rDeOwoTQzkl_YA?authuser=0&fife=s16383\" height=\"200\" width=\"auto\" /><br><br>Ta’ Sopu Watchtower<br><br>The University of Gozo funded the building of this tower in 1667 but it was unarmed until 1670 when Grand Master Nicholas Cottoner visited Gozo and stressed the need to equip it with the necessary munitions. It was fully functional a year later.<br><br>On the 10th June 1798, French Revolutionary troops led by Napoleon Bonaparte invaded the island of Gozo, landing within shooting distance of Torri Daħlet Qorrot, also known as La Torre di Daħlet Korrot, or Torre Nuova (now renamed ‘Torri ta’ Sopu). The tower, which was still armed, opened fire on them in a desperate attempt to stop the unwelcome guests from disembarking. General Reynier, who commanded the Gozo invasion, gave an account of this to his Commander-in-chief. The following is an extract from this report.<br><br>“A point for landing was selected between the new tower and the battery of Ramla called Irdum il-Kbir. The whole morning of the 10th June had been occupied in preliminary arrangement. Calms and contrary breezes had still further delayed operations; but by 1 pm the shore was approached by the 3rd Company of Grenadiers and the 95th Demi-Brigade. The heights meanwhile had become crowned with the enemy, who received the French with showers of bullets; Sergeant-Major Bertrand of the Grenadiers in the Generals’boat being killed.<br><br>The batteries of Ramla and New Tower then opened fire. The boats of Alceste conveyed General Reynier and Fugieri, captains Geoffrey and Sabatier, and the 3rd Company of Grenadiers who were the first to land. After a rapid ascent of the heights, notwithstanding the heavy fire, the enemy at last decamped. And the Battery of Ramla was taken. The bombards Etoile and Pluvier, by their successful fire against the enemy’s batteries were of great assistance…” (Source: GRENFELL – Malta, 1798, pg 19).<br><br>The main entrance to the tower is on the upper storey. The doorway was approached by a flight of steps and a small wooden drawbridge. Four badly weathered escutcheons, two on each side of the doorway, once displayed the coats-of-arms of the Order of St. John; the Grand Master of the time, Nicholas Cottoner; the Governor of Gozo; and possibly of the University of Gozo.<br><br>The tower consists of a square block with thick battered walls. The interior has a high barrel-vaulted ceiling with an intermediate floor resting on rib-arches. A spiral staircase provides access to the other floors. The tower had its own well with a narrow culvert cut into the inner side of the south wall, enabling the occupants to draw water up to the first floor. The roof of the tower has a shallow parapet on three sides. Also known as The San Blas Tower, it was jointly restored during the year 2006 by In-Nadur Local Council and Din l-Art Ħelwa (Din l-Art Ħelwa is a non-governmental, not-forprofit, voluntary organization founded in 1965 to safeguard the historic, artistic and natural heritage of Malta).]]>"
+    },
+    {
+      "id": "stop_4",
+      "type": "stop",
+      "lat": 36.0549292,
+      "lng": 14.308762,
+      "name": "View Point",
+      "description": "<![CDATA[<img src=\"https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvYZYiJUeR6di2QgBZbI3HuaZlNf3cTw5_aX4z2yLkkkPdeDwO_2Lqyd2RKuEdeb2mUhaKo8qGo81QckHe7fSznVLgKv30H8sNe3okp-fTXSBOGPpzsmJ8S-KQ8M3FRsaHTpE8KgtvcujMqVQ0RFcDbB1gbYue64ZgTkgPHbNB3CO_VXeg-BvRgLODJGb5gUHpOCu5UsDlXhA?authuser=0&fife=s16383\" height=\"200\" width=\"auto\" /><br><br><br><br><img src=\"https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuax6XZbiz6W2hjiwT1PH0OctK-eXoLOf82pFySZW7AzhYXv9Z7CyX4XYqrrw1669MeTbHDY5YihR_DVuufKhiHhgUQIYtP_Sow06wmLVBgAPGVYKEvq1kB1vxN71632hxy7Z-VkstKLFVkuGPxlGtiA1nOPvAi3ECKGFyPMMfEiN4T-F7H8Kqw28-xkMRrcOJreIAJBL-Zkw?authuser=0&fife=s16383\" height=\"200\" width=\"auto\" />]]>"
+    },
+    {
+      "id": "stop_5",
+      "type": "stop",
+      "lat": 36.0492802,
+      "lng": 14.3164514,
+      "name": "Swimming Zone",
+      "description": "<![CDATA[<img src=\"https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKud6GmGMTqHq4KlPBjZo-XW0vOG4_QgM7zo32WnnulmYFIADkXNAyPJqm1-ws4VTr8vWKXeyLEuI6fDDGQyayj8-63fcGq4BIZ0nStEzqjlvXm53wWdhC4X2YPpxWspTU2twzgT9yZ0jiZPkVApIHxJpm-8zXdgQGGVxs5aBUz0PqXKSV3IMDoxBEs8Wud_iPsdLEivy22D2Vg?authuser=0&fife=s16383\" height=\"200\" width=\"auto\" /><br><br><br><br><img src=\"https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKseF8bQnFIu6JrFa9bF_2uNbIV2ZjZ-6-JqGN9bP_mOwYAShN5pvnYwYmH4hqbu6TheZIj14IQLklLRhsoYagOI4issbNfO_TZxdztRs3bdyPjvEzkdbwKwMcVcJm6WbdIPB7uccLT2YrJieVCIBtfprDMy66Bv0pjvQV9vKaKbKMv7c-Uxyw3DOyKqSQyLWW-TSvXo5srvBH0?authuser=0&fife=s16383\" height=\"200\" width=\"auto\" />]]>"
+    },
+    {
+      "id": "stop_6",
+      "type": "stop",
+      "lat": 36.0386598,
+      "lng": 14.3112788,
+      "name": "Public Toilet",
+      "description": "<![CDATA[<img src=\"https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvgFaHdtVMn-kXmQjAmxZCz8p307OW3VSF00jW6EykGpuF353ESs9PPy-wMmipWNb3ZIQ1dDA_qSFEaJuvev7fJRyB45urI9vWinW3FSetFakjm3AwI6URruJRsM5SsPXvhoCHBRtqr-2SDvyaWlw4c0RwsnYhWydOHltnmuWxuoknelrHy8MNekL-jpITkDsIayCBsSrUZEA?authuser=0&fife=s16383\" height=\"200\" width=\"auto\" /><br><br>This windmill was built in 1853 by the Camilleri brothers. The mill was kept operating up till 1977.<br><br><img src=\"https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtgERt1vnys2Yc2sC0vtHYNHUlrAO-5akm442z6nG7_QrTMpZdXDg_DnT8O37MuyuQG8xxAhYZacZV5HBd4hqYog7xSf8qLi9vqmcg95REhu3ti8fYhUV5xK2Gu2Q727zeLWnpTA7ovhERXBBFMoxVZQu3ec1R9LhFD29K5XrVHD-7Hk04Gtpo4B_cr1z5T7jWZhuHn_3VXWg?authuser=0&fife=s16383\" height=\"200\" width=\"auto\" />]]>"
+    },
+    {
+      "id": "stop_7",
+      "type": "stop",
+      "lat": 36.0359587,
+      "lng": 14.3115626,
+      "name": "Qala Parish Church",
+      "description": "<![CDATA[<img src=\"https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKt3CMLQ0v3jmPTXEKVGVJvdsgE4AxEw6lvdQeOy2FXFy_2gLxkIO7S4yYg9KWfOYHYTXdRIHjqL7OW07FaMXpMbfw6xxdaNgXD6F64UQJESl3-hL6tU6EZsmRXqCT5YJ7XzNf2DI-6fQUeHJmNuePxmF84yjqfuBt1QgJQeDZGsfNE9MBT9ettk4YJIrK8BSwqpEOzhMyOskQ?authuser=0&fife=s16383\" height=\"200\" width=\"auto\" /><br><br>The parish church of il-Qala was designed by Dun Ġużepp Diacono the same architect-priest who designed the church of l-Għasri. It was constructed between 1882 and 1889, when he was serving as parish priest in il-Qala. The church is baroque in style, like many of Gozo’s churches (whether they were built in the seventeenth century or the twentieth!).<br><br>Il-Qala became a parish on 3 February 1872, the first to be established after the creation of the Diocese of Gozo (separate from Malta). The seat of the parish church was the church of the Immaculate Conception of Our Lady until St Joseph’s was completed in 1889. The church was consecrated in 1904 and became Archipresbyteral in 1965.<br><br>The annual village festa is celebrated in early August.<br><br><img src=\"https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuEWpr81rIYTPnqEIl5VrARt9ICLZblOdUPVGnC4vr-Y71vDdnjfK6Oy3m5mpQDnkcTckueED7IJU_GoTGpgBldMlA8ezJqi_8LBmyXBBFMzjIXV867XQbqEMUFLA08M35KE6ls-Q7NRDthMryG26a7AbB0-TC3uwYjnGnyfz5yu7B-NR9nEOV2b1L3J5jJpPlW-llIe2yZtw?authuser=0&fife=s16383\" height=\"200\" width=\"auto\" />]]>"
+    },
+    {
+      "id": "shape_8",
+      "type": "shape",
+      "lat": 36.037844,
+      "lng": 14.293726
+    },
+    {
+      "id": "shape_9",
+      "type": "shape",
+      "lat": 36.037824,
+      "lng": 14.293824
+    },
+    {
+      "id": "shape_10",
+      "type": "shape",
+      "lat": 36.037973,
+      "lng": 14.293845
+    },
+    {
+      "id": "shape_11",
+      "type": "shape",
+      "lat": 36.037965,
+      "lng": 14.294198
+    },
+    {
+      "id": "shape_12",
+      "type": "shape",
+      "lat": 36.038306,
+      "lng": 14.2942
+    },
+    {
+      "id": "shape_13",
+      "type": "shape",
+      "lat": 36.038692,
+      "lng": 14.294339
+    },
+    {
+      "id": "shape_14",
+      "type": "shape",
+      "lat": 36.038728,
+      "lng": 14.29441
+    },
+    {
+      "id": "shape_15",
+      "type": "shape",
+      "lat": 36.038869,
+      "lng": 14.294727
+    },
+    {
+      "id": "shape_16",
+      "type": "shape",
+      "lat": 36.038943,
+      "lng": 14.294973
+    },
+    {
+      "id": "shape_17",
+      "type": "shape",
+      "lat": 36.03915,
+      "lng": 14.296385
+    },
+    {
+      "id": "shape_18",
+      "type": "shape",
+      "lat": 36.039212,
+      "lng": 14.297055
+    },
+    {
+      "id": "shape_19",
+      "type": "shape",
+      "lat": 36.040056,
+      "lng": 14.297285
+    },
+    {
+      "id": "shape_20",
+      "type": "shape",
+      "lat": 36.040053,
+      "lng": 14.297287
+    },
+    {
+      "id": "shape_21",
+      "type": "shape",
+      "lat": 36.040066,
+      "lng": 14.297214
+    },
+    {
+      "id": "shape_22",
+      "type": "shape",
+      "lat": 36.040413,
+      "lng": 14.296786
+    },
+    {
+      "id": "shape_23",
+      "type": "shape",
+      "lat": 36.040922,
+      "lng": 14.297137
+    },
+    {
+      "id": "shape_24",
+      "type": "shape",
+      "lat": 36.041483,
+      "lng": 14.297555
+    },
+    {
+      "id": "shape_25",
+      "type": "shape",
+      "lat": 36.042207,
+      "lng": 14.298154
+    },
+    {
+      "id": "shape_26",
+      "type": "shape",
+      "lat": 36.042963,
+      "lng": 14.298343
+    },
+    {
+      "id": "shape_27",
+      "type": "shape",
+      "lat": 36.043671,
+      "lng": 14.298396
+    },
+    {
+      "id": "shape_28",
+      "type": "shape",
+      "lat": 36.044103,
+      "lng": 14.298491
+    },
+    {
+      "id": "shape_29",
+      "type": "shape",
+      "lat": 36.044461,
+      "lng": 14.298708
+    },
+    {
+      "id": "shape_30",
+      "type": "shape",
+      "lat": 36.044959,
+      "lng": 14.298973
+    },
+    {
+      "id": "shape_31",
+      "type": "shape",
+      "lat": 36.045484,
+      "lng": 14.299086
+    },
+    {
+      "id": "shape_32",
+      "type": "shape",
+      "lat": 36.046103,
+      "lng": 14.299311
+    },
+    {
+      "id": "shape_33",
+      "type": "shape",
+      "lat": 36.047102,
+      "lng": 14.299715
+    },
+    {
+      "id": "shape_34",
+      "type": "shape",
+      "lat": 36.047887,
+      "lng": 14.299975
+    },
+    {
+      "id": "shape_35",
+      "type": "shape",
+      "lat": 36.048383,
+      "lng": 14.299944
+    },
+    {
+      "id": "shape_36",
+      "type": "shape",
+      "lat": 36.048804,
+      "lng": 14.299875
+    },
+    {
+      "id": "shape_37",
+      "type": "shape",
+      "lat": 36.049623,
+      "lng": 14.300051
+    },
+    {
+      "id": "shape_38",
+      "type": "shape",
+      "lat": 36.050022,
+      "lng": 14.30019
+    },
+    {
+      "id": "shape_39",
+      "type": "shape",
+      "lat": 36.050769,
+      "lng": 14.300311
+    },
+    {
+      "id": "shape_40",
+      "type": "shape",
+      "lat": 36.051522,
+      "lng": 14.300414
+    },
+    {
+      "id": "shape_41",
+      "type": "shape",
+      "lat": 36.05164,
+      "lng": 14.300266
+    },
+    {
+      "id": "shape_42",
+      "type": "shape",
+      "lat": 36.05164,
+      "lng": 14.300276
+    },
+    {
+      "id": "shape_43",
+      "type": "shape",
+      "lat": 36.05152,
+      "lng": 14.30049
+    },
+    {
+      "id": "shape_44",
+      "type": "shape",
+      "lat": 36.052026,
+      "lng": 14.301532
+    },
+    {
+      "id": "shape_45",
+      "type": "shape",
+      "lat": 36.052217,
+      "lng": 14.301921
+    },
+    {
+      "id": "shape_46",
+      "type": "shape",
+      "lat": 36.052824,
+      "lng": 14.302707
+    },
+    {
+      "id": "shape_47",
+      "type": "shape",
+      "lat": 36.052947,
+      "lng": 14.303047
+    },
+    {
+      "id": "shape_48",
+      "type": "shape",
+      "lat": 36.053582,
+      "lng": 14.304123
+    },
+    {
+      "id": "shape_49",
+      "type": "shape",
+      "lat": 36.053468,
+      "lng": 14.304345
+    },
+    {
+      "id": "shape_50",
+      "type": "shape",
+      "lat": 36.053236,
+      "lng": 14.304815
+    },
+    {
+      "id": "shape_51",
+      "type": "shape",
+      "lat": 36.053079,
+      "lng": 14.30533
+    },
+    {
+      "id": "shape_52",
+      "type": "shape",
+      "lat": 36.053145,
+      "lng": 14.306522
+    },
+    {
+      "id": "shape_53",
+      "type": "shape",
+      "lat": 36.053061,
+      "lng": 14.306787
+    },
+    {
+      "id": "shape_54",
+      "type": "shape",
+      "lat": 36.053043,
+      "lng": 14.307124
+    },
+    {
+      "id": "shape_55",
+      "type": "shape",
+      "lat": 36.053096,
+      "lng": 14.307616
+    },
+    {
+      "id": "shape_56",
+      "type": "shape",
+      "lat": 36.053179,
+      "lng": 14.308153
+    },
+    {
+      "id": "shape_57",
+      "type": "shape",
+      "lat": 36.053512,
+      "lng": 14.30828
+    },
+    {
+      "id": "shape_58",
+      "type": "shape",
+      "lat": 36.053915,
+      "lng": 14.308435
+    },
+    {
+      "id": "shape_59",
+      "type": "shape",
+      "lat": 36.054275,
+      "lng": 14.308309
+    },
+    {
+      "id": "shape_60",
+      "type": "shape",
+      "lat": 36.054578,
+      "lng": 14.308526
+    },
+    {
+      "id": "shape_61",
+      "type": "shape",
+      "lat": 36.054998,
+      "lng": 14.308733
+    },
+    {
+      "id": "shape_62",
+      "type": "shape",
+      "lat": 36.055353,
+      "lng": 14.309015
+    },
+    {
+      "id": "shape_63",
+      "type": "shape",
+      "lat": 36.055333,
+      "lng": 14.309043
+    },
+    {
+      "id": "shape_64",
+      "type": "shape",
+      "lat": 36.054972,
+      "lng": 14.308768
+    },
+    {
+      "id": "shape_65",
+      "type": "shape",
+      "lat": 36.054591,
+      "lng": 14.30858
+    },
+    {
+      "id": "shape_66",
+      "type": "shape",
+      "lat": 36.054584,
+      "lng": 14.308572
+    },
+    {
+      "id": "shape_67",
+      "type": "shape",
+      "lat": 36.054321,
+      "lng": 14.308402
+    },
+    {
+      "id": "shape_68",
+      "type": "shape",
+      "lat": 36.054312,
+      "lng": 14.308397
+    },
+    {
+      "id": "shape_69",
+      "type": "shape",
+      "lat": 36.054298,
+      "lng": 14.308388
+    },
+    {
+      "id": "shape_70",
+      "type": "shape",
+      "lat": 36.054157,
+      "lng": 14.308395
+    },
+    {
+      "id": "shape_71",
+      "type": "shape",
+      "lat": 36.05414,
+      "lng": 14.308404
+    },
+    {
+      "id": "shape_72",
+      "type": "shape",
+      "lat": 36.053893,
+      "lng": 14.308491
+    },
+    {
+      "id": "shape_73",
+      "type": "shape",
+      "lat": 36.053382,
+      "lng": 14.308299
+    },
+    {
+      "id": "shape_74",
+      "type": "shape",
+      "lat": 36.053373,
+      "lng": 14.308293
+    },
+    {
+      "id": "shape_75",
+      "type": "shape",
+      "lat": 36.053091,
+      "lng": 14.308179
+    },
+    {
+      "id": "shape_76",
+      "type": "shape",
+      "lat": 36.05302,
+      "lng": 14.307614
+    },
+    {
+      "id": "shape_77",
+      "type": "shape",
+      "lat": 36.052978,
+      "lng": 14.306992
+    },
+    {
+      "id": "shape_78",
+      "type": "shape",
+      "lat": 36.053076,
+      "lng": 14.306483
+    },
+    {
+      "id": "shape_79",
+      "type": "shape",
+      "lat": 36.053025,
+      "lng": 14.305254
+    },
+    {
+      "id": "shape_80",
+      "type": "shape",
+      "lat": 36.053503,
+      "lng": 14.304111
+    },
+    {
+      "id": "shape_81",
+      "type": "shape",
+      "lat": 36.052991,
+      "lng": 14.303224
+    },
+    {
+      "id": "shape_82",
+      "type": "shape",
+      "lat": 36.052811,
+      "lng": 14.302811
+    },
+    {
+      "id": "shape_83",
+      "type": "shape",
+      "lat": 36.052321,
+      "lng": 14.302163
+    },
+    {
+      "id": "shape_84",
+      "type": "shape",
+      "lat": 36.052079,
+      "lng": 14.301831
+    },
+    {
+      "id": "shape_85",
+      "type": "shape",
+      "lat": 36.051445,
+      "lng": 14.300454
+    },
+    {
+      "id": "shape_86",
+      "type": "shape",
+      "lat": 36.050587,
+      "lng": 14.300363
+    },
+    {
+      "id": "shape_87",
+      "type": "shape",
+      "lat": 36.049929,
+      "lng": 14.300236
+    },
+    {
+      "id": "shape_88",
+      "type": "shape",
+      "lat": 36.049867,
+      "lng": 14.300725
+    },
+    {
+      "id": "shape_89",
+      "type": "shape",
+      "lat": 36.050286,
+      "lng": 14.300944
+    },
+    {
+      "id": "shape_90",
+      "type": "shape",
+      "lat": 36.050891,
+      "lng": 14.301824
+    },
+    {
+      "id": "shape_91",
+      "type": "shape",
+      "lat": 36.051238,
+      "lng": 14.302698
+    },
+    {
+      "id": "shape_92",
+      "type": "shape",
+      "lat": 36.051204,
+      "lng": 14.30306
+    },
+    {
+      "id": "shape_93",
+      "type": "shape",
+      "lat": 36.051205,
+      "lng": 14.303079
+    },
+    {
+      "id": "shape_94",
+      "type": "shape",
+      "lat": 36.051259,
+      "lng": 14.303443
+    },
+    {
+      "id": "shape_95",
+      "type": "shape",
+      "lat": 36.051255,
+      "lng": 14.303692
+    },
+    {
+      "id": "shape_96",
+      "type": "shape",
+      "lat": 36.05113,
+      "lng": 14.303906
+    },
+    {
+      "id": "shape_97",
+      "type": "shape",
+      "lat": 36.050993,
+      "lng": 14.303999
+    },
+    {
+      "id": "shape_98",
+      "type": "shape",
+      "lat": 36.05078,
+      "lng": 14.304067
+    },
+    {
+      "id": "shape_99",
+      "type": "shape",
+      "lat": 36.050637,
+      "lng": 14.304131
+    },
+    {
+      "id": "shape_100",
+      "type": "shape",
+      "lat": 36.050627,
+      "lng": 14.304217
+    },
+    {
+      "id": "shape_101",
+      "type": "shape",
+      "lat": 36.050673,
+      "lng": 14.304336
+    },
+    {
+      "id": "shape_102",
+      "type": "shape",
+      "lat": 36.050877,
+      "lng": 14.304517
+    },
+    {
+      "id": "shape_103",
+      "type": "shape",
+      "lat": 36.05113,
+      "lng": 14.304724
+    },
+    {
+      "id": "shape_104",
+      "type": "shape",
+      "lat": 36.051295,
+      "lng": 14.305002
+    },
+    {
+      "id": "shape_105",
+      "type": "shape",
+      "lat": 36.051397,
+      "lng": 14.305243
+    },
+    {
+      "id": "shape_106",
+      "type": "shape",
+      "lat": 36.051465,
+      "lng": 14.305556
+    },
+    {
+      "id": "shape_107",
+      "type": "shape",
+      "lat": 36.051466,
+      "lng": 14.305788
+    },
+    {
+      "id": "shape_108",
+      "type": "shape",
+      "lat": 36.051369,
+      "lng": 14.306102
+    },
+    {
+      "id": "shape_109",
+      "type": "shape",
+      "lat": 36.051239,
+      "lng": 14.306361
+    },
+    {
+      "id": "shape_110",
+      "type": "shape",
+      "lat": 36.051227,
+      "lng": 14.306587
+    },
+    {
+      "id": "shape_111",
+      "type": "shape",
+      "lat": 36.051184,
+      "lng": 14.306826
+    },
+    {
+      "id": "shape_112",
+      "type": "shape",
+      "lat": 36.051175,
+      "lng": 14.306829
+    },
+    {
+      "id": "shape_113",
+      "type": "shape",
+      "lat": 36.051135,
+      "lng": 14.306967
+    },
+    {
+      "id": "shape_114",
+      "type": "shape",
+      "lat": 36.051309,
+      "lng": 14.307127
+    },
+    {
+      "id": "shape_115",
+      "type": "shape",
+      "lat": 36.051397,
+      "lng": 14.307322
+    },
+    {
+      "id": "shape_116",
+      "type": "shape",
+      "lat": 36.051452,
+      "lng": 14.307577
+    },
+    {
+      "id": "shape_117",
+      "type": "shape",
+      "lat": 36.051452,
+      "lng": 14.307592
+    },
+    {
+      "id": "shape_118",
+      "type": "shape",
+      "lat": 36.05148,
+      "lng": 14.308042
+    },
+    {
+      "id": "shape_119",
+      "type": "shape",
+      "lat": 36.051556,
+      "lng": 14.308691
+    },
+    {
+      "id": "shape_120",
+      "type": "shape",
+      "lat": 36.051531,
+      "lng": 14.309245
+    },
+    {
+      "id": "shape_121",
+      "type": "shape",
+      "lat": 36.051482,
+      "lng": 14.309451
+    },
+    {
+      "id": "shape_122",
+      "type": "shape",
+      "lat": 36.051507,
+      "lng": 14.309504
+    },
+    {
+      "id": "shape_123",
+      "type": "shape",
+      "lat": 36.051515,
+      "lng": 14.309612
+    },
+    {
+      "id": "shape_124",
+      "type": "shape",
+      "lat": 36.051515,
+      "lng": 14.30962
+    },
+    {
+      "id": "shape_125",
+      "type": "shape",
+      "lat": 36.051519,
+      "lng": 14.309723
+    },
+    {
+      "id": "shape_126",
+      "type": "shape",
+      "lat": 36.051544,
+      "lng": 14.309851
+    },
+    {
+      "id": "shape_127",
+      "type": "shape",
+      "lat": 36.051522,
+      "lng": 14.310027
+    },
+    {
+      "id": "shape_128",
+      "type": "shape",
+      "lat": 36.051523,
+      "lng": 14.310039
+    },
+    {
+      "id": "shape_129",
+      "type": "shape",
+      "lat": 36.051484,
+      "lng": 14.310184
+    },
+    {
+      "id": "shape_130",
+      "type": "shape",
+      "lat": 36.051468,
+      "lng": 14.31027
+    },
+    {
+      "id": "shape_131",
+      "type": "shape",
+      "lat": 36.051483,
+      "lng": 14.310388
+    },
+    {
+      "id": "shape_132",
+      "type": "shape",
+      "lat": 36.051509,
+      "lng": 14.310435
+    },
+    {
+      "id": "shape_133",
+      "type": "shape",
+      "lat": 36.051463,
+      "lng": 14.310599
+    },
+    {
+      "id": "shape_134",
+      "type": "shape",
+      "lat": 36.051446,
+      "lng": 14.310801
+    },
+    {
+      "id": "shape_135",
+      "type": "shape",
+      "lat": 36.051425,
+      "lng": 14.310957
+    },
+    {
+      "id": "shape_136",
+      "type": "shape",
+      "lat": 36.051301,
+      "lng": 14.311144
+    },
+    {
+      "id": "shape_137",
+      "type": "shape",
+      "lat": 36.051125,
+      "lng": 14.31125
+    },
+    {
+      "id": "shape_138",
+      "type": "shape",
+      "lat": 36.050898,
+      "lng": 14.311393
+    },
+    {
+      "id": "shape_139",
+      "type": "shape",
+      "lat": 36.050777,
+      "lng": 14.311569
+    },
+    {
+      "id": "shape_140",
+      "type": "shape",
+      "lat": 36.050643,
+      "lng": 14.311825
+    },
+    {
+      "id": "shape_141",
+      "type": "shape",
+      "lat": 36.05047,
+      "lng": 14.312217
+    },
+    {
+      "id": "shape_142",
+      "type": "shape",
+      "lat": 36.050302,
+      "lng": 14.312416
+    },
+    {
+      "id": "shape_143",
+      "type": "shape",
+      "lat": 36.050292,
+      "lng": 14.312415
+    },
+    {
+      "id": "shape_144",
+      "type": "shape",
+      "lat": 36.050126,
+      "lng": 14.312509
+    },
+    {
+      "id": "shape_145",
+      "type": "shape",
+      "lat": 36.050116,
+      "lng": 14.312517
+    },
+    {
+      "id": "shape_146",
+      "type": "shape",
+      "lat": 36.050109,
+      "lng": 14.312534
+    },
+    {
+      "id": "shape_147",
+      "type": "shape",
+      "lat": 36.05002,
+      "lng": 14.312726
+    },
+    {
+      "id": "shape_148",
+      "type": "shape",
+      "lat": 36.049936,
+      "lng": 14.312892
+    },
+    {
+      "id": "shape_149",
+      "type": "shape",
+      "lat": 36.049926,
+      "lng": 14.312896
+    },
+    {
+      "id": "shape_150",
+      "type": "shape",
+      "lat": 36.04984,
+      "lng": 14.312944
+    },
+    {
+      "id": "shape_151",
+      "type": "shape",
+      "lat": 36.049752,
+      "lng": 14.312951
+    },
+    {
+      "id": "shape_152",
+      "type": "shape",
+      "lat": 36.049664,
+      "lng": 14.312928
+    },
+    {
+      "id": "shape_153",
+      "type": "shape",
+      "lat": 36.049645,
+      "lng": 14.31294
+    },
+    {
+      "id": "shape_154",
+      "type": "shape",
+      "lat": 36.049357,
+      "lng": 14.312994
+    },
+    {
+      "id": "shape_155",
+      "type": "shape",
+      "lat": 36.049361,
+      "lng": 14.313005
+    },
+    {
+      "id": "shape_156",
+      "type": "shape",
+      "lat": 36.049216,
+      "lng": 14.313484
+    },
+    {
+      "id": "shape_157",
+      "type": "shape",
+      "lat": 36.049454,
+      "lng": 14.315052
+    },
+    {
+      "id": "shape_158",
+      "type": "shape",
+      "lat": 36.049397,
+      "lng": 14.315142
+    },
+    {
+      "id": "shape_159",
+      "type": "shape",
+      "lat": 36.049388,
+      "lng": 14.315153
+    },
+    {
+      "id": "shape_160",
+      "type": "shape",
+      "lat": 36.049297,
+      "lng": 14.315318
+    },
+    {
+      "id": "shape_161",
+      "type": "shape",
+      "lat": 36.049324,
+      "lng": 14.315449
+    },
+    {
+      "id": "shape_162",
+      "type": "shape",
+      "lat": 36.049339,
+      "lng": 14.31554
+    },
+    {
+      "id": "shape_163",
+      "type": "shape",
+      "lat": 36.049269,
+      "lng": 14.31581
+    },
+    {
+      "id": "shape_164",
+      "type": "shape",
+      "lat": 36.049263,
+      "lng": 14.315826
+    },
+    {
+      "id": "shape_165",
+      "type": "shape",
+      "lat": 36.048934,
+      "lng": 14.316288
+    },
+    {
+      "id": "shape_166",
+      "type": "shape",
+      "lat": 36.048817,
+      "lng": 14.316512
+    },
+    {
+      "id": "shape_167",
+      "type": "shape",
+      "lat": 36.048759,
+      "lng": 14.316701
+    },
+    {
+      "id": "shape_168",
+      "type": "shape",
+      "lat": 36.048846,
+      "lng": 14.31695
+    },
+    {
+      "id": "shape_169",
+      "type": "shape",
+      "lat": 36.049125,
+      "lng": 14.317044
+    },
+    {
+      "id": "shape_170",
+      "type": "shape",
+      "lat": 36.049444,
+      "lng": 14.317214
+    },
+    {
+      "id": "shape_171",
+      "type": "shape",
+      "lat": 36.04965,
+      "lng": 14.31727
+    },
+    {
+      "id": "shape_172",
+      "type": "shape",
+      "lat": 36.049787,
+      "lng": 14.317421
+    },
+    {
+      "id": "shape_173",
+      "type": "shape",
+      "lat": 36.049878,
+      "lng": 14.317801
+    },
+    {
+      "id": "shape_174",
+      "type": "shape",
+      "lat": 36.049876,
+      "lng": 14.318234
+    },
+    {
+      "id": "shape_175",
+      "type": "shape",
+      "lat": 36.049809,
+      "lng": 14.318746
+    },
+    {
+      "id": "shape_176",
+      "type": "shape",
+      "lat": 36.049817,
+      "lng": 14.319232
+    },
+    {
+      "id": "shape_177",
+      "type": "shape",
+      "lat": 36.049686,
+      "lng": 14.319967
+    },
+    {
+      "id": "shape_178",
+      "type": "shape",
+      "lat": 36.049505,
+      "lng": 14.320435
+    },
+    {
+      "id": "shape_179",
+      "type": "shape",
+      "lat": 36.04922,
+      "lng": 14.320961
+    },
+    {
+      "id": "shape_180",
+      "type": "shape",
+      "lat": 36.048961,
+      "lng": 14.321393
+    },
+    {
+      "id": "shape_181",
+      "type": "shape",
+      "lat": 36.048629,
+      "lng": 14.321735
+    },
+    {
+      "id": "shape_182",
+      "type": "shape",
+      "lat": 36.048288,
+      "lng": 14.321926
+    },
+    {
+      "id": "shape_183",
+      "type": "shape",
+      "lat": 36.048052,
+      "lng": 14.321916
+    },
+    {
+      "id": "shape_184",
+      "type": "shape",
+      "lat": 36.047929,
+      "lng": 14.321775
+    },
+    {
+      "id": "shape_185",
+      "type": "shape",
+      "lat": 36.047823,
+      "lng": 14.3216
+    },
+    {
+      "id": "shape_186",
+      "type": "shape",
+      "lat": 36.047811,
+      "lng": 14.321515
+    },
+    {
+      "id": "shape_187",
+      "type": "shape",
+      "lat": 36.047861,
+      "lng": 14.321378
+    },
+    {
+      "id": "shape_188",
+      "type": "shape",
+      "lat": 36.047743,
+      "lng": 14.321018
+    },
+    {
+      "id": "shape_189",
+      "type": "shape",
+      "lat": 36.047574,
+      "lng": 14.320453
+    },
+    {
+      "id": "shape_190",
+      "type": "shape",
+      "lat": 36.047507,
+      "lng": 14.319986
+    },
+    {
+      "id": "shape_191",
+      "type": "shape",
+      "lat": 36.047458,
+      "lng": 14.319438
+    },
+    {
+      "id": "shape_192",
+      "type": "shape",
+      "lat": 36.047102,
+      "lng": 14.319127
+    },
+    {
+      "id": "shape_193",
+      "type": "shape",
+      "lat": 36.046517,
+      "lng": 14.318422
+    },
+    {
+      "id": "shape_194",
+      "type": "shape",
+      "lat": 36.046392,
+      "lng": 14.317787
+    },
+    {
+      "id": "shape_195",
+      "type": "shape",
+      "lat": 36.046238,
+      "lng": 14.317458
+    },
+    {
+      "id": "shape_196",
+      "type": "shape",
+      "lat": 36.046152,
+      "lng": 14.316727
+    },
+    {
+      "id": "shape_197",
+      "type": "shape",
+      "lat": 36.045898,
+      "lng": 14.316202
+    },
+    {
+      "id": "shape_198",
+      "type": "shape",
+      "lat": 36.045657,
+      "lng": 14.315583
+    },
+    {
+      "id": "shape_199",
+      "type": "shape",
+      "lat": 36.045605,
+      "lng": 14.314476
+    },
+    {
+      "id": "shape_200",
+      "type": "shape",
+      "lat": 36.045486,
+      "lng": 14.313914
+    },
+    {
+      "id": "shape_201",
+      "type": "shape",
+      "lat": 36.045355,
+      "lng": 14.312084
+    },
+    {
+      "id": "shape_202",
+      "type": "shape",
+      "lat": 36.045171,
+      "lng": 14.311561
+    },
+    {
+      "id": "shape_203",
+      "type": "shape",
+      "lat": 36.044817,
+      "lng": 14.311333
+    },
+    {
+      "id": "shape_204",
+      "type": "shape",
+      "lat": 36.044818,
+      "lng": 14.31134
+    },
+    {
+      "id": "shape_205",
+      "type": "shape",
+      "lat": 36.044585,
+      "lng": 14.311676
+    },
+    {
+      "id": "shape_206",
+      "type": "shape",
+      "lat": 36.044336,
+      "lng": 14.31203
+    },
+    {
+      "id": "shape_207",
+      "type": "shape",
+      "lat": 36.044291,
+      "lng": 14.312194
+    },
+    {
+      "id": "shape_208",
+      "type": "shape",
+      "lat": 36.044246,
+      "lng": 14.31221
+    },
+    {
+      "id": "shape_209",
+      "type": "shape",
+      "lat": 36.044236,
+      "lng": 14.312211
+    },
+    {
+      "id": "shape_210",
+      "type": "shape",
+      "lat": 36.044199,
+      "lng": 14.312159
+    },
+    {
+      "id": "shape_211",
+      "type": "shape",
+      "lat": 36.044172,
+      "lng": 14.311981
+    },
+    {
+      "id": "shape_212",
+      "type": "shape",
+      "lat": 36.044075,
+      "lng": 14.311537
+    },
+    {
+      "id": "shape_213",
+      "type": "shape",
+      "lat": 36.043927,
+      "lng": 14.311433
+    },
+    {
+      "id": "shape_214",
+      "type": "shape",
+      "lat": 36.043711,
+      "lng": 14.311437
+    },
+    {
+      "id": "shape_215",
+      "type": "shape",
+      "lat": 36.04311,
+      "lng": 14.311687
+    },
+    {
+      "id": "shape_216",
+      "type": "shape",
+      "lat": 36.042506,
+      "lng": 14.31199
+    },
+    {
+      "id": "shape_217",
+      "type": "shape",
+      "lat": 36.042157,
+      "lng": 14.311956
+    },
+    {
+      "id": "shape_218",
+      "type": "shape",
+      "lat": 36.04134,
+      "lng": 14.311846
+    },
+    {
+      "id": "shape_219",
+      "type": "shape",
+      "lat": 36.040763,
+      "lng": 14.311857
+    },
+    {
+      "id": "shape_220",
+      "type": "shape",
+      "lat": 36.040727,
+      "lng": 14.311856
+    },
+    {
+      "id": "shape_221",
+      "type": "shape",
+      "lat": 36.040704,
+      "lng": 14.311856
+    },
+    {
+      "id": "shape_222",
+      "type": "shape",
+      "lat": 36.04021,
+      "lng": 14.311846
+    },
+    {
+      "id": "shape_223",
+      "type": "shape",
+      "lat": 36.039634,
+      "lng": 14.311917
+    },
+    {
+      "id": "shape_224",
+      "type": "shape",
+      "lat": 36.039603,
+      "lng": 14.311928
+    },
+    {
+      "id": "shape_225",
+      "type": "shape",
+      "lat": 36.039246,
+      "lng": 14.312044
+    },
+    {
+      "id": "shape_226",
+      "type": "shape",
+      "lat": 36.038931,
+      "lng": 14.311942
+    },
+    {
+      "id": "shape_227",
+      "type": "shape",
+      "lat": 36.038561,
+      "lng": 14.311714
+    },
+    {
+      "id": "shape_228",
+      "type": "shape",
+      "lat": 36.038534,
+      "lng": 14.311714
+    },
+    {
+      "id": "shape_229",
+      "type": "shape",
+      "lat": 36.038223,
+      "lng": 14.311299
+    },
+    {
+      "id": "shape_230",
+      "type": "shape",
+      "lat": 36.038224,
+      "lng": 14.311294
+    },
+    {
+      "id": "shape_231",
+      "type": "shape",
+      "lat": 36.038089,
+      "lng": 14.310888
+    },
+    {
+      "id": "shape_232",
+      "type": "shape",
+      "lat": 36.038063,
+      "lng": 14.310563
+    },
+    {
+      "id": "shape_233",
+      "type": "shape",
+      "lat": 36.038776,
+      "lng": 14.309392
+    },
+    {
+      "id": "shape_234",
+      "type": "shape",
+      "lat": 36.038893,
+      "lng": 14.309231
+    },
+    {
+      "id": "shape_235",
+      "type": "shape",
+      "lat": 36.03883,
+      "lng": 14.30887
+    },
+    {
+      "id": "shape_236",
+      "type": "shape",
+      "lat": 36.038772,
+      "lng": 14.308701
+    },
+    {
+      "id": "shape_237",
+      "type": "shape",
+      "lat": 36.038781,
+      "lng": 14.30872
+    },
+    {
+      "id": "shape_238",
+      "type": "shape",
+      "lat": 36.038913,
+      "lng": 14.307503
+    },
+    {
+      "id": "shape_239",
+      "type": "shape",
+      "lat": 36.038913,
+      "lng": 14.307492
+    },
+    {
+      "id": "shape_240",
+      "type": "shape",
+      "lat": 36.038998,
+      "lng": 14.306586
+    },
+    {
+      "id": "shape_241",
+      "type": "shape",
+      "lat": 36.0389,
+      "lng": 14.305648
+    },
+    {
+      "id": "shape_242",
+      "type": "shape",
+      "lat": 36.038876,
+      "lng": 14.303891
+    },
+    {
+      "id": "shape_243",
+      "type": "shape",
+      "lat": 36.038934,
+      "lng": 14.303094
+    },
+    {
+      "id": "shape_244",
+      "type": "shape",
+      "lat": 36.039177,
+      "lng": 14.302144
+    },
+    {
+      "id": "shape_245",
+      "type": "shape",
+      "lat": 36.039309,
+      "lng": 14.301785
+    },
+    {
+      "id": "shape_246",
+      "type": "shape",
+      "lat": 36.039687,
+      "lng": 14.301304
+    },
+    {
+      "id": "shape_247",
+      "type": "shape",
+      "lat": 36.039939,
+      "lng": 14.300926
+    },
+    {
+      "id": "shape_248",
+      "type": "shape",
+      "lat": 36.040093,
+      "lng": 14.300528
+    },
+    {
+      "id": "shape_249",
+      "type": "shape",
+      "lat": 36.040115,
+      "lng": 14.300239
+    },
+    {
+      "id": "shape_250",
+      "type": "shape",
+      "lat": 36.039899,
+      "lng": 14.2995
+    },
+    {
+      "id": "shape_251",
+      "type": "shape",
+      "lat": 36.039894,
+      "lng": 14.299484
+    },
+    {
+      "id": "shape_252",
+      "type": "shape",
+      "lat": 36.03989,
+      "lng": 14.299462
+    },
+    {
+      "id": "shape_253",
+      "type": "shape",
+      "lat": 36.039762,
+      "lng": 14.299099
+    },
+    {
+      "id": "shape_254",
+      "type": "shape",
+      "lat": 36.039704,
+      "lng": 14.298784
+    },
+    {
+      "id": "shape_255",
+      "type": "shape",
+      "lat": 36.039945,
+      "lng": 14.29781
+    },
+    {
+      "id": "shape_256",
+      "type": "shape",
+      "lat": 36.040007,
+      "lng": 14.297408
+    },
+    {
+      "id": "shape_257",
+      "type": "shape",
+      "lat": 36.040016,
+      "lng": 14.297315
+    },
+    {
+      "id": "shape_258",
+      "type": "shape",
+      "lat": 36.039179,
+      "lng": 14.297072
+    },
+    {
+      "id": "shape_259",
+      "type": "shape",
+      "lat": 36.039125,
+      "lng": 14.296404
+    },
+    {
+      "id": "shape_260",
+      "type": "shape",
+      "lat": 36.038979,
+      "lng": 14.295407
+    },
+    {
+      "id": "shape_261",
+      "type": "shape",
+      "lat": 36.038902,
+      "lng": 14.294909
+    },
+    {
+      "id": "shape_262",
+      "type": "shape",
+      "lat": 36.038848,
+      "lng": 14.294734
+    },
+    {
+      "id": "shape_263",
+      "type": "shape",
+      "lat": 36.03867,
+      "lng": 14.294363
+    },
+    {
+      "id": "shape_264",
+      "type": "shape",
+      "lat": 36.038368,
+      "lng": 14.294265
+    },
+    {
+      "id": "shape_265",
+      "type": "shape",
+      "lat": 36.038267,
+      "lng": 14.294235
+    },
+    {
+      "id": "shape_266",
+      "type": "shape",
+      "lat": 36.037928,
+      "lng": 14.294242
+    },
+    {
+      "id": "shape_267",
+      "type": "shape",
+      "lat": 36.037941,
+      "lng": 14.293882
+    },
+    {
+      "id": "shape_268",
+      "type": "shape",
+      "lat": 36.037756,
+      "lng": 14.293864
+    }
+  ]
+}

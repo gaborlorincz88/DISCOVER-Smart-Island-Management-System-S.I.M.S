@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Icon Cache Test</title>
+  <style>
+    body { padding: 20px; font-family: Arial; }
+    .cache-test { margin: 20px 0; padding: 10px; border: 1px solid #ccc; }
+    img { max-width: 200px; display: block; margin: 10px 0; }
+    .cache-status { color: green; font-weight: bold; }
+    .no-cache { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Icon Cache Test</h1>
+  <div class="cache-test">
+    <h2>Test Icon:</h2>
+    <img id="testIcon" alt="Test icon">
+    <p id="cacheInfo">Loading...</p>
+  </div>
+
+  <div class="cache-test">
+    <h2>Cache Test Results:</h2>
+    <button onclick="testCache()">Test Cache</button>
+    <pre id="results"></pre>
+  </div>
+
+  <script>
+    // Get backend URL dynamically
+    const backendUrl = window.location.hostname === 'localhost' 
+      ? 'http://localhost:3003' 
+      : 'https://77.71.145.126:3002';
+    
+    const iconUrl = backendUrl + '/uploads/optimized/icon-1755629717779-964265234-optimized.webp';
+    
+    let loadCount = 0;
+    let cacheHits = 0;
+
+    function testCache() {
+      loadCount = 0;
+      cacheHits = 0;
+      
+      const img = document.getElementById('testIcon');
+      const cacheInfo = document.getElementById('cacheInfo');
+      const results = document.getElementById('results');
+      
+      results.textContent = 'Testing cache...\n';
+      results.textContent += `Backend URL: ${backendUrl}\n\n`;
+      
+      // First load
+      const startTime = performance.now();
+      const img1 = new Image();
+      
+      img1.onload = () => {
+        const loadTime = performance.now() - startTime;
+        loadCount++;
+        
+        results.textContent += `Load ${loadCount}: ${loadTime.toFixed(2)}ms`;
+        
+        if (loadTime < 50) {
+          cacheHits++;
+          results.textContent += ' [CACHED ✓]';
+        } else {
+          results.textContent += ' [NOT CACHED ✗]';
+        }
+        results.textContent += '\n';
+        
+        // Second load (should be cached)
+        setTimeout(() => {
+          testSecondLoad(results);
+        }, 500);
+      };
+      
+      img1.onerror = () => {
+        results.textContent += '\nERROR: Image failed to load. Check backend URL.';
+      };
+      
+      img1.src = iconUrl + '?' + Date.now();
+    }
+
+    function testSecondLoad(results) {
+      const startTime = performance.now();
+      const img2 = new Image();
+      
+      img2.onload = () => {
+        const loadTime = performance.now() - startTime;
+        loadCount++;
+        
+        results.textContent += `Load ${loadCount}: ${loadTime.toFixed(2)}ms`;
+        
+        if (loadTime < 50) {
+          cacheHits++;
+          results.textContent += ' [CACHED ✓]';
+        } else {
+          results.textContent += ' [NOT CACHED ✗]';
+        }
+        results.textContent += '\n';
+        results.textContent += `\nSummary: ${cacheHits}/${loadCount} cache hits`;
+      };
+      
+      img2.src = iconUrl;
+    }
+
+    // Check initial load performance
+    window.onload = () => {
+      const info = document.getElementById('cacheInfo');
+      info.textContent = `Backend URL: ${backendUrl}`;
+    };
+  </script>
+</body>
+</html>
+

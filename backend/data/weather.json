@@ -1,0 +1,133 @@
+{
+  "lastUpdated": "2025-11-18T23:15:09.818Z",
+  "data": {
+    "temperature": 19.92,
+    "humidity": 80,
+    "pressure": 1014,
+    "visibility": 10000,
+    "windSpeed": 27,
+    "windDirection": 315,
+    "rainChance": 114.99999999999999,
+    "waterTemperature": 16.92,
+    "waveHeight": 1,
+    "waveDirection": 315,
+    "wavePeriod": 5,
+    "lastUpdated": "2025-11-18T23:15:09.818Z",
+    "forecast": [
+      {
+        "date": "2025-11-19",
+        "dayName": "Wednesday",
+        "temperature": {
+          "min": 18.14,
+          "max": 19.92,
+          "avg": 18.7075
+        },
+        "humidity": 70.75,
+        "windSpeed": 16.2855,
+        "windDirection": 343.625,
+        "rainChance": 100,
+        "weather": {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04d"
+        },
+        "waterTemperature": 15.707500000000001,
+        "waveHeight": 0.6,
+        "waveDirection": 343.625
+      },
+      {
+        "date": "2025-11-20",
+        "dayName": "Thursday",
+        "temperature": {
+          "min": 18.11,
+          "max": 18.68,
+          "avg": 18.27875
+        },
+        "humidity": 65.75,
+        "windSpeed": 19.9755,
+        "windDirection": 330,
+        "rainChance": 0,
+        "weather": {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04d"
+        },
+        "waterTemperature": 15.278749999999999,
+        "waveHeight": 0.7,
+        "waveDirection": 330
+      },
+      {
+        "date": "2025-11-21",
+        "dayName": "Friday",
+        "temperature": {
+          "min": 15.87,
+          "max": 18.82,
+          "avg": 17.845
+        },
+        "humidity": 65.875,
+        "windSpeed": 29.227500000000003,
+        "windDirection": 266.125,
+        "rainChance": 100,
+        "weather": {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        },
+        "waterTemperature": 15.29125,
+        "waveHeight": 0.975,
+        "waveDirection": 266.125
+      },
+      {
+        "date": "2025-11-22",
+        "dayName": "Saturday",
+        "temperature": {
+          "min": 13.87,
+          "max": 15.28,
+          "avg": 14.825000000000001
+        },
+        "humidity": 60.25,
+        "windSpeed": 50.6115,
+        "windDirection": 290.625,
+        "rainChance": 100,
+        "weather": {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        },
+        "waterTemperature": 15,
+        "waveHeight": 1.6875,
+        "waveDirection": 290.625
+      },
+      {
+        "date": "2025-11-23",
+        "dayName": "Sunday",
+        "temperature": {
+          "min": 15,
+          "max": 16.56,
+          "avg": 15.625
+        },
+        "humidity": 56.375,
+        "windSpeed": 29.6415,
+        "windDirection": 291.75,
+        "rainChance": 100,
+        "weather": {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04d"
+        },
+        "waterTemperature": 15,
+        "waveHeight": 1.0125,
+        "waveDirection": 291.75
+      }
+    ]
+  },
+  "apis": {
+    "openweathermap": "33dc9bcd77723d3fb5d69b22e20e99ca",
+    "stormglass": null
+  }
+}

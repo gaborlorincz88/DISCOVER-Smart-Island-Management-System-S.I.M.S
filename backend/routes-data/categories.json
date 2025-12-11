@@ -1,0 +1,72 @@
+[
+  {
+    "id": "sightseeing",
+    "name": "Sightseeing Routes",
+    "description": "Explore Gozo's most beautiful landmarks and scenic routes",
+    "image": "/uploads/categories/image-1756679433680-7870699.jpg",
+    "icon": "🏛️",
+    "color": "#3b82f6",
+    "active": true,
+    "order": 1
+  },
+  {
+    "id": "boat-tour",
+    "name": "Boat Tours",
+    "description": "Discover Gozo from the sea with our boat tours",
+    "image": "/uploads/categories/image-1756680527871-358790285.jpg",
+    "icon": "🚤",
+    "color": "#06b6d4",
+    "active": true,
+    "order": 2
+  },
+  {
+    "id": "jeep-tour",
+    "name": "Jeep Tours",
+    "description": "Adventure through Gozo's rugged terrain in a 4x4 jeep",
+    "image": "/uploads/categories/image-1756680534556-530406582.jpg",
+    "icon": "🚙",
+    "color": "#10b981",
+    "active": true,
+    "order": 3
+  },
+  {
+    "id": "quad-tours",
+    "name": "Quad Tours",
+    "description": "Experience the thrill of quad biking across Gozo",
+    "image": "/uploads/categories/image-1756680541819-68655944.avif",
+    "icon": "🛵",
+    "color": "#f59e0b",
+    "active": true,
+    "order": 4
+  },
+  {
+    "id": "hiking",
+    "name": "Hiking Trails",
+    "description": "Walk through Gozo's natural beauty and historical paths",
+    "image": "/uploads/categories/image-1756680548639-414531229.jpg",
+    "icon": "🏃",
+    "color": "#8b5cf6",
+    "active": true,
+    "order": 5
+  },
+  {
+    "id": "parasailing",
+    "name": "parasailing",
+    "description": "amazing views of 50m heights",
+    "image": "/uploads/categories/image-1756680290452-224238014.webp",
+    "icon": "🌊",
+    "color": "#3b82f6",
+    "active": true,
+    "order": 7
+  },
+  {
+    "id": "scuba-diving-experience",
+    "name": "Scuba diving experience",
+    "description": "Experience the crystal clear water and the best scuba diving places around Gozo",
+    "image": "/uploads/categories/image-1757753957065-129611861.jpg",
+    "icon": "🤿",
+    "color": "#3b82f6",
+    "active": true,
+    "order": 7
+  }
+]

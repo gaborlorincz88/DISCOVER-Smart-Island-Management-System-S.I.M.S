@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header / Menu Editor</title>
+  <link rel="stylesheet" href="admin-styles.css" />
+  <link rel="stylesheet" href="modern-admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      z-index: 60;
+    }
+    .modal-content {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      width: 95%;
+      max-width: 900px;
+      max-height: 80vh;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+    }
+    .modal-body {
+      padding: 12px;
+      overflow: auto;
+    }
+    .loading {
+      padding: 20px;
+      text-align: center;
+      opacity: 0.8;
+    }
+    .preview-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(56, 189, 248, 0.10) 0%, rgba(0,0,0,0) 60%), #0b1220;
+    }
+    .preview-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .preview-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      min-height: 64px;
+    }
+    .preview-left,
+    .preview-center,
+    .preview-right { display:flex; align-items:center; }
+    .preview-left { gap: 10px; }
+    .preview-center { flex: 0 0 auto; justify-content:center; min-width: 160px; }
+    .preview-right { gap: 10px; }
+    .preview-buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .preview-btn {
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      backdrop-filter: blur(8px);
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.45);
+    }
+    .preview-btn:hover { transform: translateY(-1px); }
+    .preview-btn:active { transform: scale(0.97); }
+    .controls-grid { display: grid; grid-template-columns: 1.1fr 1.3fr; gap: 18px; }
+    .controls-grid .card {
+      padding: 18px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.24);
+    }
+    .card h3 { display:flex; align-items:center; gap:8px; margin-top:0; }
+    .card h3 i { opacity: .8; }
+    .input-row { display: grid; grid-template-columns: 160px 1fr; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .button-list { display: grid; gap: 12px; margin-top: 6px; }
+    .button-item {
+      padding: 12px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .top-bar { display:flex; gap:8px; align-items:center; margin-bottom: 12px; }
+    .inline-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .chip { padding: 4px 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); font-size: 12px; }
+    .toolbar {
+      display:flex; gap:10px; justify-content:flex-start; align-items:center; margin-bottom: 10px;
+    }
+    .small-label { font-size: 12px; opacity: .85; }
+    .mini-preview {
+      display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04);
+    }
+    details.button-editor { border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; overflow:hidden; }
+    details.button-editor > summary { cursor:pointer; list-style: none; padding: 10px 12px; background: rgba(255,255,255,0.05); display:flex; align-items:center; gap:8px; }
+    details.button-editor[open] > summary { background: rgba(255,255,255,0.08); }
+    .button-editor .editor-body { padding: 10px 12px; }
+    .auth-chip { padding: 8px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); font-weight: 700; }
+    /* Iconic buttons */
+    .btn.btn-secondary i { opacity: .9; }
+    .btn.icon-btn { width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; border-radius: 8px; }
+    /* Font selector */
+    .font-selector-wrapper { position: relative; width: 100%; }
+    .font-family-select { max-height: 200px; overflow-y: auto; }
+    .font-family-select option { padding: 6px 10px; display: block; }
+    .font-search-input:focus, .font-family-select:focus { outline: 2px solid rgba(59, 130, 246, 0.5); border-color: rgba(59, 130, 246, 0.8) !important; }
+    .font-search-input::placeholder { color: rgba(255,255,255,0.5); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1><i class="fas fa-heading"></i> Header / Menu Editor</h1>
+      <div class="top-bar">
+        <a href="/admin.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        <button id="save-btn" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+        <button id="reload-btn" class="btn"><i class="fas fa-sync"></i> Reload</button>
+      </div>
+    </header>
+
+    <!-- Live Preview (sticky on top) -->
+    <section class="admin-section preview-sticky">
+      <h2><i class="fas fa-eye"></i> Live Preview</h2>
+      <div class="preview-wrapper">
+        <div id="preview-header" class="preview-header" style="background:#1f2937;">
+          <div class="preview-left">
+            <div id="preview-burger" style="display:none;margin-right:8px;"></div>
+            <div id="preview-buttons" class="preview-buttons"></div>
+          </div>
+          <div class="preview-center">
+            <img id="preview-logo" src="/logo.png" alt="Logo" style="width:40px; height:40px;" />
+          </div>
+          <div class="preview-right">
+            <div id="preview-auth" class="auth-chip"><i class="fas fa-user"></i> LOGIN</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-section">
+      <div class="controls-grid">
+        <div class="card">
+          <h3><i class="fas fa-cog"></i> Context</h3>
+          <div class="input-row">
+            <label><i class="fas fa-moon"></i> Theme</label>
+            <select id="theme-select"><option value="light">Light</option><option value="dark" selected>Dark</option></select>
+          </div>
+          <div class="input-row">
+            <label><i class="fas fa-desktop"></i> Breakpoint</label>
+            <select id="bp-select"><option value="mobile">Mobile</option><option value="desktop" selected>Desktop</option></select>
+          </div>
+          <h3><i class="fas fa-window-restore"></i> Header</h3>
+          <div class="input-row">
+            <label><i class="fas fa-paint-brush"></i> Background</label>
+            <div class="inline-row">
+              <input id="header-bg" type="color" value="#1f2937" />
+              <input id="header-bg-adv" type="text" placeholder="css gradient (optional)" style="flex:1" />
+            </div>
+          </div>
+          <div class="input-row">
+            <label><i class="fas fa-square"></i> Border Color</label>
+            <input id="header-border" type="color" value="#3b3b3b" />
+          </div>
+          <div class="input-row">
+            <label><i class="fas fa-cloud"></i> Shadow</label>
+            <div class="inline-row" style="width:100%">
+              <select id="header-shadow-preset">
+                <option value="">None</option>
+                <option value="0 6px 12px rgba(0,0,0,0.18)">Soft</option>
+                <option value="0 10px 20px rgba(0,0,0,0.22)">Medium</option>
+                <option value="0 16px 32px rgba(0,0,0,0.28)">Strong</option>
+              </select>
+              <input id="header-shadow" type="text" placeholder="custom shadow (overrides preset)" style="flex:1" />
+            </div>
+          </div>
+          <h3><i class="fas fa-image"></i> Logo</h3>
+          <div class="input-row">
+            <label><i class="fas fa-link"></i> Logo URL</label>
+            <div class="inline-row" style="width:100%">
+              <input id="logo-url" type="text" placeholder="/logo.png" style="flex:1" />
+              <button id="logo-upload-btn" class="btn btn-secondary" type="button" title="Upload"><i class="fas fa-upload"></i></button>
+              <button id="logo-gallery-btn" class="btn btn-secondary" type="button" title="Gallery"><i class="fas fa-images"></i></button>
+              <input id="logo-file-input" type="file" accept="image/*" style="display:none" />
+            </div>
+          </div>
+          <div class="input-row">
+            <label><i class="fas fa-arrows-alt"></i> Width (px)</label>
+            <input id="logo-w" type="number" min="12" max="256" value="40" />
+          </div>
+          <div class="input-row">
+            <label><i class="fas fa-arrows-alt"></i> Height (px)</label>
+            <input id="logo-h" type="number" min="12" max="256" value="40" />
+          </div>
+          <div class="input-row">
+            <label><i class="fas fa-tag"></i> Alt</label>
+            <input id="logo-alt" type="text" placeholder="Discover Gozo" />
+          </div>
+          <h3><i class="fas fa-bars"></i> Side Menu Colors</h3>
+          <div class="input-row">
+            <label><i class="fas fa-th"></i> Card Background</label>
+            <input id="sidebar-card-bg" type="color" />
+          </div>
+          <div class="input-row">
+            <label><i class="fas fa-th-large"></i> Sidebar Background</label>
+            <input id="sidebar-bg" type="color" />
+          </div>
+          <h3 id="burger-menu-section" style="display:none;"><i class="fas fa-bars"></i> Burger Menu Button (Mobile)</h3>
+          <div id="burger-menu-editor" style="display:none;">
+            <div class="input-row">
+              <label><i class="fas fa-paint-brush"></i> Icon Color</label>
+              <input id="burger-color" type="color" />
+            </div>
+            <div class="input-row">
+              <label><i class="fas fa-expand"></i> Icon Size (px)</label>
+              <input id="burger-size" type="number" min="16" max="48" value="24" />
+            </div>
+            <div class="input-row">
+              <label><i class="fas fa-pencil-alt"></i> Stroke Width</label>
+              <input id="burger-stroke-width" type="number" min="1" max="5" step="0.5" value="2" />
+            </div>
+            <div class="input-row">
+              <label><i class="fas fa-paint-brush"></i> Background Color</label>
+              <div class="inline-row" style="width:100%">
+                <input id="burger-bg" type="color" />
+                <button id="burger-bg-transparent" type="button" class="btn btn-secondary" style="padding:6px 12px;font-size:12px;"><i class="fas fa-eye-slash"></i> Transparent</button>
+              </div>
+            </div>
+            <div class="input-row">
+              <label><i class="fas fa-arrows-alt"></i> Padding (px)</label>
+              <input id="burger-padding" type="number" min="0" max="20" value="8" />
+            </div>
+            <div class="input-row">
+              <label><i class="fas fa-circle"></i> Border Radius (px)</label>
+              <input id="burger-radius" type="number" min="0" max="20" value="4" />
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-hand-pointer"></i> Buttons</h3>
+          <div class="input-row">
+            <label><i class="fas fa-hand-pointer"></i> Preview Selected</label>
+            <select id="preview-selected">
+              <option value="">None</option>
+              <option value="explorer">explorer</option>
+              <option value="events">events</option>
+              <option value="excursions">excursions</option>
+              <option value="contact">contact</option>
+              <option value="trips">trips</option>
+            </select>
+          </div>
+          <div id="buttons-editor" class="button-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page Backgrounds Section -->
+    <section class="admin-section">
+      <h2><i class="fas fa-palette"></i> Page Backgrounds</h2>
+      <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">Configure background for each page and theme combination</p>
+      
+      <div id="page-background-editors" style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- Will be populated by JS for each page/theme combination -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Gallery Picker Modal -->
+  <div id="gallery-modal" class="modal" style="display:none">
+    <div class="modal-content" style="max-width:900px">
+      <div class="modal-header">
+        <h3><i class="fas fa-images"></i> Pick an Image</h3>
+        <button id="gallery-close" class="btn btn-secondary" type="button"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin-check.js?v=2"></script>
+  <script src="header-editor.js?v=6"></script>
+</body>
+</html>
+

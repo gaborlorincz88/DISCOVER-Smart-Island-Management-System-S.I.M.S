@@ -1,0 +1,257 @@
+.village-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-shadow:
+    0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+  text-align: center;
+  background: transparent;
+  border: none;
+}
+
+/* Line clamp utilities for text truncation */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Custom image icon positioning fix */
+.custom-image-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-image-icon img {
+  transform-origin: center center;
+  display: block;
+}
+
+.map-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; /* Adjust as needed */
+  height: 48px; /* Adjust as needed */
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  color: #333; /* Default icon color */
+}
+
+.map-control-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+}
+
+.map-control-button:active {
+  transform: translateY(0);
+}
+
+.map-control-button.active {
+  background-color: #0ea5e9; /* A distinct color for active state */
+  color: white;
+}
+
+.map-control-button.active:hover {
+  background-color: #0c8fd0;
+}
+
+.map-control-button.go-control {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Preserve formatting in place descriptions */
+.place-description {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Alternative approach for better compatibility */
+.place-description p {
+  margin-bottom: 1rem;
+}
+
+.place-description br {
+  display: block;
+  content: "";
+  margin-top: 0.5rem;
+}
+
+/* Also preserve formatting in tour point descriptions and other text elements */
+.tour-point-description,
+.point-description {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* CSS Variables for hover and active states */
+:root {
+  --hover-bg: 255, 255, 255, 0.1;
+  --active-bg: 255, 255, 255, 0.2;
+}
+
+[data-theme="dark"] {
+  --hover-bg: 255, 255, 255, 0.05;
+  --active-bg: 255, 255, 255, 0.1;
+}
+
+/* Fix for tile grid lines on all displays */
+.leaflet-container img.leaflet-tile,
+.leaflet-tile {
+  mix-blend-mode: normal !important;
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  display: block !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  /* Prevent gaps between tiles */
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* Force GPU layer and proper rendering from start */
+  will-change: transform;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Additional fix for tile gaps */
+.leaflet-tile-no-gaps img {
+  border: none !important;
+  outline: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Default tile size for 100% display scaling */
+@media (-webkit-max-device-pixel-ratio: 1), (max-resolution: 96dpi) {
+  .leaflet-container img.leaflet-tile,
+  .leaflet-tile {
+    width: 256px !important;
+    height: 256px !important;
+    margin: 0 !important;
+    border: none !important;
+    outline: none !important;
+  }
+}
+
+/* High DPI/Scaled display fix - add slight overlap to prevent gaps */
+@media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  .leaflet-container img.leaflet-tile,
+  .leaflet-tile {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    width: 257px !important;
+    height: 257px !important;
+    margin-left: -0.5px !important;
+    margin-top: -0.5px !important;
+    border: none !important;
+    outline: none !important;
+  }
+  }
+  
+/* Mobile-specific fixes for tile gaps - minimal approach */
+@media (max-width: 768px) {
+  .leaflet-container img.leaflet-tile,
+  .leaflet-tile {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .leaflet-tile-container {
+    /* Ensure no gaps in tile container */
+    overflow: hidden;
+  }
+}
+
+/* Ensure tile containers have no gaps */
+.leaflet-tile-container {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  /* Prevent gaps between tiles */
+  overflow: hidden;
+  position: relative;
+  /* Force proper rendering from start */
+  will-change: transform;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Additional fix for tile pane */
+.leaflet-tile-pane .leaflet-tile-container {
+  overflow: visible;
+}
+
+/* Force GPU acceleration and prevent subpixel rendering issues */
+.leaflet-tile-pane {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  will-change: transform;
+  /* Force proper rendering from initial load */
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  /* Ensure tiles render correctly from start */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Emoji font support for flags */
+.emoji-flag {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", "EmojiOne Mozilla", "Twemoji Mozilla", "Noto Emoji", "Noto Color Emoji Compat", "Twemoji", "EmojiOne", sans-serif !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: normal !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: inherit;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  word-spacing: 0 !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-indent: 0 !important;
+  direction: ltr !important;
+  font-size: inherit;
+}

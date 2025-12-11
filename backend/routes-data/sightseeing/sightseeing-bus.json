@@ -1,0 +1,109 @@
+{
+  "id": "sightseeing-bus",
+  "name": "sightseeing bus",
+  "type": "sightseeing",
+  "description": "Sightseeing bus tour route",
+  "icon": "🚌",
+  "iconSize": 32,
+  "polylineColor": "#ec0909",
+  "mainImage": "/uploads/1758104764364-56944378-city-sightseeing-gozo.jpg",
+  "currency": "EUR",
+  "prices": {
+    "adult": 15,
+    "child": 10,
+    "senior": 10
+  },
+  "duration": "2h 30m",
+  "maxParticipants": 30,
+  "points": [
+    {
+      "type": "stop",
+      "lat": 36.024473048340234,
+      "lng": 14.298770326097456,
+      "name": "new",
+      "description": "",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.02336639004437,
+      "lng": 14.297697525962208
+    },
+    {
+      "type": "shape",
+      "lat": 36.025622809903865,
+      "lng": 14.295444445278745
+    },
+    {
+      "type": "shape",
+      "lat": 36.023817212492425,
+      "lng": 14.28885693947314
+    },
+    {
+      "type": "shape",
+      "lat": 36.02726256996686,
+      "lng": 14.283610698606134
+    },
+    {
+      "type": "shape",
+      "lat": 36.02890271223513,
+      "lng": 14.278696683362854
+    },
+    {
+      "type": "shape",
+      "lat": 36.02941417183959,
+      "lng": 14.273965343853558
+    },
+    {
+      "type": "shape",
+      "lat": 36.03246847680284,
+      "lng": 14.26840782305032
+    },
+    {
+      "type": "shape",
+      "lat": 36.03605152254051,
+      "lng": 14.260489965754266
+    },
+    {
+      "type": "shape",
+      "lat": 36.03450702590176,
+      "lng": 14.2599322234552
+    },
+    {
+      "type": "stop",
+      "lat": 36.035878005529774,
+      "lng": 14.25340349304151,
+      "name": "xewkija magro village",
+      "description": "Magro food village ",
+      "images": []
+    },
+    {
+      "type": "shape",
+      "lat": 36.03670656764501,
+      "lng": 14.253327058396778
+    },
+    {
+      "type": "shape",
+      "lat": 36.03753512976026,
+      "lng": 14.253250623752043
+    },
+    {
+      "type": "shape",
+      "lat": 36.039192253990734,
+      "lng": 14.253097754462576
+    },
+    {
+      "type": "shape",
+      "lat": 36.042506273395276,
+      "lng": 14.249417859022808
+    },
+    {
+      "type": "stop",
+      "lat": 36.04448510023866,
+      "lng": 14.240941432160954,
+      "name": "2",
+      "description": "Victoria Stop, Visiting, the CItadel ect..",
+      "images": []
+    }
+  ]
+}

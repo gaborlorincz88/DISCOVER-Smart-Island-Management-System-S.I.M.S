@@ -1,0 +1,32 @@
+{
+  "folders": [
+    {
+      "id": "root",
+      "name": "All Images",
+      "path": "",
+      "parent": null,
+      "created": "2025-10-20T19:50:09.935Z"
+    },
+    {
+      "id": "folder_1760990804630_c5aape039",
+      "name": "Restaurants",
+      "path": "Restaurants",
+      "parent": "root",
+      "created": "2025-10-20T20:06:44.631Z"
+    },
+    {
+      "id": "folder_1760990817408_cpbk0mwa0",
+      "name": "Bus Stops",
+      "path": "Bus Stops",
+      "parent": "root",
+      "created": "2025-10-20T20:06:57.410Z"
+    },
+    {
+      "id": "folder_1761062358573_golkr3i6k",
+      "name": "Events",
+      "path": "Events",
+      "parent": "root",
+      "created": "2025-10-21T15:59:18.576Z"
+    }
+  ]
+}

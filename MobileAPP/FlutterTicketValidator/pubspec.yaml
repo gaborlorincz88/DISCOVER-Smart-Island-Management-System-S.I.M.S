@@ -1,0 +1,79 @@
+name: flutter_ticket_validator
+description: Discover Gozo Ticket Validator - Flutter version
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # UI & Navigation
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^2.0.9
+  
+  # HTTP & API
+  http: ^1.1.0
+  dio: ^5.3.2
+  
+  # QR Code Scanning
+  mobile_scanner: ^3.5.6
+  permission_handler: ^11.0.1
+  
+  # Local Storage
+  shared_preferences: ^2.2.2
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # Utilities
+  intl: ^0.18.1
+  uuid: ^4.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/
+    - assets/images/
+    - assets/icons/
+  
+  # fonts:
+  #   - family: Inter
+  #     fonts:
+  #       - asset: assets/fonts/Inter-Regular.ttf
+  #       - asset: assets/fonts/Inter-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/Inter-SemiBold.ttf
+  #         weight: 600
+  #       - asset: assets/fonts/Inter-Bold.ttf
+  #         weight: 700
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/bestlogo.png"
+  min_sdk_android: 21
+  web:
+    generate: false
+    image_path: "assets/bestlogowhite.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: false
+    image_path: "assets/bestlogowhite.png"
+    icon_size: 48
+  macos:
+    generate: false
+    image_path: "assets/bestlogowhite.png"
+

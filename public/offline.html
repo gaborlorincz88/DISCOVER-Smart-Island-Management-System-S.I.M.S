@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - Discover Gozo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .offline-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            margin: 0 0 20px 0;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        
+        p {
+            margin: 0 0 30px 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .retry-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .retry-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .cache-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .cache-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h1>You're Offline</h1>
+        <p>
+            It looks like you've lost your internet connection. 
+            Don't worry - Discover Gozo has cached some content for offline use!
+        </p>
+        
+        <button class="retry-button" onclick="retryConnection()">
+            Try Again
+        </button>
+        
+        <div class="cache-info">
+            <h3>📱 Cached Content</h3>
+            <p>These items are available offline:</p>
+            <div class="cache-stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="tileCount">-</span>
+                    <span class="stat-label">Map Tiles</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="assetCount">-</span>
+                    <span class="stat-label">Images & Icons</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="totalSize">-</span>
+                    <span class="stat-label">Total Size</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check connection status
+        function checkConnection() {
+            if (navigator.onLine) {
+                window.location.reload();
+            }
+        }
+
+        // Retry connection
+        function retryConnection() {
+            if (navigator.onLine) {
+                window.location.reload();
+            } else {
+                // Show error message
+                alert('Still offline. Please check your internet connection.');
+            }
+        }
+
+        // Listen for online/offline events
+        window.addEventListener('online', checkConnection);
+        window.addEventListener('offline', () => {
+            console.log('Connection lost');
+        });
+
+        // Update cache statistics
+        async function updateCacheStats() {
+            try {
+                // Try to get cache stats from IndexedDB
+                if ('indexedDB' in window) {
+                    // This would need to be implemented based on your cache structure
+                    // For now, we'll show placeholder values
+                    document.getElementById('tileCount').textContent = '~1000+';
+                    document.getElementById('assetCount').textContent = '~500+';
+                    document.getElementById('totalSize').textContent = '~50MB';
+                }
+            } catch (error) {
+                console.log('Could not get cache stats:', error);
+            }
+        }
+
+        // Initialize
+        updateCacheStats();
+        
+        // Check connection every 5 seconds
+        setInterval(checkConnection, 5000);
+    </script>
+</body>
+</html>
+

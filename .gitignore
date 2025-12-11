@@ -1,0 +1,122 @@
+# ====================
+# SECURITY - CRITICAL
+# ====================
+
+# Database files (contains user data, passwords, reservations)
+*.db
+*.sqlite
+*.sqlite3
+backend/discover_gozo.db
+
+# SSL Certificates and private keys
+backend/certs/
+*.pem
+*.key
+*.crt
+
+# Environment variables (API keys, secrets, passwords)
+.env
+.env.*
+.env.local
+.env.production
+*.local
+
+# Google API credentials - CRITICAL
+backend/google-credentials.json
+**/google-credentials.json
+**/credentials.json
+
+# Deployment config with sensitive URLs/keys
+backend/config/deployment.json
+
+# Local properties (Android SDK paths, etc.)
+**/local.properties
+
+# ====================
+# DEPENDENCIES
+# ====================
+
+node_modules
+
+# ====================
+# BUILD OUTPUT
+# ====================
+
+dist
+dist-ssr
+build/
+.next/
+out/
+
+# ====================
+# USER UPLOADS
+# ====================
+
+backend/uploads/
+
+# ====================
+# GENERATED REPORTS
+# ====================
+
+backend/reports/
+
+# ====================
+# LOGS & DEBUG
+# ====================
+
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ====================
+# OS & IDE FILES
+# ====================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+
+# JetBrains IDEs
+.idea
+*.iml
+
+# Visual Studio
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ====================
+# BACKUPS & TEMP
+# ====================
+
+*.bak
+*.backup
+*.tmp
+*.temp
+*.swp
+*~
+
+# ====================
+# MISC
+# ====================
+
+.cache/
+.parcel-cache/
+coverage/
+.nyc_output/

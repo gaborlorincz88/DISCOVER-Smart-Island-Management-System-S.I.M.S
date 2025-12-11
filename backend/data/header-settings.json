@@ -1,0 +1,497 @@
+{
+  "updatedAt": "2025-11-16T17:52:26.290Z",
+  "light": {
+    "mobile": {
+      "header": {
+        "bg": "#1f2937",
+        "gradient": null,
+        "blur": 0,
+        "shadow": "0 10px 20px rgba(0,0,0,0.2)",
+        "borderColor": "rgba(255,255,255,0.2)"
+      },
+      "logo": {
+        "url": "/logo.png",
+        "width": 40,
+        "height": 40,
+        "alt": "Discover Gozo"
+      },
+      "buttons": [
+        {
+          "key": "explorer",
+          "label": "EXPLORER",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 700,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "events",
+          "label": "EVENTS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 700,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "excursions",
+          "label": "EXCURSIONS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 700,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "contact",
+          "label": "CONTACT US",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 700,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "trips",
+          "label": "MY TRIPS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 700,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        }
+      ],
+      "overrides": {
+        "trips": {
+          "color": "#40e0d0",
+          "selectedBg": "rgba(64, 224, 208, 0.25)",
+          "selectedBorderColor": "rgba(34, 211, 238, 0.5)"
+        }
+      }
+    },
+    "desktop": {
+      "header": {
+        "bg": "#ffffff",
+        "gradient": null,
+        "blur": 0,
+        "shadow": "0 10px 20px rgba(0,0,0,0.2)",
+        "borderColor": "#ffffff"
+      },
+      "logo": {
+        "url": "/uploads/1763292288356-978898863.png",
+        "width": 130,
+        "height": 75,
+        "alt": "Discover Gozo"
+      },
+      "buttons": [
+        {
+          "key": "explorer",
+          "label": "EXPLORER",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 500,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "events",
+          "label": "EVENTS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 500,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "excursions",
+          "label": "EXCURSIONS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 500,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "contact",
+          "label": "CONTACT US",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 500,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "trips",
+          "label": "MY TRIPS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 500,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": false,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        }
+      ],
+      "overrides": {
+        "trips": {
+          "color": "#21a0c0",
+          "selectedBg": "rgba(64, 224, 208, 0.25)",
+          "selectedBorderColor": "rgba(34, 211, 238, 0.5)",
+          "borderColor": "#ffffff"
+        },
+        "contact": {
+          "color": "#383838",
+          "borderColor": "#ffffff"
+        },
+        "excursions": {
+          "color": "#383838",
+          "borderColor": "#ffffff"
+        },
+        "events": {
+          "color": "#383838",
+          "borderColor": "#ffffff"
+        },
+        "explorer": {
+          "color": "#383838",
+          "borderColor": "#ffffff"
+        }
+      }
+    }
+  },
+  "dark": {
+    "mobile": {
+      "header": {
+        "bg": "#1f2937",
+        "gradient": null,
+        "blur": 0,
+        "shadow": "0 10px 20px rgba(0,0,0,0.2)",
+        "borderColor": "rgba(255,255,255,0.2)"
+      },
+      "logo": {
+        "url": "/logo.png",
+        "width": 40,
+        "height": 40,
+        "alt": "Discover Gozo"
+      },
+      "buttons": [
+        {
+          "key": "explorer",
+          "label": "EXPLORER",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 700,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "events",
+          "label": "EVENTS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 700,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "excursions",
+          "label": "EXCURSIONS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 700,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "contact",
+          "label": "CONTACT US",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 700,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "trips",
+          "label": "MY TRIPS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 700,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        }
+      ],
+      "overrides": {
+        "trips": {
+          "color": "#40e0d0",
+          "selectedBg": "rgba(64, 224, 208, 0.25)",
+          "selectedBorderColor": "rgba(34, 211, 238, 0.5)"
+        }
+      }
+    },
+    "desktop": {
+      "header": {
+        "bg": "#1f2937",
+        "gradient": null,
+        "blur": 0,
+        "shadow": "0 10px 20px rgba(0,0,0,0.2)",
+        "borderColor": "#ffffff"
+      },
+      "logo": {
+        "url": "/uploads/1763291829407-172642914.png",
+        "width": 130,
+        "height": 75,
+        "alt": "Discover Gozo"
+      },
+      "buttons": [
+        {
+          "key": "explorer",
+          "label": "EXPLORER",
+          "fontFamily": "system-ui, -apple-system, Segoe UI, sans-serif",
+          "fontWeight": 500,
+          "fontSize": 13.6,
+          "letterSpacing": 0.01,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "events",
+          "label": "EVENTS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 500,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "excursions",
+          "label": "EXCURSIONS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 500,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "contact",
+          "label": "CONTACT US",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 500,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        },
+        {
+          "key": "trips",
+          "label": "MY TRIPS",
+          "fontFamily": "Special Gothic Expanded One, system-ui, sans-serif",
+          "fontWeight": 500,
+          "fontSize": 13.6,
+          "letterSpacing": 0.05,
+          "uppercase": true,
+          "color": "#ff6b35",
+          "bg": "transparent",
+          "shadow": "0 2px 4px rgba(0,0,0,0.5)",
+          "borderColor": "rgba(0, 0, 0, 0.4)",
+          "borderWidth": 1,
+          "radius": 8,
+          "selectedBg": "rgba(255, 107, 53, 0.25)",
+          "selectedBorderColor": "rgba(251, 146, 60, 0.5)",
+          "selectedShadow": "0 0 0 rgba(0,0,0,0)"
+        }
+      ],
+      "overrides": {
+        "trips": {
+          "color": "#40e0d0",
+          "selectedBg": "rgba(64, 224, 208, 0.25)",
+          "selectedBorderColor": "rgba(34, 211, 238, 0.5)",
+          "borderColor": "#1f2937"
+        },
+        "contact": {
+          "borderColor": "#1f2937",
+          "color": "#ffffff"
+        },
+        "excursions": {
+          "borderColor": "#1f2937",
+          "color": "#ffffff"
+        },
+        "events": {
+          "borderColor": "#1f2937",
+          "color": "#ffffff"
+        },
+        "explorer": {
+          "borderColor": "#1f2937",
+          "color": "#ffffff"
+        }
+      }
+    }
+  }
+}

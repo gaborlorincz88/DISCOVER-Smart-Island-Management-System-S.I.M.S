@@ -1,0 +1,1331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Dwejra Walk</name>
+    <description><![CDATA[Starting: Victoria<br><br>Ending: Victoria<br><br>Length: 13km<br><br>Grading: Moderate, difficulty with some steep inclines and a few rocky areas<br><br>Landscape: Urban, coastal, countryside roads and paths<br><br>Trail markings<br><br>Getting there and back: Gozo Channel operates regular ferries to L-Imġarr harbour leaving from iċ-Ċirkewwa in Malta. Buses leave regularly from the harbour to Victoria and back. The route can also be shortened by taking a return bus from San Lawrenz or Dwejra.<br><br>Recommended Walking season: October to May<br><br><br>Overview<br><br>Starting and ending at Victoria this walk takes you to the westernmost coast of Gozo to the scenic Dwejra Heritage Park – a haven for geology and ecology enthusiasts or simply anyone enjoying natural views. Amongst the highlights here are the historically famous Fungus Rock and its sentinel - the Knights’ coastal watchtower, the sculpted 40 meters high natural arch known as the Azure Window, the unique Inland Sea with boat trips taking visitors through a natural tunnel, ancient collapsed caverns, fossil beds and very rare endemic plants including the only place in the world where you can observe the endemic plant the Maltese Everlasting. All of this is contained in a relatively small area surrounded by steep limestone cliffs. In the warmer months, when the sea is tranquil Dwejra is one of the best diving sites and a beautiful place for swimming, snorkelling or enjoying sunset. The route takes you in the narrow maze in Victoria, the lush valley of Wied il-Lunzjata and the villages of Ta’ Kerċem and San Lawrenz as well as the nearby hamlet of Santa Luċija.]]></description>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-DB4436-nodesc-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-nodesc-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-00AA00-normal">
+      <IconStyle>
+        <color>ff00aa00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-00AA00-highlight">
+      <IconStyle>
+        <color>ff00aa00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-00AA00">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-00AA00-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-00AA00-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-D60303-nodesc-normal">
+      <IconStyle>
+        <color>ff0303d6</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-D60303-nodesc-highlight">
+      <IconStyle>
+        <color>ff0303d6</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-D60303-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-D60303-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-D60303-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-D60303-5000-normal">
+      <LineStyle>
+        <color>ff0303d6</color>
+        <width>5</width>
+      </LineStyle>
+    </Style>
+    <Style id="line-D60303-5000-highlight">
+      <LineStyle>
+        <color>ff0303d6</color>
+        <width>7.5</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-D60303-5000">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-D60303-5000-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-D60303-5000-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FFFF00-1000-179-normal">
+      <LineStyle>
+        <color>ff00ffff</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>b300ffff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FFFF00-1000-179-highlight">
+      <LineStyle>
+        <color>ff00ffff</color>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>b300ffff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FFFF00-1000-179">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FFFF00-1000-179-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FFFF00-1000-179-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Walking Path</name>
+      <Placemark>
+        <name>Start</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKshhvsgUTMF1chqskiQUVzrmPMi42uzPrUPhcIcoG9nzsc-vTQM4Xz9oIqP8xrgnyw2G_dLJkWKSmCGnhFOT5Dy3RiOaEDLNmEeASRbNHXevPyoVtwHPgT9UudzjXgun2c5bZsaxT-8gWuAN94JXN9NmtSro7AH5GJJL392kEmDMP3StHXIkU8_UFvWnWtHqNA1vpyzjMPvSCo?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Independence Square - better known as it-Tokk - is the most popular piazza in Victoria. It is the place where one can meet different people, from locals taking their morning coffee and pastizzi (traditional savoury pastry filled with ricotta cheese or mashed peas) to visitors checking out the stalls of the small open air market. The Ficus trees, found in Independence Square are home to hundreds of Spanish Sparrows. At sunset, one can observe the chattering Spanish Sparrows flocking back to their nests. <br><br>The semi-circular building of the Banca Giuratale (1730’s), now housing the Culture Information Centre and the Victoria Local Council, was the seat of the municipal government of Gozo. Cultural exhibitions are often held inside the building. On the opposite side lies the refurbished church of St. James and in between is a monument to the victims of the Second World War. <br><br>A visit to the medieval Citadel just up the hill from It-Tokk is not to be missed – either at the start or end of the walk – but definitely not in a rush.]]></description>
+        <styleUrl>#icon-503-00AA00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKshhvsgUTMF1chqskiQUVzrmPMi42uzPrUPhcIcoG9nzsc-vTQM4Xz9oIqP8xrgnyw2G_dLJkWKSmCGnhFOT5Dy3RiOaEDLNmEeASRbNHXevPyoVtwHPgT9UudzjXgun2c5bZsaxT-8gWuAN94JXN9NmtSro7AH5GJJL392kEmDMP3StHXIkU8_UFvWnWtHqNA1vpyzjMPvSCo?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.239237,36.044654,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Part 1</name>
+        <description><![CDATA[The route takes you through some of the narrow winding streets of the city starting from the next most popular square known as Pjazza San Ġorġ (Saint George’s Square) dominated by the parish church, the pride of many locals – the basilica dedicated to the same saint. Take the street on the right of the church and then the second on the right into Triq il-Providenza. Turn left into Triq il-Librerija and then right into Triq San Ġwann. As with all other traditional villages in the Maltese Islands, these narrow roads typically hold several holy niches showing the devotion to various saints but especially to Our Lady.<br><br>Be careful as you come out at the end of the labyrinthine streets to cross the busy road to Triq San Ġwann Bosco. Follow this road down to Gozo’s green heart – the most fertile valley lying between Fontana and Ta’ Kerċem, Wied il-Lunzjata, literally translated as the Valley of the Annunciation thus named after the chapel still found on the valley side. Take a few minutes to detour through the gateway and enjoy the area before proceeding back up en route and across the valley.<br><br>The arched entrance dates back to the time of the Knights of St. John in 1698 during the reign of Grand Master Perellos y Roccaful when part of the valley was walled to restrict access to their recreational area. The locality holds some of the most plentiful springs and vegetable gardens on the island. The premises above the arch now serve as the premisses of the Education, Science & Culture Centre. An interesting sundial on the wall is a replica of the oldest sundial found in Gozo dating to 1546 the original of which is found in Xewkija. The enigmatic letters ENCHOR are still the subject of speculation.<br><br>Various caves carve the valley side and it seems one such cave held the original troglodytic chapel, one of the oldest on the island dating to 1347 and also dedicated to the Annunciation. In 1370 the chapel became part of a royal benefice under the Kings of Sicily. The present day chapel dates to 1629 and has a simple modest facade with an oculus above the door. Later on a small sacristy and belfry were added. In the Catholic world the longstanding popular Marian cult of the Annunciation dates back to the fifth century and it is still widely celebrated in Malta with a liturgical feast on 25th March. Today mass is held regularly in this chapel which remains the only surviving one in Gozo dedicated to the Annunciation where the feast is celebrated annually.<br><br>The picturesque valley was originally known as Is-Saqqajja – a direct reference to its numerous freshwater springs serving as a unique haven for lush vegetation all year round with vegetable gardens and abundant reeds, olive, almond, pomegranate and carob trees. The watercourse joins up with Xlendi Valley further down and is home to one of the rarest species in the Maltese Islands – the endemic Maltese Freshwater Crab, as well as the only native amphibian of the islands: the Painted Frog.<br><br>Water has always been a very scarce resource in Malta and it was guarded closely and harvested with great care, redirecting some springs to channel them into systems of canals to serve local cultivation but also to supply the local fountain built in 1698 which can be seen at the end of the track in the valley. Two coats of arms can be seen – the top one bearing three pears belongs to Grand Master Perellos y Roccaful and the other belongs to the Testaferrata noble family, a member of whom had been appointed to build it. The fountain was restored by Din l-Art Ħelwa in 2007. The adjacent stone troughs still serve their original purpose to local farmers – it is not unusual to see them brimming with parsley or other crops kept fresh in this cool spring water.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.239221,36.044689,0
+            14.238984,36.044724,0
+            14.238963,36.044679,0
+            14.239037,36.044333,0
+            14.239098,36.044193,0
+            14.239055,36.044073,0
+            14.238942,36.043992,0
+            14.238893,36.043851,0
+            14.238653,36.043625,0
+            14.23811,36.043623,0
+            14.237952,36.043288,0
+            14.237906,36.043299,0
+            14.237837,36.043338,0
+            14.237321,36.043248,0
+            14.236971,36.043132,0
+            14.236566,36.042896,0
+            14.236311,36.042625,0
+            14.235981,36.042408,0
+            14.235341,36.042172,0
+            14.235336,36.042172,0
+            14.234963,36.042059,0
+            14.234701,36.042008,0
+            14.234459,36.041988,0
+            14.23426,36.041947,0
+            14.233944,36.041788,0
+            14.233941,36.041786,0
+            14.233647,36.041615,0
+            14.233507,36.041522,0
+            14.233504,36.04152,0
+            14.233382,36.041395,0
+            14.233382,36.04139,0
+            14.233099,36.041242,0
+            14.232949,36.041176,0
+            14.232854,36.041136,0
+            14.232924,36.041093,0
+            14.23298,36.041063,0
+            14.23298,36.041058,0
+            14.232959,36.040971,0
+            14.232959,36.040967,0
+            14.232939,36.040871,0
+            14.23297,36.040741,0
+            14.233051,36.040608,0
+            14.233136,36.040505,0
+            14.233198,36.040376,0
+            14.233251,36.04023,0
+            14.233207,36.040087,0
+            14.233117,36.040027,0
+            14.233102,36.040024,0
+            14.23291,36.039949,0
+            14.232799,36.039917,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 2</name>
+        <description><![CDATA[Retracing your steps back up from this peaceful corner, exit the archway and go left to cross the valley and climb the steps on the opposite side. During the wet season the large leaves of the Bear’s Breeches (the inspiration for the Corinthian columns’ Acanthus leaf motif) adorn this sheltered and humid spot together with Wild Bramble and Alexanders whilst the rock-loving endemics the Maltese Fleabane and Maltese Salt Tree prefer the drier sides.<br><br>Up the steps the route continues to the left to the outskirts of Ta’ Kercem along Triq Ghajn Tuta (“Mulberry Spring Road”) which takes its name from another important nearby spring located below the ridge on the way down to Xlendi. Walking around the circular outcrop overlooking Xlendi Valley opens up views to the coast and Xlendi Tower standing guard at the mouth of the creek. At the fork keep right to re-enter the village of Ta’ Kercem and on reaching the main road keep left to head towards L-Ghadira ta’ Sarraflu. Here you pass the adjacent hamlet of Santa Lucija – keep left to proceed to the open countryside of western Gozo where the sea will soon come into view again.<br><br>The small narrow valley of Wied Sansun is the only such natural shelter for plants along this coast and farmers have made use of this by constructing and cultivating terraced fields. The road now proceeds at a high vantage point above the cliffs with views below on the left to Xlendi and its coastal watchtower. Further along the coast from the tower a natural arch can be seen at sea-level below the rising majestic cliffs to the south with Malta in the background.<br><br>The landscape here may seem quite barren compared to the green heart of Lunzjata Valley but an unusual sight for the island is nearby – the permanent freshwater pond known as L-Ghadira ta’ Sarraflu which resembles a small oasis in this windswept land. As ponds, and indeed any surface water, are such a rarity in the islands due to the permeable nature of the limestone and the scarce rainfall it is understandable that such a feature becomes quite important both for water loving creatures as well as for locals. A popular annual spring fair, generally in April, is held at the pond and many enjoy picnics and walks in the area. The pond contains many introduced species such as exotic fish and frog species which are problematic as they out-compete local indigenous species. It is nevertheless a good sheltered resting and feeding place for many insect, bat and bird species which are also attracted to the only trees in the area – the Tamarisks.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.232803,36.039918,0
+            14.232787,36.039946,0
+            14.232934,36.039992,0
+            14.233091,36.040054,0
+            14.233164,36.040106,0
+            14.23321,36.040197,0
+            14.233207,36.040278,0
+            14.233167,36.040398,0
+            14.233103,36.040492,0
+            14.233046,36.04056,0
+            14.232984,36.040636,0
+            14.232935,36.040749,0
+            14.232905,36.040886,0
+            14.232921,36.040968,0
+            14.232928,36.041047,0
+            14.232848,36.041099,0
+            14.232751,36.04111,0
+            14.232666,36.041065,0
+            14.232571,36.040999,0
+            14.232444,36.040917,0
+            14.232325,36.040844,0
+            14.232203,36.040782,0
+            14.232074,36.040741,0
+            14.23193,36.040741,0
+            14.231662,36.040752,0
+            14.231469,36.040749,0
+            14.231353,36.040735,0
+            14.231294,36.040699,0
+            14.231522,36.040313,0
+            14.231706,36.039915,0
+            14.231893,36.039445,0
+            14.232099,36.039001,0
+            14.23222,36.038786,0
+            14.232253,36.038614,0
+            14.232307,36.038487,0
+            14.232419,36.038279,0
+            14.232348,36.037835,0
+            14.23223,36.037415,0
+            14.231987,36.037147,0
+            14.231737,36.037011,0
+            14.2314,36.036942,0
+            14.230953,36.03691,0
+            14.230762,36.036678,0
+            14.230628,36.036512,0
+            14.230306,36.036343,0
+            14.230028,36.036238,0
+            14.229672,36.036103,0
+            14.229065,36.035888,0
+            14.228452,36.035849,0
+            14.227799,36.036005,0
+            14.227261,36.036316,0
+            14.22688,36.036667,0
+            14.226385,36.036973,0
+            14.22604,36.037259,0
+            14.225778,36.037564,0
+            14.225717,36.037743,0
+            14.225699,36.038017,0
+            14.225719,36.038279,0
+            14.225653,36.03856,0
+            14.225766,36.038901,0
+            14.22605,36.039237,0
+            14.226388,36.039723,0
+            14.225216,36.041029,0
+            14.224714,36.040767,0
+            14.224425,36.040638,0
+            14.224114,36.040609,0
+            14.223813,36.040609,0
+            14.223606,36.040673,0
+            14.223427,36.040702,0
+            14.222704,36.040604,0
+            14.222211,36.04056,0
+            14.221696,36.040555,0
+            14.221557,36.040524,0
+            14.220581,36.040017,0
+            14.219956,36.039626,0
+            14.219409,36.039336,0
+            14.219077,36.039105,0
+            14.218291,36.038936,0
+            14.217094,36.038687,0
+            14.216833,36.038577,0
+            14.216147,36.038117,0
+            14.215001,36.037256,0
+            14.214459,36.036882,0
+            14.21293,36.036529,0
+            14.211944,36.036347,0
+            14.211294,36.036497,0
+            14.210993,36.03657,0
+            14.210449,36.036587,0
+            14.209919,36.036493,0
+            14.209439,36.036322,0
+            14.208982,36.036318,0
+            14.208367,36.036355,0
+            14.207637,36.036329,0
+            14.207096,36.0362,0
+            14.206699,36.036175,0
+            14.206564,36.03617,0
+            14.206358,36.035968,0
+            14.205988,36.035665,0
+            14.205577,36.035466,0
+            14.20487,36.035368,0
+            14.203909,36.035308,0
+            14.203128,36.035337,0
+            14.202479,36.035357,0
+            14.201855,36.035364,0
+            14.201155,36.035491,0
+            14.200626,36.035698,0
+            14.199632,36.03613,0
+            14.199261,36.036305,0
+            14.199398,36.036482,0
+            14.199492,36.036625,0
+            14.198903,36.036867,0
+            14.198768,36.036763,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 3</name>
+        <description><![CDATA[The route proceeds down to Dwejra past the pond taking the road on the right. This road is used regularly by heavy vehicles transporting quarried stone as in Gozo the only good quality building stone – Globigerina Limestone – is restricted to this area. Follow the road for about 600 meters until you get to an old rock cut track to your left and take this route down. <br><br>The theme of water continues along the way – as you reach a wide limestone outcrop overlooking the valley an expanse of reeds spreads below indicating the presence of natural springs – part of the path can get a bit muddy as the small freshwater stream traverses this rocky ledge and plunges into a miniature waterfall. The water seems to have been directed into channels in the past and it retains the old place name of Il-Qattara – which translates as an area where water trickles.<br><br>Continue upwards along the path adjacent to the field and turn left to walk on the narrow ledge – this path will lead you up to the Dwejra Tower with good views opening up to the features which make Dwejra so unique: Il-Gebla tal General (Fungus Rock) on the left and further on where once stood It-Tieqa (Azure Window) and Il-Qawra (Inland Sea) on the right. A visit to the Tower, restored thanks to voluntary initiatives, is strongly recommended - look out for the flag flying on the roof which indicates that the tower is open for visitors.<br><br>The place name Dwejra is probably derived from the Arabic term for “round”. From the tower you should now be able to glimpse the circular forms dominating this landscape – natural relics of large collapsed caverns possibly dating to the Miocene Epoch. These features and their concentration here are quite unique – one of the many reasons why the area is protected on a local and international level as part of the EU’s Natura 2000 network. In warm weather with calm seas the circular Dwejra Bay guarded by Fungus Rock is a beautiful deep swimming spot easily reached by going briefly off track to the left of the tower and locating the flight of steps leading to an old slipway which in the past was used to haul up a few fishing boats. A small circular cave carved out of the soft limestone can be seen just below the initial rock-cut steps leading to the bay – this was meant to house a watchman to guard a precious plant on Fungus Rock.<br><br>The bay acted as backdrop to a wartime incident when a Royal Air Force Spitfire crash-landed along the cliffs in 1942. The unconscious pilot was rescued and eventually the wreckage ended up on the seabed serving for a while as a diving site until its pieces were dispersed by man and sea.<br><br>After having a look at the tower, if it is a calm day proceed along the rough coast to discover it better – however do not venture close to the shore when seas are rough as it can be quite treacherous along this exposed stretch. At the promontory of Ir-Ras, literally “The Headland”, one can still locate the base of the securing system which in olden times held a ropeway with a suspended boxcar to enable access to the islet known as General’s Rock or Fungus Rock. To the north of the narrow headland you can make out the circumference of another collapsed cave which has been totally inundated by seawater except for the remaining pillar of stubborn rock known as Il-Baqra (the cow) or, more popularly with divers, Crocodile Rock.<br><br>Saltpans can be encountered on the way to viewing where once stood the Azure Window – salt extraction was often a privilege given to the tower’s capomastro in order to cover expenses. The nearby small quarry holds an interesting concentration of marine fossils with abundant flat sand dollars – the presence of this echinoid fossil marks the boundary between the harder Lower Coralline Limestone and the softer Globigerina Limestone in a layer known as the Scutella Bed. Although fossils are protected by law many souvenir huntersunfortunately keep attempting to steal such fossils often damaging them in the process making it quite]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.19877,36.036767,0
+            14.198621,36.036896,0
+            14.198474,36.03709,0
+            14.198338,36.037217,0
+            14.198085,36.037336,0
+            14.197849,36.037555,0
+            14.197468,36.037897,0
+            14.197155,36.038176,0
+            14.196987,36.038438,0
+            14.196929,36.038673,0
+            14.196614,36.039124,0
+            14.196604,36.039272,0
+            14.196629,36.039454,0
+            14.196576,36.039591,0
+            14.196427,36.039809,0
+            14.196435,36.040037,0
+            14.196455,36.040259,0
+            14.196582,36.040518,0
+            14.196956,36.040854,0
+            14.197258,36.041015,0
+            14.197458,36.041268,0
+            14.197262,36.041643,0
+            14.197133,36.041829,0
+            14.197111,36.042027,0
+            14.197102,36.04217,0
+            14.197107,36.042519,0
+            14.197253,36.042744,0
+            14.197389,36.043288,0
+            14.197544,36.044066,0
+            14.197627,36.044423,0
+            14.198476,36.044957,0
+            14.1986,36.046624,0
+            14.198463,36.046661,0
+            14.198299,36.046689,0
+            14.198166,36.046748,0
+            14.198016,36.046913,0
+            14.197956,36.04699,0
+            14.197818,36.047087,0
+            14.197231,36.047334,0
+            14.19653,36.047648,0
+            14.195584,36.047796,0
+            14.195065,36.047982,0
+            14.194823,36.048106,0
+            14.194489,36.04812,0
+            14.194245,36.048227,0
+            14.194092,36.04832,0
+            14.193876,36.048385,0
+            14.193666,36.048423,0
+            14.193361,36.048603,0
+            14.19322,36.048751,0
+            14.19285,36.04909,0
+            14.192499,36.049327,0
+            14.192281,36.04949,0
+            14.192114,36.049696,0
+            14.192074,36.049867,0
+            14.192079,36.050145,0
+            14.192076,36.050485,0
+            14.191954,36.050685,0
+            14.191752,36.050819,0
+            14.191309,36.051083,0
+            14.190879,36.051312,0
+            14.190504,36.051673,0
+            14.190333,36.052029,0
+            14.190189,36.052165,0
+            14.190068,36.052418,0
+            14.190084,36.052567,0
+            14.190061,36.052679,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 4</name>
+        <description><![CDATA[Back en route in the main parking area the trail climbs up behind St. Anne’s Chapel where steep rock cut steps overlooking the Inland Sea lead via the old passageway which in the past was used by villagers from San Lawrenz. Older traces of human activity can be encountered in the form of enigmatic cart ruts – parallel grooves in the bare rock which appear in many places in Malta (with similar widths) but which are otherwise rare in Gozo. The most interesting cart ruts can be found by following the steps and going slightly offtrack to the left at around 50 meters from the chapel of St. Anne. Further up a small knoll holds some undated ruins of what appears to have been a round building. Explore the rocky expanse past this knoll to locate more cart ruts and then return to the steps to walk up to the village. Go past the large quarry on your left and head upwards along a rural road – some of the dry stone walls here support another rare endemic which you may have noticed earlier on in the walk: the Maltese Stocks whose pretty lilac flowers can be seen adorning the landscape in Spring.<br><br>The slightly steep ascent proceeds now along a tarmacked road leading you to the main square of San Lawrenz. The village’s roots go back to at least the sixteenth century and it was established as a parish in 1893. It has a population of around 600. The coat of arms itself recalls the martyrdom of its patron Saint Lawrence and the annual feast is celebrated around the first week of August. A relic of the saint was placed under the foundation stone of the new larger church in 1886 and it is recounted how all villagers helped to build this shrine with both women and men taking turns everyday to bring stones to the building site. A bell was rung each time more stone was needed and the people would respond by going to the nearby quarries.<br><br>The route proceeds towards Ghajn Abdul Hill via Triq id-Duluri and then on the left through Triq it-Torri which takes you outside the village and down a concrete road with the imposing hill of Ghajn Abdul, the Mixta caves and beautifully terraced slopes coming into full view before you. The track crosses the small valley known as Wied Pisklu and goes past a deep Globigerina Limestone quarry to join up the road which leads to the hamlet of Santa Lucija.<br><br>The hill is one of the several which make Gozo’s landscape so characteristic and diverse from Malta – indeed we are reminded of its hilly contours by the island’s own emblematic flag symbolising the Island of Three Hills. One can count a dozen of these flat-topped hills standing surrounded by countryside, mostly uninhabited and thankfully undeveloped. Geologically most of these hills represent the full sequence of the Maltese stratigraphy with layers of sedimentary rock capped by a plateau of the youngest rock formation – the Upper Coralline Limestone. The nearby Ta’ Dbiegi Hill claims Gozo’s highest point at 194 meters. Ghajn Abdul – the “Spring of Abdul”, and the adjacent hill of Ghar Ilma, the “Cave of Water”, are place names which give clear indications to another geological feature of the area – the presence of freshwater.<br><br>This is thanks to the widespread layer of impermeable Blue Clay which underlies the Upper Coralline Limestone and creates a perched aquifer which finds its way to the surface at the popular Ghajn Abdul spring just past the dilapidated farmhouse below the hill. The importance of water sources on the island can never be emphasised enough – in this case the British Colonial Government had constructed an aqueduct in the 1840s to direct water from the area to Victoria.<br><br>Besides the natural and geological interest of hills there is often an important archaeological aspect to them. The Mixta caves on the hill of Ghajn Abdul have yielded the oldest known traces of man’s presence on the island with pottery sherds dating from the early Neolithic Phase of the islands around 5000B.C. Unfortunately a good chunk of the plateau and a lot of the archaeologica]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.190059,36.052676,0
+            14.189999,36.05273,0
+            14.189918,36.052807,0
+            14.189749,36.052938,0
+            14.189656,36.053057,0
+            14.189748,36.053235,0
+            14.189826,36.053326,0
+            14.189851,36.053465,0
+            14.189871,36.053759,0
+            14.19003,36.054057,0
+            14.190187,36.054269,0
+            14.190331,36.054396,0
+            14.190683,36.054498,0
+            14.191328,36.05468,0
+            14.191907,36.054779,0
+            14.192149,36.054802,0
+            14.192691,36.054612,0
+            14.193646,36.054052,0
+            14.193988,36.053701,0
+            14.194093,36.053629,0
+            14.194452,36.05365,0
+            14.194744,36.053663,0
+            14.194992,36.053629,0
+            14.195224,36.053676,0
+            14.195513,36.053964,0
+            14.195614,36.053967,0
+            14.195791,36.053776,0
+            14.195929,36.053665,0
+            14.195936,36.053661,0
+            14.196055,36.053617,0
+            14.196039,36.053286,0
+            14.196102,36.053127,0
+            14.196209,36.053242,0
+            14.196289,36.053576,0
+            14.196416,36.053814,0
+            14.197127,36.054168,0
+            14.197251,36.0544,0
+            14.197745,36.054616,0
+            14.198254,36.054661,0
+            14.199141,36.054715,0
+            14.200047,36.054752,0
+            14.200941,36.054736,0
+            14.201463,36.054644,0
+            14.202139,36.054485,0
+            14.202586,36.054517,0
+            14.203178,36.05498,0
+            14.203594,36.05533,0
+            14.204034,36.055225,0
+            14.20408,36.055147,0
+            14.203309,36.05453,0
+            14.202783,36.05413,0
+            14.20272,36.054067,0
+            14.202926,36.053959,0
+            14.203068,36.053678,0
+            14.20332,36.053139,0
+            14.203481,36.052704,0
+            14.203579,36.052081,0
+            14.203606,36.051899,0
+            14.203596,36.051491,0
+            14.203658,36.050939,0
+            14.203799,36.050816,0
+            14.204013,36.050694,0
+            14.204262,36.050594,0
+            14.204341,36.050474,0
+            14.204383,36.050333,0
+            14.204326,36.050186,0
+            14.204325,36.05011,0
+            14.204437,36.050151,0
+            14.204516,36.050124,0
+            14.20456,36.049999,0
+            14.204557,36.049767,0
+            14.204555,36.049593,0
+            14.204488,36.049438,0
+            14.204275,36.049177,0
+            14.204173,36.048979,0
+            14.204168,36.048832,0
+            14.204223,36.048649,0
+            14.20435,36.048455,0
+            14.204349,36.048229,0
+            14.204414,36.047984,0
+            14.204452,36.047639,0
+            14.204496,36.047549,0
+            14.204693,36.047269,0
+            14.204997,36.04699,0
+            14.205145,36.046824,0
+            14.205652,36.046418,0
+            14.205917,36.04618,0
+            14.206219,36.046002,0
+            14.206516,36.045843,0
+            14.206847,36.045806,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 5</name>
+        <description><![CDATA[Back en route along the road you come to a charming square with a stone cross in front of the pretty and modest Santa Lucija church. Historic records show that a church dedicated to Saint Lucy stood here at least since 1575 and it was changed and enlarged throughout the centuries. The hamlet’s motto “I pour light upon fellow citizens” is tied to the ancient devotion to the Syracusan martyr patron saint of the visually impaired – Saint Lucy, whose name means light. The patron saint’s feast is celebrated annually on 13th December accompanied by a Light Festival. In 2008 the hamlet was awarded the title of European Destination of Excellence for its initiatives in preserving intangible cultural heritage.<br><br>Continue straight along Triq Santa Lucija going past an old windmill and soon the route joins up for a short stretch along the same road taken at the start of the walk. Back in Ta’ Kercem, walk down past the parish church and continue downhill and taking a left turn past the small garden dedicated to Censu Xiberras. Upon reaching Victoria a large upright stone in front of the Government Nursery could have formed part of a Roman building.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.206845,36.045806,0
+            14.206939,36.045789,0
+            14.207093,36.045726,0
+            14.20727,36.04561,0
+            14.207583,36.045361,0
+            14.208003,36.045181,0
+            14.208798,36.044949,0
+            14.209406,36.044804,0
+            14.209935,36.044816,0
+            14.210435,36.044926,0
+            14.210601,36.044896,0
+            14.21087,36.044745,0
+            14.211185,36.044641,0
+            14.211543,36.044617,0
+            14.211884,36.044582,0
+            14.211988,36.044539,0
+            14.212176,36.044299,0
+            14.212633,36.043947,0
+            14.213016,36.043755,0
+            14.213526,36.043592,0
+            14.214156,36.04345,0
+            14.214969,36.043501,0
+            14.215512,36.043566,0
+            14.216103,36.043454,0
+            14.21641,36.043386,0
+            14.216713,36.043208,0
+            14.217211,36.042914,0
+            14.217606,36.042867,0
+            14.218197,36.042657,0
+            14.218707,36.04261,0
+            14.219202,36.042552,0
+            14.219568,36.042424,0
+            14.219966,36.0421,0
+            14.220262,36.041745,0
+            14.220596,36.041494,0
+            14.221013,36.041358,0
+            14.221457,36.041234,0
+            14.222057,36.0412,0
+            14.222656,36.041143,0
+            14.222968,36.041031,0
+            14.22325,36.040807,0
+            14.223536,36.040719,0
+            14.223809,36.04065,0
+            14.224154,36.040644,0
+            14.224563,36.04074,0
+            14.22494,36.040923,0
+            14.225277,36.041108,0
+            14.225847,36.041347,0
+            14.226487,36.041575,0
+            14.227159,36.0417,0
+            14.227879,36.041861,0
+            14.228769,36.041961,0
+            14.229239,36.042122,0
+            14.229387,36.042282,0
+            14.229449,36.042519,0
+            14.229683,36.042579,0
+            14.230006,36.042506,0
+            14.230175,36.042519,0
+            14.230368,36.042664,0
+            14.230698,36.04292,0
+            14.231082,36.043153,0
+            14.231341,36.043171,0
+            14.231552,36.043157,0
+            14.231838,36.043213,0
+            14.232036,36.043222,0
+            14.232347,36.04318,0
+            14.232621,36.04318,0
+            14.233001,36.043345,0
+            14.233872,36.043903,0
+            14.234417,36.044212,0
+            14.234663,36.044317,0
+            14.235183,36.044428,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 6</name>
+        <description><![CDATA[Back in the urban area do be careful as cars drive along the very narrow street leading up to Savina Square. On the right stands the church commonly known as Ta` Savina – a locally used term for Mediterranean Heather – it was rebuilt in the early twentieth century but had been in existence since 1479 with its dedication to the Nativity of Our Lady originating in medieval times. It once formed another parish within Victoria. This is where water from the hills’ springs reportedly made its first appearance in Victoria via the nineteenth century aqueduct - remains of which can still be seen standing in the countryside. A commemorative obelisk was raised on the way up to the Citadel on site of the first reservoir.<br><br>You are now back where you started at It-Tokk. If you haven’t yet seen the Citadel, do visit before you leave the island. Just walk up the hill on your left.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.23518,36.044426,0
+            14.23552,36.044504,0
+            14.235956,36.044645,0
+            14.236461,36.044751,0
+            14.236598,36.044698,0
+            14.23672,36.044697,0
+            14.237074,36.04471,0
+            14.237305,36.044677,0
+            14.237556,36.044607,0
+            14.237834,36.044591,0
+            14.237879,36.044652,0
+            14.237956,36.044817,0
+            14.238099,36.044922,0
+            14.238216,36.044956,0
+            14.238385,36.044956,0
+            14.238392,36.044738,0
+            14.238382,36.04457,0
+            14.238425,36.044485,0
+            14.238472,36.044417,0
+            14.238537,36.044423,0
+            14.23884,36.04465,0
+            14.238926,36.044717,0
+            14.239074,36.044869,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>End</name>
+        <styleUrl>#icon-503-D60303-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.239093,36.044836,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Snippets</name>
+      <Placemark>
+        <name>St. George’s Basilica</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtmdYWlZNk4OXC4TWJDUJr3MONrJYo9vYLWuL1ODtcbG5gDaz_3qwoPdkKKNVlmVFzLNfM7DMmB6b5ey3YpgOpQnYgAK8TaQpyvHep4BjVEkVuiRawTCfaec4gbc3-wjhUL-r7M_Y1Jj5rjSWInyyDrdra7lErkX7rukgZtRM1a_j34uIJFSCOZcVWAC95F5sC3DDkFm_q1RA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The parish of Saint George, at the centre of the old town, originated in medieval times. The present church, known as the golden basilica, was built in 1672 and was bestowed the title of Basilica in 1958. The highly treasured 19th century wooden statue of the patron Saint George is carried out during a procession on the feast day each year. The martyr is considered the protector of the people of Gozo and the church and its feast are a reminder of this longstanding devotion. The grand feast, celebrate on the third Sunday of July has since 1998 been preceded by a popular cultural event of concerts and recitals during the Victoria International Arts Festival. The interior has some interesting works of art as is the titular altarpiece by the renowned Calabrian artist Mattia Preti and works by Stefano Erardi, Francesco Zahra, Gian Battista Conti and Giuseppe Calì. The bronze canopy, a replica of Bernini’s Vatican piece, was added in the 1960s.]]></description>
+        <styleUrl>#poly-FFFF00-1000-179</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtmdYWlZNk4OXC4TWJDUJr3MONrJYo9vYLWuL1ODtcbG5gDaz_3qwoPdkKKNVlmVFzLNfM7DMmB6b5ey3YpgOpQnYgAK8TaQpyvHep4BjVEkVuiRawTCfaec4gbc3-wjhUL-r7M_Y1Jj5rjSWInyyDrdra7lErkX7rukgZtRM1a_j34uIJFSCOZcVWAC95F5sC3DDkFm_q1RA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.238901,36.043694,0
+                14.239142,36.043659,0
+                14.239212,36.043968,0
+                14.238976,36.044,0
+                14.238901,36.043694,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Lunzjata Church Inscriptions</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvOEKK3HkApM-FEdmuyD4wSu5beiRDSTEIh7oV834xxIi-vJ1xBJBTR1iOXz_rf4NPked9h6WPKcsuSTHsspDp90toEEnrJln90Gmbw_GOwQz0LxVPYNrBz5dCzUZKXyzEy4J3uhN_N-SaZxfvlz8QKRRjSYMzYSAUvkmDSCAxy_wK_s5y1jf2L3zlAx6zadceIbx5kStipcdA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The plaque in Italian: NON GODE L’IMMUNITÀ ECCLESIAS can be seen on many wayside chapels on the island. The phrase translates to “does not enjoy ecclesiastic immunity”. For many years churches, which were beyond the jurisdiction of civil law, acted as refugia for anyone breaking the law. The situation degraded and caused many a litigation with the result that these plaques were added to many wayside chapels to ward off any unwelcome visitors. The longer text on an adjacent plaque, also in Italian, is a notarial deed of 1889 stating that the emphiteutical concession of the benefice of the lands was being passed on to S.A. Grech for 99 years.]]></description>
+        <styleUrl>#poly-FFFF00-1000-179</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvOEKK3HkApM-FEdmuyD4wSu5beiRDSTEIh7oV834xxIi-vJ1xBJBTR1iOXz_rf4NPked9h6WPKcsuSTHsspDp90toEEnrJln90Gmbw_GOwQz0LxVPYNrBz5dCzUZKXyzEy4J3uhN_N-SaZxfvlz8QKRRjSYMzYSAUvkmDSCAxy_wK_s5y1jf2L3zlAx6zadceIbx5kStipcdA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.232998,36.040698,0
+                14.233106,36.040563,0
+                14.233149,36.040592,0
+                14.233043,36.040725,0
+                14.232998,36.040698,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Dwejra Tower</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtIghIj1BQ9jQEjHG3wamtzHte4Iej4dkVeP4z-gfhvNmGeubvF5_W13HWx2ERWWs5OBBtclsMso5JqEw69sKHCUUKUwmaiLC94743iZnEEvTtRzIdKhQDlTbtIHSqFCTQymoMDMxM2QvJbofxAettjnWltHd-smDbL_6X5o7XGU0wCjjFm_irGqHD1ni0rialJgvwn2zwGjtQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Built in 1652 under the reign of the Knights of St. John’s Grand Master Lascaris this coastal watchtower served the same purpose of other similar structures, that is: deterring smuggling and corsairing activities and curbing attempts to avoid quarantine.<br><br>But it also held a unique role acting as a botanic watchdog to one of the most prized plants of the times: the Malta Fungus. The tower was manned by the Royal Malta Artillery for several years in the 19th century and in the 20th century it continued to serve as an observation post during the two World Wars. In 1997 the tower was passed on to Din l-Art Ħelwa which conducted urgent restoration works and continued to manage the site in conjunction with Nature Trust (Malta). At present it serves as an interpretation centre with 10 minute documentaries about the area available to be seen in the lower section of the tower – electricity for this is provided thanks to solar energy from panels installed as part of a LIFE project for Dwejra Heritage Park. Dwejra Tower is open all year from Monday to Friday from 9.00 am to 3.00pm and on Sundays and Public Holidays from noon to 3pm when the flag is flying.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvc7wktt9KVB2IuC3kMmLJ2p_YkkbNLYFkpgW1mR5HoQ00vCZyrrP3Sk0hZSWzWg2XbLMh6e4X3xwzVSDCAqCcQlLqzORIt8LFc5UG_FHE8rSiKgswxkGnMFxo3lJAy-9qprPKjoFXvavRGTnxymOeKolYUwdFswxxZkI6nvfrkep0XZ8gqs7wpfmLS15vYweIiy5rTPpv-zJo?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#poly-FFFF00-1000-179</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtIghIj1BQ9jQEjHG3wamtzHte4Iej4dkVeP4z-gfhvNmGeubvF5_W13HWx2ERWWs5OBBtclsMso5JqEw69sKHCUUKUwmaiLC94743iZnEEvTtRzIdKhQDlTbtIHSqFCTQymoMDMxM2QvJbofxAettjnWltHd-smDbL_6X5o7XGU0wCjjFm_irGqHD1ni0rialJgvwn2zwGjtQ?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvc7wktt9KVB2IuC3kMmLJ2p_YkkbNLYFkpgW1mR5HoQ00vCZyrrP3Sk0hZSWzWg2XbLMh6e4X3xwzVSDCAqCcQlLqzORIt8LFc5UG_FHE8rSiKgswxkGnMFxo3lJAy-9qprPKjoFXvavRGTnxymOeKolYUwdFswxxZkI6nvfrkep0XZ8gqs7wpfmLS15vYweIiy5rTPpv-zJo?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.191966,36.049571,0
+                14.191933,36.049458,0
+                14.192101,36.049426,0
+                14.192131,36.04954,0
+                14.191966,36.049571,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Fungus Rock</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsWPtFRMiDexSFCm9Lb8U3H3fa4ST-uABcK06Pm-_itCW6AYtdQkIKtgSuB6qf6eKd9LuFy-PSyviBJb4tsrD868-nPtqjgeosByUfixpcrCoflNnpIPcnnAKIZgscmboPvzfOreyBPmkbgJWBBrDE7vx58eK1WtPZfm_AKIJ4fU_SgS8ZnDkL8psMRiubRvU_gS1YTQbEv2Q?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Rising about 60 meters above sea level, the islet of Fungus Rock made it into various historic accounts and paintings which depicted it connected to the mainland via a precarious cablecar which was in place till 1827 from the time of the Knights. The latter, being hospitalliers, were extremely protective of the medicinally powerful plant Cynomoreum coccineum known as Malta Fungus which was thought to grow only on the islet. It was later found to be widespread in some Mediterranean areas (although indeed it is extremely rare locally) and is a parasitic plant, not a fungus. In 1744 Grand Master Pinto ordered the smoothing down of the rock face to render it unscalable.<br><br>The extreme measures taken to protect it must have been the first local ventures into sustainable harvesting and may unintentionally have led to this site being the strictly protected and inaccessible nature reserve it is today. At that time the punishment for being found on the islet without permission or caught cutting the plant was much more severe than today: it could amount to a painful sentence of galley-rowing! The islet’s centuries-long protection and its natural isolation have helped secure its natural habitat which is home to a large number of endemics with the exceptional presence of a unique subspecies of Maltese Wall Lizard known only from this rock – the endemic General’s Rock Lizard.]]></description>
+        <styleUrl>#poly-FFFF00-1000-179</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsWPtFRMiDexSFCm9Lb8U3H3fa4ST-uABcK06Pm-_itCW6AYtdQkIKtgSuB6qf6eKd9LuFy-PSyviBJb4tsrD868-nPtqjgeosByUfixpcrCoflNnpIPcnnAKIZgscmboPvzfOreyBPmkbgJWBBrDE7vx58eK1WtPZfm_AKIJ4fU_SgS8ZnDkL8psMRiubRvU_gS1YTQbEv2Q?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.189152,36.046385,0
+                14.189046,36.047072,0
+                14.189071,36.047218,0
+                14.189178,36.047397,0
+                14.189137,36.047477,0
+                14.189128,36.047482,0
+                14.188868,36.047517,0
+                14.188758,36.047408,0
+                14.188759,36.047383,0
+                14.188736,36.047286,0
+                14.18873,36.047279,0
+                14.188616,36.047207,0
+                14.188604,36.047205,0
+                14.188586,36.047202,0
+                14.188479,36.047178,0
+                14.18847,36.047176,0
+                14.188455,36.047176,0
+                14.188433,36.047171,0
+                14.1884,36.047159,0
+                14.188311,36.047113,0
+                14.188305,36.04711,0
+                14.188281,36.047096,0
+                14.188277,36.04697,0
+                14.188247,36.046926,0
+                14.188238,36.046926,0
+                14.188192,36.046858,0
+                14.188193,36.046838,0
+                14.188196,36.046826,0
+                14.18829,36.046735,0
+                14.188305,36.04672,0
+                14.188414,36.046681,0
+                14.188417,36.046681,0
+                14.188435,36.046681,0
+                14.188497,36.046674,0
+                14.1885,36.046669,0
+                14.188512,36.046657,0
+                14.18857,36.046613,0
+                14.188595,36.046611,0
+                14.188665,36.046601,0
+                14.188656,36.046594,0
+                14.188653,36.046582,0
+                14.188589,36.046482,0
+                14.188589,36.046475,0
+                14.188604,36.046463,0
+                14.188692,36.046412,0
+                14.18875,36.046376,0
+                14.188762,36.046372,0
+                14.18882,36.04635,0
+                14.188835,36.04635,0
+                14.188889,36.046353,0
+                14.188898,36.046355,0
+                14.188961,36.046387,0
+                14.188991,36.046372,0
+                14.188997,36.046365,0
+                14.189071,36.046303,0
+                14.189119,36.046317,0
+                14.189152,36.046385,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Points</name>
+      <Placemark>
+        <name>Aqueducts</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvzq07THe0yHjszU17CT00nt4gRCgPFT3pWTh6OG8O3Zg7M7fQRx8KwRr8fGF8W3toMP16f1nHlotaa79w3OjPo4Dnf3DSyQfkGTzG_KXGdBSOYBCeTtV-MHzeV8icTasWQ7x_5Qr28ftGaHa4TrniWJHAmZ_g7_s0n4YDrhsygMTTGgSy87VnCH1ZmTlK2gflBpeOK1diOpZU?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The Aqueducts, which can be seen on the left hand side of the road between ir-Rabat (Victoria) and, were built under the British between 1839 and 1843.<br><br>The Aqueducts’ purpose was to supply the population with fresh water, bringing it from Għar Ilma (Cave of Water) hill to the central water reservoir within the Citadel in ir-Rabat (Victoria). An Obelisk erected to celebrate the arrival of the first water from Għar Ilma still stands on the spot of the first water reservior half way up ir-Rabat (Victoria)’s Castle Hill leading to the Citadel.<br><br>The system was eventually replaced with a grid of pipes and electrical pumps, and the aqueducts fell into disuse. Quite a number still stand, however, defiantly embellishing the area. It is possible to follow the line of the Aqueducts’ up to Għar Ilma hill. From there, especially in winter and early spring, there is an unforgettable panorama of Gozitan countryside spread out collage-like beneath you.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvDsvJGsz-pGxW7gqw6Qi8gsWulVVRNayy34EQ42mR9gRGqRQ2fjvxSbuNnQJmhgHkpX5R4AAFV_kE5KhbLVmiSl2jicOxBfvTkMVArDr8ik0xZAhbSb-dTImOz0yVnOWrU9YSSFNkMBK_WotoKxndlxGI9uWKL7okzSjBvssyUwGcxte7uiYSFk93xNlWbA5jPXfgr9GPPl9U?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvzq07THe0yHjszU17CT00nt4gRCgPFT3pWTh6OG8O3Zg7M7fQRx8KwRr8fGF8W3toMP16f1nHlotaa79w3OjPo4Dnf3DSyQfkGTzG_KXGdBSOYBCeTtV-MHzeV8icTasWQ7x_5Qr28ftGaHa4TrniWJHAmZ_g7_s0n4YDrhsygMTTGgSy87VnCH1ZmTlK2gflBpeOK1diOpZU?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvDsvJGsz-pGxW7gqw6Qi8gsWulVVRNayy34EQ42mR9gRGqRQ2fjvxSbuNnQJmhgHkpX5R4AAFV_kE5KhbLVmiSl2jicOxBfvTkMVArDr8ik0xZAhbSb-dTImOz0yVnOWrU9YSSFNkMBK_WotoKxndlxGI9uWKL7okzSjBvssyUwGcxte7uiYSFk93xNlWbA5jPXfgr9GPPl9U?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2273964,36.0490199,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[St George's Basilica]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvOdQ-curCs1GsRHdArwM9ZZUQHYNHzRhikQTIh84TiSbbSrLzofFWfkIq86R3sazlabbqwfrsmIXJU0SwFxBsl_ViIuYm_ek-bX2IEptmejm2R017xU0hswSyu6TMPaiWqMSenOc64bbwokszlAKcUzSwfE_gR7JkdqtQGD51gxsWVuEDGyxXlXySRh8PLcMhKMGPQaylqrw?authuser=0&fife=s16383" height="200" width="auto" /><br><br>St. George’s Basilica<br><br>The parish of Saint George, at the centre of the old town, originated in medieval times. The present church, known as the golden basilica, was built in 1672 and was bestowed the title of Basilica in 1958. The highly treasured 19th century wooden statue of the patron Saint George is carried out during a procession on the feast day each year. The martyr is considered the protector of the people of Gozo and the church and its feast are a reminder of this longstanding devotion. The grand feast, celebrate on the third Sunday of July has since 1998 been preceded by a popular cultural event of concerts and recitals during the Victoria International Arts Festival. The interior has some interesting works of art as is the titular altarpiece by the renowned Calabrian artist Mattia Preti and works by Stefano Erardi, Francesco Zahra, Gian Battista Conti and Giuseppe Calì. The bronze canopy, a replica of Bernini’s Vatican piece, was added in the 1960s.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvOdQ-curCs1GsRHdArwM9ZZUQHYNHzRhikQTIh84TiSbbSrLzofFWfkIq86R3sazlabbqwfrsmIXJU0SwFxBsl_ViIuYm_ek-bX2IEptmejm2R017xU0hswSyu6TMPaiWqMSenOc64bbwokszlAKcUzSwfE_gR7JkdqtQGD51gxsWVuEDGyxXlXySRh8PLcMhKMGPQaylqrw?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2391007,36.0438035,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cittadella Fortifications</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtU4u1OWj-4SDfaorRCXLwVw8d0UGaaQvhWo20Bjegs4Ke2nWaNb5NaqEWyrv084H_lKWi2npKzuGB83toPedxDycLubwRvM2GfGXd-jeMnrQBPdGueFrwJ4ZJFEtzAqXJ5psIBTIG9YFcWNJD2m5E2yI4m4ze8XTuSI_5-BuG7Q33I23DEAxj0BMJO-mVEOuzy-pls0nc9WA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>With its distinctive skyline and imposing military architecture, Cittadella, the ancient fortified city, stands out as Gozo’s major landmark, a beacon visible from all over the island.<br><br>Occupied by man since prehistoric times it is a testimony of its inhabitants who all left their mark to shape the majestic complex visible today. The Citadella is rich in buildings of architectural, military and historical value, while its open areas afford a habitat to numerous rare species of flora and fauna. The site offers the ideal setting for quality events that bring the past to life, linking the island’s present with its future. In visiting Cittadella, visitors step back in time, experiencing the past in a way they are unlikely to forget.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtU4u1OWj-4SDfaorRCXLwVw8d0UGaaQvhWo20Bjegs4Ke2nWaNb5NaqEWyrv084H_lKWi2npKzuGB83toPedxDycLubwRvM2GfGXd-jeMnrQBPdGueFrwJ4ZJFEtzAqXJ5psIBTIG9YFcWNJD2m5E2yI4m4ze8XTuSI_5-BuG7Q33I23DEAxj0BMJO-mVEOuzy-pls0nc9WA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2387062,36.0462966,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bus Terminal</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv36UrwfpekBiBCEkTzeZ9iGqFjBbJVbnaYEUtDkxodZTUccUaNqLT9HoK810LjiOFm1n5u0ECvyhVLUdGkwOXNK93lgcFwb_aC7i25NjX1bnDkmXg2TSYiddufvKsFyhAsYfUZA1eyexh6j6WSmE4xntqrMqM16YkuJkMs_2C705tX9Pidjf1UmaSZ7W544_kW1SbvSCUEbA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>For bus schedule: https://www.publictransport.com.mt/bus-timetable-library]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv36UrwfpekBiBCEkTzeZ9iGqFjBbJVbnaYEUtDkxodZTUccUaNqLT9HoK810LjiOFm1n5u0ECvyhVLUdGkwOXNK93lgcFwb_aC7i25NjX1bnDkmXg2TSYiddufvKsFyhAsYfUZA1eyexh6j6WSmE4xntqrMqM16YkuJkMs_2C705tX9Pidjf1UmaSZ7W544_kW1SbvSCUEbA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2411416,36.0431715,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cathedral of the Assumption</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv9hICxn_qDaoyJMD-lkGvSvt5FTdEuJJg7C6xZFagi6BhhkMch3I3qz_qpJpQCc2hpaGEW_n__iHYjWLwBw_jnQJyZHocZC3gHBw2vhfv78QCUAz1CFjxnoTKxOshCxmfWZRAWWG_0MIGFDiIG_6R4AIm7xF-QRDckcwWwqDu4fz-cZc9up68sYUUgsFE0FGnBPhqvv1mxLQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The Cathedral of the Assumption of the Blessed Virgin Mary into Heaven is a Roman Catholic cathedral in the Cittadella of Victoria in Gozo, Malta. The cathedral is dedicated to the Assumption of Mary, and it has been the seat of the Roman Catholic Diocese of Gozo since the formation of the diocese in 1864.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv9hICxn_qDaoyJMD-lkGvSvt5FTdEuJJg7C6xZFagi6BhhkMch3I3qz_qpJpQCc2hpaGEW_n__iHYjWLwBw_jnQJyZHocZC3gHBw2vhfv78QCUAz1CFjxnoTKxOshCxmfWZRAWWG_0MIGFDiIG_6R4AIm7xF-QRDckcwWwqDu4fz-cZc9up68sYUUgsFE0FGnBPhqvv1mxLQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2397791,36.0462771,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Church of the Nativity of Our Lady (Savina)</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuEU5hSl3z_A-OjieXwFS1aDhpLNDUQyHV3UPisXPM9-eoRO4k9bM1en3BeTS6VMdRWXchmc0vXRin0mF99aVVjY4sTrlqbMjLTimBzJiKVz-uwWWLy3-l67D51XCDN116bCCP1HtNj0SKRQHGhwOHCkmL41W-GQygF2Kr5LNkL68E-iJxSfTw01Ri2DPtI0ii6dNz8lqE21Q?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The original church was one of the earliest church buildings in Gozo. It was mentioned in notarial deeds of 1479. Other sources trace this church to the time of Count Roger I of Sicily. The church was rebuilt in 1502. Together with that of St. James and St. George's, this church served as the parish church for the locals during the night time since the parish of St. Mary in the Cittadella was inaccessible for people living outside the fortified city. As the threat of a barbarian invasion decreased, Savina and St. James's lost their parochial status and Victoria was left with two main parishes. Burials used to take place in the church yard up until 1899.<br><br>The present church was built in the early 20th century. The cathedral chapter had approved plans for the rebuilding of Savina church. Works started in 1901 and finished in 1904. The church was consecrated on February 17, 1904. In 1913 the church was further enlarged. The church reopened on the same year by Cardinal Domenico Ferrata, a Papal delegate for the Eucharistic Congress. Monsignor Luigi Vella was appointed as the first rector of the church. Monsignor Vella was the one who worked to rebuild the church and open it for perpetual adoration. He later was appointed as Archdeacon of the cathedral.<br><br>The church building is listed on the National Inventory of the Cultural Property of the Maltese Islands.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuEU5hSl3z_A-OjieXwFS1aDhpLNDUQyHV3UPisXPM9-eoRO4k9bM1en3BeTS6VMdRWXchmc0vXRin0mF99aVVjY4sTrlqbMjLTimBzJiKVz-uwWWLy3-l67D51XCDN116bCCP1HtNj0SKRQHGhwOHCkmL41W-GQygF2Kr5LNkL68E-iJxSfTw01Ri2DPtI0ii6dNz8lqE21Q?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2380576,36.0449691,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Il-Lunzjata Chapel </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtLQIBCXWlUAGHRFE1gN2TN5MV2hIj6D0kuM_mMt8Rf1ksOm0wf7Gmd0IhpFNbKIS-fL9XWjiVpcmJiP3o8yClLy7oEmpXMieojzTG3x4q6Kid4NWr7B52Gq4g3OvLFJZioiGEY_p2XJc1vfGN0FSMFQOD4Tm2mYOLFCzwzmr_GLBm9IVeRjYfbYshxJzzjZ1NYuE8c-0SVWg?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtLQIBCXWlUAGHRFE1gN2TN5MV2hIj6D0kuM_mMt8Rf1ksOm0wf7Gmd0IhpFNbKIS-fL9XWjiVpcmJiP3o8yClLy7oEmpXMieojzTG3x4q6Kid4NWr7B52Gq4g3OvLFJZioiGEY_p2XJc1vfGN0FSMFQOD4Tm2mYOLFCzwzmr_GLBm9IVeRjYfbYshxJzzjZ1NYuE8c-0SVWg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2331334,36.0406385,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rest Area</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtaBcT57kI_FzNFL2IxsE1RMZwBuFHjp_jultut3OL05ueDAzOlM0jAK9cZi7ljxZ__6tgxMm1tpsZzAsJ1Fxf0JtNIU_24pVBXPKlp9LyIXhAtZEWeh1VrHmUa6WHiNLwYfB3c9erYFLXcLLT1EtwNnLaLKIZ95eiYwOkPfO4j6atTS_BnrMVYAJTcDqSB-m4QhwsTw7wtZw4?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtaBcT57kI_FzNFL2IxsE1RMZwBuFHjp_jultut3OL05ueDAzOlM0jAK9cZi7ljxZ__6tgxMm1tpsZzAsJ1Fxf0JtNIU_24pVBXPKlp9LyIXhAtZEWeh1VrHmUa6WHiNLwYfB3c9erYFLXcLLT1EtwNnLaLKIZ95eiYwOkPfO4j6atTS_BnrMVYAJTcDqSB-m4QhwsTw7wtZw4?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.1997369,36.036814,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKui_Ua4ctLZIUBGLM0Dhr3nvPXLTIRnAwkJxOxXMU7R0xjh8a2hNzW0GZCAhDOQ57yym5QYkp5uPh85upewDYQjl5CYFcVKBXjFtr9mZf1DbwM012LriqRZldD_w2PoJAXdEbEZXaX5ks_MlxG3KBxXPToBLFJx8b5udBRnWXTrP2PejqfdW_mQX8KLvLjPsh0NCP2KS_UKYJE?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKui_Ua4ctLZIUBGLM0Dhr3nvPXLTIRnAwkJxOxXMU7R0xjh8a2hNzW0GZCAhDOQ57yym5QYkp5uPh85upewDYQjl5CYFcVKBXjFtr9mZf1DbwM012LriqRZldD_w2PoJAXdEbEZXaX5ks_MlxG3KBxXPToBLFJx8b5udBRnWXTrP2PejqfdW_mQX8KLvLjPsh0NCP2KS_UKYJE?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2018934,36.0355821,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Xlendi Tower</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvj5Al_fxfwa3iFu0FHdewA3ax62Igj52H_inFTSLf6dW22IJH9daZ2K3R1M4oav48Bo11N2QdOoUP4vw4UcGP7-4hhN34IBZ6lyRPSmRBClb714Bv6z5N2mJUjqSsv1eMhGqLJJYAFMft76bSm6bXDA6kGx8y7uN3lcSEDaARl2hnyWMzptIKrrbCg5BixVV1MqP1CagUnbgk?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The ix-Xlendi tower is the oldest free-standing coastal watchtower in Gozo. It was built during the reign of Grand Master Lascaris in 1650. It was designed to defend ix-Xlendi Bay and keep out smugglers, pirates and quarantine evaders (the Knights Hospitaller were accomplished medics and had a strict quarantine policy for ships arriving from diseased areas). The Tower is 35 feet square and rises to a height of 30 courses. It has an architecturally unique platform jutting out seawards.<br><br>The Tower was armed with two 6-pounder iron guns that were later replaced with two 4-pounders. The Tower had its own Capo Mastro (Detachment Commander) and a Bombardier (gunner), who in turn had his own Aggiuntante. At night the Tower was itself guarded by three more armed men. From the rising cliffs of Ras il-Bajda, the tower commands an extensive view of the south-western approaches to Gozo and the entrance to the Comino Channel. The ix-Xlendi Tower continued to serve as guardian of the bay until as late as 1871.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKs-BV1k7AI97NGssk7_9jWEuyWlvzhVj3u9xrV1VAcQ5lp5yHpnidKqa2t3zgkpXD_BPTSYES6QRB9v1b6GyD5IJFAO20CSxO0x_pjZ8Sq0OJzP5MAT2JyqI50lseaVtliF1aRbuB_AiyikXlkvkDp01Cdwaod5snhMJy3g-cgWfAvLyZ-czREF24FyU_p-kFC5DPw_pCRpRFI?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvj5Al_fxfwa3iFu0FHdewA3ax62Igj52H_inFTSLf6dW22IJH9daZ2K3R1M4oav48Bo11N2QdOoUP4vw4UcGP7-4hhN34IBZ6lyRPSmRBClb714Bv6z5N2mJUjqSsv1eMhGqLJJYAFMft76bSm6bXDA6kGx8y7uN3lcSEDaARl2hnyWMzptIKrrbCg5BixVV1MqP1CagUnbgk?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKs-BV1k7AI97NGssk7_9jWEuyWlvzhVj3u9xrV1VAcQ5lp5yHpnidKqa2t3zgkpXD_BPTSYES6QRB9v1b6GyD5IJFAO20CSxO0x_pjZ8Sq0OJzP5MAT2JyqI50lseaVtliF1aRbuB_AiyikXlkvkDp01Cdwaod5snhMJy3g-cgWfAvLyZ-czREF24FyU_p-kFC5DPw_pCRpRFI?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.213115,36.0275817,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Slippery</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.2331301,36.0399264,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuDXiPsVEvyk0_z9ZMrlK8yD7Q0ri2-GHKziwbMg3rJnqo6ZQEIwZPtTVv131aboP-ipu1iJhfM6ss2Gy2htlR4MKZHyli7quTm1_Fe-wlDnmV9E17EcnmrlIONnutBoAQrlOsqvFOur1XQt9CmziMEaaUXM6QmTQCFS-LKL4H1Z4dNznOEQeokICX7nVu5AzcV9s8mWGVdygc?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuDXiPsVEvyk0_z9ZMrlK8yD7Q0ri2-GHKziwbMg3rJnqo6ZQEIwZPtTVv131aboP-ipu1iJhfM6ss2Gy2htlR4MKZHyli7quTm1_Fe-wlDnmV9E17EcnmrlIONnutBoAQrlOsqvFOur1XQt9CmziMEaaUXM6QmTQCFS-LKL4H1Z4dNznOEQeokICX7nVu5AzcV9s8mWGVdygc?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.1942662,36.0480822,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dwejra Tower</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKumSCeTqKOS8mpIk0FhsD8CKuAQ4f4PBhKMyq_Oln1ZUClR2qnUnPmyLsNB1LiPiCBaqVen3MyOFlWTckqlXNh_nA5PN19eaIzSENrjJRO0wbibW-upz760MHLfVHxc46WcXRqcXQn-AtaHF86OOyam6rZ-gb0YaRmB92icgjulSkfOTpYSpSugVaELuM5IQs22YTPOKPlUN3M?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Dwejra Tower<br><br>Built in 1652 under the reign of the Knights of St. John’s Grand Master Lascaris this coastal watchtower served the same purpose of other similar structures, that is: deterring smuggling and corsairing activities and curbing attempts to avoid quarantine.<br><br>But it also held a unique role acting as a botanic watchdog to one of the most prized plants of the times: the Malta Fungus. The tower was manned by the Royal Malta Artillery for several years in the 19th century and in the 20th century it continued to serve as an observation post during the two World Wars. In 1997 the tower was passed on to Din l-Art Ħelwa which conducted urgent restoration works and continued to manage the site in conjunction with Nature Trust (Malta). At present it serves as an interpretation centre with 10 minute documentaries about the area available to be seen in the lower section of the tower – electricity for this is provided thanks to solar energy from panels installed as part of a LIFE project for Dwejra Heritage Park. Dwejra Tower is open all year from Monday to Friday from 9.00 am to 3.00pm and on Sundays and Public Holidays from noon to 3pm when the flag is flying.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKumSCeTqKOS8mpIk0FhsD8CKuAQ4f4PBhKMyq_Oln1ZUClR2qnUnPmyLsNB1LiPiCBaqVen3MyOFlWTckqlXNh_nA5PN19eaIzSENrjJRO0wbibW-upz760MHLfVHxc46WcXRqcXQn-AtaHF86OOyam6rZ-gb0YaRmB92icgjulSkfOTpYSpSugVaELuM5IQs22YTPOKPlUN3M?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.191933,36.049458,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Swimming Zone</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv_27yNkM8ncCt-2ICMRomowtM-WgzAZ_MJ10soDj6pZWPiwsidSJlu__LM5vothUWeCpv7Amm2b5bfsk4ho5vsp7DgCZ9TG5hp3GqMD6uaA39ZecVYzX9ehS7HF7eikZ4r7VvnKCawYryc4wQ9_yujLjGSeFQqhYYZHnt8vK6u_NfEqhTm5WDVpG7Xl59CNn9zwTqk-9w6RxQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv_27yNkM8ncCt-2ICMRomowtM-WgzAZ_MJ10soDj6pZWPiwsidSJlu__LM5vothUWeCpv7Amm2b5bfsk4ho5vsp7DgCZ9TG5hp3GqMD6uaA39ZecVYzX9ehS7HF7eikZ4r7VvnKCawYryc4wQ9_yujLjGSeFQqhYYZHnt8vK6u_NfEqhTm5WDVpG7Xl59CNn9zwTqk-9w6RxQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.1882349,36.0527885,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>DO NOT swim when sea is rough</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKu6i6zvxZzVDsFYtECMtHEZTANC6g0ehM89fqTr25P5srhThA4MoDPz0u4Gjj-iJo_iGjV2qcMqcprJ3x8iGzgwsw5ibmeadnPnhgOzbVoIxJZYlnL1_SINSKu4OHZSj8p5FqyOHU_m9RhLzgOJIbAViwok3RXL8Ue_-YehLO2Z9UUT0WPBgT2mKfFyvoBTuDnklLM3f-PqXhY?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKu6i6zvxZzVDsFYtECMtHEZTANC6g0ehM89fqTr25P5srhThA4MoDPz0u4Gjj-iJo_iGjV2qcMqcprJ3x8iGzgwsw5ibmeadnPnhgOzbVoIxJZYlnL1_SINSKu4OHZSj8p5FqyOHU_m9RhLzgOJIbAViwok3RXL8Ue_-YehLO2Z9UUT0WPBgT2mKfFyvoBTuDnklLM3f-PqXhY?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.1879382,36.0527833,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cave/s</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtPFXdTo6rE77J5I2g57DX49gFUk6XBJJsIYomjgro1R8TBBBjvG5SJYHSMeG2Qn1Cyrt6QifZ2zYtVMC3QItJtTBG7ruSrB0ekSpngq485u-KeivBjc09jLgYcpcNzwewHWmScf9OfMknmZYkVxG1MdkqQgI9rf4du6pcLK-bQ4onQOr3s6V4uG9_S9jQUrJPXpab21NiSqQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtPFXdTo6rE77J5I2g57DX49gFUk6XBJJsIYomjgro1R8TBBBjvG5SJYHSMeG2Qn1Cyrt6QifZ2zYtVMC3QItJtTBG7ruSrB0ekSpngq485u-KeivBjc09jLgYcpcNzwewHWmScf9OfMknmZYkVxG1MdkqQgI9rf4du6pcLK-bQ4onQOr3s6V4uG9_S9jQUrJPXpab21NiSqQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.188232,36.0525364,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Snorkelling</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKu5jUgscsxHjepOcV0FeoNcuoTgvD-0g0qOqvgaPvn6UDls52c9Eb2KSdW_-_XNNXICI1XreN8XJPlA8EM1xayIa1Sfq6SXpZy_reZAj1tYpor46oMwmIIkiOxJsHI7P5LlkF1kpWqZii846I7ZgE_a5fRa915FndL7k60Kd7KxMjeXlnbMhVuWBmFjn1kcdOvJAGnirniK4A?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKu5jUgscsxHjepOcV0FeoNcuoTgvD-0g0qOqvgaPvn6UDls52c9Eb2KSdW_-_XNNXICI1XreN8XJPlA8EM1xayIa1Sfq6SXpZy_reZAj1tYpor46oMwmIIkiOxJsHI7P5LlkF1kpWqZii846I7ZgE_a5fRa915FndL7k60Kd7KxMjeXlnbMhVuWBmFjn1kcdOvJAGnirniK4A?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.1879343,36.0525407,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Salt Pans</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.1886209,36.0519177,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>San Lawrenz Church</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvooet_TLyDzbW7iKH4yXoZEyPqJ7PRVUMY1xhVXiwHf_pQ8yl6fNA565nM-nev7W48Idkef4o-PaPT6PpI5BhBDYpyPj0H2J86s2RorCgHcWzGwSGt22sNGjFnIaoXCUPzkSnjtZ8MxJAMMhRlyaVNsIae0cCGYgMSjp8ppZC5vmHxmPtAFKZCDPJunw0liiD4qweKNmDcr0Q?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The locality of San Lawrenz was declared an independent parish by a Pastoral Letter issued by Pope Leone XIII on 15th March 1893 and became effective on 7th May of the same year.<br><br>The present church was already built when San Lawrenz became a parish. The building began on 21st September 1886 and was completed by 28th April 1889. The church was consecrated by Bishop Gwann Maria Camilleri on 28th April 1889.<br><br>The titular statue of St Lawrence was manufactured by Louis Ramat who had just taken over the Gallard et Fils company of Marseilles. The statue arrived in Gozo on 4th August 1895 and was carried in procession to San Lawrenz from the Collegiate of l-Għarb.<br><br>It was taken around the streets of the village for the first time on 10th August 1895 during the annual festa.<br><br>Accessible for persons with a disability.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvooet_TLyDzbW7iKH4yXoZEyPqJ7PRVUMY1xhVXiwHf_pQ8yl6fNA565nM-nev7W48Idkef4o-PaPT6PpI5BhBDYpyPj0H2J86s2RorCgHcWzGwSGt22sNGjFnIaoXCUPzkSnjtZ8MxJAMMhRlyaVNsIae0cCGYgMSjp8ppZC5vmHxmPtAFKZCDPJunw0liiD4qweKNmDcr0Q?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2035391,36.0555188,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bus Stop</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.203928,36.0553909,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cave/s</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtyNkfGeV-Dp92cB3eQ2tCNPy7Cy1vcsQMFPpJtXB-agUmt9lqcJi83_7zdYDv3Qj0bEwTCj4MnLTxxdXc8vDVeoAAzC7HLu0i0EnpuWla3qr3NyVLRy80T9k5PEtk3nji1NW0T4soOTwtJTu6APLOPilkvUaWcj_ds1OFp9OQwebmpo6mOVqokJp7jDs2Sg_o8FSog-DZs7xs?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtyNkfGeV-Dp92cB3eQ2tCNPy7Cy1vcsQMFPpJtXB-agUmt9lqcJi83_7zdYDv3Qj0bEwTCj4MnLTxxdXc8vDVeoAAzC7HLu0i0EnpuWla3qr3NyVLRy80T9k5PEtk3nji1NW0T4soOTwtJTu6APLOPilkvUaWcj_ds1OFp9OQwebmpo6mOVqokJp7jDs2Sg_o8FSog-DZs7xs?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2064821,36.0475042,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Quarry</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.203285,36.0475475,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bus Stop</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.1902711,36.0519225,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Parking</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.1900163,36.0522868,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santa Luċija Church</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsiR-Iu1cyY_IgiGH1jFkPVJJaRD9O37_7kMceKKkvVwUBK9wUwUdM7ltAnlpFfzMa9VdxN6UwlVvQoUHCy-kYIJVAV3r8jpDmyIt37O88NRzk4ICl3KraamIOMVKycuexWLmkzme2UVIFPvhRj0V4XyyeyHfTfmSxVtSFwzyHLgVHx1z8J-ZK9BO691wcrVq4ghMgRziKGtA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Santa Luċija Church]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsiR-Iu1cyY_IgiGH1jFkPVJJaRD9O37_7kMceKKkvVwUBK9wUwUdM7ltAnlpFfzMa9VdxN6UwlVvQoUHCy-kYIJVAV3r8jpDmyIt37O88NRzk4ICl3KraamIOMVKycuexWLmkzme2UVIFPvhRj0V4XyyeyHfTfmSxVtSFwzyHLgVHx1z8J-ZK9BO691wcrVq4ghMgRziKGtA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.21689,36.0428218,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuPd3jSzhHmM_UsDdSeqOjOV6b6wwtHuEJJDlWeQhLJ8ZIBwixlhew2EsuvjI86HFzcfiXt7-PNw6jtgvY76iwPH0WJVCQfQjHkjrUM9zjaGuSMqWlB5pgkakuqm_RJ0hRlsAI922DurANlHzrvHY3DnGfyxsviU4_cwO3Uyz7H_d4uKDhxi_Ydy2UhCM_D6RKxdsuxfu-Zcv4?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuPd3jSzhHmM_UsDdSeqOjOV6b6wwtHuEJJDlWeQhLJ8ZIBwixlhew2EsuvjI86HFzcfiXt7-PNw6jtgvY76iwPH0WJVCQfQjHkjrUM9zjaGuSMqWlB5pgkakuqm_RJ0hRlsAI922DurANlHzrvHY3DnGfyxsviU4_cwO3Uyz7H_d4uKDhxi_Ydy2UhCM_D6RKxdsuxfu-Zcv4?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2335035,36.0406496,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Quarry</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.1957723,36.0394629,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Boat Trip - The Inland Sea</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKthLFcz2T6fmHLGlI2F-lNS_Q7YhCnyquaC9ADa2gs45VGOQJM_BJqQrSmr3hbvFjf8vheQnJFRMG6-VFqSKnDf3S4GKqeRRd7EsMkSYRi6ZKCO75eAQS4UwLEzr8lXHMDHaDoDb3ZIE6zrUsqlBColQJ-254qy_ol-c4CU5zw6f_BEZ5fbZMKL47CWyb2WJzFFOITYi-6pUg?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The Inland Sea area which has been formed by a circular depression in the land, has created this unique lagoon, which has a quayside on one side and a pebbly beach on the other. The Inland Sea is connected to the main sea via a 100-metre tunnel that is used by smaller kind of boats. Traditionally, the Inland Sea at Dwejra was a fishermen’s cove and the small fishermen’s huts are still standing, but today fishermen gladly take out tourists for boat trips.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKthLFcz2T6fmHLGlI2F-lNS_Q7YhCnyquaC9ADa2gs45VGOQJM_BJqQrSmr3hbvFjf8vheQnJFRMG6-VFqSKnDf3S4GKqeRRd7EsMkSYRi6ZKCO75eAQS4UwLEzr8lXHMDHaDoDb3ZIE6zrUsqlBColQJ-254qy_ol-c4CU5zw6f_BEZ5fbZMKL47CWyb2WJzFFOITYi-6pUg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.1910833,36.0539095,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rest Area</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKujVS0eiccKv3wKcWSPthwX7C3K7okJvGzPBl7yIGS1XhsErWKkrTWWd5H04aBkF5b2pAUMIRdgznNaltyyJYGpgUUG57MPAhCYtn7Io6hNPXzUj7QDGRpnG3yOPL6WhWMb1CFUJ6btUq65iti_dA-K-s6WuMI0Lbotb4m7jGuK4RTX6h-j_2wuUcKuD_cftHTFxwRx_VlsdQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKujVS0eiccKv3wKcWSPthwX7C3K7okJvGzPBl7yIGS1XhsErWKkrTWWd5H04aBkF5b2pAUMIRdgznNaltyyJYGpgUUG57MPAhCYtn7Io6hNPXzUj7QDGRpnG3yOPL6WhWMb1CFUJ6btUq65iti_dA-K-s6WuMI0Lbotb4m7jGuK4RTX6h-j_2wuUcKuD_cftHTFxwRx_VlsdQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.1909277,36.05335,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Public Toilet</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.1897261,36.0526518,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>St. Anne Chapel</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuJU10lSKVqKacV6C5aV1Emzr4Qga-N1T6CJIFxdkw83tQd7S6x2KAOP6nim2NYw-wQ0eB6ULteqvFHRQ13VB5F0xY46dfuJYcTZe355Cmsv9jZlF4CTcY4JG_kBKV8687Z71TVvcJhjbjCWHUVxZU6QGr1RoXUWb37jRDwggS_mFIQRDR1ugE_5N6mAHHtkL-jfqFIE7wHiOg?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The chapel at Dwejra was the last to be built in the countryside in Gozo. It was designed by Joseph Mizzi from San Lawrenz. The chapel was blessed on 25th July 1963.<br><br>The facade is articulated by a reinforced concrete cantilever carrying a cross that rests on two columns and provides a covered entrance. It is crowned by a centrally placed bell-cot. The modern style is also evident in the interior of the chapel which consists of a rectangular room with a flat textured roof. Recesses are used to articulate the walls internally and externally.<br><br>The main altarpiece depicts the young Virgin Mary being instructed by her mother St. Anne. This was painted by Ninu Apap in 1989. A statue of St. Anne sculpted by Michael Camilleri Cauchi in 1982 also adorns the chapel.<br><br>The feast of St. Anne is celebrated on the 26th of July.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuJU10lSKVqKacV6C5aV1Emzr4Qga-N1T6CJIFxdkw83tQd7S6x2KAOP6nim2NYw-wQ0eB6ULteqvFHRQ13VB5F0xY46dfuJYcTZe355Cmsv9jZlF4CTcY4JG_kBKV8687Z71TVvcJhjbjCWHUVxZU6QGr1RoXUWb37jRDwggS_mFIQRDR1ugE_5N6mAHHtkL-jfqFIE7wHiOg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.1899186,36.0529353,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Quarry</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.1932461,36.0561451,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.1894196,36.0537686,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Risk of Falling Rocks</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.1886042,36.0538517,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cart Ruts</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvzcq5Mt1PGgae7enm51W30ll63Zo7fJyU-IedxDrloEvT3Lbgwa17SxaJ4ShNt-kks5rotuwAI7rD-FCEMZY0fjNGk35bFL1FxOQYLBxiAJwwH3981mhsodQGo3ghjb3MGXNW3y9XMT_6UjB-cUXEkL4-g2kuijGODFVWEWfoqWfFwnkNkVFiLuwqOGRUSEMmeb2JQdhluIg?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvzcq5Mt1PGgae7enm51W30ll63Zo7fJyU-IedxDrloEvT3Lbgwa17SxaJ4ShNt-kks5rotuwAI7rD-FCEMZY0fjNGk35bFL1FxOQYLBxiAJwwH3981mhsodQGo3ghjb3MGXNW3y9XMT_6UjB-cUXEkL4-g2kuijGODFVWEWfoqWfFwnkNkVFiLuwqOGRUSEMmeb2JQdhluIg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.1891997,36.0535437,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

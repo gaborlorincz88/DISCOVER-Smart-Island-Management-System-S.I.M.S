@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Ħondoq Ir-Rummien Walk</name>
+    <description><![CDATA[Starting: L-Imġarr Harbour<br><br>Ending: L-Imġarr Harbour<br><br>Length: 10Km<br><br>Grading: Easy but with a series of uphills and downhills<br><br>Landscape: Scenic, partly coastal<br><br>Trail markings<br><br>Getting there and back: Gozo Channel operates regular ferries to L-Imġarr Harbour leaving from iċ-Ċirkewwa in Malta.<br><br>Recommended Walking season: October to May<br><br><br>Overview<br><br>This circular route starts and ends at Il-Port tal-Imġarr (L-Imġarr Harbour) walking through the three villages of Il-Qala, In-Nadur and Għajnsielem and visiting the bay of Ħondoq ir-Rummien. The scenic walk takes on some beautiful views over to Comino as you walk up from sea level to Il-Qala Belvedere as well as far reaching views from the Maltese Garden located on the high plateau of In-Nadur surrounding Kenuna Tower. Although the walking is relatively easy, mainly on established roads and paths, it does involve a series of uphills and downhills. Definitely recommended is a stop at the small bay of Ħondoq ir-Rummien where, if weather permits in the warmer months, do stop for a dip into its clean, clear waters. This is the only sandy pocket where locals can enjoy a swim when the prevailing northwesterly wind blows. On your way through the village cores take some time to savour local village life in the main square or go off-route to explore the place better – In-Nadur for instance holds an interesting Maritime Museum.<br><br>If you need any short cuts there are buses linking the villages to the bus terminus in Victoria or to L-Imġarr Harbour.<br><br>For the more adventurous a rough coastal path starting from the clay slopes at the eastern end of the harbour can provide an alternative to the road for getting to Ħondoq ir- Rummien – however short stretches of it are quite narrow and subject to constant erosion.]]></description>
+    <Style id="icon-1899-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-DB4436-nodesc-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-nodesc-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-00AA00-normal">
+      <IconStyle>
+        <color>ff00aa00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-00AA00-highlight">
+      <IconStyle>
+        <color>ff00aa00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-00AA00">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-00AA00-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-00AA00-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-D60303-nodesc-normal">
+      <IconStyle>
+        <color>ff0303d6</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-D60303-nodesc-highlight">
+      <IconStyle>
+        <color>ff0303d6</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-D60303-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-D60303-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-D60303-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-D60303-5000-normal">
+      <LineStyle>
+        <color>ff0303d6</color>
+        <width>5</width>
+      </LineStyle>
+    </Style>
+    <Style id="line-D60303-5000-highlight">
+      <LineStyle>
+        <color>ff0303d6</color>
+        <width>7.5</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-D60303-5000">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-D60303-5000-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-D60303-5000-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FFFF00-1000-179-normal">
+      <LineStyle>
+        <color>ff00ffff</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>b300ffff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FFFF00-1000-179-highlight">
+      <LineStyle>
+        <color>ff00ffff</color>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>b300ffff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FFFF00-1000-179">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FFFF00-1000-179-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FFFF00-1000-179-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Walking Path</name>
+      <Placemark>
+        <name>Start</name>
+        <description>The walk starts from just outside the Passenger Terminal in the picturesque L-Imġarr Harbour. Cross the road and head towards the moorings. The small traditional boats with their vivid colours dot the harbour in stark contrast with the giant modern ferries sailing restlessly to and from Malta. L-Imġarr is the only all-weather harbour of the island and has always provided a vital link to Malta with its ferry boats carrying passengers, cattle and goods. It is still an important fishing base for locals as well as a departing point for various day trips around the island and ferrying of passengers to Kemmuna (Comino) and it holds the only yacht marina on the island. Many locals come down to the harbour in the weekends to watch the buzzing activity but also to enjoy the numerous restaurants which have opened up. Hidden amongst other modern boats lies a relic of past times when the wooden Gozo boat used to be the only means of travel between the islands. The Knights of St John constructed two stores here and manifested their preference for a coastal and strategic location by investing heavily in the imposing Fort Chambray built high above the harbour in 1749 with the unfulfilled intention of it serving as the new city of Gozo.</description>
+        <styleUrl>#icon-503-00AA00</styleUrl>
+        <Point>
+          <coordinates>
+            14.2973085,36.0240108,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Part 1</name>
+        <description><![CDATA[Walk along the harbour and turn left into a lane between two fields which conceals an old and surprisingly green path acting as a short cut up to the main road exiting just opposite the hotel. For a few minutes it engulfs you in its rustic ambience amidst dry stone walls and lush vegetation — a microcosm seemingly trapped in times gone by when the area around the harbour was known as Ġnien Migiarro (L-Imġarr’s Garden), so distant from the bustle and developments between which it is actually sandwiched. Among the foliage you can catch glimpses of the imposing Fort Chambray and the Lourdes Sanctuary overlooking the harbour whilst the cliff side holds a few rock cut caves some of which are still in use by farmers to store tools and produce. The winding stone path passes in between miniature fields and giant Carob trees and is surrounded by Fig, Prickly Pear and shrubs of Tree Spurge which colour the landscape with autumn hues of amber and red in May. In winter you will come across the broad luxuriant and shiny leaves of the Acanthus – known commonly as the Bear’s Breeches – the design of which was immortalised in Corinthian style columns. At the end of summer its exploding seeds may surprise you as they burst open and land metres away from the plant. The large collapsed boulders form interesting natural rock gardens with Caper and Mediterranean Stonecrop.<br><br>At the top of the steps take care in the narrow main road and continue uphill. Take the first turn right into Triq iż-Żewwieqa. The road crosses a small valley which on the seaward side supports one of the few populations of Chaste Tree which take over the whole valley bed. You will encounter this otherwise rare tree at closer range further on along the walk. On the landward side of this small bridge lies a dense thicket of Almond, Carob, Olive, Chaste Tree and Buckthorn trying to hold their ground amidst the sea of Giant Reed. Above the valley on the left stand the church and friary of St. Anthony (which also functions as a retreat house) and the high plateau above is your destination later on in the walk when you get to the village of In-Nadur. The road proceeds to Il-Qala whose belvedere looks over one of the most stunning views in the archipelago over sloping terraced fields and, across the channel, the famous turquoise waters of Bejn il-Kmiemen (Blue Lagoon) which separate the island of Kemmuna from its smaller sister Kemmunett.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.297296,36.024022,0
+            14.297167,36.024038,0
+            14.297022,36.024072,0
+            14.296905,36.024216,0
+            14.296777,36.024476,0
+            14.296746,36.024603,0
+            14.296792,36.025337,0
+            14.296902,36.025562,0
+            14.296279,36.025939,0
+            14.296432,36.026049,0
+            14.29644,36.02605,0
+            14.296449,36.026051,0
+            14.296548,36.026072,0
+            14.296555,36.026072,0
+            14.296564,36.026077,0
+            14.296597,36.026118,0
+            14.296588,36.026128,0
+            14.296579,36.026144,0
+            14.296402,36.026283,0
+            14.29639,36.026296,0
+            14.296236,36.026422,0
+            14.296243,36.026426,0
+            14.296179,36.026499,0
+            14.29611,36.02653,0
+            14.29624,36.026591,0
+            14.296305,36.026619,0
+            14.296333,36.026658,0
+            14.296505,36.026718,0
+            14.29672,36.026824,0
+            14.296784,36.026946,0
+            14.296789,36.026964,0
+            14.296791,36.026976,0
+            14.296958,36.027299,0
+            14.297131,36.027652,0
+            14.297183,36.027652,0
+            14.297319,36.027656,0
+            14.297471,36.027687,0
+            14.297721,36.027781,0
+            14.298731,36.028302,0
+            14.299506,36.028656,0
+            14.300392,36.028956,0
+            14.301687,36.029384,0
+            14.302717,36.029722,0
+            14.304379,36.030149,0
+            14.305197,36.030309,0
+            14.306001,36.03033,0
+            14.307399,36.030476,0
+            14.308139,36.030676,0
+            14.309108,36.031012,0
+            14.30981,36.031265,0
+            14.309981,36.031328,0
+            14.310173,36.031684,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 2</name>
+        <description><![CDATA[Past the first set of apartments turn right into Triq Iċ-Ċawl and follow the scenic road down to the coast. At the intersections keep left. The sloping greyish outcrops of Blue Clay contrast with the underlying golden Globigerina Limestone. The steppe habitat here is dominated by the tough Esparto Grass which survives as a perennial stabilising the shifting clay. Before reaching the dilapidated farmhouse turn right to follow a partly surfaced concrete footpath winding down among detached blocks of soft limestone. Into view to the right comes the quasi-islet known as Ġebel taċ-Ċawl (ċawl in Maltese can refer to either the locally extinct Jackdaw or the Damselfish). Take the path down on the right to get closer to the shore — the area may be a bit muddy after the rain as the impermeable clayey layer can be saturated with water. The coast here is an interesting geological area where the natural sequence of rocks has been overturned by a fault which runs along this coastline and which is exposed along the smoothened sloping cliffs. The landscape is a result of the sliding movement which brought down a mass of Upper Coralline Limestone (normally found at the top of the geological layers of Maltese rocks) to sea-level settling down as the hardstone islets of Taċ-Ċawl, Tal-Ħalfa in the distance and Il-Ħnejja shoal in between whilst the whole rocky expanse of Ġebel Barbaġanni came to form a promontory. The resultant creeks on both sides are Id-Daħla taċ-Ċawl to the west - framing L-Imġarr Harbour and Għajnsielem church in the distance - and Ta’ Bumbarin to the east. Both are very good snorkelling spots but require a short scramble down.<br><br>Continuing eastwards along the path at Ġebel Barbaġanni (the Barn Owl’s rocks) among typical maritime plants such as wild Cliff Carrot, Golden Samphire and endemic Sea Lavender you may be tempted for a swim in one of the prettiest creeks. Ta’ Bumbarin is an interesting placename which could possibly refer to bumarin — the local name for the critically endangered Mediterranean Monk Seal —now considered extinct from the region but which once visited the numerous caves dotting the islands’ coastline.<br><br>Proceed along the path among wild Caper shrubs and soon the clifftop chapel of Madonna Tal-Blat and the small sandy beach of Ħondoq ir-Rummien come into view.<br><br>The bay’s name — literally the Pomegranate Creek, is an unassuming beach with a few Tamarisk trees and is one of the most popular and frequented bathing areas in summer — indeed the only beach accessible when the rough mistral winds blow. The site recalls small-scale industrial activity in days gone by in the abandoned 1960s seawater distillation plant and a disused hardstone quarry nearby but otherwise the area has, at least till now, been spared from residential urbanisation. This shore was chosen as the site where submarine cables were laid down from mainland Malta and via Comino to provide electricity to the island when the Gozo power station closed down in 1959. A solitary Cypress tree stands by the public conveniences just opposite the beach. An interesting and frequent endemic plant, the pungent Maltese Fleabane, is quite easily spotted sprouting out from the cut rock face.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.31017,36.031675,0
+            14.310292,36.031613,0
+            14.31042,36.031411,0
+            14.310708,36.031208,0
+            14.311345,36.030707,0
+            14.311712,36.030451,0
+            14.312066,36.030307,0
+            14.312284,36.03022,0
+            14.312516,36.029985,0
+            14.313047,36.029669,0
+            14.31325,36.029447,0
+            14.31335,36.029173,0
+            14.313463,36.028834,0
+            14.313879,36.028278,0
+            14.314153,36.027802,0
+            14.314429,36.027485,0
+            14.31491,36.027309,0
+            14.315191,36.027178,0
+            14.315312,36.027131,0
+            14.315375,36.026883,0
+            14.315375,36.026875,0
+            14.315576,36.026788,0
+            14.31559,36.026788,0
+            14.316175,36.026696,0
+            14.316805,36.026647,0
+            14.317167,36.026705,0
+            14.317176,36.026705,0
+            14.317428,36.026736,0
+            14.317442,36.026736,0
+            14.31787,36.026725,0
+            14.317883,36.026721,0
+            14.318026,36.026679,0
+            14.318269,36.026573,0
+            14.318472,36.02632,0
+            14.318482,36.02632,0
+            14.318761,36.026281,0
+            14.319351,36.026316,0
+            14.319737,36.026349,0
+            14.31977,36.026364,0
+            14.32007,36.026452,0
+            14.320241,36.026561,0
+            14.320255,36.026565,0
+            14.320268,36.026576,0
+            14.32046,36.026738,0
+            14.320465,36.026738,0
+            14.320941,36.026768,0
+            14.321289,36.026799,0
+            14.321565,36.026862,0
+            14.321741,36.027102,0
+            14.321935,36.027497,0
+            14.321944,36.027616,0
+            14.3218,36.027869,0
+            14.321753,36.028002,0
+            14.321746,36.028173,0
+            14.321751,36.028177,0
+            14.321912,36.028249,0
+            14.321921,36.028249,0
+            14.322006,36.028264,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 3</name>
+        <description><![CDATA[Head up to the rustic Madonna tal-Blat eighteenth century chapel which enjoys a unique position commanding views of the channel and the island of Comino. The rocky expanse below the ridge transforms into a colourful autumnal scene around May when the Tree Spurge shrubs start shedding their leaves.<br><br>Proceeding up the road to Il-Qala one encounters a disused hardstone quarry for Lower Coralline Limestone extraction which at the start of the twentieth century was supplying blocks of stone to construct the Grand Harbour’s breakwater and later on for L-Imġarr Harbour as well. Shipped from the quay in the bay this limestone travelled as far as Liverpool for the building of one of its Cathedrals. Several local proposals have suggested the area’s restoration with indigenous trees and shrubs.<br><br>To the left of the road is a freshwater spring enjoyed by frogs, reeds and numerous Chaste Trees and nearby Pomegranate trees after which this bay is named.<br><br>Proceed along the road to Il-Qala.<br><br>Soon you reach another chapel and adjacent cemetery known as Il-Kunċizzjoni tal-Qala — one of the earliest Marian churches in Gozo which was originally dedicated to the Assumption until 1615 when it was changed to the Immaculate Conception. It served as a parish to villages in eastern Gozo for several years. The site’s popularity as a place of devotion seems to have a long history and many pilgrimages were held here especially in times of hardship or calamities. Its sacristy houses several ex-votos such as paintings and equipment used during rescues but the outer walls were also used for this purpose in the form of graffiti which can still be seen today on the back and sides of the church — easily observed from the road.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.322006,36.028268,0
+            14.322255,36.028278,0
+            14.322669,36.028416,0
+            14.322794,36.028525,0
+            14.322836,36.028657,0
+            14.322748,36.028782,0
+            14.322645,36.028863,0
+            14.322628,36.028863,0
+            14.322384,36.028899,0
+            14.322252,36.029001,0
+            14.322197,36.029132,0
+            14.322359,36.029324,0
+            14.322374,36.029333,0
+            14.322436,36.029432,0
+            14.322438,36.029523,0
+            14.322359,36.029613,0
+            14.322193,36.029565,0
+            14.322177,36.029544,0
+            14.322076,36.029409,0
+            14.322066,36.029384,0
+            14.32205,36.029371,0
+            14.321953,36.029319,0
+            14.32174,36.029331,0
+            14.321718,36.029348,0
+            14.321485,36.029458,0
+            14.321287,36.029547,0
+            14.321237,36.029746,0
+            14.321199,36.029948,0
+            14.321171,36.030147,0
+            14.321034,36.030446,0
+            14.320975,36.030623,0
+            14.320995,36.030783,0
+            14.321199,36.030893,0
+            14.321209,36.030897,0
+            14.3213,36.030996,0
+            14.321419,36.031224,0
+            14.321561,36.031696,0
+            14.321491,36.032577,0
+            14.321358,36.03364,0
+            14.321115,36.034011,0
+            14.320862,36.03423,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 4</name>
+        <description><![CDATA[Follow Triq Il-Kunċizzjoni up to Il-Qala taking the left turn at the stone cross. On the way (on the right side of the road) lies a thicket of Chaste Tree — this is one of the few places where the tree is still harvested and can be seen up close. Further on the village square of Il-Qala is a good place to stop for refreshments and have a look at the parish church (1889) dedicated to Saint Joseph whose feast is celebrated on the first Sunday of August. From here take the left turn into Triq San Franġisk and then right to walk uphill past the school stopping for a moment to spot the Il-Qala Menhir sandwiched between buildings to your right. The story of this standing stone will probably remain untold as any evidence of the past has been destroyed and only a few prehistoric sherds were found. At the top of the road turn left into Triq David Cocco Palmieri to head to the village of In-Nadur past an old tower windmill standing alone as a reminder of days gone by. The route proceeds through In-Nadur via the village square — take the right turn into Triq Madre Ġemma Camilleri and then left into the small square behind the Parish Church. The monumental baroque church was partly built in 1760 and is dedicated to In-Nadur’s patron saints the Apostles Saint Peter and Saint Paul whose popular feast is celebrated on the 29th of June — a public holiday for all Maltese known also as the folklore festival L-Imnarja — the Luminaria — a feast of illumination which has been local tradition for centuries. Proceed by turning left into Triq Cicciano and then right into Triq il-Kappillan. If you have time and are into naval memorabilia this street houses an interesting collection within the Kelinu Grima Maritime Museum (Opening Hours: Monday to Saturday: 9.00am-4.45pm Telephone: 2156 5226).<br><br>Turn left to descend to Triq Xandriku and another left to take you to the wide views opening up from the In-Nadur promenade. Follow the ridge to Ta’ Kenuna Tower with its adjacent Maltese Garden. The view from up here highlights the vantage position of this high plateau fully attesting to the placename’s origins and the locality’s coat of arms — In-Nadur meaning a look-out post. Despite the presence of the threatening cannon down below, this tower was not used for defensive purposes but for communications.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.320869,36.034223,0
+            14.320699,36.034407,0
+            14.320441,36.034597,0
+            14.319897,36.035129,0
+            14.319673,36.035342,0
+            14.319402,36.035355,0
+            14.318878,36.035396,0
+            14.318495,36.035522,0
+            14.317644,36.035811,0
+            14.317277,36.035892,0
+            14.316878,36.035977,0
+            14.316145,36.035843,0
+            14.315205,36.035679,0
+            14.314864,36.035628,0
+            14.314848,36.035625,0
+            14.314605,36.035459,0
+            14.314425,36.035324,0
+            14.31423,36.035211,0
+            14.313301,36.035334,0
+            14.312644,36.035376,0
+            14.312165,36.035369,0
+            14.311641,36.035276,0
+            14.311304,36.035259,0
+            14.311085,36.035818,0
+            14.310117,36.035555,0
+            14.309304,36.035337,0
+            14.308788,36.036676,0
+            14.308291,36.037848,0
+            14.308022,36.037545,0
+            14.308015,36.037542,0
+            14.307128,36.037248,0
+            14.306531,36.037159,0
+            14.305728,36.037156,0
+            14.304284,36.036989,0
+            14.303546,36.036813,0
+            14.3019,36.036618,0
+            14.30031,36.036498,0
+            14.299737,36.036473,0
+            14.299263,36.036473,0
+            14.298706,36.036518,0
+            14.298194,36.036582,0
+            14.297786,36.03656,0
+            14.297779,36.036554,0
+            14.297514,36.036482,0
+            14.297316,36.036351,0
+            14.297091,36.03631,0
+            14.297075,36.03631,0
+            14.296773,36.036283,0
+            14.296601,36.036219,0
+            14.296441,36.036175,0
+            14.296131,36.036204,0
+            14.29533,36.036385,0
+            14.294694,36.036663,0
+            14.294397,36.036788,0
+            14.29373,36.036839,0
+            14.293093,36.03691,0
+            14.292621,36.037006,0
+            14.292253,36.037106,0
+            14.2922,36.036716,0
+            14.290599,36.036789,0
+            14.288959,36.036925,0
+            14.288056,36.036975,0
+            14.287715,36.036973,0
+            14.287501,36.036929,0
+            14.287455,36.036852,0
+            14.287252,36.036783,0
+            14.287084,36.036755,0
+            14.286922,36.036763,0
+            14.286763,36.036779,0
+            14.286685,36.036729,0
+            14.286535,36.036661,0
+            14.286514,36.03665,0
+            14.286166,36.036514,0
+            14.28593,36.036401,0
+            14.285526,36.036173,0
+            14.285006,36.035872,0
+            14.284568,36.035666,0
+            14.2845,36.035654,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 5</name>
+        <description><![CDATA[To head back to L-Imġarr retrace your steps a few metres back towards the promenade and descend along a concrete path on your right. Be careful as the path may be slippery when wet and a bit muddy further down along the clayey part of it but it is the nicest way of descending to the rural landscape of Ġebel Aħmar which comes to life with many a Zitting Cisticola chirping as they circle their territories in spring. At the bottom of the path keep left and then turn right to head towards Għajnsielem. The road is named Triq Borġ l-Għarib due to a legendary placename (translated as “the foreigner’s mound”) — a nearby much disturbed archaeological site with several megalith about 300m away to the west close to the road (on privately cultivated land).<br><br>Proceed straight down Triq Simirat and keep right to reach Pjazza Indipendenza — the nineteenth century church of Our Lady of Loreto functioned as the parish of Għajnsielem until 1979 when the new larger church was completed. The former was built next to the site of a niche raised by a pious local, Anġlu Grech, after he had a vision of Our Lady. A few metres onwards will lead you to the large open square with its imposing Gothic parish church which was started in 1924 and which maintained the same traditional Loreto dedication. To the left of the church take the path through the arch into Betlehem f’Għajnsielem — a life-size crib which comes to life in December when the Nativity scene is re-lived and continues until the Epiphany.<br><br>You will soon come out to the main road running parallel to the lush Ġnien Migiarro valley below. Cross the road very carefully and descend the steps down next to the Gleneagles bar to return to your starting point.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.284503,36.035646,0
+            14.284581,36.035609,0
+            14.284811,36.03571,0
+            14.285388,36.036026,0
+            14.285748,36.036254,0
+            14.285618,36.035905,0
+            14.285518,36.0357,0
+            14.285511,36.035689,0
+            14.285427,36.035535,0
+            14.285249,36.035416,0
+            14.285238,36.035407,0
+            14.285203,36.035298,0
+            14.285371,36.034766,0
+            14.285582,36.034484,0
+            14.285764,36.033937,0
+            14.285861,36.033608,0
+            14.285845,36.033396,0
+            14.285841,36.033383,0
+            14.285782,36.033139,0
+            14.285782,36.033132,0
+            14.285757,36.032983,0
+            14.285777,36.032785,0
+            14.285894,36.032655,0
+            14.286045,36.032614,0
+            14.286251,36.032603,0
+            14.286442,36.032555,0
+            14.286607,36.032461,0
+            14.286611,36.032458,0
+            14.286726,36.032316,0
+            14.286863,36.032026,0
+            14.287043,36.0316,0
+            14.28724,36.03138,0
+            14.287331,36.031232,0
+            14.287331,36.031228,0
+            14.287538,36.031054,0
+            14.287822,36.030887,0
+            14.287967,36.030681,0
+            14.288047,36.030497,0
+            14.288049,36.030338,0
+            14.288243,36.030193,0
+            14.288698,36.030064,0
+            14.289211,36.029865,0
+            14.289499,36.029574,0
+            14.289636,36.029319,0
+            14.28978,36.028816,0
+            14.289941,36.028493,0
+            14.290125,36.027972,0
+            14.290124,36.027801,0
+            14.290124,36.027793,0
+            14.290081,36.02749,0
+            14.290056,36.027367,0
+            14.290051,36.027288,0
+            14.290239,36.027131,0
+            14.290239,36.027124,0
+            14.290161,36.027045,0
+            14.290147,36.027041,0
+            14.289987,36.026883,0
+            14.290214,36.026686,0
+            14.290438,36.026498,0
+            14.290648,36.026285,0
+            14.290799,36.026148,0
+            14.290819,36.026144,0
+            14.290983,36.026135,0
+            14.290993,36.026131,0
+            14.291115,36.026061,0
+            14.291251,36.025958,0
+            14.291382,36.025816,0
+            14.291523,36.025603,0
+            14.291593,36.02555,0
+            14.291679,36.025517,0
+            14.291927,36.025468,0
+            14.292168,36.025419,0
+            14.292205,36.025275,0
+            14.292241,36.025176,0
+            14.292319,36.02505,0
+            14.29235,36.025023,0
+            14.292754,36.025187,0
+            14.293155,36.025354,0
+            14.293397,36.025451,0
+            14.29391,36.025536,0
+            14.294886,36.025715,0
+            14.29509,36.025741,0
+            14.295153,36.025747,0
+            14.295338,36.025714,0
+            14.295433,36.02566,0
+            14.2956,36.025494,0
+            14.295677,36.025367,0
+            14.295757,36.025191,0
+            14.295828,36.025036,0
+            14.295875,36.02489,0
+            14.295915,36.024782,0
+            14.295971,36.02471,0
+            14.29612,36.024639,0
+            14.296377,36.024525,0
+            14.296613,36.024368,0
+            14.296726,36.024283,0
+            14.296881,36.024123,0
+            14.297003,36.024023,0
+            14.297182,36.023962,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>End</name>
+        <styleUrl>#icon-503-D60303-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.2971969,36.0239417,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Snippets</name>
+      <Placemark>
+        <name>The Gozo Boat</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKt3oNICQ-SRCDt-zcM9h8XN54X0HYK6CGmMCK--VLyQvmXQg3KeGYU-LeyNfXHo59azxDdnlfotZlzxV_z309PzZfECBRoHollAFnAlnfh_00e7NTcLPEEFlxgFwoNMz5TukLu5XN-ctRF6xegmb-9vstKSmGPqOHjkRGdBm3219wYi9R0dyXZgGDu35_YbHo_3Sgpc_iKxog?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Today’s Gozo Channel ferry service with 3 Malta built modern ships carrying over 3 million passengers annually runs very frequently and almost uninterruptedly – but in past times anyone wishing to cross from the opposite coast in Malta at Marfa had to light a fire to signal to boat owners in Gozo the need for a ride.<br>Until 1960, before the introduction of a steamer service, the older versions of the passenger ferry between L-Imġarr and the Grand Harbour in Malta were much smaller traditional wooden boats evolving in design over the centuries and leading finally to the Gozo Boat which was in use for a century and was referred to with different names such as tal-latini (due to its lateen rig) or xprunara (Gozo Speronara). It retained sails till the 1950s even though engines had started to be fitted on it since 1919. At 47 feet long and allowing for a 30 tonne cargo these boats were built to last a lifetime, enduring the rough seas prevailing in the channels in windy weather. As with other traditional boats it was painted in green, blue, red and yellow whilst a completely black one was used to transport the dead. The moustache on the bow was decorated with the traditional eye of Horus – to protect from the evil eye.<br><br>The last known Gozo Boat in existence, dating to 1933 and built by Maltese boatbuilders is the Sacra Famiglia which after years of lying decaying in the harbour is now thankfully restored and is on permanent display at the harbour as part of an initiative of the local voluntary organization Wirt Għawdex in conjunction with Gozo Channel.]]></description>
+        <styleUrl>#poly-FFFF00-1000-179</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKt3oNICQ-SRCDt-zcM9h8XN54X0HYK6CGmMCK--VLyQvmXQg3KeGYU-LeyNfXHo59azxDdnlfotZlzxV_z309PzZfECBRoHollAFnAlnfh_00e7NTcLPEEFlxgFwoNMz5TukLu5XN-ctRF6xegmb-9vstKSmGPqOHjkRGdBm3219wYi9R0dyXZgGDu35_YbHo_3Sgpc_iKxog?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.299339,36.026753,0
+                14.299429,36.026704,0
+                14.299579,36.026709,0
+                14.299649,36.026761,0
+                14.299563,36.026803,0
+                14.299399,36.026793,0
+                14.299339,36.026753,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Madonna Tal-Blat Chapel</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtWRLktNsB9KKE4IEno7z0ucujwqaIfnj-BMQ9WGNDYVxCTBOo6VBynctAtr4Npsz1kN-2jU3FGXTGS3-KHUsOKhfVF5Ml35dvJeik_79v9Zf3XZQs5dLvJSzYO0v5DeJ27s687WsYhMI9JJncA9Bpfh2iPuJFPfCHTbBhG1KxD-2N9igXtJQNOSKHjlRwNIsYCXIsIWC1lbA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The chapel is dedicated to the Immaculate Conception. Local lore has it that being so close to Comino, just a kilometre away, this coastal church served the residents of Comino who could follow mass celebrated at Tal-Blat Chapel from the opposite shore. The sea is a recurrent theme in many coastal chapels and this one could have been built as a vow by fishermen or mariners and it is in fact also linked to Saint Andrew the patron saint of fishermen – both saints feature together in the altar’s frontpiece painting which is now kept in the parish church. The statue in the niche represents Our Lady Star of the Sea (the Stella Maris) on a Maltese boat. Old maritime graffiti of ships can be traced on the façade.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKu5jziHCEfaJETGR7Y0sogU0eMmXe4F163Cg-dcKQmL8w7W0dOLvWzEwWIvV2-gBFFl99ht4D5vPkerM2-PTjeU5pbgnc3HunfNwANboGqK38ABmcSv5trrIWTSKFVvAlZe7KfQsy0MHdOQda7gULxzOKUndghQSsIsOo5J5fUKmCnylCEpb44ojPV-c1DQn0E7QZr-3C1INmY?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#poly-FFFF00-1000-179</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtWRLktNsB9KKE4IEno7z0ucujwqaIfnj-BMQ9WGNDYVxCTBOo6VBynctAtr4Npsz1kN-2jU3FGXTGS3-KHUsOKhfVF5Ml35dvJeik_79v9Zf3XZQs5dLvJSzYO0v5DeJ27s687WsYhMI9JJncA9Bpfh2iPuJFPfCHTbBhG1KxD-2N9igXtJQNOSKHjlRwNIsYCXIsIWC1lbA?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKu5jziHCEfaJETGR7Y0sogU0eMmXe4F163Cg-dcKQmL8w7W0dOLvWzEwWIvV2-gBFFl99ht4D5vPkerM2-PTjeU5pbgnc3HunfNwANboGqK38ABmcSv5trrIWTSKFVvAlZe7KfQsy0MHdOQda7gULxzOKUndghQSsIsOo5J5fUKmCnylCEpb44ojPV-c1DQn0E7QZr-3C1INmY?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.321359,36.029233,0
+                14.32133,36.028989,0
+                14.321482,36.028983,0
+                14.321504,36.029218,0
+                14.321359,36.029233,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Ta’ Kenuna Tower and Maltese Garden</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsnBb4XoBayPKgc3__w-0Z2wJZPqZJLO0qLU9WxBJKiObygVPS9G84EpsSGGsSqc9hD9VZjei3NevyAXqusDnS98dcwWhaHOlGt0nUhi14bkWpqPP2Qwp9AuiVZ7mVJceYo0-Tzvdte9Sc2qquj7O6_yWo0tc59t-4ujT_9bMZJq1xRCUi4fHo1IKaYav7KM7QE_oowYGZKAQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Ta’ Kenuna Tower was built during the British rule in 1848 and served as a semaphore. It was restored in recent times and is now being used as a telecommunications tower. Allow some time to stroll around the pretty Maltese Garden – a unique initiative for the island at the time when it was put forward by a local green group Għaqda Riħan with the help of a local botanist who wanted to preserve and propagate endangered indigenous and endemic species such as the Maltese Everlasting, the Maltese National Plant – The Maltese Rock Centaury and the Maltese National Tree – the Arar/Sandarac Gum Tree.]]></description>
+        <styleUrl>#poly-FFFF00-1000-179</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsnBb4XoBayPKgc3__w-0Z2wJZPqZJLO0qLU9WxBJKiObygVPS9G84EpsSGGsSqc9hD9VZjei3NevyAXqusDnS98dcwWhaHOlGt0nUhi14bkWpqPP2Qwp9AuiVZ7mVJceYo0-Tzvdte9Sc2qquj7O6_yWo0tc59t-4ujT_9bMZJq1xRCUi4fHo1IKaYav7KM7QE_oowYGZKAQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.283787,36.03558,0
+                14.28397,36.035495,0
+                14.284121,36.03547,0
+                14.284346,36.035487,0
+                14.284352,36.035487,0
+                14.284583,36.035592,0
+                14.284069,36.035879,0
+                14.283541,36.035703,0
+                14.283787,36.03558,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Points</name>
+      <Placemark>
+        <name>Yacht Marina</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsZK8wRU0B9_0VO5alfNrBxM3o9MLDhU-2joSUVucmDGRc8Xl8e4s1_B0dtIGIjQwtutHTxH8020PV4LcSlo6mDWsZD1zAK6OHEBAbfJSdfHW1vXj6Wy_CabtQDln4aucPZqX_7BSCbH28vldAp7kE1-XPVBS5NOb6MVKLDVufQYCHtBBqSfjsjQazMpKTevgfoDs1DLfIdJd4?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsZK8wRU0B9_0VO5alfNrBxM3o9MLDhU-2joSUVucmDGRc8Xl8e4s1_B0dtIGIjQwtutHTxH8020PV4LcSlo6mDWsZD1zAK6OHEBAbfJSdfHW1vXj6Wy_CabtQDln4aucPZqX_7BSCbH28vldAp7kE1-XPVBS5NOb6MVKLDVufQYCHtBBqSfjsjQazMpKTevgfoDs1DLfIdJd4?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2983639,36.025951,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Our Lady of Lourdes Chapel
+</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvNQtYBcbeU0s0X9LWT5l9SxV9o4t2aO8Q94ttfB0F5vSSvF1sdUylemiloPvYnhzMmiM27mPSLFkvRNfQEQ5JymlGl_yvJZsj_oZ05krikCoNZF6Z66vFzrtAM4JFwVs_hK1Qbu7g2WJMsh7Tsipb49RaBnUnj5WJlWGyuxYBVHTPE7Au4vP3LtRaVjSeLUBOsQwhjldB7HQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>This chapel dedicated to Our Lady of Lourdes stands on a promontory overlooking Mġarr Harbour. It enjoys spectacular views of the Gozo Channel and the Island of Malta and can be easily reached on foot or by car from the harbour or from the village of Għajnsielem.<br><br>A statue of the Virgin Mary of Lourdes sculpted by Antonio Busuttil was placed in a natural cavity beneath the promontory in 1879. On 3rd June 1888, it was blessed by Bishop Pietro Pace who urged devotees to help him raise a chapel. The foundation stone was laid just one week later and the chapel opened in summer 1893. It was consecrated in 1949.<br><br>Designed by Emmanuel Galizia and built by stonemason Wiġi Vella of Żebbuġ, the chapel has a Gothic style with a steeply pitched roof, lance windows and a series of buttresses topped with pinnacles. A circular rose window adorns the gable over the main door while, at the other end, a square tower is topped by a tall, slender spire. The tower has a set of five bells and at its top, immediately under the spire, there are four clock faces.<br><br>Inside, the chapel has a ribbed Gothic vaulted roof and is dominated by a statue of the Virgin Mary of Lourdes. This statue was sculpted by Carlo Darmanin and donated by Karolina Mamo-Bruno in 1893.<br><br>The feast is celebrated on the 11th February, the date of the first apparition of Lourdes. Throughout the feast many people from all over the island flock to the chapel to hear mass and pray.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvNQtYBcbeU0s0X9LWT5l9SxV9o4t2aO8Q94ttfB0F5vSSvF1sdUylemiloPvYnhzMmiM27mPSLFkvRNfQEQ5JymlGl_yvJZsj_oZ05krikCoNZF6Z66vFzrtAM4JFwVs_hK1Qbu7g2WJMsh7Tsipb49RaBnUnj5WJlWGyuxYBVHTPE7Au4vP3LtRaVjSeLUBOsQwhjldB7HQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2951506,36.025131,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Church of Our Lady of Loreto
+</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvQ-K0Q7DPvpDD_yelH7B0CD_-4iv_auj7o4Nqsw9XJADCafEmWdvtZcS_ncrktmhgjtKFjdEfre5cyr4hQcPdTXV_94KoSNf3LRuNbs4WstyTQTIgdAXxLD-hRL3iAhn4lHizmyjnk3326WeZKjYC9LzMbvffaZMGm4TBpD-2_fjXnAaEMfJev3u0OX92hqLR6y92N7CTVLQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Għajnsielem became an autonomous parish by Papal decree in 1855. The Old Parish Church still stands but as the population of the village grew a larger church was needed and a new church, in Gothic-Lombard style and in the shape of a Latin cross, was begun in 1924.<br><br>Work on the building was intermittent. Work was halted by World War One and two accidents in which the master mason Toni Vella broke his legs falling from the building. The first architect resigned, the second died and in all the church had four overseeing architects.<br><br>The church we see today was finally completed with the blessing of the bell tower in June 1979.<br><br>The church is dedicated to Our Lady of Loreto and when the new Church was finished, the titular statue was transferred from the Old Church to the new one. The fine statue was made by Gallard et Fils of Marseilles and arrived in Gozo on 14th October 1866 to be carried in procession from Mġarr Harbour to Għajnsielem.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvQ-K0Q7DPvpDD_yelH7B0CD_-4iv_auj7o4Nqsw9XJADCafEmWdvtZcS_ncrktmhgjtKFjdEfre5cyr4hQcPdTXV_94KoSNf3LRuNbs4WstyTQTIgdAXxLD-hRL3iAhn4lHizmyjnk3326WeZKjYC9LzMbvffaZMGm4TBpD-2_fjXnAaEMfJev3u0OX92hqLR6y92N7CTVLQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2894667,36.0262595,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chambray Fortification</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsakhWWzBlldB-y5Sx_KW8W5I5mFOYTop0ukZy-ra44vxvik3lf1RAo76OKRGhDl_Ob9LZpRG75C2VkDDQWBrEJUfUXD4j-6W0JMpUscsUEDQPLnPWuUfT2VeKABsKZhzhZWdZK3e6lds6pHCAQosDKAQX-xokWrS5PjDLpG8lBciGVadgaJUym23-d2FF75D26Puy0xUI2V9g?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Fort Chambray or Fort Chambrai (Maltese: Forti Xambrè) is a bastioned fort located in the precincts of Għajnsielem, on the island of Gozo, Malta. It was built in the mid-18th century by the Order of Saint John, in an area known as Ras it-Tafal, between the port of Mġarr and Xatt l-Aħmar. The fort was meant to be the citadel of a new city which was to replace the Cittadella as the island's capital, but this plan never materialized.<br><br>The fort saw use during the French invasion of Malta in 1798, and it was subsequently used as a military hospital and mental institution. ]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsakhWWzBlldB-y5Sx_KW8W5I5mFOYTop0ukZy-ra44vxvik3lf1RAo76OKRGhDl_Ob9LZpRG75C2VkDDQWBrEJUfUXD4j-6W0JMpUscsUEDQPLnPWuUfT2VeKABsKZhzhZWdZK3e6lds6pHCAQosDKAQX-xokWrS5PjDLpG8lBciGVadgaJUym23-d2FF75D26Puy0xUI2V9g?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2948583,36.0226573,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Parking Area</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.2982147,36.0232445,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Public Toilet</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.2976605,36.0233343,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bus Stop</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.2981003,36.0237899,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ferries to Malta</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv7IahM94aid9JzbSsOsJO6fQgmDFmhZWu0TUIRFmq1ApV61KlWX5L-WKq5IWPxxUTyWEi_CY8ylYKgL001VdOIu2UxhPHg3TNKqr3KlvkLuh54FcyyGIHqJMWERY5DsDhU5zEZyq2VMLmfbT7mXIGlNJbE2FrABlRAcTGBE7q9okk2Ntl3y07omUihe8Z7gzp5E9vyU0_NbDo?authuser=0&fife=s16383" height="200" width="auto" /><br><br>There are three companies operating ferries to the island of Malta: Gozo Channel, Virtu Ferries, and Gozo Fast Ferries. <br><br>Gozo Channel has a fleet of four ferries that dock in Cirkewwa. All ferries allow vehicles on board and each trip takes approximately 25 minutes. www.gozochannel.com<br><br>Virtu Ferries and Gozo Fast Ferries have two ferries each. Both companies operate a fast ferry service from Mġarr (Gozo) to the Grand Harbour in Valletta. Each trip takes approximately 45 minutes and none of the ferries take vehicles (with the exception of bicycles) on board. <br>www.gozofastferry.com<br>www.virtugozo.com<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtfzNauWQS0PSJKniSo5Zgug4H7py8toggXzpOUPSQoo4X2VU8nu_cacgF-mfx1qJVE9F8ctdG3Ur-9aSMim6mqy4VZurY_CT0JbaNDLlCcx7kQn-9n4ufOkLkThtl5u6x0keH-CiNMCXADL8EHqnCYlwAJSYGzN5hX-FXTlvlp7MoxRhMPbUY7PI1tn6tx6O4dafKx6jhyWyc?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvDgV9cFaj3zQqmg8ExBqvw7CNYi6YFEJ8c2JKZab3lK5OP6n0u2IjERivrPLETblSldLL-06tw_pdF_mH1sDSN4JIjzFHx4xkCM3x6M0qNBh-ViLF6ErgZVHFqhHbi9D-j-Tg0CFz8DopgSGW7gwWzhrdGrzVvXaRyA5UHTNdaHV5d2X5KwmE3bpqgwuHM0d6a2vYWJUummw?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv7IahM94aid9JzbSsOsJO6fQgmDFmhZWu0TUIRFmq1ApV61KlWX5L-WKq5IWPxxUTyWEi_CY8ylYKgL001VdOIu2UxhPHg3TNKqr3KlvkLuh54FcyyGIHqJMWERY5DsDhU5zEZyq2VMLmfbT7mXIGlNJbE2FrABlRAcTGBE7q9okk2Ntl3y07omUihe8Z7gzp5E9vyU0_NbDo?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtfzNauWQS0PSJKniSo5Zgug4H7py8toggXzpOUPSQoo4X2VU8nu_cacgF-mfx1qJVE9F8ctdG3Ur-9aSMim6mqy4VZurY_CT0JbaNDLlCcx7kQn-9n4ufOkLkThtl5u6x0keH-CiNMCXADL8EHqnCYlwAJSYGzN5hX-FXTlvlp7MoxRhMPbUY7PI1tn6tx6O4dafKx6jhyWyc?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvDgV9cFaj3zQqmg8ExBqvw7CNYi6YFEJ8c2JKZab3lK5OP6n0u2IjERivrPLETblSldLL-06tw_pdF_mH1sDSN4JIjzFHx4xkCM3x6M0qNBh-ViLF6ErgZVHFqhHbi9D-j-Tg0CFz8DopgSGW7gwWzhrdGrzVvXaRyA5UHTNdaHV5d2X5KwmE3bpqgwuHM0d6a2vYWJUummw?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2990257,36.0241196,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuSslscNXkOxYQkZOa2Ud3rOkAUaGcNoFDxJ4LC8JnA9eewkkgc0HYlIiRilNR1DYYOpde2wbPSrOt4y2TClp1W3yR34G1YHQvYtAVCnXgQTnzvYsPa-O8FB4Koy19SSza58TWnZplwV_4iAk5ThfXEwf2D4PGyknsOQ_mP9ZooYO7OPpr4i5AEG67px_JLv7cnaRuPRFeiFw?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuSslscNXkOxYQkZOa2Ud3rOkAUaGcNoFDxJ4LC8JnA9eewkkgc0HYlIiRilNR1DYYOpde2wbPSrOt4y2TClp1W3yR34G1YHQvYtAVCnXgQTnzvYsPa-O8FB4Koy19SSza58TWnZplwV_4iAk5ThfXEwf2D4PGyknsOQ_mP9ZooYO7OPpr4i5AEG67px_JLv7cnaRuPRFeiFw?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3095915,36.0311092,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Snorkelling Area</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtWwrQFql0KqvyJk6s22OXgX47eA4iWyI9d2Nu7ia8RltTAaU2OxijoY6a2b96sEF2teQlCEDL_mY2JeO4vRcdotkRUFe2WRE1dYybjQcxLjVnPuDeJPOm1qEihAi5mEaxs-HZu720dgoaC5Gygf5P_TDpJeR8U3p1QHBO_xAFSu093aVY9UlVYPrFdKBEl8RYUOKd-XIFyHA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtWwrQFql0KqvyJk6s22OXgX47eA4iWyI9d2Nu7ia8RltTAaU2OxijoY6a2b96sEF2teQlCEDL_mY2JeO4vRcdotkRUFe2WRE1dYybjQcxLjVnPuDeJPOm1qEihAi5mEaxs-HZu720dgoaC5Gygf5P_TDpJeR8U3p1QHBO_xAFSu093aVY9UlVYPrFdKBEl8RYUOKd-XIFyHA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3220284,36.026446,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ħondoq Bay Swimming Zone</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuvzXBgEQk5BqqwApNpQQRyh9nDuxwiPUbrl5QuKBr2KKZ-ShYSZQsWklYnBW_7a-6QRiaGQL2SjvbCVEayM1DbPi9BVu-5u6pNwQ6yKG_7fhG5WOgLmNZv7KNIULKTS6bjTG1ZD1in0qwq9v9YqxMLUA0ISB3F_cDYTsrXCFzbfAnFzJ6FN59L5f96GW3cJ4QyTrzd2-Pe6KA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuvzXBgEQk5BqqwApNpQQRyh9nDuxwiPUbrl5QuKBr2KKZ-ShYSZQsWklYnBW_7a-6QRiaGQL2SjvbCVEayM1DbPi9BVu-5u6pNwQ6yKG_7fhG5WOgLmNZv7KNIULKTS6bjTG1ZD1in0qwq9v9YqxMLUA0ISB3F_cDYTsrXCFzbfAnFzJ6FN59L5f96GW3cJ4QyTrzd2-Pe6KA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3224951,36.0277779,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Parking Area</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.3234714,36.0282334,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Public Toilet</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.3218782,36.0283245,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Madonna Tal-Blat Chapel
+</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvasGCjr8gD00_UPhVvd12drmnG8DFWvmFe0sRuektnR_DGVLUEsunKekQN9J_6hUs9moeSnI_kGTk_pyJBae5yci4xr8Wn-mgC1znmR9DOuk1-5in7yK_5NS9NN3dxBJMAjuCaANp67I4hC7Szz1t1HeUqEegmJbMmWG0bghTi1DYW_CVs2QS_31rr7gzIm6xZahGlJuBeCPA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The chapel is dedicated to the Immaculate Conception. Local lore has it that being so close to Comino, just a kilometre away, this coastal church served the residents of Comino who could follow mass celebrated at Tal-Blat Chapel from the opposite shore. The sea is a recurrent theme in many coastal chapels and this one could have been built as a vow by fishermen or mariners and it is in fact also linked to Saint Andrew the patron saint of fishermen – both saints feature together in the altar’s frontpiece painting which is now kept in the parish church. The statue in the niche represents Our Lady Star of the Sea (the Stella Maris) on a Maltese boat. Old maritime graffiti of ships can be traced on the façade.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvasGCjr8gD00_UPhVvd12drmnG8DFWvmFe0sRuektnR_DGVLUEsunKekQN9J_6hUs9moeSnI_kGTk_pyJBae5yci4xr8Wn-mgC1znmR9DOuk1-5in7yK_5NS9NN3dxBJMAjuCaANp67I4hC7Szz1t1HeUqEegmJbMmWG0bghTi1DYW_CVs2QS_31rr7gzIm6xZahGlJuBeCPA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3214598,36.029062,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsUCKzc_o6eH7JTbG1bmsF8nBVbXL-eV8fkArzW1ta2ku2OKkfidbc-axS2zrAR1kIRwzXvQWQlVl5DREsEZX0-LzDVect0v5UtI6DSEYaygLe5vKg-zSYGrm5ZECa8DPdnTr_k-bODkf4PlzHDh8NUmf5iF393tT2yQDYvWNAVl1fZuyi1XVfOPA-kFwOB2-g0ZbZpd7TlgQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsUCKzc_o6eH7JTbG1bmsF8nBVbXL-eV8fkArzW1ta2ku2OKkfidbc-axS2zrAR1kIRwzXvQWQlVl5DREsEZX0-LzDVect0v5UtI6DSEYaygLe5vKg-zSYGrm5ZECa8DPdnTr_k-bODkf4PlzHDh8NUmf5iF393tT2yQDYvWNAVl1fZuyi1XVfOPA-kFwOB2-g0ZbZpd7TlgQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3213686,36.02937,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Quarry</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.3216913,36.0305254,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cart Ruts</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvQYpsoW9vlrhI5TNIFmW3N9TJKdWyo0oQyKswDHxJf6rQsh_fqK-JmuKBsKY9DEy_fPt7maSURs1kMG6sX4-L4pf0ltivx2zb6dnTGSkWu_GJNpPXyGW3pNVb5D4lozXN5Np01ZpQWr-s22oxpIERtVzHX8Jy2HTmaZP_S8c4atZAnQUeBW2NXVOtguS2rBUQtyCCNUvTWsQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvQYpsoW9vlrhI5TNIFmW3N9TJKdWyo0oQyKswDHxJf6rQsh_fqK-JmuKBsKY9DEy_fPt7maSURs1kMG6sX4-L4pf0ltivx2zb6dnTGSkWu_GJNpPXyGW3pNVb5D4lozXN5Np01ZpQWr-s22oxpIERtVzHX8Jy2HTmaZP_S8c4atZAnQUeBW2NXVOtguS2rBUQtyCCNUvTWsQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3232201,36.0334883,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Immaculate Conception Chapel</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtEUiE8ZSke6OwkQOF73UHIfgDlZGcAxH_RAZXjRPRyblCXJtxdLEQuDs_BuRK6WDjZ9rNukK7Hd6YZBGX8261FITw3ocOqAOWwsTP5CzTVOCm4qunqojLJq9iftpYUAM1Im-ubF4xFvEmtA37XE1WCJoO6PyK52kLJuL-pfkOTD_h2Bx_XwfnL1tszfG_SeLVlxrny4ej8Bw?authuser=0&fife=s16383" height="200" width="auto" /><br><br>This Chapel which stands between il-Qala and the coast at Ħondoq ir-Rummien, is one of the earliest Marian shrines on the island and dates back to 1575. It is dedicated to the Immaculate Conception of the Virgin Mary. The feast is celebrated on the 8th December and the festa statue of the saint was sculptured in Marseilles by Gallard et Fils in 1887.<br><br>In the early 1650’s, the chapel was enlarged and in 1688, it became the parish church of the eastern part of Gozo serving Nadur, Qala, and Għajnsielem. It remained so for about 12 years and served again as a parish church, this time just for Qala, from February 1872 to February 1889.<br><br>Between 1982 and 1988 the inside was gilded and refurbished. The main attraction is the altarpiece, attributed to Federico Barocci di Urbino, which shows God extending his special protection to the Immaculate Conception. The painting of the Virgin Mary was crowned on 1st August 1954.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtdi5TnGVhhmAy3tknWZoGfdIihYwLaKXUOs0FFx4oUwdt9SUpspMef3VOAtkFZmHNTVBlysYT0_o40YcxhTXTODg2NKRTDX1TCG_OXpfbTajhA4cpCPAnxd0Shrh7dDKJUnG90DrN-gr8ur8ANHTRMnvKK7_V3hGwTtWBwNt_AAdCIXp4V67lGR_9RNPedz6ldJBO4QW0xNRQ?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtEUiE8ZSke6OwkQOF73UHIfgDlZGcAxH_RAZXjRPRyblCXJtxdLEQuDs_BuRK6WDjZ9rNukK7Hd6YZBGX8261FITw3ocOqAOWwsTP5CzTVOCm4qunqojLJq9iftpYUAM1Im-ubF4xFvEmtA37XE1WCJoO6PyK52kLJuL-pfkOTD_h2Bx_XwfnL1tszfG_SeLVlxrny4ej8Bw?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtdi5TnGVhhmAy3tknWZoGfdIihYwLaKXUOs0FFx4oUwdt9SUpspMef3VOAtkFZmHNTVBlysYT0_o40YcxhTXTODg2NKRTDX1TCG_OXpfbTajhA4cpCPAnxd0Shrh7dDKJUnG90DrN-gr8ur8ANHTRMnvKK7_V3hGwTtWBwNt_AAdCIXp4V67lGR_9RNPedz6ldJBO4QW0xNRQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3209766,36.0339924,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[St. Joseph's Church]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKucZkF4K_2vujAJ3065ZFdNRLqtH0iha9kj1y4Y88spHh3Bh93xN7EVZ5P_li6NlSEsxTPp7Ig2-WZWbe1ckAIjokyKFTbZqi0t8l7AIJa28tdlaOFijvNj_b-2zr_mQGCaztj7SzWyq85ZVqn_GSt6M8xAZAFLsuuhJawmVZf__ueXsCacGBffKZKVVAhP9XI2vzUYLN_aVlI?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The parish church of il-Qala was designed by Dun Ġużepp Diacono the same architect-priest who designed the church of l-Għasri. It was constructed between 1882 and 1889, when he was serving as parish priest in il-Qala. The church is baroque in style, like many of Gozo’s churches (whether they were built in the seventeenth century or the twentieth!).<br><br>Il-Qala became a parish on 3 February 1872, the first to be established after the creation of the Diocese of Gozo (separate from Malta). The seat of the parish church was the church of the Immaculate Conception of Our Lady until St Joseph’s was completed in 1889. The church was consecrated in 1904 and became Archipresbyteral in 1965.<br><br>The annual village festa is celebrated in early August.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsIslIlmBn1WzeKLTx7dM9Dpj8pHEtitk26Q67MV8V4hDxYpq74igaSORO29Hiiq4b1G3DNxXMHorm8FBbUpgxI3u1sZzmi5ZX_rCIfCIA-GTPq8pRDYzON7j2Q7B3S1RECddn4sthhnk_QaWgktXGvDeWF3LO3Kg5EzCRMeMOGPwdbq04TZ23nv6GNEzR6naWme5bBsH2CReE?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsRJWiDU4UQJl0oiMps8leDTD7wRCUJ1SyzjWj8SKjMV4Dk9SSoKnpVKEVUdCVK0nelwBtXpnU5A9qiD_ZWP5diHV-mTUCDH6OEAdFPyVBYgCmwkyMBsi7ccilFctIwL9VG08vGGVdmgfFK35L1bWcOWWbs_9Ixq6r5DPFo3Kp4fiTL9IM32XOh-saTY2N-8KdA-_LjlotXEg?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKucZkF4K_2vujAJ3065ZFdNRLqtH0iha9kj1y4Y88spHh3Bh93xN7EVZ5P_li6NlSEsxTPp7Ig2-WZWbe1ckAIjokyKFTbZqi0t8l7AIJa28tdlaOFijvNj_b-2zr_mQGCaztj7SzWyq85ZVqn_GSt6M8xAZAFLsuuhJawmVZf__ueXsCacGBffKZKVVAhP9XI2vzUYLN_aVlI?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsIslIlmBn1WzeKLTx7dM9Dpj8pHEtitk26Q67MV8V4hDxYpq74igaSORO29Hiiq4b1G3DNxXMHorm8FBbUpgxI3u1sZzmi5ZX_rCIfCIA-GTPq8pRDYzON7j2Q7B3S1RECddn4sthhnk_QaWgktXGvDeWF3LO3Kg5EzCRMeMOGPwdbq04TZ23nv6GNEzR6naWme5bBsH2CReE?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsRJWiDU4UQJl0oiMps8leDTD7wRCUJ1SyzjWj8SKjMV4Dk9SSoKnpVKEVUdCVK0nelwBtXpnU5A9qiD_ZWP5diHV-mTUCDH6OEAdFPyVBYgCmwkyMBsi7ccilFctIwL9VG08vGGVdmgfFK35L1bWcOWWbs_9Ixq6r5DPFo3Kp4fiTL9IM32XOh-saTY2N-8KdA-_LjlotXEg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3115524,36.0359155,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Ta' Randu Windmill]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsrfEIznzX77BnNhYFcM_oq3AjxR9XX2XX95qhptDVFYD-kFO4aV-fW7WENKoYq78t85-_e-R1KYcia_CpY38R7-aQi5Ity57p7bz5g8CpTB-jsayUiRgRQ5zYdz1qA1b-f_k0nei9S2ppdn82R4wdvVOD-DGjK2aaDRxLpRdAKPAfOqrNrWgvmAaJeIEXIbI1T74ogmcGwuw?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Built in 1853 by the Camilleri brothers  and was kept operating up till 1977. The mill is very well preserved. There is no machiney, but the mill has its 6 stocks.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsrfEIznzX77BnNhYFcM_oq3AjxR9XX2XX95qhptDVFYD-kFO4aV-fW7WENKoYq78t85-_e-R1KYcia_CpY38R7-aQi5Ity57p7bz5g8CpTB-jsayUiRgRQ5zYdz1qA1b-f_k0nei9S2ppdn82R4wdvVOD-DGjK2aaDRxLpRdAKPAfOqrNrWgvmAaJeIEXIbI1T74ogmcGwuw?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3074624,36.0375111,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[St. Peter & St. Paul's Church]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsZpnXxsrf9YhTfNSuEN6i020wz9SAmPiYV7imikuP7RbjfWfnaA64M84Amo3myS6A9xm5FJ1lmAN_kD5GETEZcTdrfK7nDHX8aWkzsCArmta7bUuQ-dtQ1npQ_jJNeS2SvEUyH2ZvLybBlfDSnGqv-wa8xarrkBP4aLtW3xgoWX0qkHwBGwGa0qLlgKasBYOpUMoXewrASYO8?authuser=0&fife=s16383" height="200" width="auto" /><br><br>In-Nadur‘s monumental church is dedicated to the apostles Saints Peter and Paul. Its foundation stone was laid in December 1760 but the facade and aisles were built at the beginning of the twentieth century to a design by the renowned Maltese architect Francesco Saverio Sciortino.<br><br>The parish of in-Nadur was established in 1688. For some years the seat of the parish was the church of the Immaculate Conception in il-Qala. The present church was consecrated on 12 May 1867 and became Archipresbyteral in 1893. It became the third Collegiate of Gozo in 1894 and gained the title of Basilica on 26 June 1967. The paintings on the ceiling and in the dome are by the Maltese painter Lazzaro Pisani and depict episodes from the lives of Saints Peter and Paul.<br><br>The feast of Saints Peter and Paul, “L-Imnarja”, is celebrated on the 29th of June, which is also a National holiday. The feast’s name comes from luminaria (illumination) and is connected with the beginning of summer.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKsZpnXxsrf9YhTfNSuEN6i020wz9SAmPiYV7imikuP7RbjfWfnaA64M84Amo3myS6A9xm5FJ1lmAN_kD5GETEZcTdrfK7nDHX8aWkzsCArmta7bUuQ-dtQ1npQ_jJNeS2SvEUyH2ZvLybBlfDSnGqv-wa8xarrkBP4aLtW3xgoWX0qkHwBGwGa0qLlgKasBYOpUMoXewrASYO8?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2941642,36.0377666,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Maritime Museum </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvgmNwGEwhT7223KGlaYC5PBuxYFcf5faZvJfHdZ0hzNabcaQhauYJqLVH8dQNp48Rf7ScYYWw19M4j4zX8KE9z5bEJMuYWt0F0ab81GOoqGIaSnGhSqZRhbJbXOIwx4sRhlBbAWYRW_B-I_JK2Oa68aAP_PyBDQcGNJfpW9HKRyDs9CHqOKXdbnK_EFmHIqHtJ2wTp1YeyeQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The privately-owned Kelinu Galea Maritime Museum in In-Nadur is one man’s extraordinary collection of maritime memorabilia gathered over a period of 65 years. Highlights include You can find rare and priceless items such as original pieces of timber from Lord Nelson’s ship “HMS Victory”, the first US warship – the “Constitution”, battleships and also one of Lord Mountbatten’s gold epaulets which were worn during his duty in the Mediterranean. There are also many models, uniforms, photographs, and maritime objects, along with 300 ship crests that adorn the museum walls.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKu-g5b_FZg0FqnQpXRar14lz-IL7HyyWEBQ5KYX8j6bFQ4olp6xQwsRFvLKl6qrAcQsqiaLtMDmHj5IL7p5wGC9hQXTu4DcnniJHOZT1p0k82bMAcvzQRYfT1GOagu_gZV9goABbtHLfrVC5J2IM_XAOeLO1NY__9c8iUOEciK9gHjCi99YWPHK9k2KRSSW5MWGIOmeXuhsq9w?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvWyil3QZz2jXcanZVyNxian8oL4tElqY9jn5RL4GnZw9RQzL719edsLYAlfBlGUuddKw8i4ZGNhvyuqqpsYJTCcUqlKbQUjbCQSsQEEQ8aVoU4EfK9ADa4Um2J7AOWdRUnNoJFlsDkB_W5eSSvcQ4RtTU4o9afzEHC88tYJAt3o2YQ8hldARX7nDr_KSmj-wBFEzuHaHwSqyk?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvgmNwGEwhT7223KGlaYC5PBuxYFcf5faZvJfHdZ0hzNabcaQhauYJqLVH8dQNp48Rf7ScYYWw19M4j4zX8KE9z5bEJMuYWt0F0ab81GOoqGIaSnGhSqZRhbJbXOIwx4sRhlBbAWYRW_B-I_JK2Oa68aAP_PyBDQcGNJfpW9HKRyDs9CHqOKXdbnK_EFmHIqHtJ2wTp1YeyeQ?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKu-g5b_FZg0FqnQpXRar14lz-IL7HyyWEBQ5KYX8j6bFQ4olp6xQwsRFvLKl6qrAcQsqiaLtMDmHj5IL7p5wGC9hQXTu4DcnniJHOZT1p0k82bMAcvzQRYfT1GOagu_gZV9goABbtHLfrVC5J2IM_XAOeLO1NY__9c8iUOEciK9gHjCi99YWPHK9k2KRSSW5MWGIOmeXuhsq9w?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvWyil3QZz2jXcanZVyNxian8oL4tElqY9jn5RL4GnZw9RQzL719edsLYAlfBlGUuddKw8i4ZGNhvyuqqpsYJTCcUqlKbQUjbCQSsQEEQ8aVoU4EfK9ADa4Um2J7AOWdRUnNoJFlsDkB_W5eSSvcQ4RtTU4o9afzEHC88tYJAt3o2YQ8hldARX7nDr_KSmj-wBFEzuHaHwSqyk?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2931586,36.0372044,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuR_6VUqnpvV4BxSqejUcjAxWsS1nLacUKZXd_K8va0mkxeHAmKUQ0Yedh-UL9Dmb3IQU85DcCgoxRrLOxSj9RwIb1_VbnWKgaEWLMxgAQ84vVUoUzqVOI9huhGV58pfy1bn5sFH8mf066VG1P3XMYzU8Ngz9OSclNYronlu6Mq-Jh3EQMgEXlmdAOWtZlwgvGdnq7I7Houzg?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuR_6VUqnpvV4BxSqejUcjAxWsS1nLacUKZXd_K8va0mkxeHAmKUQ0Yedh-UL9Dmb3IQU85DcCgoxRrLOxSj9RwIb1_VbnWKgaEWLMxgAQ84vVUoUzqVOI9huhGV58pfy1bn5sFH8mf066VG1P3XMYzU8Ngz9OSclNYronlu6Mq-Jh3EQMgEXlmdAOWtZlwgvGdnq7I7Houzg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2920246,36.036633,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Slippery</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.2856284,36.0357029,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ta’ Kenuna Tower
+</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKs9qn80DxehIqSA4h5Bonq8nDdKc7zFMOFV2Y1unDWvlmhTHLEE9AOzVjsa6hnw48cLn-VSUbEmlcjGpcAy4RkVw-eZ5PdA48GReF9csNfXJ4A8oXRSxXgaS4A1ZWetvw3O_10_c930jVVhrghT1swiR4vILbucebCEgnYjoln-_HteR0UUhgI15GWHsdyChJ31Q27URQUthg?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Ta’ Kenuna Tower was built during the British rule in 1848 and served as a semaphore. It was restored in recent times and is now being used as a telecommunications tower]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKs9qn80DxehIqSA4h5Bonq8nDdKc7zFMOFV2Y1unDWvlmhTHLEE9AOzVjsa6hnw48cLn-VSUbEmlcjGpcAy4RkVw-eZ5PdA48GReF9csNfXJ4A8oXRSxXgaS4A1ZWetvw3O_10_c930jVVhrghT1swiR4vILbucebCEgnYjoln-_HteR0UUhgI15GWHsdyChJ31Q27URQUthg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2839306,36.0355879,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Garden Area</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvWiM6YrUtg5FdXIwlIzxu--bD8vafeeRj8B7Fp1nLc3qGddBUhh6SyeTIxIZCk39M8377Ms21hR3jrTIgR8_350VaLCtzWfXHRb__9Zfa2p5e7-whVFLlzqkEiUX_Zu-Z16P5eTyRmpDWGnc8YvIrclVEXwZU0rhTjjHjHke-aWuVw_7X3NMa12VTkhmB1_bc9ohXf8auHsw?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Maltese Garden<br><br>Allow some time to stroll around the pretty Maltese Garden – a unique initiative for the island at the time when it was put forward by a local green group Għaqda Riħan with the help of a local botanist who wanted to preserve and propagate endangered indigenous and endemic species such as the Maltese Everlasting, the Maltese National Plant – The Maltese Rock Centaury and the Maltese National Tree – the Arar/Sandarac Gum Tree.]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvWiM6YrUtg5FdXIwlIzxu--bD8vafeeRj8B7Fp1nLc3qGddBUhh6SyeTIxIZCk39M8377Ms21hR3jrTIgR8_350VaLCtzWfXHRb__9Zfa2p5e7-whVFLlzqkEiUX_Zu-Z16P5eTyRmpDWGnc8YvIrclVEXwZU0rhTjjHjHke-aWuVw_7X3NMa12VTkhmB1_bc9ohXf8auHsw?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2841639,36.0357766,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvDaDhKFSfly5rtRoC7ugr0D9qRxBrdT42J73hYsksMbOTfBtTq2zBNd8zQKULHddgGCfjTMHA0OW3OGKkfOhsMuMNw-oYIH7Y7Bdq5FrjNGXrKnCwybscsCn-3fMwaUDRpqUlpmk0xTGQGj6xeLg0t79gjz2D9TxdyM7aVXbdbJAaYRlb5iCXE8VffL2xz2bRACJ_OL_UgUpQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvDaDhKFSfly5rtRoC7ugr0D9qRxBrdT42J73hYsksMbOTfBtTq2zBNd8zQKULHddgGCfjTMHA0OW3OGKkfOhsMuMNw-oYIH7Y7Bdq5FrjNGXrKnCwybscsCn-3fMwaUDRpqUlpmk0xTGQGj6xeLg0t79gjz2D9TxdyM7aVXbdbJAaYRlb5iCXE8VffL2xz2bRACJ_OL_UgUpQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2844804,36.0355749,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rest Area</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvrEgI__l7brrptMrTx-vWu45r9NyRJ9957g3fCJaCfaCY7m2__af68CHS27qD2P06oEGxJ7JuqnbskPTNv9a8nv1CRKbIiOJVcSiBIIqFvSbqAvmP_YpQQeKXo8CKXUSphRJXTs674kOz-LWjujyreFLg7F3JwV6b7XPWJ08-uG8eCUlC7LXplhhTxxL7yWX_Vyq01ERgp1Sc?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvrEgI__l7brrptMrTx-vWu45r9NyRJ9957g3fCJaCfaCY7m2__af68CHS27qD2P06oEGxJ7JuqnbskPTNv9a8nv1CRKbIiOJVcSiBIIqFvSbqAvmP_YpQQeKXo8CKXUSphRJXTs674kOz-LWjujyreFLg7F3JwV6b7XPWJ08-uG8eCUlC7LXplhhTxxL7yWX_Vyq01ERgp1Sc?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2842176,36.0355163,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

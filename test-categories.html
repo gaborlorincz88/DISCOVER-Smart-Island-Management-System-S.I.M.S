@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Categories</title>
+</head>
+<body>
+    <h1>Test Categories</h1>
+    <button onclick="addTestCategories()">Add Test Categories to localStorage</button>
+    <button onclick="checkCategories()">Check Categories in localStorage</button>
+    <div id="output"></div>
+
+    <script>
+        function addTestCategories() {
+            const testCategories = [
+                {
+                    id: 'test-hotel',
+                    name: 'Hotels',
+                    icon: '🏨',
+                    isCustom: true,
+                    createdAt: '2025-01-04T21:00:00.000Z'
+                },
+                {
+                    id: 'test-zoo',
+                    name: 'Zoo',
+                    icon: '🎡',
+                    isCustom: true,
+                    createdAt: '2025-01-04T21:00:00.000Z'
+                }
+            ];
+            
+            localStorage.setItem('customCategories', JSON.stringify(testCategories));
+            document.getElementById('output').innerHTML = '<p>Test categories added to localStorage!</p>';
+        }
+
+        function checkCategories() {
+            const saved = localStorage.getItem('customCategories');
+            if (saved) {
+                const categories = JSON.parse(saved);
+                document.getElementById('output').innerHTML = '<pre>' + JSON.stringify(categories, null, 2) + '</pre>';
+            } else {
+                document.getElementById('output').innerHTML = '<p>No categories found in localStorage</p>';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "alarm_1759505647433",
+    "type": "jellyfish",
+    "title": "Jellyfish Spotted",
+    "description": "Jellyfish have been spotted in this area. Please exercise caution when swimming.",
+    "coordinates": {
+      "lat": 36.059570017023425,
+      "lng": 14.224205017089846
+    },
+    "severity": "medium",
+    "isActive": false,
+    "icon": "🪼",
+    "color": "#F59E0B",
+    "iconSize": 50,
+    "createdAt": "2025-10-03T15:34:07.433Z",
+    "updatedAt": "2025-10-19T10:53:37.389Z"
+  }
+]

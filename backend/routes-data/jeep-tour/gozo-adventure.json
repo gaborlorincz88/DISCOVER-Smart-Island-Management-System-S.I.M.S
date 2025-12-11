@@ -1,0 +1,53 @@
+{
+  "id": "gozo-adventure",
+  "name": "Gozo Adventure Jeep Tour",
+  "type": "jeep-tour",
+  "description": "Explore the hidden gems of Gozo in a thrilling 4x4 jeep adventure. Visit remote villages, ancient sites, and breathtaking viewpoints.",
+  "icon": "/tours.svg",
+  "iconSize": 32,
+  "polylineColor": "#e22c7b",
+  "mainImage": "",
+  "currency": "EUR",
+  "prices": {
+    "adult": 40,
+    "child": 20,
+    "senior": 20
+  },
+  "duration": "4 hours",
+  "points": [
+    {
+      "type": "start",
+      "lat": 36.046,
+      "lng": 14.26
+    },
+    {
+      "type": "stop",
+      "lat": 36.056,
+      "lng": 14.25,
+      "name": "Ta' Pinu Basilica",
+      "description": "Famous pilgrimage site with stunning architecture",
+      "images": []
+    },
+    {
+      "type": "stop",
+      "lat": 36.066,
+      "lng": 14.24,
+      "name": "Għarb Village",
+      "description": "Traditional Gozitan village with authentic charm",
+      "images": []
+    },
+    {
+      "type": "stop",
+      "lat": 36.076,
+      "lng": 14.23,
+      "name": "Dwejra Bay",
+      "description": "Famous Azure Window location and diving spot",
+      "images": []
+    },
+    {
+      "type": "end",
+      "lat": 36.046,
+      "lng": 14.26
+    }
+  ]
+}

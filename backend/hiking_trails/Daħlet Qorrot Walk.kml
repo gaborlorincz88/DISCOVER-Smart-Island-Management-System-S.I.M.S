@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Daħlet Qorrot Walk</name>
+    <description><![CDATA[Starting: In-Nadur<br><br>Ending: In-Nadur<br><br>Length: 10km<br><br>Grading: Moderate, difficulty with some steep inclines and a few rocky areas<br><br>Landscape: Urban, coastal, countryside roads and paths<br><br>Trail markings<br><br>Getting there and back: Gozo Channel operates regular ferries to L-Imġarr Harbour leaving from Iċ-Ċirkewwa in Malta. Buses leave regularly from the harbour to In-Nadur and back.<br><br>Recommended Walking season: October to May<br><br>Overview<br><br><br>This circular walk starts and ends in In-Nadur. It leads from In-Nadur to the plateau of Il-Qortin t’Isopu where, towards the sea you can see the Ta’ Sopu Watchtower surrounded by wonderful garrigue terrain known for its wild rock roses and endemic Maltese spurge. There is also a panoramic view over the rocky coastline and the blue waters of the north-eastern coast.<br><br>The route then takes you to Daħlet Qorrot bay, skirting Mistra Rocks – a rocky shore. Admiring the wonderful views and the rich variety of wild plants among the cliff-side boulder scree, you go downhill to the small bay of Daħlet Qorrot, where fishermen have carved boathouses in the limestone cliffs: an ideal spot for swimming and fishing.<br><br>After a short ramble along the coastal limestone shelf you turn inland and head uphill through an unspoiled wilderness area, with breathtaking views of the valley of Il-Wied ta’ Grejgel. In this valley both modern and traditional farming methods are used to reap the succulent fruits yielded by Mother Earth.<br><br>The walk then leads the hiker to the village of Il-Qala, the easternmost village in Gozo, which boasts fabulous views over the sea to Comino and Malta.<br><br>On the way back to In-Nadur you can admire an 18th century windmill and an ancient dovecote. In-Nadur is a typical Gozitan village, where houses nestle around the dominant Baroque or Romanesque place of worship.<br><br>The route map in the centre pages of this booklet, together with the frequent signposts located along the route, will help you follow the walk more easily. It is advisable to stick to the set route so that you can appreciate more fully the Gozitan landscape, rural way of life and other curiosities.]]></description>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-DB4436-nodesc-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-nodesc-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-00AA00-normal">
+      <IconStyle>
+        <color>ff00aa00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-00AA00-highlight">
+      <IconStyle>
+        <color>ff00aa00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-00AA00">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-00AA00-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-00AA00-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-D60303-nodesc-normal">
+      <IconStyle>
+        <color>ff0303d6</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-D60303-nodesc-highlight">
+      <IconStyle>
+        <color>ff0303d6</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-D60303-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-D60303-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-D60303-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-D60303-5000-normal">
+      <LineStyle>
+        <color>ff0303d6</color>
+        <width>5</width>
+      </LineStyle>
+    </Style>
+    <Style id="line-D60303-5000-highlight">
+      <LineStyle>
+        <color>ff0303d6</color>
+        <width>7.5</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-D60303-5000">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-D60303-5000-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-D60303-5000-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FFFF00-1000-189-normal">
+      <LineStyle>
+        <color>ff00ffff</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>bd00ffff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FFFF00-1000-189-highlight">
+      <LineStyle>
+        <color>ff00ffff</color>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>bd00ffff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FFFF00-1000-189">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FFFF00-1000-189-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FFFF00-1000-189-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Walking Path</name>
+      <Placemark>
+        <name>Start</name>
+        <description><![CDATA[This route starts from the village square of In-Nadur. The town’s name originates from the Arabic “nadar”, meaning a look-out point, reflecting the strategic position that this village occupies on the island. Indeed, large stretches of Gozo, Malta and Comino can be seen from the various vantage points that this village affords. This is one of the most picturesque villages of Gozo, with a population of around 4000. InNadur is situated on a plateau, 512 feet (around 170 metres) above sea level. All activity in the village square takes place in the shadow of the parish church, dedicated to the apostles Peter and Paul (1), which is certainly worth a visit.<br><br>The village’s main square also hosts a police station, two banks and a pharmacy. It is the venue for many activities during the year but its busiest days are on the 27th, 28th and 29th of June when l-Imnarja, the traditional village feast is celebrated. In-Nadur is also famous for its annual Carnival which takes place during February.]]></description>
+        <styleUrl>#icon-503-00AA00</styleUrl>
+        <Point>
+          <coordinates>
+            14.2937197,36.0378326,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Part 1</name>
+        <description>The walk proceeds through Triq It-Tramuntana, the street that starts from the left-hand side of the basilica. Triq It-Tramuntana leads to a T-junction where on your left you can see a niche proudly displaying a reproduction of a painting of Our Lady of Ta’ Pinu. Take the turning to the right, Triq Ta’ Said, which leads to Triq San Gwann. The last few metres of Triq San Gwann lead you on to one of In-Nadur’s main roads — Triq it-Tigrija or Racecourse Street.</description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.293726,36.037844,0
+            14.293824,36.037824,0
+            14.293845,36.037973,0
+            14.294198,36.037965,0
+            14.2942,36.038306,0
+            14.294339,36.038692,0
+            14.29441,36.038728,0
+            14.294727,36.038869,0
+            14.294973,36.038943,0
+            14.296385,36.03915,0
+            14.297055,36.039212,0
+            14.297285,36.040056,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 2</name>
+        <description><![CDATA[To proceed, you are advised to cross over to the other side of Triq it-Tigrija. A few metres to the west you will see a sidestreet displaying a one-way sign: Triq Daħlet Qorrot. This sidestreet leads to Triq San Blas, lined with 20th century houses. One of these “houses” is a bakery that still employs traditional bread–making techniques.<br><br>Further on down Triq San Blas, the street forks into two. To proceed along the route, take the left fork. After walking for about 1 km you will see on your left a small viewing point with some benches. From here you can admire the valley of Wied San Blas and the terraced fields along its sides.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.297287,36.040053,0
+            14.297214,36.040066,0
+            14.296786,36.040413,0
+            14.297137,36.040922,0
+            14.297555,36.041483,0
+            14.298154,36.042207,0
+            14.298343,36.042963,0
+            14.298396,36.043671,0
+            14.298491,36.044103,0
+            14.298708,36.044461,0
+            14.298973,36.044959,0
+            14.299086,36.045484,0
+            14.299311,36.046103,0
+            14.299715,36.047102,0
+            14.299975,36.047887,0
+            14.299944,36.048383,0
+            14.299875,36.048804,0
+            14.300051,36.049623,0
+            14.30019,36.050022,0
+            14.300311,36.050769,0
+            14.300414,36.051522,0
+            14.300266,36.05164,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 3</name>
+        <description><![CDATA[Turning your back on the view, instead of taking the road to the right that leads back to In-Nadur, take the road to the left at the crossroads, go past a children’s playground on your right, and proceed towards the coastal watchtower of Ta’ Sopu, turning right at the entrance to the military base. Constructed by the Knights in 1667, the tower lies within wonderful garrigue terrain known for its rock roses and endemic Maltese spurge and has a panoramic view over the rocky coastline and the blue waters of the North-eastern coast. This watchtower stands nearly 400 feet, or 130 metres, above sea level, overlooking the formidable Mistra Rocks with San Blas Bay to the West and Daħlet Qorrot Bay and its inlets to the East.<br><br>Its strategic location clearly indicates that the tower was built here to watch over the approaches to Gozo’s north-eastern coast and the entrance to the Comino channel. Its position also enabled visual signalling between Ta’ Sopu and other towers in Malta and Gozo.<br><br>During World War II the tower was used as a wireless telegraph station, directly linked with its counterpart in the UK, transmitting messages to and from other Middle East stations.<br><br>In the area around the tower there are many paths through the garrigue, a characteristic habitat of Gozitan rocky coasts and karstic rocky areas that was formerly widespread in these islands but is now under threat almost everywhere from human activities. Garrigue is an important habitat that you will encounter in most parts of the walk. Its low vegetation grows in shallow soil and in cracks in the surface limestone. It is composed mainly of aromatic shrubs such as Mediterranean Thyme (Thymbra capitata), Mediterranean Heather (Erica multiflora), Wild Fennel (Foeniculum vulgare), the endemic Yellow Kidney-Vetch (Anthyllis hermanniae subsp. Melitensis), the endemic Maltese Spurge (Euphorbia melitensis), Tree Spurge (Euphorbia dendroides), Oliveleaved Germander (Teucrium fruticans) and Mediterranean Asparagus (Asparagus aphyllus), together with a wide range of other plants and flowers including narcissi and orchids. Some formations also feature the Rock-Rose (Cistus incanus and Cistus monspeliensis). There are numerous herbaceous species, many of them also occurring in rocky steppes and open maquis elsewhere in the islands. The diversity of plants within these rocky areas depends on the seasons and can be truly surprising, especially in spring.<br><br>Nevertheless the garrigue community is fast declining due to the incursions of the building industry, new roads, dumping and other forms of habitat disturbance. Thus protection of garrigue via conservation and awareness-raising measures is increasingly important.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.300276,36.05164,0
+            14.30049,36.05152,0
+            14.301532,36.052026,0
+            14.301921,36.052217,0
+            14.302707,36.052824,0
+            14.303047,36.052947,0
+            14.304123,36.053582,0
+            14.304345,36.053468,0
+            14.304815,36.053236,0
+            14.30533,36.053079,0
+            14.306522,36.053145,0
+            14.306787,36.053061,0
+            14.307124,36.053043,0
+            14.307616,36.053096,0
+            14.308153,36.053179,0
+            14.30828,36.053512,0
+            14.308435,36.053915,0
+            14.308309,36.054275,0
+            14.308526,36.054578,0
+            14.308733,36.054998,0
+            14.309015,36.055353,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 4</name>
+        <description><![CDATA[Now you turn back, bearing left at the viewing point which is now on your right. Walk back along Triq San Blas and when you get to the junction, turn left into Triq Għajn Berta. In front of you at the end of the street is a farmhouse with a statue of St Anthony on the facade; turn left for about 200 metres until you come to a fork just past a small farm building on the right. Now take the concrete path to the right that runs downhill and which curves along the rim of the fertile valley of Wied ir-Rihan, heading towards the coast. In winter a watercourse flows along the valley, encouraging the growth of the Great Reed. Local inhabitants use the dried canes of this plant for various purposes. Rows of canes tied together are used to make the familiar windbreaks that are used to shield the crops from the northern wind in winter.<br><br>The reed curtains that can be seen covering the front doors and windows of Gozitan houses are also made of this reed, which is cut and tied together with lengths of cord.<br> <br>The road offers spectacular views. If you look to the right, you will observe the high plateau known as Qortin tal-Lacca. These imposing cliffs are made of one of the harder sedimentary rocks of the Maltese Islands: the Upper Coralline limestone. Other rock types include the equally hard Lower Coralline Limestone, as well as the softer clay, green sand and Globigerina limestone. Qortin tal-Laċċa also hosts dense concentrations of herbs such as Mediterranean thyme and low shrubs.<br><br>Staying on this rocky path, on the left is a dry-stone wall and on the right is garrigue terrain, sloping upwards, which is rich in Mediterranean heather with its lovely pink or white flowers in winter. In wet weather some of the rocky patches can be very slippery, so take care!<br><br>As you proceed along the path you can admire the fertile fields along the valley to your left; there are many fruit groves with lemon, orange, pomegranate, olive and fig trees.<br><br>In the valley you will also see maquis vegetation, which is still widespread, especially on the sides and bottoms of the dry valleys of Gozo island. However the maquis is all of secondary origin and is dominated by trees such as the Carob (Ceratonia siliqua). Other components of the maquis are the Lentisk (Pistacia  lentiscus), Bay Laurel (Laurus nobilis) and the Olive (Olea europaea). Due to the recent drastic reduction in grazing there has been some regeneration of maquis and some formerly uncommon species such as Mediterranean Buckthorn (Rhamnus alaternus) and Terebinth (Pistacia terebinthus) are starting to return. Particularly interesting is the Alerce or Sandarac Gum tree (Tetraclinis articulate), a conifer related to the Junipers. This tree is mainly found in North Africa, with Malta and an area in Murcia as the only European sites. Many centuries ago it must have been widespread in the Maltese Islands but it is now very rare. It forms maquis on rocky slopes.<br><br>At one point, the path veers away from the dry-stone wall. Keep going and you will meet the dry-stone wall again. As you approach the coast you can admire the dramatic cliffs with large caves on the opposite side of the valley.<br><br>Soon you will arrive at a point where the hidden beauty of Mistra rocks, San Filep and Daħlet Qorrot is revealed. Mistra rocks are a typical boulder scree whereas San Filep and Daħlet Qorrot are small inlets mostly enjoyed by the locals for swimming and fishing.<br><br>Continuing along this exciting path, you come to a road leading downhill to the small bay of Daħlet Qorrot. This in turn leads to a footpath that overlooks Mistra Rocks — a<br>mass of rocks of all shapes and sizes.<br><br>The cliff above Mistra Rocks is also formed from Upper Coralline Limestone. This stone layer lies on soft layers of green sand and clay. Weathering causes these soft and unprotected layers to be eroded, leading to a point where there is no physical support for the heavy Upper Coralline limestone above; boulders then break off and fall towards the sea, for]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.309043,36.055333,0
+            14.308768,36.054972,0
+            14.30858,36.054591,0
+            14.308572,36.054584,0
+            14.308402,36.054321,0
+            14.308397,36.054312,0
+            14.308388,36.054298,0
+            14.308395,36.054157,0
+            14.308404,36.05414,0
+            14.308491,36.053893,0
+            14.308299,36.053382,0
+            14.308293,36.053373,0
+            14.308179,36.053091,0
+            14.307614,36.05302,0
+            14.306992,36.052978,0
+            14.306483,36.053076,0
+            14.305254,36.053025,0
+            14.304111,36.053503,0
+            14.303224,36.052991,0
+            14.302811,36.052811,0
+            14.302163,36.052321,0
+            14.301831,36.052079,0
+            14.300454,36.051445,0
+            14.300363,36.050587,0
+            14.300236,36.049929,0
+            14.300725,36.049867,0
+            14.300944,36.050286,0
+            14.301824,36.050891,0
+            14.302698,36.051238,0
+            14.30306,36.051204,0
+            14.303079,36.051205,0
+            14.303443,36.051259,0
+            14.303692,36.051255,0
+            14.303906,36.05113,0
+            14.303999,36.050993,0
+            14.304067,36.05078,0
+            14.304131,36.050637,0
+            14.304217,36.050627,0
+            14.304336,36.050673,0
+            14.304517,36.050877,0
+            14.304724,36.05113,0
+            14.305002,36.051295,0
+            14.305243,36.051397,0
+            14.305556,36.051465,0
+            14.305788,36.051466,0
+            14.306102,36.051369,0
+            14.306361,36.051239,0
+            14.306587,36.051227,0
+            14.306826,36.051184,0
+            14.306829,36.051175,0
+            14.306967,36.051135,0
+            14.307127,36.051309,0
+            14.307322,36.051397,0
+            14.307577,36.051452,0
+            14.307592,36.051452,0
+            14.308042,36.05148,0
+            14.308691,36.051556,0
+            14.309245,36.051531,0
+            14.309451,36.051482,0
+            14.309504,36.051507,0
+            14.309612,36.051515,0
+            14.30962,36.051515,0
+            14.309723,36.051519,0
+            14.309851,36.051544,0
+            14.310027,36.051522,0
+            14.310039,36.051523,0
+            14.310184,36.051484,0
+            14.31027,36.051468,0
+            14.310388,36.051483,0
+            14.310435,36.051509,0
+            14.310599,36.051463,0
+            14.310801,36.051446,0
+            14.310957,36.051425,0
+            14.311144,36.051301,0
+            14.31125,36.051125,0
+            14.311393,36.050898,0
+            14.311569,36.050777,0
+            14.311825,36.050643,0
+            14.312217,36.05047,0
+            14.312416,36.050302,0
+            14.312415,36.050292,0
+            14.312509,36.050126,0
+            14.312517,36.050116,0
+            14.312534,36.050109,0
+            14.312726,36.05002,0
+            14.312892,36.049936,0
+            14.312896,36.049926,0
+            14.312944,36.04984,0
+            14.312951,36.049752,0
+            14.312928,36.049664,0
+            14.31294,36.049645,0
+            14.312994,36.049357,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 5</name>
+        <description><![CDATA[Leaving San Filep behind, proceed to Daħlet Qorrot bay. Here you can see boathouses hewn from the layer of Globigerina Limestone. These houses still offer shelter to fishing boats during storms. A slipway is used to lower the boats into the sea.<br><br>You will notice piles of dead Posidonia oceanica leaves along the small beach; Posidonia oceanica is an aquatic plant that thrives only in the Mediterranean Sea and is of considerable ecological importance: Posidonia oceanica stabilises the sea bed, protecting it from coastal erosion, and ensures the proper functioning of the whole ecosystem.<br><br>The route around the bay leads to a set of steps with railings that ascend to a yellow limestone cliff top. As you walk along the coastal limestone admiring the geology of the layered cliffs, look out for fossils, which are common in this area.<br><br>After about 100 metres, the path swerves to the right and runs parallel to the coast just above the limestone shelves. Along the coast you will notice another habitat, the coastal communities. These are dominated by a variety of halophytic (salt-tolerant) plants. Among the most characteristic are the Golden Samphire (Limbarda  crithmoides), which can also be found in saline marshes and other saline communities, the Sea Samphire (Crithmum maritimum), two species of Sea Lavender (Limonium virgatum and the endemic Limonium zeraphae), Spiny Chicory (Cichorium spinosum) and Shrubby Glasswort (Arthrocnemum macrostachyum), which also occurs in saline marshes and on cliffs.<br><br>Keeping on the path along the coast you will arrive at a point just beyond a small agricultural building. Look out for an beaten earth path which turns sharply inland and uphill. After a short distance it joins a wider concrete track which goes steeply upwards. Keep to this track, enjoying the lovely views of the lush valley below and the many caves of the Ta’Tocc promontory on the opposite side.<br><br>When you come to the T-junction, take the left turning but before you do, cast a glance towards the Wied ta’ Grejgel valley to your right.<br><br>Surrounding Ta’ Grejgel is a vast stretch of fertile land, which has long been used for agricultural purposes. Windmills dotting the landscape attest to the regular supply of water. The land is used all year round and crop rotation is practiced. Various types of vegetables and animal fodder are grown here.<br><br>Traditional agricultural techniques are gradually being replaced by modern ones. Drip irrigation methods are replacing conventional techniques. Some traditional cane windbreaks have been replaced by rows of cypress trees that offer protection from the wind while their roots prevent the soil from eroding. Prickly pears are also giving way to more modern plastic tents that shelter the maturing tomato plants.<br><br>In 1695 this area became the private shooting reserve of Grandmaster Alof de Wignacourt, when the hares and numerous<br>bird species induced him to secure the area. Penalties for those caught poaching included three years in the galleys if the culprit was of common standing, a fine of 40 ewwieqi if he was of high standing or a period of exile in the case of a minor.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.313005,36.049361,0
+            14.313484,36.049216,0
+            14.315052,36.049454,0
+            14.315142,36.049397,0
+            14.315153,36.049388,0
+            14.315318,36.049297,0
+            14.315449,36.049324,0
+            14.31554,36.049339,0
+            14.31581,36.049269,0
+            14.315826,36.049263,0
+            14.316288,36.048934,0
+            14.316512,36.048817,0
+            14.316701,36.048759,0
+            14.31695,36.048846,0
+            14.317044,36.049125,0
+            14.317214,36.049444,0
+            14.31727,36.04965,0
+            14.317421,36.049787,0
+            14.317801,36.049878,0
+            14.318234,36.049876,0
+            14.318746,36.049809,0
+            14.319232,36.049817,0
+            14.319967,36.049686,0
+            14.320435,36.049505,0
+            14.320961,36.04922,0
+            14.321393,36.048961,0
+            14.321735,36.048629,0
+            14.321926,36.048288,0
+            14.321916,36.048052,0
+            14.321775,36.047929,0
+            14.3216,36.047823,0
+            14.321515,36.047811,0
+            14.321378,36.047861,0
+            14.321018,36.047743,0
+            14.320453,36.047574,0
+            14.319986,36.047507,0
+            14.319438,36.047458,0
+            14.319127,36.047102,0
+            14.318422,36.046517,0
+            14.317787,36.046392,0
+            14.317458,36.046238,0
+            14.316727,36.046152,0
+            14.316202,36.045898,0
+            14.315583,36.045657,0
+            14.314476,36.045605,0
+            14.313914,36.045486,0
+            14.312084,36.045355,0
+            14.311561,36.045171,0
+            14.311333,36.044817,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 6</name>
+        <description><![CDATA[After a short rest, take the track to the left, Triq ta’ Ġuļju, which takes you uphill towards the outskirts of the village of Il-Qala. Il-Qala is the Eastern most village in Gozo and boasts fabulous views over the sea to Comino and Malta.<br><br>Proceeding straight on along Triq il-Mitħna, as the road comes to a Y-junction and curves to the right into Triq il-Wileġ, look to your right where you can admire a restored eighteenth century windmill that was still being used for the grinding of grain and maize until thirty years ago. <br><br>Follow Triq il-Qala to Pjazza Repubblika, a square that is protected by a raised statue of Saint Joseph, the patron saint of Il-Qala. Triq il-Qala takes you back to In-Nadur.]]></description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.31134,36.044818,0
+            14.311676,36.044585,0
+            14.31203,36.044336,0
+            14.312194,36.044291,0
+            14.31221,36.044246,0
+            14.312211,36.044236,0
+            14.312159,36.044199,0
+            14.311981,36.044172,0
+            14.311537,36.044075,0
+            14.311433,36.043927,0
+            14.311437,36.043711,0
+            14.311687,36.04311,0
+            14.31199,36.042506,0
+            14.311956,36.042157,0
+            14.311846,36.04134,0
+            14.311857,36.040763,0
+            14.311856,36.040727,0
+            14.311856,36.040704,0
+            14.311846,36.04021,0
+            14.311917,36.039634,0
+            14.311928,36.039603,0
+            14.312044,36.039246,0
+            14.311942,36.038931,0
+            14.311714,36.038561,0
+            14.311714,36.038534,0
+            14.311299,36.038223,0
+            14.311294,36.038224,0
+            14.310888,36.038089,0
+            14.310563,36.038063,0
+            14.309392,36.038776,0
+            14.309231,36.038893,0
+            14.30887,36.03883,0
+            14.308701,36.038772,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Part 7</name>
+        <description>As you walk back to In-Nadur, you may chance upon an elderly local farmer grazing his herd of sheep and goats. Keep walking straight up the road until you reach the niche of Our Lady of Ta’ Pinu once again in Triq it-Tigrija. By retracing your steps you will come back to In-Nadur village centre.</description>
+        <styleUrl>#line-D60303-5000</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            14.30872,36.038781,0
+            14.307503,36.038913,0
+            14.307492,36.038913,0
+            14.306586,36.038998,0
+            14.305648,36.0389,0
+            14.303891,36.038876,0
+            14.303094,36.038934,0
+            14.302144,36.039177,0
+            14.301785,36.039309,0
+            14.301304,36.039687,0
+            14.300926,36.039939,0
+            14.300528,36.040093,0
+            14.300239,36.040115,0
+            14.2995,36.039899,0
+            14.299484,36.039894,0
+            14.299462,36.03989,0
+            14.299099,36.039762,0
+            14.298784,36.039704,0
+            14.29781,36.039945,0
+            14.297408,36.040007,0
+            14.297315,36.040016,0
+            14.297072,36.039179,0
+            14.296404,36.039125,0
+            14.295407,36.038979,0
+            14.294909,36.038902,0
+            14.294734,36.038848,0
+            14.294363,36.03867,0
+            14.294265,36.038368,0
+            14.294235,36.038267,0
+            14.294242,36.037928,0
+            14.293882,36.037941,0
+            14.293864,36.037756,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>End</name>
+        <styleUrl>#icon-503-D60303-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.2938616,36.0377342,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Snippets</name>
+      <Placemark>
+        <name><![CDATA[Church Of Saints Peter & Paul In In-Nadur]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuBT_6VEI_WuTRN1AUOeMiaWsiTGSPCl5Y1yl3AvVpqZkWFTq-XMeRq7zuXqZjmy9SYC9C68ae7dxaB3Ys6A7q3TKzUW6y2D0rpxRHGMgE2KqgHAZoFEaoYCxG6YVkFOk8cGg40SEwVeKtjiIfGxwLawkdp0ogPU0g77denoFnWYsk1_a9zIZYiyeo9DmZZwNRDs_mp1XDaP9Q?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Today, the main attraction of In-Nadur is undoubtedly its magnificent Basilica dedicated to the apostles Saint Peter and Saint Paul. This wonderful monumental temple evokes to memory centuries of old historical facts. Over 300 years ago, in 1688, the Bishop of Malta and Gozo Davide Cocco-Palmeri created four new parishes for Gozo. One of them was that of In-Nadur. The church’s site was determined by a generous donation of the ground on which it stands by Grand Master Gregorio Carafa. Since the population of In-Nadur increased without any interruption, Parish priest Salvatore Galea engaged the Maltese architect Giuseppe Bonnici, a Capomastro of the Order, to prepare plans for the building of a new and much bigger church on the same site as the first one. Construction on the church began on 28 September 1760. Its foundation stone was laid on 17 December of that year. The master mason was Mikielangelo Pisano who unfortunately, died while the church was only half finished. This new chuch, built in the form of a Latin cross, unaisled and with a three-bay nave, the choir and two transepts, had a two-storeyed facade. Two belfry towers were attached to the arms of the transepts. Construction dragged on for forty-four years. In 1882, the Archpriest John Camilleri had brought from Marseille in France, a beautiful titular statue made of papiermache, by the firm Galard et Fils, that represents the patron saints of InNadur. Archpriest Camilleri, with the help of his nephew Martin Camilleri decided on enlarging the church to its present form, by the construction of the aisles, dome and facade, all designed by the Maltese architect Francesco Saverio Sciortino. This work was carried out between 1906 and 1914. The cross crowning the dome was placed on 24 September 1913. The whole masonry work was finished in 1914. <br><br>The In-Nadur church can be described as an architectural gem on the Italian Renaissance style on its exterior and splendid baroque in its interior. The paintings of the main vault of the church, the choir, the two transepts, the four pendentives, the dome and in both side aisles are the work of the Maltese painter Lazzaro Pisani. The vault and both transepts are adorned with paintings depicting episodes that refer to the life of St. Peter and St. Paul. There are fifteen stained-glass windows, twelve of which represents the twelve apostles, in the nave, transepts and choir. These are flanked by paintings of popes, martyrs and doctors of the Church. The architectural decorations and ornate sculpture are the work of the Roman sculptor and decorator Pio Cellini. The colour scheme of the interior of the church is pleasant and harmonious. The vault and pendentives above the main cornice are gilded and painted in such manner to be in tune with the lower parts. From the floor to the main cornice, the interior is encased in beautiful marble. The main altar, in the centre of the presbytery is the work of the Maltese artist Emvin Cremona representing the typology of the Eucharistic sacrifice. Throughout the years, the parish of In-Nadur received many titles, namely: a matrice or motherchurch when the parish of Għajnsielem (1855) and then Il-Qala (1872) were dismembered from its territory. The parish church was granted the title of a minor Basilica on 26 June 1967.]]></description>
+        <styleUrl>#poly-FFFF00-1000-189</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuBT_6VEI_WuTRN1AUOeMiaWsiTGSPCl5Y1yl3AvVpqZkWFTq-XMeRq7zuXqZjmy9SYC9C68ae7dxaB3Ys6A7q3TKzUW6y2D0rpxRHGMgE2KqgHAZoFEaoYCxG6YVkFOk8cGg40SEwVeKtjiIfGxwLawkdp0ogPU0g77denoFnWYsk1_a9zIZYiyeo9DmZZwNRDs_mp1XDaP9Q?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.294252,36.037587,0
+                14.294242,36.037553,0
+                14.294513,36.037489,0
+                14.294616,36.037776,0
+                14.294347,36.037845,0
+                14.294336,36.037812,0
+                14.294051,36.03789,0
+                14.293981,36.037647,0
+                14.294252,36.037587,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Ta’ Sopu Watchtower</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuwgLgUbObE1ye66-0s5s86wG-wQaagrheYf6CiL4wCJ9MF8K_WPPpICERl8bfSkC2JmiCTncVhixFABm09qArxyujPYBvRjPrf_VRjrkrdYvdNLyCnW6WYoUE7SYONfTNIFNpnho7JXfCV0yVMwrtPubsy77-91g-e1pp5zswcW62k_PValz_tITLQhoQzmdRic_ekoJbeyuE?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The University of Gozo funded the building of this tower in 1667 but it was unarmed until 1670 when Grand Master Nicholas Cottoner visited Gozo and stressed the need to equip it with the necessary munitions. It was fully functional a year later.<br><br>On the 10th June 1798, French Revolutionary troops led by Napoleon Bonaparte invaded the island of Gozo, landing within shooting distance of Torri Daħlet Qorrot, also known as La Torre di Daħlet Korrot, or Torre Nuova (now renamed ‘Torri ta’ Sopu). The tower, which was still armed, opened fire on them in a desperate attempt to stop the unwelcome guests from disembarking. General Reynier, who commanded the Gozo invasion, gave an account of this to his Commander-in-chief. The following is an extract from this report.<br><br>“A point for landing was selected between the new tower and the battery of Ramla called Irdum il-Kbir. The whole morning of the 10th June had been occupied in preliminary arrangement. Calms and contrary breezes had still further delayed operations; but by 1 pm the shore was approached by the 3rd Company of Grenadiers and the 95th Demi-Brigade. The heights meanwhile had become crowned with the enemy, who received the French with showers of bullets; Sergeant-Major Bertrand of the Grenadiers in the Generals’boat being killed.<br><br>The batteries of Ramla and New Tower then opened fire. The boats of Alceste conveyed General Reynier and Fugieri, captains Geoffrey and Sabatier, and the 3rd Company of Grenadiers who were the first to land. After a rapid ascent of the heights, notwithstanding the heavy fire, the enemy at last decamped. And the Battery of Ramla was taken. The bombards Etoile and Pluvier, by their successful fire against the enemy’s batteries were of great assistance…” (Source: GRENFELL – Malta, 1798, pg 19).<br><br>The main entrance to the tower is on the upper storey. The doorway was approached by a flight of steps and a small wooden drawbridge. Four badly weathered escutcheons, two on each side of the doorway, once displayed the coats-of-arms of the Order of St. John; the Grand Master of the time, Nicholas Cottoner; the Governor of Gozo; and possibly of the University of Gozo.<br><br>The tower consists of a square block with thick battered walls. The interior has a high barrel-vaulted ceiling with an intermediate floor resting on rib-arches. A spiral staircase provides access to the other floors. The tower had its own well with a narrow culvert cut into the inner side of the south wall, enabling the occupants to draw water up to the first floor. The roof of the tower has a shallow parapet on three sides. Also known as The San Blas Tower, it was jointly restored during the year 2006 by In-Nadur Local Council and Din l-Art Ħelwa (Din l-Art Ħelwa is a non-governmental, not-forprofit, voluntary organization founded in 1965 to safeguard the historic, artistic and natural heritage of Malta).]]></description>
+        <styleUrl>#poly-FFFF00-1000-189</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuwgLgUbObE1ye66-0s5s86wG-wQaagrheYf6CiL4wCJ9MF8K_WPPpICERl8bfSkC2JmiCTncVhixFABm09qArxyujPYBvRjPrf_VRjrkrdYvdNLyCnW6WYoUE7SYONfTNIFNpnho7JXfCV0yVMwrtPubsy77-91g-e1pp5zswcW62k_PValz_tITLQhoQzmdRic_ekoJbeyuE?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                14.30917,36.055346,0
+                14.309297,36.055441,0
+                14.309157,36.055548,0
+                14.309039,36.055457,0
+                14.30917,36.055346,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Points</name>
+      <Placemark>
+        <name><![CDATA[Church of St Peter & St Paul]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKs7PGYg5gap1NYKSq7giCTdYcflUgGapYBjAbzCC0hlp3Vo6VMeTvHWiJJ1_YqxcqGvKUTzTvMDFeqirIGa-4d1cDcPxXjuzw4Bw78IFlDv3Hy4MzobHaCPXamfSiKyFNWRAxiH5XkQL523qlIpVlTdNv6nwWVDde5ISqT978SWQuEmwjZXx5ELKWDz4gWQyhAbMyxZmTqmDZs?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Church Of Saints Peter & Paul In In-Nadur<br><br>Today, the main attraction of In-Nadur is undoubtedly its magnificent Basilica dedicated to the apostles Saint Peter and Saint Paul. This wonderful monumental temple evokes to memory centuries of old historical facts. Over 300 years ago, in 1688, the Bishop of Malta and Gozo Davide Cocco-Palmeri created four new parishes for Gozo. One of them was that of In-Nadur. The church’s site was determined by a generous donation of the ground on which it stands by Grand Master Gregorio Carafa. Since the population of In-Nadur increased without any interruption, Parish priest Salvatore Galea engaged the Maltese architect Giuseppe Bonnici, a Capomastro of the Order, to prepare plans for the building of a new and much bigger church on the same site as the first one. Construction on the church began on 28 September 1760. Its foundation stone was laid on 17 December of that year. The master mason was Mikielangelo Pisano who unfortunately, died while the church was only half finished. This new chuch, built in the form of a Latin cross, unaisled and with a three-bay nave, the choir and two transepts, had a two-storeyed facade. Two belfry towers were attached to the arms of the transepts. Construction dragged on for forty-four years. In 1882, the Archpriest John Camilleri had brought from Marseille in France, a beautiful titular statue made of papiermache, by the firm Galard et Fils, that represents the patron saints of InNadur. Archpriest Camilleri, with the help of his nephew Martin Camilleri decided on enlarging the church to its present form, by the construction of the aisles, dome and facade, all designed by the Maltese architect Francesco Saverio Sciortino. This work was carried out between 1906 and 1914. The cross crowning the dome was placed on 24 September 1913. The whole masonry work was finished in 1914. <br><br>The In-Nadur church can be described as an architectural gem on the Italian Renaissance style on its exterior and splendid baroque in its interior. The paintings of the main vault of the church, the choir, the two transepts, the four pendentives, the dome and in both side aisles are the work of the Maltese painter Lazzaro Pisani. The vault and both transepts are adorned with paintings depicting episodes that refer to the life of St. Peter and St. Paul. There are fifteen stained-glass windows, twelve of which represents the twelve apostles, in the nave, transepts and choir. These are flanked by paintings of popes, martyrs and doctors of the Church. The architectural decorations and ornate sculpture are the work of the Roman sculptor and decorator Pio Cellini. The colour scheme of the interior of the church is pleasant and harmonious. The vault and pendentives above the main cornice are gilded and painted in such manner to be in tune with the lower parts. From the floor to the main cornice, the interior is encased in beautiful marble. The main altar, in the centre of the presbytery is the work of the Maltese artist Emvin Cremona representing the typology of the Eucharistic sacrifice. Throughout the years, the parish of In-Nadur received many titles, namely: a matrice or motherchurch when the parish of Għajnsielem (1855) and then Il-Qala (1872) were dismembered from its territory. The parish church was granted the title of a minor Basilica on 26 June 1967.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKts-ZaO7bRRosgLJV6cGlxpS6nF-wxyJRJkiQbyNhbOyg0wn86ycVi0EIfrz3Wc0A9B-k8DPSdc4r0ZGldt8nA2tVNYQQtIzMP9AmCnxqv1wSmPvLI2aQ8S2QSCeecXSZ7wlmS4c3tjWLCukvg-Njda9kiaO_5uAfkOwz-777Ou7AcWDu2nJShnXw_Xd5HddILiS7QW1xPwZng?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKs7PGYg5gap1NYKSq7giCTdYcflUgGapYBjAbzCC0hlp3Vo6VMeTvHWiJJ1_YqxcqGvKUTzTvMDFeqirIGa-4d1cDcPxXjuzw4Bw78IFlDv3Hy4MzobHaCPXamfSiKyFNWRAxiH5XkQL523qlIpVlTdNv6nwWVDde5ISqT978SWQuEmwjZXx5ELKWDz4gWQyhAbMyxZmTqmDZs?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKts-ZaO7bRRosgLJV6cGlxpS6nF-wxyJRJkiQbyNhbOyg0wn86ycVi0EIfrz3Wc0A9B-k8DPSdc4r0ZGldt8nA2tVNYQQtIzMP9AmCnxqv1wSmPvLI2aQ8S2QSCeecXSZ7wlmS4c3tjWLCukvg-Njda9kiaO_5uAfkOwz-777Ou7AcWDu2nJShnXw_Xd5HddILiS7QW1xPwZng?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2943429,36.0376971,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Parking Area</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.2934792,36.0379465,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Public Toilet</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.2941445,36.0383569,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bus Stop</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.2937784,36.0380055,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Ta' Sopu Watchtower]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv-RKUPu-dP4HnSKzXRhjisZPEnQUL-H-lSiYfxdJue2fo1TqgUv05DpwakEyHSQjgheoQ9dSdYiYUJvzpbOU8_cn4J3hZHnKwZSpBlMJEIyHG4zgUEc8fGokp6gsJ6sB03wap-Z94LtU09hNo8_JXkLWROIdiFhx5Eugofmu016o9lmoRF64g-FDd8-EK7rDeOwoTQzkl_YA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Ta’ Sopu Watchtower<br><br>The University of Gozo funded the building of this tower in 1667 but it was unarmed until 1670 when Grand Master Nicholas Cottoner visited Gozo and stressed the need to equip it with the necessary munitions. It was fully functional a year later.<br><br>On the 10th June 1798, French Revolutionary troops led by Napoleon Bonaparte invaded the island of Gozo, landing within shooting distance of Torri Daħlet Qorrot, also known as La Torre di Daħlet Korrot, or Torre Nuova (now renamed ‘Torri ta’ Sopu). The tower, which was still armed, opened fire on them in a desperate attempt to stop the unwelcome guests from disembarking. General Reynier, who commanded the Gozo invasion, gave an account of this to his Commander-in-chief. The following is an extract from this report.<br><br>“A point for landing was selected between the new tower and the battery of Ramla called Irdum il-Kbir. The whole morning of the 10th June had been occupied in preliminary arrangement. Calms and contrary breezes had still further delayed operations; but by 1 pm the shore was approached by the 3rd Company of Grenadiers and the 95th Demi-Brigade. The heights meanwhile had become crowned with the enemy, who received the French with showers of bullets; Sergeant-Major Bertrand of the Grenadiers in the Generals’boat being killed.<br><br>The batteries of Ramla and New Tower then opened fire. The boats of Alceste conveyed General Reynier and Fugieri, captains Geoffrey and Sabatier, and the 3rd Company of Grenadiers who were the first to land. After a rapid ascent of the heights, notwithstanding the heavy fire, the enemy at last decamped. And the Battery of Ramla was taken. The bombards Etoile and Pluvier, by their successful fire against the enemy’s batteries were of great assistance…” (Source: GRENFELL – Malta, 1798, pg 19).<br><br>The main entrance to the tower is on the upper storey. The doorway was approached by a flight of steps and a small wooden drawbridge. Four badly weathered escutcheons, two on each side of the doorway, once displayed the coats-of-arms of the Order of St. John; the Grand Master of the time, Nicholas Cottoner; the Governor of Gozo; and possibly of the University of Gozo.<br><br>The tower consists of a square block with thick battered walls. The interior has a high barrel-vaulted ceiling with an intermediate floor resting on rib-arches. A spiral staircase provides access to the other floors. The tower had its own well with a narrow culvert cut into the inner side of the south wall, enabling the occupants to draw water up to the first floor. The roof of the tower has a shallow parapet on three sides. Also known as The San Blas Tower, it was jointly restored during the year 2006 by In-Nadur Local Council and Din l-Art Ħelwa (Din l-Art Ħelwa is a non-governmental, not-forprofit, voluntary organization founded in 1965 to safeguard the historic, artistic and natural heritage of Malta).]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKv-RKUPu-dP4HnSKzXRhjisZPEnQUL-H-lSiYfxdJue2fo1TqgUv05DpwakEyHSQjgheoQ9dSdYiYUJvzpbOU8_cn4J3hZHnKwZSpBlMJEIyHG4zgUEc8fGokp6gsJ6sB03wap-Z94LtU09hNo8_JXkLWROIdiFhx5Eugofmu016o9lmoRF64g-FDd8-EK7rDeOwoTQzkl_YA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3091456,36.0554423,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvYZYiJUeR6di2QgBZbI3HuaZlNf3cTw5_aX4z2yLkkkPdeDwO_2Lqyd2RKuEdeb2mUhaKo8qGo81QckHe7fSznVLgKv30H8sNe3okp-fTXSBOGPpzsmJ8S-KQ8M3FRsaHTpE8KgtvcujMqVQ0RFcDbB1gbYue64ZgTkgPHbNB3CO_VXeg-BvRgLODJGb5gUHpOCu5UsDlXhA?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuax6XZbiz6W2hjiwT1PH0OctK-eXoLOf82pFySZW7AzhYXv9Z7CyX4XYqrrw1669MeTbHDY5YihR_DVuufKhiHhgUQIYtP_Sow06wmLVBgAPGVYKEvq1kB1vxN71632hxy7Z-VkstKLFVkuGPxlGtiA1nOPvAi3ECKGFyPMMfEiN4T-F7H8Kqw28-xkMRrcOJreIAJBL-Zkw?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvYZYiJUeR6di2QgBZbI3HuaZlNf3cTw5_aX4z2yLkkkPdeDwO_2Lqyd2RKuEdeb2mUhaKo8qGo81QckHe7fSznVLgKv30H8sNe3okp-fTXSBOGPpzsmJ8S-KQ8M3FRsaHTpE8KgtvcujMqVQ0RFcDbB1gbYue64ZgTkgPHbNB3CO_VXeg-BvRgLODJGb5gUHpOCu5UsDlXhA?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuax6XZbiz6W2hjiwT1PH0OctK-eXoLOf82pFySZW7AzhYXv9Z7CyX4XYqrrw1669MeTbHDY5YihR_DVuufKhiHhgUQIYtP_Sow06wmLVBgAPGVYKEvq1kB1vxN71632hxy7Z-VkstKLFVkuGPxlGtiA1nOPvAi3ECKGFyPMMfEiN4T-F7H8Kqw28-xkMRrcOJreIAJBL-Zkw?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.308762,36.0549292,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Swimming Zone</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKud6GmGMTqHq4KlPBjZo-XW0vOG4_QgM7zo32WnnulmYFIADkXNAyPJqm1-ws4VTr8vWKXeyLEuI6fDDGQyayj8-63fcGq4BIZ0nStEzqjlvXm53wWdhC4X2YPpxWspTU2twzgT9yZ0jiZPkVApIHxJpm-8zXdgQGGVxs5aBUz0PqXKSV3IMDoxBEs8Wud_iPsdLEivy22D2Vg?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKseF8bQnFIu6JrFa9bF_2uNbIV2ZjZ-6-JqGN9bP_mOwYAShN5pvnYwYmH4hqbu6TheZIj14IQLklLRhsoYagOI4issbNfO_TZxdztRs3bdyPjvEzkdbwKwMcVcJm6WbdIPB7uccLT2YrJieVCIBtfprDMy66Bv0pjvQV9vKaKbKMv7c-Uxyw3DOyKqSQyLWW-TSvXo5srvBH0?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKud6GmGMTqHq4KlPBjZo-XW0vOG4_QgM7zo32WnnulmYFIADkXNAyPJqm1-ws4VTr8vWKXeyLEuI6fDDGQyayj8-63fcGq4BIZ0nStEzqjlvXm53wWdhC4X2YPpxWspTU2twzgT9yZ0jiZPkVApIHxJpm-8zXdgQGGVxs5aBUz0PqXKSV3IMDoxBEs8Wud_iPsdLEivy22D2Vg?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKseF8bQnFIu6JrFa9bF_2uNbIV2ZjZ-6-JqGN9bP_mOwYAShN5pvnYwYmH4hqbu6TheZIj14IQLklLRhsoYagOI4issbNfO_TZxdztRs3bdyPjvEzkdbwKwMcVcJm6WbdIPB7uccLT2YrJieVCIBtfprDMy66Bv0pjvQV9vKaKbKMv7c-Uxyw3DOyKqSQyLWW-TSvXo5srvBH0?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3164514,36.0492802,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Public Toilet</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.3166016,36.0486101,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Parking Area</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.3170415,36.0489484,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>View Point</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            14.3121599,36.0421756,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Ta' Randu Windmill]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvgFaHdtVMn-kXmQjAmxZCz8p307OW3VSF00jW6EykGpuF353ESs9PPy-wMmipWNb3ZIQ1dDA_qSFEaJuvev7fJRyB45urI9vWinW3FSetFakjm3AwI6URruJRsM5SsPXvhoCHBRtqr-2SDvyaWlw4c0RwsnYhWydOHltnmuWxuoknelrHy8MNekL-jpITkDsIayCBsSrUZEA?authuser=0&fife=s16383" height="200" width="auto" /><br><br>This windmill was built in 1853 by the Camilleri brothers. The mill was kept operating up till 1977.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtgERt1vnys2Yc2sC0vtHYNHUlrAO-5akm442z6nG7_QrTMpZdXDg_DnT8O37MuyuQG8xxAhYZacZV5HBd4hqYog7xSf8qLi9vqmcg95REhu3ti8fYhUV5xK2Gu2Q727zeLWnpTA7ovhERXBBFMoxVZQu3ec1R9LhFD29K5XrVHD-7Hk04Gtpo4B_cr1z5T7jWZhuHn_3VXWg?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKvgFaHdtVMn-kXmQjAmxZCz8p307OW3VSF00jW6EykGpuF353ESs9PPy-wMmipWNb3ZIQ1dDA_qSFEaJuvev7fJRyB45urI9vWinW3FSetFakjm3AwI6URruJRsM5SsPXvhoCHBRtqr-2SDvyaWlw4c0RwsnYhWydOHltnmuWxuoknelrHy8MNekL-jpITkDsIayCBsSrUZEA?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKtgERt1vnys2Yc2sC0vtHYNHUlrAO-5akm442z6nG7_QrTMpZdXDg_DnT8O37MuyuQG8xxAhYZacZV5HBd4hqYog7xSf8qLi9vqmcg95REhu3ti8fYhUV5xK2Gu2Q727zeLWnpTA7ovhERXBBFMoxVZQu3ec1R9LhFD29K5XrVHD-7Hk04Gtpo4B_cr1z5T7jWZhuHn_3VXWg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3112788,36.0386598,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Qala Parish Church</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKt3CMLQ0v3jmPTXEKVGVJvdsgE4AxEw6lvdQeOy2FXFy_2gLxkIO7S4yYg9KWfOYHYTXdRIHjqL7OW07FaMXpMbfw6xxdaNgXD6F64UQJESl3-hL6tU6EZsmRXqCT5YJ7XzNf2DI-6fQUeHJmNuePxmF84yjqfuBt1QgJQeDZGsfNE9MBT9ettk4YJIrK8BSwqpEOzhMyOskQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>The parish church of il-Qala was designed by Dun Ġużepp Diacono the same architect-priest who designed the church of l-Għasri. It was constructed between 1882 and 1889, when he was serving as parish priest in il-Qala. The church is baroque in style, like many of Gozo’s churches (whether they were built in the seventeenth century or the twentieth!).<br><br>Il-Qala became a parish on 3 February 1872, the first to be established after the creation of the Diocese of Gozo (separate from Malta). The seat of the parish church was the church of the Immaculate Conception of Our Lady until St Joseph’s was completed in 1889. The church was consecrated in 1904 and became Archipresbyteral in 1965.<br><br>The annual village festa is celebrated in early August.<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuEWpr81rIYTPnqEIl5VrARt9ICLZblOdUPVGnC4vr-Y71vDdnjfK6Oy3m5mpQDnkcTckueED7IJU_GoTGpgBldMlA8ezJqi_8LBmyXBBFMzjIXV867XQbqEMUFLA08M35KE6ls-Q7NRDthMryG26a7AbB0-TC3uwYjnGnyfz5yu7B-NR9nEOV2b1L3J5jJpPlW-llIe2yZtw?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKt3CMLQ0v3jmPTXEKVGVJvdsgE4AxEw6lvdQeOy2FXFy_2gLxkIO7S4yYg9KWfOYHYTXdRIHjqL7OW07FaMXpMbfw6xxdaNgXD6F64UQJESl3-hL6tU6EZsmRXqCT5YJ7XzNf2DI-6fQUeHJmNuePxmF84yjqfuBt1QgJQeDZGsfNE9MBT9ettk4YJIrK8BSwqpEOzhMyOskQ?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ADbDBKuEWpr81rIYTPnqEIl5VrARt9ICLZblOdUPVGnC4vr-Y71vDdnjfK6Oy3m5mpQDnkcTckueED7IJU_GoTGpgBldMlA8ezJqi_8LBmyXBBFMzjIXV867XQbqEMUFLA08M35KE6ls-Q7NRDthMryG26a7AbB0-TC3uwYjnGnyfz5yu7B-NR9nEOV2b1L3J5jJpPlW-llIe2yZtw?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.3115626,36.0359587,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

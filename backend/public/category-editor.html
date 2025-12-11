@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Category Editor - Discover Gozo</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="lib/inter-font.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="admin-check.js"></script>
+    <style>
+        /* Modern iPhone-style CSS Variables */
+        :root {
+            /* Color Palette */
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-500: #3b82f6;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-900: #1e3a8a;
+            
+            --success-50: #f0fdf4;
+            --success-100: #dcfce7;
+            --success-500: #22c55e;
+            --success-600: #16a34a;
+            
+            --error-50: #fef2f2;
+            --error-100: #fee2e2;
+            --error-500: #ef4444;
+            --error-600: #dc2626;
+            
+            --warning-50: #fffbeb;
+            --warning-100: #fef3c7;
+            --warning-500: #f59e0b;
+            --warning-600: #d97706;
+            
+            --purple-50: #faf5ff;
+            --purple-100: #f3e8ff;
+            --purple-500: #a855f7;
+            --purple-600: #9333ea;
+            
+            --orange-50: #fff7ed;
+            --orange-100: #ffedd5;
+            --orange-500: #f97316;
+            --orange-600: #ea580c;
+            
+            /* Light Theme */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --bg-elevated: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+            
+            /* Spacing & Effects */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Dark Theme Variables */
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --bg-elevated: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --border-hover: #475569;
+            --accent-color: #60a5fa;
+            --accent-hover: #93c5fd;
+        }
+
+        /* Dark Theme Support */
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #2d1b69 0%, #1a0d4a 100%);
+        }
+
+        /* Modern Body & Layout */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .main-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 2rem;
+            background: transparent;
+        }
+
+        /* Modern Header */
+        .main-header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px 30px;
+        }
+
+        .main-header h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .main-header h1 i {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .top-menu {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .top-menu .btn {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            color: white !important;
+            padding: 10px 20px !important;
+            border-radius: 8px !important;
+            text-decoration: none !important;
+            font-weight: 500 !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            min-height: auto !important;
+        }
+        
+        .top-menu .btn:hover {
+            background: rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        .top-menu .btn.active {
+            background: rgba(255, 255, 255, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        /* Content Header */
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modern Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.25rem;
+            border: none;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            white-space: nowrap;
+            min-height: 44px;
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-info {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-warning:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+
+
+        /* Category Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .category-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .category-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+        
+        .category-icon {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            color: white;
+        }
+        
+        .category-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .category-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+        
+        .category-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .status-active {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        
+        .status-inactive {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .category-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .btn-edit, .btn-delete {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .btn-edit {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-edit:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-delete {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+        }
+        
+        .btn-delete:hover {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .modal-content h2 {
+            color: white;
+            margin: 0 0 1.5rem 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: white;
+            font-size: 0.875rem;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all var(--transition-normal);
+            font-size: 0.875rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .image-preview {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-top: 0.5rem;
+            display: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .color-picker {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .color-picker input[type="color"] {
+            width: 50px;
+            height: 40px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: transparent;
+        }
+        
+        .color-picker span {
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+
+        .form-group label[style*="display: flex"] {
+            display: flex !important;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .form-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 0.75rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* FontAwesome Icon Fixes */
+        .fas, .far, .fab {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands" !important;
+            font-weight: 900;
+        }
+
+        .far {
+            font-weight: 400;
+        }
+
+        .fab {
+            font-weight: 400;
+        }
+
+        /* Icon specific styles */
+        .btn i, .category-icon {
+            font-size: inherit;
+            line-height: 1;
+        }
+
+        /* Dark Theme Styles */
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #2d1b69 0%, #1a0d4a 100%);
+        }
+
+        [data-theme="dark"] .main-header {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .main-header h1 {
+            color: white;
+        }
+
+        [data-theme="dark"] .content-header {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .content-header h2 {
+            color: white;
+        }
+
+        [data-theme="dark"] .category-card {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .category-name {
+            color: white;
+        }
+
+        [data-theme="dark"] .category-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        [data-theme="dark"] .category-meta {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        [data-theme="dark"] .modal-content {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .modal-content h2 {
+            color: white;
+        }
+
+        [data-theme="dark"] .form-group label {
+            color: white;
+        }
+
+        [data-theme="dark"] .form-group input,
+        [data-theme="dark"] .form-group textarea,
+        [data-theme="dark"] .form-group select {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        [data-theme="dark"] .form-group input:focus,
+        [data-theme="dark"] .form-group textarea:focus,
+        [data-theme="dark"] .form-group select:focus {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] .form-group input::placeholder,
+        [data-theme="dark"] .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        [data-theme="dark"] .color-picker span {
+            color: white;
+        }
+
+        [data-theme="dark"] .loading {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        [data-theme="dark"] .spinner {
+            border-color: rgba(255, 255, 255, 0.2);
+            border-top-color: white;
+        }
+        
+        [data-theme="dark"] .btn-primary {
+            background: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(76, 29, 149, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-success {
+            background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-success:hover {
+            box-shadow: 0 8px 25px rgba(22, 101, 52, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        [data-theme="dark"] .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        [data-theme="dark"] .btn-info {
+            background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-info:hover {
+            box-shadow: 0 8px 25px rgba(12, 74, 110, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-warning {
+            background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-warning:hover {
+            box-shadow: 0 8px 25px rgba(146, 64, 14, 0.4);
+        }
+        
+        [data-theme="dark"] .btn-danger {
+            background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .btn-danger:hover {
+            box-shadow: 0 8px 25px rgba(153, 27, 27, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .category-actions {
+                flex-direction: column;
+            }
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1><i class="fas fa-tags"></i> Discover Gozo Admin</h1>
+        <nav class="top-menu">
+            <a href="/admin.html" class="btn btn-secondary"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="/analytics.html" class="btn btn-secondary"><i class="fas fa-chart-line"></i> Analytics</a>
+            <a href="/weather-admin.html" class="btn btn-secondary"><i class="fas fa-cloud-sun"></i> Weather</a>
+            <a href="/bus-editor.html" class="btn btn-secondary"><i class="fas fa-bus"></i> Bus Routes</a>
+            <a href="/new-route-editor.html" class="btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Tour Routes</a>
+            <a href="/category-editor.html" class="btn btn-primary active"><i class="fas fa-tags"></i> Category Editor</a>
+            <a href="/gallery-manager.html" class="btn btn-secondary"><i class="fas fa-images"></i> Gallery</a>
+            <a href="/users.html" class="btn btn-secondary"><i class="fas fa-users"></i> Users</a>
+            <a href="/reservations.html" class="btn btn-secondary"><i class="fas fa-calendar-check"></i> Reservations</a>
+            <a href="/merchants.html" class="btn btn-secondary"><i class="fas fa-store"></i> Merchants</a>
+            <a href="/user-reviews.html" class="btn btn-secondary"><i class="fas fa-star"></i> User Reviews</a>
+        </nav>
+
+    </header>
+
+    <div class="content">
+            <div class="content-header">
+                <h2><i class="fas fa-tags"></i> Manage Tour Categories</h2>
+                <button id="add-category-btn" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add New Category
+                </button>
+            </div>
+            
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Loading categories...</p>
+            </div>
+            
+            <div id="categories-container" class="category-grid">
+                <!-- Categories will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Modal -->
+    <div id="category-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="modal-title">Add New Category</h2>
+            <form id="category-form">
+                <input type="hidden" id="category-id">
+                
+                <div class="form-group">
+                    <label for="category-name">Category Name *</label>
+                    <input type="text" id="category-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category-description">Description</label>
+                    <textarea id="category-description" placeholder="Enter category description..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category-icon">Icon</label>
+                    <select id="category-icon">
+                        <option value="🏛️">🏛️ Cultural</option>
+                        <option value="🚤">🚤 Boat</option>
+                        <option value="🚙">🚙 Jeep</option>
+                        <option value="🛵">🛵 Quad</option>
+                        <option value="🏃">🏃 Hiking</option>
+                        <option value="🎪">🎪 Adventure</option>
+                        <option value="🏖️">🏖️ Beach</option>
+                        <option value="🌄">🌄 Scenic</option>
+                        <option value="🍽️">🍽️ Food</option>
+                        <option value="🍷">🍷 Wine</option>
+                        <option value="🏺">🏺 Historical</option>
+                        <option value="🌊">🌊 Water Sports</option>
+                        <option value="🤿">🤿 Diving</option>
+                        <option value="🎭">🎭 Entertainment</option>
+                        <option value="🛍️">🛍️ Shopping</option>
+                        <option value="🏨">🏨 Hotel</option>
+                        <option value="⛰️">⛰️ Mountain</option>
+                        <option value="🌳">🌳 Nature</option>
+                        <option value="🏰">🏰 Castle</option>
+                        <option value="⛪">⛪ Religious</option>
+                        <option value="🎨">🎨 Art</option>
+                        <option value="📚">📚 Educational</option>
+                        <option value="🏕️">🏕️ Camping</option>
+                        <option value="🌅">🌅 Sunset</option>
+                        <option value="🌌">🌌 Night</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category-color">Color</label>
+                    <div class="color-picker">
+                        <input type="color" id="category-color" value="#3b82f6">
+                        <span id="color-value">#3b82f6</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category-image">Category Image</label>
+                    <input type="file" id="category-image" accept="image/*">
+                    <img id="image-preview" class="image-preview" alt="Preview">
+                </div>
+                
+                <div class="form-group">
+                    <label for="category-order">Display Order</label>
+                    <input type="number" id="category-order" min="1" value="1">
+                </div>
+                
+                <div class="form-group">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="category-active" checked style="width: auto; margin: 0;">
+                        <span>Active Category</span>
+                    </label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="cancel-btn" class="btn btn-secondary">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Category
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <svg id="theme-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </div>
+
+    <script src="theme-toggle.js?v=2"></script>
+    <script src="image-gallery-modal.js?v=2"></script>
+    <script src="image-upload-progress.js?v=2"></script>
+    <script src="category-editor.js?v=2"></script>
+    <script src="category-editor-enhancement.js?v=2"></script>
+
+
+</body>
+</html>

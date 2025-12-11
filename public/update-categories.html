@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Custom Categories</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .category { display: flex; align-items: center; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .category input { margin: 0 10px; }
+        .category .icon { font-size: 24px; margin-right: 10px; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .add-category { margin: 20px 0; padding: 20px; border: 2px dashed #ccc; border-radius: 5px; }
+        .add-category input { margin: 5px; padding: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Update Custom Categories</h1>
+    
+    <div id="categories"></div>
+    
+    <div class="add-category">
+        <h3>Add New Category</h3>
+        <input type="text" id="newName" placeholder="Category Name" />
+        <input type="text" id="newIcon" placeholder="Icon (emoji)" />
+        <button onclick="addCategory()">Add Category</button>
+    </div>
+    
+    <div>
+        <button onclick="loadCategories()">Load Categories</button>
+        <button onclick="saveCategories()">Save Categories</button>
+    </div>
+
+    <script>
+        let categories = [];
+
+        function loadCategories() {
+            fetch('/custom-categories.json')
+                .then(response => response.json())
+                .then(data => {
+                    categories = data;
+                    renderCategories();
+                })
+                .catch(error => {
+                    console.error('Error loading categories:', error);
+                    alert('Error loading categories');
+                });
+        }
+
+        function renderCategories() {
+            const container = document.getElementById('categories');
+            container.innerHTML = '';
+            
+            categories.forEach((category, index) => {
+                const div = document.createElement('div');
+                div.className = 'category';
+                div.innerHTML = `
+                    <span class="icon">${category.icon}</span>
+                    <input type="text" value="${category.name}" onchange="updateCategory(${index}, 'name', this.value)" />
+                    <input type="text" value="${category.icon}" onchange="updateCategory(${index}, 'icon', this.value)" />
+                    <button onclick="removeCategory(${index})">Remove</button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function updateCategory(index, field, value) {
+            categories[index][field] = value;
+        }
+
+        function removeCategory(index) {
+            categories.splice(index, 1);
+            renderCategories();
+        }
+
+        function addCategory() {
+            const name = document.getElementById('newName').value;
+            const icon = document.getElementById('newIcon').value;
+            
+            if (name && icon) {
+                const newCategory = {
+                    id: 'custom-' + Date.now(),
+                    name: name,
+                    icon: icon,
+                    isCustom: true,
+                    createdAt: new Date().toISOString()
+                };
+                categories.push(newCategory);
+                renderCategories();
+                
+                document.getElementById('newName').value = '';
+                document.getElementById('newIcon').value = '';
+            }
+        }
+
+        function saveCategories() {
+            fetch('/custom-categories.json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(categories)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Categories saved successfully!');
+                } else {
+                    alert('Error saving categories');
+                }
+            })
+            .catch(error => {
+                console.error('Error saving categories:', error);
+                alert('Error saving categories');
+            });
+        }
+
+        // Load categories on page load
+        loadCategories();
+    </script>
+</body>
+</html>

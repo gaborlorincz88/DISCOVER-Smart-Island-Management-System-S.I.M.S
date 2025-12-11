@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Hunt Admin - Discover Gozo</title>
+    <link rel="stylesheet" href="lib/leaflet.css" />
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="lib/inter-font.css">
+    <link href="lib/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="theme-toggle.js"></script>
+    <script src="admin-check.js"></script>
+    <style>
+        /* Modern iPhone-style Design - Bright Theme */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main-header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px 30px;
+        }
+        
+        .main-header h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .main-header h1 i {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .top-menu {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .top-menu .btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .top-menu .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .top-menu .btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 180px);
+            gap: 20px;
+            margin: 20px;
+            overflow: visible;
+        }
+        
+        .sidebar {
+            width: 380px;
+            max-width: 380px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: transparent;
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: column;
+            gap: 15px;
+            height: 100%;
+            padding-right: 5px;
+        }
+        
+        .sidebar-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: visible;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: fit-content;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .sidebar-section:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar-section summary {
+            padding: 16px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .sidebar-section summary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-section[open] summary {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .sidebar-section-content {
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: visible;
+            flex: 1;
+            max-width: 100%;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #treasure-hunt-map {
+            width: 100%;
+            height: 500px;
+            min-height: 500px;
+            border-radius: 20px;
+            flex-shrink: 0;
+        }
+        
+        .treasure-hunt-item {
+            padding: 14px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+        
+        .treasure-hunt-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(4px);
+        }
+        
+        .treasure-hunt-item.active {
+            background: rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.6);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+        
+        #treasure-hunts-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .clue-item {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid rgba(99, 102, 241, 0.6);
+            transition: all 0.2s ease;
+        }
+        
+        .clue-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(4px);
+        }
+        
+        .clue-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .clue-number-badge {
+            background: rgba(99, 102, 241, 0.3);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        .clue-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        
+        .map-instructions {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            z-index: 1000;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .map-instructions.hidden {
+            display: none;
+        }
+        
+        .user-activity-section {
+            width: 100%;
+        }
+        
+        .user-activity-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .user-activity-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(4px);
+        }
+        
+        .user-activity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            cursor: pointer;
+            user-select: none;
+            transition: opacity 0.2s ease;
+        }
+        
+        .user-activity-header:hover {
+            opacity: 0.8;
+        }
+        
+        .user-activity-name {
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .user-activity-email {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            margin-top: 2px;
+        }
+        
+        .user-activity-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 8px;
+        }
+        
+        .user-activity-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .user-hunt-progress {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .user-hunt-item {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 8px;
+            margin-top: 8px;
+            font-size: 11px;
+        }
+        
+        .user-hunt-name {
+            color: white;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .user-hunt-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+        
+        .user-hunt-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #059669);
+            transition: width 0.3s ease;
+        }
+        
+        .user-hunt-progress-fill.completed {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+        }
+        
+        .user-activity-last {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 11px;
+            margin-top: 4px;
+        }
+        
+        /* Dark Theme Support */
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #2d1b69 0%, #1a0d4a 100%);
+        }
+        
+        [data-theme="dark"] .main-header {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .sidebar-section {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .content {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .treasure-hunt-item {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        [data-theme="dark"] .treasure-hunt-item:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        [data-theme="dark"] .treasure-hunt-item.active {
+            background: rgba(99, 102, 241, 0.4);
+            border-color: rgba(99, 102, 241, 0.7);
+        }
+        
+        [data-theme="dark"] .clue-item {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        [data-theme="dark"] .clue-item:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Input styling */
+        .input-group {
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .input-group input,
+        .input-group textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 100%;
+            box-sizing: border-box;
+            word-break: break-all;
+            overflow-wrap: break-word;
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
+            transition: all 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .input-group input:focus,
+        .input-group textarea:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(99, 102, 241, 0.6);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .input-group input::placeholder,
+        .input-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Specific rules for icon input fields to prevent overflow */
+        #treasure-hunt-icon,
+        #treasure-hunt-clue-icon {
+            max-width: 200px !important;
+            min-width: 0 !important;
+            flex: 1 1 auto !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            white-space: nowrap !important;
+            box-sizing: border-box !important;
+        }
+        
+        /* Ensure button containers don't overflow */
+        .input-group > div[style*="display: flex"] {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+        }
+        
+        /* Ensure sidebar sections don't overflow */
+        .sidebar-section {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            box-sizing: border-box !important;
+        }
+        
+        .sidebar-section-content {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            box-sizing: border-box !important;
+            word-wrap: break-word !important;
+        }
+        
+        .input-group label {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        [data-theme="dark"] .input-group input,
+        [data-theme="dark"] .input-group textarea {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .input-group input:focus,
+        [data-theme="dark"] .input-group textarea:focus {
+            background: rgba(0, 0, 0, 0.4);
+            border-color: rgba(99, 102, 241, 0.7);
+        }
+        
+        .btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        #clues-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.6);
+            font-style: italic;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-badge.active {
+            background: #10b981;
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+        }
+        
+        .status-badge.inactive {
+            background: #ef4444;
+            box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .flex-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1><i class="fas fa-treasure-chest"></i> Treasure Hunt Admin</h1>
+        <nav class="top-menu">
+            <a href="/admin.html" class="btn btn-secondary"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="/analytics.html" class="btn btn-secondary"><i class="fas fa-chart-line"></i> Analytics</a>
+            <a href="/weather-admin.html" class="btn btn-secondary"><i class="fas fa-cloud-sun"></i> Weather</a>
+            <a href="/bus-editor.html" class="btn btn-secondary"><i class="fas fa-bus"></i> Bus Routes</a>
+            <a href="/new-route-editor.html" class="btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Tour Routes</a>
+            <a href="/category-editor.html" class="btn btn-secondary"><i class="fas fa-tags"></i> Category Editor</a>
+            <a href="/gallery-manager.html" class="btn btn-secondary"><i class="fas fa-images"></i> Gallery</a>
+            <a href="/header-editor.html" class="btn btn-secondary"><i class="fas fa-heading"></i> Header/Menu Editor</a>
+            <a href="/users.html" class="btn btn-secondary"><i class="fas fa-users"></i> Users</a>
+            <a href="/reservations.html" class="btn btn-secondary"><i class="fas fa-calendar-check"></i> Reservations</a>
+            <a href="/merchants.html" class="btn btn-secondary"><i class="fas fa-store"></i> Merchants</a>
+            <a href="/user-reviews.html" class="btn btn-secondary"><i class="fas fa-star"></i> User Reviews</a>
+            <a href="/user-alarms.html" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i> User Alarms</a>
+            <a href="/treasure-hunt-admin.html" class="btn btn-primary active"><i class="fas fa-treasure-chest"></i> Treasure Hunt</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <!-- Treasure Hunt Form -->
+            <details id="treasure-hunt-form-container" class="sidebar-section collapsible">
+                <summary><i class="fas fa-plus"></i> Add New Treasure Hunt</summary>
+                <div class="sidebar-section-content">
+                    <form id="treasure-hunt-form" onsubmit="event.preventDefault(); return false;" action="javascript:void(0);" method="post">
+                        <input type="hidden" id="treasure-hunt-id" name="id">
+                        <div class="input-group">
+                            <label for="treasure-hunt-name">Hunt Name *</label>
+                            <input type="text" id="treasure-hunt-name" name="name" required placeholder="e.g., Gozo Adventure Hunt">
+                        </div>
+                        <div class="input-group">
+                            <label for="treasure-hunt-description">Description</label>
+                            <textarea id="treasure-hunt-description" name="description" rows="3" placeholder="Describe the treasure hunt..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="treasure-hunt-icon">Icon</label>
+                            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; max-width: 100%; box-sizing: border-box;">
+                                <input type="text" id="treasure-hunt-icon" name="icon" placeholder="🏴‍☠️" style="flex: 1 1 auto; min-width: 0; max-width: 200px; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box;">
+                                <button type="button" id="select-hunt-icon-btn" class="btn btn-info btn-sm" title="Select from common icons">
+                                    <i class="fas fa-icons"></i> Select
+                                </button>
+                                <input type="file" id="upload-hunt-icon-file" accept="image/*" style="display: none;">
+                                <button type="button" id="upload-hunt-icon-btn" class="btn btn-secondary btn-sm" title="Upload custom icon">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <button type="button" id="gallery-hunt-icon-btn" class="btn btn-success btn-sm" title="Select from image gallery">
+                                    <i class="fas fa-images"></i> Gallery
+                                </button>
+                            </div>
+                            <div id="hunt-icon-preview" style="margin-top: 10px; display: none; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 8px; max-width: 100%; overflow: hidden; box-sizing: border-box;">
+                                <div id="hunt-icon-preview-content" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                    <img id="hunt-icon-preview-img" src="" alt="Icon preview" style="max-width: 64px; max-height: 64px; width: auto; height: auto; border-radius: 8px; border: 2px solid rgba(255,255,255,0.3); display: none; flex-shrink: 0; object-fit: contain;">
+                                    <div id="hunt-icon-text-preview" style="font-size: 48px; text-align: center; display: none; flex-shrink: 0; line-height: 1;"></div>
+                                    <button type="button" id="remove-hunt-icon-btn" class="btn btn-sm btn-danger" style="flex-shrink: 0;">
+                                        <i class="fas fa-times"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <small style="display: block; margin-top: 5px; color: rgba(255, 255, 255, 0.7); font-size: 12px;">
+                                Enter emoji/text, select from common icons, or upload a custom image
+                            </small>
+                        </div>
+                        <div class="input-group">
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="checkbox" id="treasure-hunt-active" name="is_active" checked style="width: auto; margin: 0;">
+                                <span>Active (visible to users)</span>
+                            </label>
+                        </div>
+                        
+                        <!-- Prize Configuration -->
+                        <div class="input-group" style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; margin-top: 15px;">
+                            <label style="font-weight: 600; margin-bottom: 10px; display: block;"><i class="fas fa-gift"></i> Prize Configuration</label>
+                            <div id="prize-display" style="display: none; margin-bottom: 10px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <span><strong>Current Prize:</strong> <span id="prize-discount-display"></span>% discount</span>
+                                    <button type="button" id="remove-prize-btn" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Remove</button>
+                                </div>
+                                <div style="font-size: 12px; color: rgba(255,255,255,0.7);">
+                                    <div>Coupon Code: <code id="prize-coupon-display" style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;"></code></div>
+                                    <div id="prize-qr-display" style="margin-top: 8px;"></div>
+                                </div>
+                            </div>
+                            <div class="input-group" style="margin-bottom: 10px;">
+                                <label for="prize-discount-percentage">Discount Percentage</label>
+                                <select id="prize-discount-percentage" style="width: 100%;">
+                                    <option value="">-- Select Discount --</option>
+                                    <option value="5">5%</option>
+                                    <option value="10">10%</option>
+                                    <option value="15">15%</option>
+                                    <option value="20">20%</option>
+                                    <option value="25">25%</option>
+                                    <option value="30">30%</option>
+                                    <option value="40">40%</option>
+                                    <option value="50">50%</option>
+                                </select>
+                            </div>
+                            <button type="button" id="set-prize-btn" class="btn btn-success btn-sm" style="width: 100%;"><i class="fas fa-gift"></i> Set Prize</button>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" id="submit-treasure-hunt-button" class="btn btn-primary"><i class="fas fa-save"></i> Save Hunt</button>
+                            <button type="button" id="cancel-treasure-hunt-button" class="btn btn-secondary"><i class="fas fa-times"></i> Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </details>
+
+            <!-- Treasure Hunts List -->
+            <details id="treasure-hunts-list-section" class="sidebar-section collapsible" open>
+                <summary><i class="fas fa-list"></i> Treasure Hunts</summary>
+                <div class="sidebar-section-content">
+                    <div class="input-group" style="padding: 0 0 1rem 0;">
+                        <input type="text" id="search-treasure-hunts-input" placeholder="🔍 Search hunts...">
+                    </div>
+                    <ul id="treasure-hunts-list">
+                        <li class="empty-state">Loading hunts...</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Clues List (shown when hunt is selected) -->
+            <details id="clues-list-section" class="sidebar-section collapsible">
+                <summary><i class="fas fa-question-circle"></i> Clues <span id="selected-hunt-indicator" style="font-size: 0.8em; opacity: 0.7; margin-left: 10px;"></span></summary>
+                <div class="sidebar-section-content">
+                    <ul id="clues-list">
+                        <li class="empty-state">Select a treasure hunt to view clues</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Clue Form -->
+            <details id="treasure-hunt-clue-form-container" class="sidebar-section collapsible">
+                <summary><i class="fas fa-map-marker-alt"></i> Add/Edit Clue</summary>
+                <div class="sidebar-section-content">
+                    <form id="treasure-hunt-clue-form">
+                        <input type="hidden" id="treasure-hunt-clue-id" name="id">
+                        <input type="hidden" id="treasure-hunt-clue-hunt-id" name="treasure_hunt_id">
+                        <div class="input-group">
+                            <label for="treasure-hunt-clue-number">Clue Number *</label>
+                            <input type="number" id="treasure-hunt-clue-number" name="clue_number" min="1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="treasure-hunt-clue-title">Title (optional)</label>
+                            <input type="text" id="treasure-hunt-clue-title" name="title" placeholder="e.g., The Old Fort">
+                        </div>
+                        <div class="input-group">
+                            <label for="treasure-hunt-clue-text">Clue Text (Riddle/Puzzle) *</label>
+                            <textarea id="treasure-hunt-clue-text" name="clue_text" rows="4" required placeholder="Enter your riddle or puzzle here..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="treasure-hunt-clue-answer">Answer *</label>
+                            <input type="text" id="treasure-hunt-clue-answer" name="answer" required placeholder="Correct answer (case-insensitive)">
+                        </div>
+                        <div class="flex-grid">
+                            <div class="input-group">
+                                <label for="treasure-hunt-clue-latitude">Latitude *</label>
+                                <input type="number" id="treasure-hunt-clue-latitude" name="latitude" step="any" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="treasure-hunt-clue-longitude">Longitude *</label>
+                                <input type="number" id="treasure-hunt-clue-longitude" name="longitude" step="any" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <button type="button" id="use-map-coords-clue" class="btn btn-info btn-sm">
+                                <i class="fas fa-crosshairs"></i> Use Map Click
+                            </button>
+                            <small style="display: block; margin-top: 8px; color: rgba(255, 255, 255, 0.7); font-size: 12px;">
+                                💡 Right-click on map or click this button then click map to set location
+                            </small>
+                        </div>
+                        <div class="input-group">
+                            <label for="treasure-hunt-clue-icon">Icon</label>
+                            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; max-width: 100%; box-sizing: border-box;">
+                                <input type="text" id="treasure-hunt-clue-icon" name="icon" placeholder="🗺️" style="flex: 1 1 auto; min-width: 0; max-width: 200px; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box;">
+                                <button type="button" id="select-clue-icon-btn" class="btn btn-info btn-sm" title="Select from common icons">
+                                    <i class="fas fa-icons"></i> Select
+                                </button>
+                                <input type="file" id="upload-clue-icon-file" accept="image/*" style="display: none;">
+                                <button type="button" id="upload-clue-icon-btn" class="btn btn-secondary btn-sm" title="Upload custom icon">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                            </div>
+                            <div id="clue-icon-preview" style="margin-top: 10px; display: none; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 8px; max-width: 100%; overflow: hidden; box-sizing: border-box;">
+                                <div id="clue-icon-preview-content" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                    <img id="clue-icon-preview-img" src="" alt="Icon preview" style="max-width: 64px; max-height: 64px; width: auto; height: auto; border-radius: 8px; border: 2px solid rgba(255,255,255,0.3); display: none; flex-shrink: 0; object-fit: contain;">
+                                    <div id="clue-icon-text-preview" style="font-size: 48px; text-align: center; display: none; flex-shrink: 0; line-height: 1;"></div>
+                                    <button type="button" id="remove-clue-icon-btn" class="btn btn-sm btn-danger" style="flex-shrink: 0;">
+                                        <i class="fas fa-times"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <small style="display: block; margin-top: 5px; color: rgba(255, 255, 255, 0.7); font-size: 12px;">
+                                Enter emoji/text, select from common icons, or upload a custom image
+                            </small>
+                        </div>
+                        <div class="input-group">
+                            <label for="treasure-hunt-clue-hint">Hint (optional)</label>
+                            <textarea id="treasure-hunt-clue-hint" name="hint" rows="2" placeholder="Optional hint to help users..."></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" id="submit-treasure-hunt-clue-button" class="btn btn-primary"><i class="fas fa-save"></i> Save Clue</button>
+                            <button type="button" id="cancel-treasure-hunt-clue-button" class="btn btn-secondary"><i class="fas fa-times"></i> Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </details>
+        </aside>
+        <main class="content">
+            <div id="treasure-hunt-map"></div>
+            <div id="map-instructions" class="map-instructions">
+                <strong>💡 Instructions:</strong><br>
+                1. Select a treasure hunt from the list<br>
+                2. Right-click on the map to add a clue<br>
+                3. Or click "Use Map Click" button then click map
+            </div>
+            
+            <!-- User Activity Section -->
+            <div id="user-activity-section" class="user-activity-section" style="margin-top: 20px; display: block;">
+                <div class="sidebar-section" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px;">
+                    <h3 style="color: white; margin: 0 0 15px 0; font-size: 20px; font-weight: 600; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-users"></i> Users & Activity
+                    </h3>
+                    <div id="user-activity-list" style="max-height: 400px; overflow-y: auto;">
+                        <div class="empty-state">Loading users...</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <script src="lib/leaflet.js"></script>
+    <script src="image-gallery-modal.js"></script>
+    <script>
+        // Initialize theme toggle
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const themeManager = new ThemeManager();
+            themeManager.toggleTheme();
+        });
+        
+        // Initialize map immediately
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== INLINE SCRIPT: DOMContentLoaded ===');
+            
+            if (typeof L !== 'undefined') {
+                try {
+                    console.log('Initializing map inline...');
+                    window.treasureHuntMap = L.map('treasure-hunt-map').setView([36.045, 14.25], 13);
+                    
+                    const gozoBounds = L.latLngBounds([35.98, 14.15], [36.09, 14.40]);
+                    const cacheBuster = new Date().getTime();
+                    L.tileLayer('/tiles/gozo/{z}/{x}/{y}.png?v=' + cacheBuster, {
+                        maxZoom: 19,
+                        minZoom: 12,
+                        attribution: 'Discover Gozo | &copy; Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP',
+                        bounds: gozoBounds,
+                        errorTileUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='
+                    }).addTo(window.treasureHuntMap);
+                    window.treasureHuntMap.setMaxBounds(gozoBounds);
+                    
+                    // Temporary marker for new clues
+                    let tempClueMarker = null;
+                    
+                    // Function to remove temporary marker
+                    function removeTempMarker() {
+                        if (tempClueMarker && window.treasureHuntMap) {
+                            window.treasureHuntMap.removeLayer(tempClueMarker);
+                            tempClueMarker = null;
+                        }
+                    }
+                    
+                    // Function to add temporary marker
+                    function addTempMarker(latLng) {
+                        // Remove existing temp marker
+                        removeTempMarker();
+                        
+                        // Get hunt icon or default
+                        const huntIcon = window.selectedHuntIcon || '/treasuregif.gif';
+                        const isImageUrl = huntIcon.startsWith('http') || huntIcon.startsWith('/') || huntIcon.startsWith('/uploads/') || huntIcon.startsWith('data:') || huntIcon.endsWith('.png') || huntIcon.endsWith('.gif') || huntIcon.endsWith('.jpg') || huntIcon.endsWith('.jpeg') || huntIcon.endsWith('.webp');
+                        
+                        let markerHtml;
+                        if (isImageUrl) {
+                            // Determine the correct image source
+                            let imgSrc;
+                            if (huntIcon.startsWith('data:image')) {
+                                // Data URL - use directly
+                                imgSrc = huntIcon;
+                            } else if (huntIcon.startsWith('http://') || huntIcon.startsWith('https://')) {
+                                // Full URL - use directly
+                                imgSrc = huntIcon;
+                            } else if (huntIcon.startsWith('/uploads/') || huntIcon.startsWith('/')) {
+                                // Absolute path - use directly
+                                imgSrc = huntIcon;
+                            } else {
+                                // Relative path - prepend /uploads/
+                                imgSrc = '/uploads/' + huntIcon;
+                            }
+                            
+                            markerHtml = `<div style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.9); border-radius: 50%; border: 3px solid #6366f1; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"><img src="${imgSrc}" alt="Clue" style="width: 40px; height: 40px; object-fit: contain; border-radius: 50%;"></div>`;
+                        } else {
+                            markerHtml = `<div style="font-size: 40px; text-align: center; line-height: 1; background: rgba(255, 255, 255, 0.9); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border: 3px solid #6366f1; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">${huntIcon || '📍'}</div>`;
+                        }
+                        
+                        tempClueMarker = L.marker(latLng, {
+                            icon: L.divIcon({
+                                className: 'temp-clue-marker',
+                                html: markerHtml,
+                                iconSize: [50, 50],
+                                iconAnchor: [25, 25],
+                                zIndexOffset: 2000
+                            })
+                        }).addTo(window.treasureHuntMap);
+                        
+                        tempClueMarker.bindPopup('<div style="text-align: center; font-weight: 600; color: #6366f1;">New Clue Location<br><small style="font-size: 11px; color: #666;">Fill form and save to add</small></div>').openPopup();
+                    }
+                    
+                    // Function to handle right-click and show clue form
+                    function handleRightClick(e) {
+                        console.log('=== RIGHT-CLICK HANDLER FIRED ===');
+                        console.log('Event:', e);
+                        console.log('Selected hunt ID:', window.selectedHuntId);
+                        
+                        if (e.originalEvent) {
+                            e.originalEvent.preventDefault();
+                            e.originalEvent.stopPropagation();
+                        }
+                        
+                        if (!window.selectedHuntId) {
+                            alert('Please select a treasure hunt first from the list on the left.');
+                            return false;
+                        }
+                        
+                        const latLng = e.latlng || e.target.getLatLng();
+                        console.log('Location:', latLng);
+                        
+                        // Add temporary marker
+                        addTempMarker(latLng);
+                        
+                        // Show clue form
+                        const clueFormContainer = document.getElementById('treasure-hunt-clue-form-container');
+                        if (!clueFormContainer) {
+                            console.error('Clue form container not found!');
+                            return false;
+                        }
+                        
+                        clueFormContainer.setAttribute('open', '');
+                        const huntIdInput = document.getElementById('treasure-hunt-clue-hunt-id');
+                        if (huntIdInput) huntIdInput.value = window.selectedHuntId;
+                        
+                        const latInput = document.getElementById('treasure-hunt-clue-latitude');
+                        const lngInput = document.getElementById('treasure-hunt-clue-longitude');
+                        if (latInput) latInput.value = latLng.lat.toFixed(5);
+                        if (lngInput) lngInput.value = latLng.lng.toFixed(5);
+                        
+                        // Get next clue number
+                        const cluesList = document.getElementById('clues-list');
+                        let nextNumber = 1;
+                        if (cluesList) {
+                            const badges = cluesList.querySelectorAll('.clue-number-badge');
+                            if (badges.length > 0) {
+                                const numbers = Array.from(badges).map(b => parseInt(b.textContent.replace('#', '')));
+                                nextNumber = Math.max(...numbers) + 1;
+                            }
+                        }
+                        const clueNumberInput = document.getElementById('treasure-hunt-clue-number');
+                        if (clueNumberInput) clueNumberInput.value = nextNumber;
+                        
+                        // Reset form
+                        const clueForm = document.getElementById('treasure-hunt-clue-form');
+                        if (clueForm) {
+                            document.getElementById('treasure-hunt-clue-id').value = '';
+                            clueForm.reset();
+                            // Restore values after reset
+                            if (huntIdInput) huntIdInput.value = window.selectedHuntId;
+                            if (latInput) latInput.value = latLng.lat.toFixed(5);
+                            if (lngInput) lngInput.value = latLng.lng.toFixed(5);
+                            if (clueNumberInput) clueNumberInput.value = nextNumber;
+                        }
+                        
+                        // Scroll to form
+                        clueFormContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        
+                        console.log('Clue form opened at:', latLng.lat.toFixed(5), latLng.lng.toFixed(5));
+                        return false;
+                    }
+                    
+                    // Make functions globally accessible
+                    window.removeTempMarker = removeTempMarker;
+                    window.addTempMarker = addTempMarker;
+                    
+                    // Handle right-click using contextmenu event (PRIMARY)
+                    window.treasureHuntMap.on('contextmenu', handleRightClick);
+                    
+                    // Handle right-click using mousedown event (BACKUP - for better browser compatibility)
+                    window.treasureHuntMap.on('mousedown', function(e) {
+                        if (e.originalEvent && e.originalEvent.button === 2) {
+                            console.log('Right-click detected via mousedown');
+                            handleRightClick(e);
+                        }
+                    });
+                    
+                    // Prevent default context menu on map container (but don't block Leaflet events)
+                    const mapContainer = document.getElementById('treasure-hunt-map');
+                    if (mapContainer) {
+                        // Only prevent on the container itself, not on Leaflet panes
+                        mapContainer.addEventListener('contextmenu', function(e) {
+                            // Allow Leaflet to handle it first
+                            if (!e.target.closest('.leaflet-pane')) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                            }
+                        }, false);
+                    }
+                    
+                    // Make handler globally accessible for testing
+                    window.handleRightClick = handleRightClick;
+                    
+                    console.log('Map initialized inline with right-click handler');
+                    
+                    setTimeout(() => {
+                        if (window.treasureHuntMap) {
+                            window.treasureHuntMap.invalidateSize();
+                            console.log('Map size invalidated');
+                        }
+                    }, 500);
+                } catch (e) {
+                    console.error('Map initialization error:', e);
+                }
+            } else {
+                console.error('Leaflet (L) is not available');
+            }
+            
+            // DIRECT FETCH - Load user activity directly from inline script
+            setTimeout(function() {
+                console.log('=== INLINE SCRIPT: Loading user activity directly ===');
+                fetch('/api/treasure-hunts/users', {
+                    credentials: 'include',
+                    headers: { 'Accept': 'application/json' }
+                }).then(function(response) {
+                    console.log('INLINE: Response status:', response.status);
+                    if (!response.ok) {
+                        throw new Error('Response not ok: ' + response.status);
+                    }
+                    return response.json();
+                }).then(function(users) {
+                    console.log('INLINE: Received users:', users);
+                    console.log('INLINE: Number of users:', users.length);
+                    const activityList = document.getElementById('user-activity-list');
+                    const activitySection = document.getElementById('user-activity-section');
+                    if (activityList && activitySection) {
+                        if (users.length === 0) {
+                            activityList.innerHTML = '<div class="empty-state">No users have started any treasure hunts yet</div>';
+                        } else {
+                            let html = '';
+                            users.forEach(function(user, index) {
+                                const lastActivity = user.last_activity ? new Date(user.last_activity).toLocaleString() : 'Never';
+                                const hasHunts = user.hunts && user.hunts.length > 0;
+                                const cardId = 'user-card-' + index;
+                                const detailsId = 'user-details-' + index;
+                                
+                                html += '<div class="user-activity-item">';
+                                html += '<div class="user-activity-header" style="cursor: pointer;" onclick="toggleUserDetails(\'' + detailsId + '\', \'' + cardId + '\')">';
+                                html += '<div style="flex: 1;"><div class="user-activity-name">' + (user.username || 'Unknown') + '</div>';
+                                html += '<div class="user-activity-email">' + (user.email || 'No email') + '</div></div>';
+                                if (hasHunts) {
+                                    html += '<i class="fas fa-chevron-down" id="icon-' + cardId + '" style="transition: transform 0.3s ease; color: rgba(255,255,255,0.7);"></i>';
+                                }
+                                html += '</div>';
+                                html += '<div class="user-activity-stats">';
+                                html += '<div class="user-activity-stat"><i class="fas fa-play-circle"></i><span>' + user.total_hunts_started + ' started</span></div>';
+                                html += '<div class="user-activity-stat"><i class="fas fa-check-circle"></i><span>' + user.total_hunts_completed + ' completed</span></div>';
+                                html += '</div>';
+                                html += '<div class="user-activity-last"><i class="fas fa-clock"></i> Last activity: ' + lastActivity + '</div>';
+                                if (hasHunts) {
+                                    html += '<div class="user-hunt-progress" id="' + detailsId + '" style="display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;">';
+                                    user.hunts.forEach(function(hunt) {
+                                        const isCompleted = hunt.completed_at !== null;
+                                        const progressPercent = hunt.total_clues > 0 ? Math.round((hunt.current_clue_number / hunt.total_clues) * 100) : 0;
+                                        const displayPercent = isCompleted ? 100 : progressPercent;
+                                        html += '<div class="user-hunt-item">';
+                                        html += '<div class="user-hunt-name">' + (hunt.hunt_name || 'Unknown Hunt') + '</div>';
+                                        html += '<div style="display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: rgba(255,255,255,0.7);">';
+                                        html += '<span>Clue ' + hunt.current_clue_number + ' / ' + hunt.total_clues + '</span><span>' + displayPercent + '%</span></div>';
+                                        html += '<div class="user-hunt-progress-bar"><div class="user-hunt-progress-fill' + (isCompleted ? ' completed' : '') + '" style="width: ' + displayPercent + '%"></div></div>';
+                                        if (isCompleted) {
+                                            html += '<div style="color: #f59e0b; font-size: 10px; margin-top: 4px;"><i class="fas fa-trophy"></i> Completed</div>';
+                                        }
+                                        html += '</div>';
+                                    });
+                                    html += '</div>';
+                                }
+                                html += '</div>';
+                            });
+                            activityList.innerHTML = html;
+                        }
+                        activitySection.style.display = 'block';
+                        console.log('INLINE: User activity rendered successfully');
+                    } else {
+                        console.error('INLINE: Activity elements not found!');
+                    }
+                }).catch(function(err) {
+                    console.error('INLINE: Error loading user activity:', err);
+                    const activityList = document.getElementById('user-activity-list');
+                    if (activityList) {
+                        activityList.innerHTML = '<div class="empty-state" style="color: #ef4444;">Error: ' + err.message + '</div>';
+                    }
+                });
+            }, 2000);
+            
+            // Toggle function for user details
+            window.toggleUserDetails = function(detailsId, cardId) {
+                const details = document.getElementById(detailsId);
+                const icon = document.getElementById('icon-' + cardId);
+                if (details && icon) {
+                    const isHidden = details.style.display === 'none' || !details.style.display;
+                    if (isHidden) {
+                        details.style.display = 'block';
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        details.style.display = 'none';
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                }
+            };
+            
+            // Load hunts directly since API works
+            console.log('=== Loading hunts directly (fallback) ===');
+            fetch('/api/treasure-hunts', {
+                method: 'GET',
+                credentials: 'include',
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(res => res.text())
+            .then(text => {
+                try {
+                    const hunts = JSON.parse(text);
+                    console.log('Loaded hunts (fallback):', hunts);
+                    
+                    const list = document.getElementById('treasure-hunts-list');
+                    if (list && Array.isArray(hunts)) {
+                        list.innerHTML = '';
+                        if (hunts.length === 0) {
+                            list.innerHTML = '<li class="empty-state"><em>No treasure hunts yet. Create one above!</em></li>';
+                        } else {
+                            hunts.forEach(hunt => {
+                                const li = document.createElement('li');
+                                li.className = 'treasure-hunt-item';
+                                li.dataset.id = hunt.id;
+                                
+                                // Determine if icon is an image URL or emoji/text
+                                const iconValue = hunt.icon || '🏴‍☠️';
+                                
+                                // Get API base URL for image preview
+                                const getApiBaseUrl = () => {
+                                    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+                                        return window.location.origin;
+                                    }
+                                    return 'http://localhost:3003';
+                                };
+                                
+                                let iconDisplay = '';
+                                
+                                // Debug logging
+                                console.log(`[HTML Fallback] Hunt ${hunt.id} (${hunt.name}):`);
+                                console.log(`  - iconValue type:`, typeof iconValue);
+                                console.log(`  - iconValue:`, iconValue);
+                                console.log(`  - iconValue length:`, iconValue ? iconValue.length : 0);
+                                
+                                // Check if it's a base64 data URL
+                                if (iconValue && typeof iconValue === 'string' && iconValue.startsWith('data:image')) {
+                                    console.log(`  - Detected as base64 image`);
+                                    // Base64 image - use directly
+                                    iconDisplay = `<img src="${iconValue}" alt="Hunt Icon" style="width: 24px; height: 24px; object-fit: contain; vertical-align: middle; margin-right: 6px; border-radius: 4px; display: inline-block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" /><span style="font-size: 20px; vertical-align: middle; margin-right: 6px; display: none;">🏴‍☠️</span>`;
+                                } 
+                                // Check if it's a file path (starts with /uploads/ or /, or contains image extension)
+                                else if (iconValue && typeof iconValue === 'string' && (
+                                         iconValue.startsWith('/uploads/') || 
+                                         iconValue.startsWith('/') || 
+                                         iconValue.startsWith('http://') || 
+                                         iconValue.startsWith('https://') ||
+                                         iconValue.includes('.png') || 
+                                         iconValue.includes('.gif') || 
+                                         iconValue.includes('.jpg') || 
+                                         iconValue.includes('.jpeg') || 
+                                         iconValue.includes('.webp')
+                                         )) {
+                                    console.log(`  - Detected as image URL/path`);
+                                    // File path or HTTP URL - construct full URL
+                                    let imgSrc;
+                                    if (iconValue.startsWith('http://') || iconValue.startsWith('https://')) {
+                                        imgSrc = iconValue;
+                                    } else if (iconValue.startsWith('/uploads/') || iconValue.startsWith('/')) {
+                                        // Absolute path - prepend API base URL
+                                        const apiBaseUrl = getApiBaseUrl();
+                                        imgSrc = `${apiBaseUrl}${iconValue}`;
+                                    } else {
+                                        // Relative path - prepend /uploads/ and API base URL
+                                        const apiBaseUrl = getApiBaseUrl();
+                                        imgSrc = `${apiBaseUrl}/uploads/${iconValue}`;
+                                    }
+                                    console.log(`  - Constructed imgSrc:`, imgSrc);
+                                    iconDisplay = `<img src="${imgSrc}" alt="Hunt Icon" style="width: 24px; height: 24px; object-fit: contain; vertical-align: middle; margin-right: 6px; border-radius: 4px; display: inline-block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" /><span style="font-size: 20px; vertical-align: middle; margin-right: 6px; display: none;">🏴‍☠️</span>`;
+                                } 
+                                // Otherwise, treat as emoji/text
+                                else {
+                                    console.log(`  - Treating as emoji/text`);
+                                    iconDisplay = `<span style="font-size: 20px; vertical-align: middle; margin-right: 6px;">${iconValue || '🏴‍☠️'}</span>`;
+                                }
+                                
+                                console.log(`  - Final iconDisplay length:`, iconDisplay.length);
+                                console.log(`  - iconDisplay preview:`, iconDisplay.substring(0, 150));
+                                
+                                const status = hunt.is_active ? '<span class="status-badge active"></span>' : '<span class="status-badge inactive"></span>';
+                                
+                                // Escape single quotes for JavaScript string
+                                const escapedName = (hunt.name || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                                const escapedDesc = (hunt.description || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                                const escapedIcon = (hunt.icon || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                                
+                                li.innerHTML = `
+                                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                                        <div style="flex: 1; display: flex; align-items: center; gap: 8px; min-width: 0;">
+                                            ${status} ${iconDisplay} <strong style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${hunt.name}</strong>
+                                            ${hunt.description ? `<br><small style="opacity: 0.7; font-size: 11px; display: block; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${hunt.description.substring(0, 50)}${hunt.description.length > 50 ? '...' : ''}</small>` : ''}
+                                        </div>
+                                        <div style="display: flex; gap: 5px; flex-shrink: 0;">
+                                            <button class="btn btn-sm btn-primary" onclick="editHuntFallback(${hunt.id}, '${escapedName}', '${escapedDesc}', '${escapedIcon}', ${hunt.is_active})"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-danger" onclick="deleteHuntFallback(${hunt.id})"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                `;
+                                li.addEventListener('click', (e) => {
+                                    if (!e.target.closest('button')) {
+                                        selectHuntFallback(hunt.id, hunt.name);
+                                    }
+                                });
+                                list.appendChild(li);
+                            });
+                        }
+                    }
+                } catch (e) {
+                    console.error('Parse error:', e);
+                }
+            })
+            .catch(err => {
+                console.error('Fetch error:', err);
+            });
+            
+            // Fallback functions
+            window.editHuntFallback = function(id, name, desc, icon, isActive) {
+                document.getElementById('treasure-hunt-id').value = id;
+                document.getElementById('treasure-hunt-name').value = name;
+                document.getElementById('treasure-hunt-description').value = desc || '';
+                document.getElementById('treasure-hunt-icon').value = icon || '';
+                
+                // Update icon preview when editing
+                if (window.updateHuntIconPreview && icon) {
+                    const isImage = icon.startsWith('data:image') || icon.startsWith('http') || icon.startsWith('/uploads/') || icon.startsWith('/') || icon.endsWith('.png') || icon.endsWith('.gif') || icon.endsWith('.jpg') || icon.endsWith('.jpeg') || icon.endsWith('.webp');
+                    window.updateHuntIconPreview(icon, isImage);
+                } else if (window.updateHuntIconPreview) {
+                    const iconPreview = document.getElementById('hunt-icon-preview');
+                    if (iconPreview) iconPreview.style.display = 'none';
+                }
+                document.getElementById('treasure-hunt-active').checked = isActive !== 0;
+                document.getElementById('treasure-hunt-form-container').setAttribute('open', '');
+            };
+            
+            window.deleteHuntFallback = function(id) {
+                if (confirm('Delete this hunt? All clues will be deleted too.')) {
+                    fetch(`/api/treasure-hunts/${id}`, {
+                        method: 'DELETE',
+                        credentials: 'include'
+                    }).then(() => {
+                        alert('Hunt deleted');
+                        location.reload();
+                    }).catch(err => {
+                        alert('Delete failed: ' + err.message);
+                    });
+                }
+            };
+            
+            window.selectHuntFallback = async function(huntId, huntName) {
+                console.log('Selecting hunt (fallback):', huntId);
+                
+                // Update UI
+                document.querySelectorAll('.treasure-hunt-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (parseInt(item.dataset.id) === huntId) {
+                        item.classList.add('active');
+                    }
+                });
+                
+                // Load hunt details
+                try {
+                    const response = await fetch(`/api/treasure-hunts/${huntId}`, {
+                        credentials: 'include'
+                    });
+                    
+                    if (!response.ok) throw new Error('Failed to load hunt');
+                    
+                    const hunt = await response.json();
+                    // Log hunt without full base64 icon
+                const huntLog = { ...hunt };
+                if (huntLog.icon && huntLog.icon.startsWith('data:image')) {
+                    huntLog.icon = `base64 (${huntLog.icon.length} chars)`;
+                } else if (huntLog.icon && huntLog.icon.length > 100) {
+                    huntLog.icon = huntLog.icon.substring(0, 100) + '...';
+                }
+                console.log('Loaded hunt:', huntLog);
+                    
+                    // Update indicator
+                    const indicator = document.getElementById('selected-hunt-indicator');
+                    if (indicator) indicator.textContent = `(${hunt.name})`;
+                    
+                    // Open clues section
+                    const cluesSection = document.getElementById('clues-list-section');
+                    if (cluesSection) cluesSection.setAttribute('open', '');
+                    
+                    // Render clues list
+                    const cluesList = document.getElementById('clues-list');
+                    if (cluesList) {
+                        const clues = hunt.clues || [];
+                        cluesList.innerHTML = '';
+                        if (clues.length === 0) {
+                            cluesList.innerHTML = '<li class="empty-state">No clues yet. Right-click on map to add one!</li>';
+                        } else {
+                            clues.sort((a, b) => a.clue_number - b.clue_number).forEach(clue => {
+                                const li = document.createElement('li');
+                                li.className = 'clue-item';
+                                const icon = clue.icon || '📍';
+                                li.innerHTML = `
+                                    <div class="clue-item-header">
+                                        <div>
+                                            <span class="clue-number-badge">#${clue.clue_number}</span>
+                                            ${clue.title ? `<strong>${clue.title}</strong>` : ''}
+                                        </div>
+                                        <div class="clue-actions">
+                                            <button class="btn btn-sm btn-primary edit-clue-btn" data-clue-id="${clue.id}" data-hunt-id="${huntId}" onclick="editClueFromButton(this)"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-danger" onclick="deleteClueFallback(${huntId}, ${clue.id})"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 8px; font-size: 13px; opacity: 0.9;">
+                                        ${icon} ${clue.clue_text ? clue.clue_text.substring(0, 60) + (clue.clue_text.length > 60 ? '...' : '') : 'No clue text'}
+                                    </div>
+                                `;
+                                cluesList.appendChild(li);
+                            });
+                        }
+                    }
+                    
+                    // Update instructions
+                    const instructions = document.getElementById('map-instructions');
+                    if (instructions) {
+                        instructions.innerHTML = `<strong>💡 Selected: ${hunt.name}</strong><br>Right-click on map to add clues`;
+                        instructions.classList.remove('hidden');
+                    }
+                    
+                    // Store selected hunt ID and icon globally (CRITICAL for right-click)
+                    window.selectedHuntId = huntId;
+                    window.selectedHuntIcon = hunt.icon || '/treasuregif.gif';
+                    console.log('Selected hunt ID stored:', window.selectedHuntId);
+                    // Log icon info without the full base64 string
+                    const iconLog = window.selectedHuntIcon 
+                      ? (window.selectedHuntIcon.startsWith('data:image') 
+                          ? `base64 (${window.selectedHuntIcon.length} chars)` 
+                          : window.selectedHuntIcon.length > 100 
+                            ? window.selectedHuntIcon.substring(0, 100) + '...' 
+                            : window.selectedHuntIcon)
+                      : 'null';
+                    console.log('Selected hunt icon stored:', iconLog);
+                    
+                    // Render clues on map if map is available
+                    if (window.treasureHuntMap && hunt.clues) {
+                        // Clear existing markers
+                        if (window.treasureHuntMarkers) {
+                            Object.values(window.treasureHuntMarkers).forEach(marker => {
+                                window.treasureHuntMap.removeLayer(marker);
+                            });
+                        }
+                        window.treasureHuntMarkers = {};
+                        
+                        // Add new markers
+                        hunt.clues.forEach(clue => {
+                            let icon = clue.icon || hunt.icon || '/treasuregif.gif';
+                            // Replace treasurehunt.png with treasuregif.gif if present
+                            if (icon.includes('treasurehunt.png') || icon === 'treasurehunt.png') {
+                                icon = '/treasuregif.gif';
+                            }
+                            // If no icon is set, default to the treasure hunt GIF
+                            if (!icon || icon === '📍') {
+                                icon = '/treasuregif.gif';
+                            }
+                            const isEmoji = /[\u{1F300}-\u{1F9FF}]/u.test(icon) || (icon.length <= 2 && !icon.startsWith('/'));
+                            const isImageUrl = icon.startsWith('http') || icon.startsWith('/') || icon.startsWith('/uploads/') || icon.startsWith('data:') || icon.endsWith('.png') || icon.endsWith('.gif') || icon.endsWith('.jpg') || icon.endsWith('.jpeg') || icon.endsWith('.webp');
+                            
+                            let marker;
+                            if (isImageUrl) {
+                                // Determine the correct image source
+                                let imgSrc;
+                                if (icon.startsWith('data:image')) {
+                                    // Data URL - use directly
+                                    imgSrc = icon;
+                                } else if (icon.startsWith('http://') || icon.startsWith('https://')) {
+                                    // Full URL - use directly
+                                    imgSrc = icon;
+                                } else if (icon.startsWith('/uploads/') || icon.startsWith('/')) {
+                                    // Absolute path - use directly
+                                    imgSrc = icon;
+                                } else {
+                                    // Relative path - prepend /uploads/
+                                    imgSrc = '/uploads/' + icon;
+                                }
+                                
+                                // Use divIcon with img tag for images
+                                marker = L.marker([clue.latitude, clue.longitude], {
+                                    icon: L.divIcon({
+                                        className: 'custom-clue-marker',
+                                        html: `<div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"><img src="${imgSrc}" alt="Treasure Hunt" style="width: 40px; height: 40px; object-fit: contain;"></div>`,
+                                        iconSize: [40, 40],
+                                        iconAnchor: [20, 20]
+                                    })
+                                });
+                            } else if (isEmoji) {
+                                marker = L.marker([clue.latitude, clue.longitude], {
+                                    icon: L.divIcon({
+                                        className: 'custom-clue-marker',
+                                        html: `<div style="font-size: 32px; text-align: center; line-height: 1;">${icon}</div>`,
+                                        iconSize: [40, 40],
+                                        iconAnchor: [20, 20]
+                                    })
+                                });
+                            } else {
+                                marker = L.marker([clue.latitude, clue.longitude], {
+                                    icon: L.icon({
+                                        iconUrl: icon,
+                                        iconSize: [40, 40],
+                                        iconAnchor: [20, 20]
+                                    })
+                                });
+                            }
+                            
+                            marker.bindPopup(`<div style="min-width: 200px;"><strong>Clue #${clue.clue_number}${clue.title ? ': ' + clue.title : ''}</strong><br>${clue.clue_text ? '<p>' + clue.clue_text + '</p>' : ''}</div>`);
+                            marker.addTo(window.treasureHuntMap);
+                            if (!window.treasureHuntMarkers) window.treasureHuntMarkers = {};
+                            window.treasureHuntMarkers[clue.id] = marker;
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error loading hunt:', error);
+                    alert('Failed to load hunt details: ' + error.message);
+                }
+            };
+            
+            // New function to edit clue - fetches from API to avoid data attribute issues
+            window.editClueFromButton = async function(button) {
+                try {
+                    const clueId = button.getAttribute('data-clue-id');
+                    const huntId = button.getAttribute('data-hunt-id') || window.selectedHuntId;
+                    
+                    if (!clueId || !huntId) {
+                        alert('Error: Missing clue or hunt ID. Please refresh the page.');
+                        return;
+                    }
+                    
+                    // Fetch clue data from API
+                    const response = await fetch(`/api/treasure-hunts/${huntId}`, {
+                        credentials: 'include'
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Failed to load hunt data');
+                    }
+                    
+                    const hunt = await response.json();
+                    const clue = (hunt.clues || []).find(c => c.id === parseInt(clueId));
+                    
+                    if (!clue) {
+                        alert('Error: Clue not found. Please refresh the page.');
+                        return;
+                    }
+                    
+                    // Populate form with clue data
+                    editClueFallback(
+                        clue.id,
+                        clue.clue_number,
+                        clue.title || '',
+                        clue.clue_text || '',
+                        clue.answer || '',
+                        clue.latitude,
+                        clue.longitude,
+                        clue.icon || '',
+                        clue.hint || ''
+                    );
+                } catch (error) {
+                    console.error('Error editing clue:', error);
+                    alert('Error loading clue for editing: ' + error.message);
+                }
+            };
+            
+            window.editClueFallback = function(id, number, title, text, answer, lat, lng, icon, hint) {
+                // Remove temp marker if exists
+                if (window.removeTempMarker) {
+                    window.removeTempMarker();
+                }
+                
+                // Validate required fields (answer can be empty for new clues, but should be set before saving)
+                if (!id || !number || !text || isNaN(lat) || isNaN(lng)) {
+                    console.error('Invalid clue data for editing:', { id, number, text, answer, lat, lng });
+                    alert('Error: Invalid clue data. Missing required fields (id, number, text, or coordinates).');
+                    return;
+                }
+                
+                // Warn if answer is empty (but allow editing)
+                if (!answer || answer.trim() === '') {
+                    console.warn('Clue answer is empty. User should set an answer before saving.');
+                }
+                
+                const clueIdField = document.getElementById('treasure-hunt-clue-id');
+                const clueNumberField = document.getElementById('treasure-hunt-clue-number');
+                const clueTitleField = document.getElementById('treasure-hunt-clue-title');
+                const clueTextField = document.getElementById('treasure-hunt-clue-text');
+                const clueAnswerField = document.getElementById('treasure-hunt-clue-answer');
+                const clueLatField = document.getElementById('treasure-hunt-clue-latitude');
+                const clueLngField = document.getElementById('treasure-hunt-clue-longitude');
+                const clueIconField = document.getElementById('treasure-hunt-clue-icon');
+                const clueHintField = document.getElementById('treasure-hunt-clue-hint');
+                
+                if (!clueIdField || !clueNumberField || !clueTextField || !clueAnswerField || !clueLatField || !clueLngField) {
+                    console.error('Clue form fields not found!');
+                    alert('Error: Clue form not found. Please refresh the page.');
+                    return;
+                }
+                
+                clueIdField.value = id;
+                clueNumberField.value = number;
+                if (clueTitleField) clueTitleField.value = title || '';
+                clueTextField.value = text || '';
+                clueAnswerField.value = answer || '';
+                clueLatField.value = lat;
+                clueLngField.value = lng;
+                if (clueIconField) clueIconField.value = icon || '';
+                if (clueHintField) clueHintField.value = hint || '';
+                
+                // Update icon preview
+                if (icon && window.updateIconPreview) {
+                    const isImage = icon.startsWith('data:image') || icon.startsWith('http') || icon.startsWith('/uploads/') || icon.startsWith('/') || icon.endsWith('.png') || icon.endsWith('.gif') || icon.endsWith('.jpg') || icon.endsWith('.jpeg') || icon.endsWith('.webp');
+                    window.updateIconPreview(icon, isImage);
+                } else if (window.updateIconPreview) {
+                    const iconPreview = document.getElementById('clue-icon-preview');
+                    if (iconPreview) iconPreview.style.display = 'none';
+                }
+                
+                // Open the form container
+                const formContainer = document.getElementById('treasure-hunt-clue-form-container');
+                if (formContainer) {
+                    formContainer.setAttribute('open', '');
+                    // Scroll to form
+                    formContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    console.error('Clue form container not found!');
+                    alert('Error: Clue form container not found. Please refresh the page.');
+                }
+            };
+            
+            window.deleteClueFallback = function(huntId, clueId) {
+                if (confirm('Delete this clue?')) {
+                    fetch(`/api/treasure-hunts/${huntId}/clues/${clueId}`, {
+                        method: 'DELETE',
+                        credentials: 'include'
+                    }).then(() => {
+                        alert('Clue deleted');
+                        if (window.selectedHuntId) {
+                            selectHuntFallback(window.selectedHuntId, '');
+                        } else {
+                            location.reload();
+                        }
+                    }).catch(err => {
+                        alert('Delete failed: ' + err.message);
+                    });
+                }
+            };
+            
+            // Icon selector handlers (fallback)
+            // Initialize hunt icon selector
+            function initHuntIconSelector() {
+                console.log('Initializing hunt icon selector...');
+                const selectIconBtn = document.getElementById('select-hunt-icon-btn');
+                const uploadIconBtn = document.getElementById('upload-hunt-icon-btn');
+                const uploadIconFile = document.getElementById('upload-hunt-icon-file');
+                const galleryIconBtn = document.getElementById('gallery-hunt-icon-btn');
+                const removeIconBtn = document.getElementById('remove-hunt-icon-btn');
+                const iconPreview = document.getElementById('hunt-icon-preview');
+                const iconPreviewImg = document.getElementById('hunt-icon-preview-img');
+                const iconPreviewText = document.getElementById('hunt-icon-text-preview');
+                const iconInput = document.getElementById('treasure-hunt-icon');
+                
+                console.log('Hunt icon selector elements:', {
+                    selectIconBtn: !!selectIconBtn,
+                    uploadIconBtn: !!uploadIconBtn,
+                    uploadIconFile: !!uploadIconFile,
+                    galleryIconBtn: !!galleryIconBtn,
+                    removeIconBtn: !!removeIconBtn,
+                    iconInput: !!iconInput
+                });
+                
+                function updateHuntIconPreview(value, isImage = false) {
+                    if (!value || !iconPreview) {
+                        if (iconPreview) iconPreview.style.display = 'none';
+                        return;
+                    }
+                    
+                    if (isImage || value.startsWith('data:image') || value.startsWith('http') || value.startsWith('/uploads/') || value.startsWith('/') || value.endsWith('.png') || value.endsWith('.gif') || value.endsWith('.jpg') || value.endsWith('.jpeg') || value.endsWith('.webp')) {
+                        if (iconPreviewImg) {
+                            iconPreviewImg.src = value;
+                            iconPreviewImg.style.display = 'block';
+                        }
+                        if (iconPreviewText) iconPreviewText.style.display = 'none';
+                        iconPreview.style.display = 'block';
+                    } else {
+                        if (iconPreviewImg) iconPreviewImg.style.display = 'none';
+                        if (iconPreviewText) {
+                            iconPreviewText.textContent = value;
+                            iconPreviewText.style.display = 'block';
+                        }
+                        iconPreview.style.display = 'block';
+                    }
+                }
+                
+                if (selectIconBtn) {
+                    selectIconBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Select icon button clicked');
+                        const icons = ['🏴‍☠️', '🗺️', '📍', '🎯', '🔍', '💎', '🗿', '🏛️', '⛪', '🏖️', '🌊', '⛰️', '🌴', '🏝️', '🦅', '🐚', '🎪', '🎭', '🎨', '📸', '🗺️', '🧭', '🏰', '🏔️', '🌋', '🏞️', '🏕️', '⛺', '🚶', '🚴'];
+                        const currentValue = iconInput ? iconInput.value : '';
+                        const selected = prompt(`Enter emoji or select:\n${icons.join(' ')}\n\nOr type your own emoji/text:`, currentValue || '🏴‍☠️');
+                        if (selected !== null && selected !== '') {
+                            if (iconInput) iconInput.value = selected;
+                            updateHuntIconPreview(selected);
+                        }
+                    });
+                }
+                
+                if (uploadIconBtn && uploadIconFile) {
+                    uploadIconBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Upload icon button clicked');
+                        uploadIconFile.click();
+                    });
+                    
+                    uploadIconFile.addEventListener('change', async (e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                            if (file.size > 5 * 1024 * 1024) {
+                                alert('Image too large. Please use an image smaller than 5MB.');
+                                return;
+                            }
+                            
+                            try {
+                                // Upload file to server instead of converting to base64
+                                const formData = new FormData();
+                                formData.append('icon', file);
+                                
+                                const response = await fetch('/api/treasure-hunts/upload-icon', {
+                                    method: 'POST',
+                                    credentials: 'include',
+                                    body: formData
+                                });
+                                
+                                if (!response.ok) {
+                                    throw new Error('Failed to upload icon');
+                                }
+                                
+                                const result = await response.json();
+                                if (result.success && result.icon) {
+                                    if (iconInput) iconInput.value = result.icon;
+                                    
+                                    // Get API base URL for preview
+                                    const getApiBaseUrl = () => {
+                                        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+                                            return window.location.origin;
+                                        }
+                                        return 'http://localhost:3003';
+                                    };
+                                    const apiBaseUrl = getApiBaseUrl();
+                                    const previewUrl = result.icon.startsWith('http') ? result.icon : `${apiBaseUrl}${result.icon}`;
+                                    updateHuntIconPreview(previewUrl, true);
+                                } else {
+                                    throw new Error('Invalid response from server');
+                                }
+                            } catch (error) {
+                                console.error('Error uploading icon:', error);
+                                alert('Failed to upload icon. Please try again.');
+                                // Fallback to base64 if upload fails
+                                const reader = new FileReader();
+                                reader.onload = (event) => {
+                                    const dataUrl = event.target.result;
+                                    if (iconInput) iconInput.value = dataUrl;
+                                    updateHuntIconPreview(dataUrl, true);
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        }
+                    });
+                }
+                
+                // Gallery button handler
+                if (galleryIconBtn) {
+                    galleryIconBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Gallery icon button clicked');
+                        
+                        // Wait for image gallery modal to be available
+                        const checkGallery = () => {
+                            if (typeof window.imageGalleryModal !== 'undefined' && window.imageGalleryModal) {
+                                window.imageGalleryModal.open((selectedImage) => {
+                                    console.log('Image selected from gallery:', selectedImage);
+                                    
+                                    // Get API base URL
+                                    const getApiBaseUrl = () => {
+                                        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+                                            return window.location.origin;
+                                        }
+                                        return 'http://localhost:3003';
+                                    };
+                                    const apiBaseUrl = getApiBaseUrl();
+                                    
+                                    // Use the image path
+                                    const imagePath = selectedImage.path.startsWith('http') 
+                                        ? selectedImage.path 
+                                        : selectedImage.path.startsWith('/') 
+                                            ? selectedImage.path 
+                                            : `/${selectedImage.path}`;
+                                    
+                                    const fullPath = imagePath.startsWith('http') ? imagePath : `${apiBaseUrl}${imagePath}`;
+                                    
+                                    if (iconInput) {
+                                        iconInput.value = imagePath; // Store relative path
+                                    }
+                                    updateHuntIconPreview(fullPath, true);
+                                }, false); // Single select
+                            } else {
+                                // Retry after a short delay
+                                setTimeout(() => {
+                                    if (typeof window.imageGalleryModal !== 'undefined' && window.imageGalleryModal) {
+                                        checkGallery();
+                                    } else {
+                                        alert('Image gallery is not available. Please refresh the page.');
+                                        console.error('Image gallery modal not found');
+                                    }
+                                }, 500);
+                            }
+                        };
+                        checkGallery();
+                    });
+                }
+                
+                if (removeIconBtn) {
+                    removeIconBtn.addEventListener('click', () => {
+                        if (iconInput) iconInput.value = '';
+                        iconPreview.style.display = 'none';
+                        if (uploadIconFile) uploadIconFile.value = '';
+                    });
+                }
+                
+                if (iconInput) {
+                    // Truncate long values in the input display
+                    const updateInputDisplay = () => {
+                        const value = iconInput.value;
+                        if (value && value.length > 50) {
+                            const truncated = value.substring(0, 50) + '...';
+                            iconInput.title = value; // Show full value on hover
+                            // Don't change the actual value, just update display
+                        } else {
+                            iconInput.title = value || '';
+                        }
+                    };
+                    
+                    iconInput.addEventListener('input', (e) => {
+                        const value = e.target.value;
+                        updateInputDisplay();
+                        if (value && !value.startsWith('data:image') && !value.startsWith('http') && !value.startsWith('/')) {
+                            updateHuntIconPreview(value);
+                        } else if (value) {
+                            updateHuntIconPreview(value, true);
+                        }
+                    });
+                    
+                    // Update display on load
+                    updateInputDisplay();
+                }
+                
+                window.updateHuntIconPreview = updateHuntIconPreview;
+            }
+            
+            function initIconSelector() {
+                const selectIconBtn = document.getElementById('select-clue-icon-btn');
+                const uploadIconBtn = document.getElementById('upload-clue-icon-btn');
+                const uploadIconFile = document.getElementById('upload-clue-icon-file');
+                const removeIconBtn = document.getElementById('remove-clue-icon-btn');
+                const iconPreview = document.getElementById('clue-icon-preview');
+                const iconPreviewImg = document.getElementById('clue-icon-preview-img');
+                const iconPreviewText = document.getElementById('clue-icon-text-preview');
+                const iconInput = document.getElementById('treasure-hunt-clue-icon');
+                
+                function updateIconPreview(value, isImage = false) {
+                    if (!value || !iconPreview) {
+                        if (iconPreview) iconPreview.style.display = 'none';
+                        return;
+                    }
+                    
+                    if (isImage || value.startsWith('data:image') || value.startsWith('http') || value.startsWith('/uploads/') || value.startsWith('/') || value.endsWith('.png') || value.endsWith('.gif') || value.endsWith('.jpg') || value.endsWith('.jpeg') || value.endsWith('.webp')) {
+                        if (iconPreviewImg) {
+                            iconPreviewImg.src = value;
+                            iconPreviewImg.style.display = 'block';
+                        }
+                        if (iconPreviewText) iconPreviewText.style.display = 'none';
+                        iconPreview.style.display = 'block';
+                    } else {
+                        if (iconPreviewImg) iconPreviewImg.style.display = 'none';
+                        if (iconPreviewText) {
+                            iconPreviewText.textContent = value;
+                            iconPreviewText.style.display = 'block';
+                        }
+                        iconPreview.style.display = 'block';
+                    }
+                }
+                
+                if (selectIconBtn) {
+                    selectIconBtn.addEventListener('click', () => {
+                        const icons = ['🗺️', '📍', '🎯', '🔍', '💎', '🏴‍☠️', '🗿', '🏛️', '⛪', '🏖️', '🌊', '⛰️', '🌴', '🏝️', '🦅', '🐚', '🎪', '🎭', '🎨', '📸'];
+                        const currentValue = iconInput ? iconInput.value : '';
+                        const selected = prompt(`Enter emoji or select:\n${icons.join(' ')}\n\nOr type your own emoji/text:`, currentValue || '🗺️');
+                        if (selected !== null) {
+                            if (iconInput) iconInput.value = selected;
+                            updateIconPreview(selected);
+                        }
+                    });
+                }
+                
+                if (uploadIconBtn && uploadIconFile) {
+                    uploadIconBtn.addEventListener('click', () => {
+                        uploadIconFile.click();
+                    });
+                    
+                    uploadIconFile.addEventListener('change', (e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                            if (file.size > 500000) {
+                                alert('Image too large. Please use an image smaller than 500KB.');
+                                return;
+                            }
+                            
+                            const reader = new FileReader();
+                            reader.onload = (event) => {
+                                const dataUrl = event.target.result;
+                                if (iconInput) iconInput.value = dataUrl;
+                                updateIconPreview(dataUrl, true);
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                }
+                
+                if (removeIconBtn) {
+                    removeIconBtn.addEventListener('click', () => {
+                        if (iconInput) iconInput.value = '';
+                        iconPreview.style.display = 'none';
+                        if (uploadIconFile) uploadIconFile.value = '';
+                    });
+                }
+                
+                if (iconInput) {
+                    // Truncate long values in the input display and set title for full value
+                    const updateInputDisplay = () => {
+                        const value = iconInput.value;
+                        if (value && value.length > 50) {
+                            iconInput.title = value; // Show full value on hover
+                        } else {
+                            iconInput.title = value || '';
+                        }
+                    };
+                    
+                    iconInput.addEventListener('input', (e) => {
+                        const value = e.target.value;
+                        updateInputDisplay();
+                        if (value && !value.startsWith('data:image') && !value.startsWith('http') && !value.startsWith('/')) {
+                            updateIconPreview(value);
+                        } else if (value) {
+                            updateIconPreview(value, true);
+                        }
+                    });
+                    
+                    // Update display on load
+                    updateInputDisplay();
+                }
+                
+                window.updateIconPreview = updateIconPreview;
+            }
+            
+            // Initialize icon selector when DOM is ready
+            // Initialize icon selectors when DOM is ready
+            function initializeAllIconSelectors() {
+                console.log('Initializing all icon selectors...');
+                try {
+                    initIconSelector();
+                    console.log('Clue icon selector initialized');
+                } catch (e) {
+                    console.error('Error initializing clue icon selector:', e);
+                }
+                try {
+                    initHuntIconSelector();
+                    console.log('Hunt icon selector initialized');
+                } catch (e) {
+                    console.error('Error initializing hunt icon selector:', e);
+                }
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Wait a bit for image gallery modal to load
+                    setTimeout(initializeAllIconSelectors, 500);
+                });
+            } else {
+                // Wait a bit for image gallery modal to load
+                setTimeout(initializeAllIconSelectors, 500);
+            }
+            
+            // Remove temp marker when form container is closed
+            const clueFormContainer = document.getElementById('treasure-hunt-clue-form-container');
+            if (clueFormContainer) {
+                clueFormContainer.addEventListener('toggle', function(e) {
+                    if (!this.hasAttribute('open')) {
+                        // Form was closed
+                        if (window.removeTempMarker) {
+                            window.removeTempMarker();
+                        }
+                    }
+                });
+            }
+            
+            // Handle clue form submit (fallback)
+            const clueForm = document.getElementById('treasure-hunt-clue-form');
+            if (clueForm) {
+                clueForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    if (!window.selectedHuntId) {
+                        alert('Please select a treasure hunt first');
+                        return;
+                    }
+                    
+                    // Remove temp marker
+                    if (window.removeTempMarker) {
+                        window.removeTempMarker();
+                    }
+                    
+                    const formData = new FormData(e.target);
+                    const clueId = document.getElementById('treasure-hunt-clue-id').value;
+                    const data = {
+                        clue_number: parseInt(formData.get('clue_number')),
+                        title: formData.get('title'),
+                        clue_text: formData.get('clue_text'),
+                        answer: formData.get('answer'),
+                        latitude: parseFloat(formData.get('latitude')),
+                        longitude: parseFloat(formData.get('longitude')),
+                        icon: formData.get('icon'),
+                        hint: formData.get('hint')
+                    };
+                    
+                    try {
+                        const url = clueId ? `/api/treasure-hunts/${window.selectedHuntId}/clues/${clueId}` : `/api/treasure-hunts/${window.selectedHuntId}/clues`;
+                        const method = clueId ? 'PUT' : 'POST';
+                        
+                        const response = await fetch(url, {
+                            method: method,
+                            headers: { 'Content-Type': 'application/json' },
+                            credentials: 'include',
+                            body: JSON.stringify(data)
+                        });
+                        
+                        const responseData = await response.json();
+                        
+                        if (!response.ok) {
+                            throw new Error(responseData.error || 'Failed to save clue');
+                        }
+                        
+                        alert('Clue saved successfully!');
+                        e.target.reset();
+                        document.getElementById('treasure-hunt-clue-id').value = '';
+                        document.getElementById('treasure-hunt-clue-form-container').removeAttribute('open');
+                        
+                        // Reset icon preview
+                        const iconPreview = document.getElementById('clue-icon-preview');
+                        if (iconPreview) iconPreview.style.display = 'none';
+                        const iconInput = document.getElementById('treasure-hunt-clue-icon');
+                        if (iconInput) iconInput.value = '';
+                        
+                        // Reload hunt to show new clue
+                        if (window.selectedHuntId) {
+                            selectHuntFallback(window.selectedHuntId, '');
+                        }
+                    } catch (error) {
+                        alert('Failed to save clue: ' + error.message);
+                    }
+                });
+            }
+            
+            // Handle cancel button - remove temp marker
+            const cancelClueBtn = document.getElementById('cancel-treasure-hunt-clue-button');
+            if (cancelClueBtn) {
+                cancelClueBtn.addEventListener('click', () => {
+                    if (window.removeTempMarker) {
+                        window.removeTempMarker();
+                    }
+                    document.getElementById('treasure-hunt-clue-form').reset();
+                    document.getElementById('treasure-hunt-clue-id').value = '';
+                    document.getElementById('treasure-hunt-clue-form-container').removeAttribute('open');
+                    const iconPreview = document.getElementById('clue-icon-preview');
+                    if (iconPreview) iconPreview.style.display = 'none';
+                    const iconInput = document.getElementById('treasure-hunt-clue-icon');
+                    if (iconInput) iconInput.value = '';
+                });
+            }
+            
+            // Fallback save handler for hunts
+            window.saveHuntFallback = async function() {
+                const form = document.getElementById('treasure-hunt-form');
+                const formData = new FormData(form);
+                const huntId = document.getElementById('treasure-hunt-id').value;
+                const data = {
+                    name: formData.get('name'),
+                    description: formData.get('description'),
+                    icon: formData.get('icon'),
+                    is_active: formData.get('is_active') === 'on'
+                };
+                
+                if (!data.name || !data.name.trim()) {
+                    alert('Please enter a hunt name');
+                    return;
+                }
+                
+                try {
+                    const url = huntId ? `/api/treasure-hunts/${huntId}` : '/api/treasure-hunts';
+                    const method = huntId ? 'PUT' : 'POST';
+                    
+                    const response = await fetch(url, {
+                        method: method,
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'include',
+                        body: JSON.stringify(data)
+                    });
+                    
+                    const responseData = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(responseData.error || 'Failed to save');
+                    }
+                    
+                    alert('Hunt saved successfully!');
+                    location.reload();
+                } catch (error) {
+                    alert('Failed to save: ' + error.message);
+                }
+            };
+            
+            // Attach save handler to button
+            const saveHuntBtn = document.getElementById('submit-treasure-hunt-button');
+            if (saveHuntBtn) {
+                saveHuntBtn.addEventListener('click', () => {
+                    if (typeof handleHuntSubmit === 'function') {
+                        const e = { preventDefault: () => {}, stopPropagation: () => {} };
+                        handleHuntSubmit(e);
+                    } else {
+                        window.saveHuntFallback();
+                    }
+                });
+            }
+            
+            // Search functionality
+            const searchInput = document.getElementById('search-treasure-hunts-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    const items = document.querySelectorAll('#treasure-hunts-list li.treasure-hunt-item');
+                    items.forEach(item => {
+                        const text = item.textContent.toLowerCase();
+                        item.style.display = text.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            }
+        });
+    </script>
+    <script src="treasure-hunt-admin.js" onerror="console.error('Failed to load treasure-hunt-admin.js')"></script>
+    <script>
+        // Test if loadUserActivity is accessible after page load
+        window.addEventListener('load', function() {
+            console.log('=== PAGE FULLY LOADED ===');
+            console.log('Testing loadUserActivity access...');
+            setTimeout(function() {
+                console.log('After 3 seconds - loadUserActivity type:', typeof loadUserActivity);
+                console.log('window.loadUserActivity type:', typeof window.loadUserActivity);
+                if (typeof window.loadUserActivity === 'function') {
+                    console.log('Calling window.loadUserActivity...');
+                    window.loadUserActivity().catch(function(err) {
+                        console.error('Error calling window.loadUserActivity:', err);
+                    });
+                } else if (typeof loadUserActivity === 'function') {
+                    console.log('Calling loadUserActivity (not on window)...');
+                    loadUserActivity().catch(function(err) {
+                        console.error('Error calling loadUserActivity:', err);
+                    });
+                } else {
+                    console.error('loadUserActivity is not accessible!');
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
+

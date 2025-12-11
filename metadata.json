@@ -1,0 +1,8 @@
+{
+  "name": "Discover Gozo",
+  "description": "An AI-powered travel application focused on Gozo, that suggests nearby points of interest like landscapes, viewpoints, and historical sites. Filter by category, view places on a map, and get AI-generated descriptions.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "prompt": ""
+}

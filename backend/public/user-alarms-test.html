@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Alarms Test - Discover Gozo Admin</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .test-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .test-banner {
+            background: red;
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>User Alarms Test Page</h1>
+        <div class="test-banner">
+            🚨 THIS IS A TEST FILE - VERSION 3.0 - IF YOU SEE THIS, THE SERVER IS WORKING! 🚨
+        </div>
+        <p>This is a test to see if the server is serving updated files.</p>
+        <p>If you can see this red banner, then the server is working correctly.</p>
+        <p>If you don't see this red banner, then there's a server or caching issue.</p>
+        
+        <div id="test-results">
+            <h2>Test Results:</h2>
+            <p id="timestamp">Loading...</p>
+            <p id="user-agent">Loading...</p>
+        </div>
+    </div>
+    
+    <script>
+        console.log('🚀 TEST FILE LOADED - VERSION 3.0');
+        alert('TEST FILE VERSION 3.0 LOADED!');
+        
+        document.getElementById('timestamp').textContent = 'Loaded at: ' + new Date().toLocaleString();
+        document.getElementById('user-agent').textContent = 'User Agent: ' + navigator.userAgent;
+    </script>
+</body>
+</html>

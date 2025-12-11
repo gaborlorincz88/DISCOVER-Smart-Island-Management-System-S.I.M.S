@@ -1,0 +1,20 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="20" cy="20" r="19" fill="#10B981" stroke="#059669" stroke-width="2"/>
+  
+  <!-- Map/compass icon -->
+  <path d="M20 8C14.477 8 10 12.477 10 18C10 23.523 14.477 28 20 28C25.523 28 30 23.523 30 18C30 12.477 25.523 8 20 8ZM20 26C15.589 26 12 22.411 12 18C12 13.589 15.589 10 20 10C24.411 10 28 13.589 28 18C28 22.411 24.411 26 20 26Z" fill="white"/>
+  
+  <!-- Center dot -->
+  <circle cx="20" cy="18" r="2" fill="white"/>
+  
+  <!-- Direction indicators -->
+  <path d="M20 12L22 16H18L20 12Z" fill="white"/>
+  <path d="M20 24L18 20H22L20 24Z" fill="white"/>
+  <path d="M12 18L16 20V16L12 18Z" fill="white"/>
+  <path d="M28 18L24 16V20L28 18Z" fill="white"/>
+  
+  <!-- Tour guide person -->
+  <circle cx="32" cy="12" r="3" fill="#F59E0B"/>
+  <path d="M32 16C30.343 16 29 17.343 29 19V20H35V19C35 17.343 33.657 16 32 16Z" fill="#F59E0B"/>
+</svg>

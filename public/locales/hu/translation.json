@@ -1,0 +1,199 @@
+{
+  "header": {
+    "explorer": "FELFEDEZŐ",
+    "events": "ESEMÉNYEK",
+    "excursions": "KIRÁNDULÁSOK",
+    "my_trips": "UTAZÁSAIM",
+    "for_businesses": "KAPCSOLAT",
+    "login": "Bejelentkezés",
+    "logout": "Kijelentkezés",
+    "welcome": "Üdvözöljük"
+  },
+  "search": {
+    "title": "Helyek és Események Keresése",
+    "placeholder": "Keresés helyekre, eseményekre vagy túrákra",
+    "placeholder_input": "Keresés helyekre, eseményekre, túrákra...",
+    "tooltip": "Egyedi hely keresése (pl. 'Párizs, Franciaország')",
+    "no_results": "Nincs találat",
+    "results_found": "{{count}} találat",
+    "results_found_plural": "{{count}} találat"
+  },
+  "filters": {
+    "categories": "Kategóriák",
+    "search_radius": "Keresési Sugár",
+    "clear_all": "Összes törlése",
+    "clear_route": "Útvonal törlése",
+    "100m": "100m",
+    "200m": "200m",
+    "300m": "300m",
+    "500m": "500m",
+    "1 km": "1 km",
+    "5 km": "5 km",
+    "10 km": "10 km",
+    "All": "Összes",
+    "All Islands": "Minden Sziget"
+  },
+  "categories": {
+    "Landscape": "Táj",
+    "Viewpoint": "Kilátó",
+    "Historical Building": "Történelmi épület",
+    "Nature Spot": "Természeti helyszín",
+    "Art & Culture": "Művészet és Kultúra",
+    "Food & Drink": "Étel és Ital",
+    "Shopping": "Vásárlás",
+    "Diving Site": "Búvárhely",
+    "Beach": "Strand",
+    "Public Toilet": "Nyilvános WC",
+    "Ferry Terminal": "Komp kikötő",
+    "Bus Terminus": "Autóbusz végállomás",
+    "BUS_STOP": "Autóbusz megálló",
+    "Bus Route": "Autóbusz útvonal",
+    "Event": "Esemény",
+    "Tours": "Túrák",
+    "Public Transport Route": "Közlekedési útvonal",
+    "Cities/Towns": "Városok/Falvak",
+    "Other Site": "Egyéb helyszín",
+    "Hotels": "Szállodák",
+    "Zoo": "Állatkert",
+    "Circus": "Cirkusz"
+  },
+  "reviews": {
+    "title": "Értékelések és Vélemények",
+    "loading": "Értékelések betöltése...",
+    "average_rating": "Átlagos értékelés",
+    "reviews_count": "{{count}} értékelés",
+    "reviews_count_plural": "{{count}} értékelés",
+    "your_review": "Az Ön értékelése",
+    "edit": "Szerkesztés",
+    "delete": "Törlés",
+    "cancel": "Mégse",
+    "write_review": "Értékelés írása",
+    "edit_review": "Értékelés szerkesztése",
+    "rating": "Értékelés",
+    "title_label": "Cím (opcionális)",
+    "title_placeholder": "Adjon címet az értékelésének...",
+    "comment_label": "Megjegyzés (opcionális)",
+    "comment_placeholder": "Ossza meg tapasztalatait...",
+    "submitting": "Küldés...",
+    "update_review": "Értékelés frissítése",
+    "submit_review": "Értékelés elküldése",
+    "sign_in_to_review": "Szeretné megosztani tapasztalatait? Jelentkezzen be, hogy értékelést írjon!",
+    "sign_in_button": "Bejelentkezés értékeléshez",
+    "recent_reviews": "Legutóbbi értékelések ({{count}})",
+    "no_reviews": "Még nincsenek értékelések. Legyen Ön az első, aki megosztja tapasztalatait!",
+    "delete_confirm": "Biztosan törölni szeretné az értékelését?",
+    "failed_to_load": "Az értékelések betöltése sikertelen"
+  },
+  "ai": {
+    "unlock_title": "Gozo AI Feloldása",
+    "unlock_description": "A Discover Gozo teljesen ingyenes! Azonban a csodálatos Gozo AI funkciónk kizárólag regisztrált felhasználók számára érhető el. Regisztráljon ingyenesen, hogy személyre szabott utazási ajánlásokat, részletes helyinformációkat és interaktív csevegést kapjon a Gozo AI-jával.",
+    "sign_up_button": "Regisztráció / Bejelentkezés (Ingyenes)",
+    "ask_anything": "Kérdezzen bármit erről a helyről vagy Gozo szigetéről! Segíthetek ajánlásokkal, történelmmel, tippekkel és még sok mással.",
+    "ask_placeholder": "Kérdezzen erről a helyről...",
+    "thinking": "Gondolkodás..."
+  },
+  "places": {
+    "no_places_found": "Nem Találhatók Helyek",
+    "try_changing_filters": "Próbálja meg mozgatni a térképet, megváltoztatni a kategóriákat vagy növelni a keresési sugarat.",
+    "welcome": "Üdvözöljük Gozón!",
+    "select_category": "Válasszon egy kategóriát a fentiek közül, hogy elkezdje felfedezni a közeli helyeket.",
+    "enable_location": "Engedélyezze a helymeghatározást, vagy hosszan nyomja meg a térképet egy jelölő elhelyezéséhez és a felfedezés megkezdéséhez.",
+    "nearby_places": "Közeli Helyek ({{count}})",
+    "km_away": "{{distance}} km távolságra"
+  },
+  "place_details": {
+    "ask_follow_up": "Tegyen fel egy következő kérdést...",
+    "send_message": "Üzenet küldése",
+    "view_gallery_aria": "Képgaléria megtekintése a következőhöz: {{name}}",
+    "close_details": "Részletek bezárása",
+    "add_to_trip": "Hozzáadás az Utazáshoz",
+    "login_to_add_to_trip": "Regisztráljon vagy jelentkezzen be, hogy utazásokat hozzon létre és mentse (INGYENES!)",
+    "km_away": "Hozzávetőlegesen {{distance}} km távolságra",
+    "visit_website": "Weboldal Megtekintése",
+    "directions": "Útvonal",
+    "read_on_wikipedia": "Olvasás a Wikipédián",
+    "edit_place": "Hely Szerkesztése",
+    "ai_travel_buddy": "AI Utazási Társ",
+    "ask_ai_buddy": "Kérdezzen az AI Társtól Részleteket",
+    "ai_thinking": "Az AI Társ gondolkodik...",
+    "sources": "Források az internetről:",
+    "speak_aloud": "Hangos Felolvasás",
+    "stop_speaking": "Felolvasás Leállítása",
+    "route_id": "Útvonal: {{routeId}}",
+    "translate_with_google": "Fordítás Google-lel"
+  },
+  "sidebar": {
+    "search_filters": "Keresés és Szűrők",
+    "nearby_places": "Közeli Helyek"
+  },
+  "events": {
+    "title": "Gozo és Comino Események",
+    "subtitle": "Fedezzen fel fesztiválokat, kiállításokat és helyi összejöveteleket a szigeteken.",
+    "no_events": "Nincs Ütemezett Esemény",
+    "check_back_later": "Kérjük, nézzen vissza később a frissítésekért!",
+    "date_tbc": "Dátum később",
+    "starts": "Kezdés",
+    "visit_website": "Weboldal Megtekintése",
+    "show_on_map": "Megjelenítés Térképen",
+    "error": "Hiba: {{message}}",
+    "all_events": "Összes Esemény",
+    "no_events_in_category": "Nem találhatók események a \"{{category}}\" kategóriában",
+    "try_different_category": "Próbáljon másik kategóriát kiválasztani vagy az összes eseményt megtekinteni.",
+    "show_less": "Kevesebb mutatása",
+    "show_more": "Több mutatása",
+    "categories": {
+      "Culture & Heritage": "Kultúra és Örökség",
+      "Music & Festivals": "Zene és Fesztiválok",
+      "Food & Drink": "Étel és Ital",
+      "Outdoors & Adventure": "Szabadtéri és Kaland",
+      "Family, Arts & Wellness": "Család, Művészet és Wellness"
+    }
+  },
+  "tours": {
+    "title": "Kirándulások",
+    "subtitle": "Fedezze fel Gozót vezetett túrákon, túrautakon és kalandélményeken keresztül",
+    "main_title": "A legjobb módok Gozo felfedezésére - Foglaljon közvetlenül és takarítson meg 10%-ot",
+    "main_subtitle": "Fedezze fel válogatott túráinkat és foglalja le kalandját exkluzív kedvezményekkel",
+    "my_tickets": "Jegyeim",
+    "available_tours": "Elérhető Túrák",
+    "loading_tours": "Túrák betöltése...",
+    "try_again": "Próbálja újra",
+    "no_tours_available": "Még nincsenek elérhető túrák ehhez a kategóriához.",
+    "check_back_later": "Nézzen vissza később vagy lépjen velünk kapcsolatba további információért.",
+    "points_of_interest": "érdekes helyek",
+    "waypoints": "útpontok",
+    "book_now_save": "🎫 Foglaljon most és takarítson meg 10%-ot",
+    "click_to_view_details": "Kattintson a részletek megtekintéséhez →",
+    "self_guided_hiking": "🥾 Önálló túraútvonal - foglalás nem szükséges",
+    "select_tour_category": "Válasszon Túra Kategóriát",
+    "choose_category_explore": "Válasszon egy kategóriát fent, hogy felfedezze az elérhető túrákat és élményeket",
+    "from": "Tól",
+    "categories": {
+      "hiking": {
+        "description": "Fedezzen fel festői túraútvonalakat Gozo gyönyörű tájain"
+      },
+      "boat-tour": {
+        "description": "Fedezze fel Gozót a tengerről izgalmas hajókirándulásokkal"
+      },
+      "sightseeing": {
+        "description": "Látogassa meg Gozo legszebb és legtörténelmi helyeit"
+      },
+      "jeep-tour": {
+        "description": "Kaland Gozo vidéki területein egy 4x4-es jeepben"
+      },
+      "quad-tour": {
+        "description": "Élvezze a quad motorozás izgalmát Gozón"
+      },
+      "custom": {
+        "description": "Hozzon létre saját személyre szabott túraélményt"
+      }
+    }
+  },
+  "bus": {
+    "next_departure": "Következő Autóbusz Indulás",
+    "no_more_buses": "Ma nincs több autóbusz.",
+    "departed": "Elindult",
+    "timetable_error": "Menetrend nem elérhető. A szerver váratlan választ küldött."
+  }
+}
+

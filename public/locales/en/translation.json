@@ -1,0 +1,203 @@
+
+{
+  "header": {
+    "explorer": "EXPLORER",
+    "events": "EVENTS",
+    "excursions": "EXCURSIONS",
+    "my_trips": "MY TRIPS",
+    "for_businesses": "CONTACT US",
+    "login": "Login",
+    "logout": "Logout",
+    "welcome": "Welcome"
+  },
+  "search": {
+    "title": "Find Places & Events",
+    "placeholder": "Search for any place event or tour",
+    "placeholder_input": "Search places, events, tours...",
+    "tooltip": "Search for a custom location (e.g. 'Paris, France')",
+    "no_results": "No results found",
+    "results_found": "{{count}} result found",
+    "results_found_plural": "{{count}} results found"
+  },
+  "filters": {
+    "categories": "Categories",
+    "search_radius": "Search Radius",
+    "clear_all": "Clear All",
+    "clear_route": "Clear Route",
+    "100m": "100m",
+    "200m": "200m",
+    "300m": "300m",
+    "500m": "500m",
+    "1 km": "1 km",
+    "5 km": "5 km",
+    "10 km": "10 km",
+    "All": "All",
+    "All Islands": "All Islands"
+  },
+  "categories": {
+    "Landscape": "Landscape",
+    "Viewpoint": "Viewpoint",
+    "Historical Building": "Historical Building",
+    "Nature Spot": "Nature Spot",
+    "Art & Culture": "Art & Culture",
+    "Food & Drink": "Food & Drink",
+    "Shopping": "Shopping",
+    "Diving Site": "Diving Site",
+    "Beach": "Beach",
+    "Public Toilet": "Public Toilet",
+    "Ferry Terminal": "Ferry Terminal",
+    "Bus Terminus": "Bus Terminus",
+    "BUS_STOP": "Bus Stop",
+    "Bus Route": "Bus Route",
+    "Event": "Event",
+    "Tours": "Tours",
+    "Public Transport Route": "Public Transport Route",
+    "Cities/Towns": "Cities/Towns",
+    "Other Site": "Other Site",
+    "Hotels": "Hotels",
+    "Zoo": "Zoo",
+    "Circus": "Circus"
+  },
+  "reviews": {
+    "title": "Reviews & Ratings",
+    "loading": "Loading reviews...",
+    "average_rating": "Average Rating",
+    "reviews_count": "{{count}} review",
+    "reviews_count_plural": "{{count}} reviews",
+    "your_review": "Your Review",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "write_review": "Write a Review",
+    "edit_review": "Edit Your Review",
+    "rating": "Rating",
+    "title_label": "Title (optional)",
+    "title_placeholder": "Give your review a title...",
+    "comment_label": "Comment (optional)",
+    "comment_placeholder": "Share your experience...",
+    "submitting": "Submitting...",
+    "update_review": "Update Review",
+    "submit_review": "Submit Review",
+    "sign_in_to_review": "Want to share your experience? Sign in to write a review!",
+    "sign_in_button": "Sign In to Review",
+    "recent_reviews": "Recent Reviews ({{count}})",
+    "no_reviews": "No reviews yet. Be the first to share your experience!",
+    "delete_confirm": "Are you sure you want to delete your review?",
+    "failed_to_load": "Failed to load reviews"
+  },
+  "ai": {
+    "unlock_title": "Unlock Gozo AI",
+    "unlock_description": "Discover Gozo is completely free to use! However, our amazing Gozo AI feature is exclusively available to registered users. Sign up for free to get personalized travel recommendations, detailed place insights, and interactive chat with your Gozo AI.",
+    "sign_up_button": "Sign Up / Log In (Free)",
+    "ask_anything": "Ask me anything about this this place or the island of Gozo! I can help with recommendations, history, tips, and more.",
+    "ask_placeholder": "Ask about this place...",
+    "thinking": "Thinking..."
+  },
+  "places": {
+    "no_places_found": "No Places Found",
+    "try_changing_filters": "Try moving the map, changing categories, or increasing the search radius.",
+    "welcome": "Welcome to Gozo!",
+    "select_category": "Select a category above to start exploring nearby places.",
+    "enable_location": "Enable your location or long-press the map to drop a pin to start exploring.",
+    "nearby_places": "Nearby Places ({{count}})",
+    "km_away": "{{distance}} km away"
+  },
+  "place_details": {
+    "ask_follow_up": "Ask a follow-up question...",
+    "send_message": "Send message",
+    "view_gallery_aria": "View image gallery for {{name}}",
+    "close_details": "Close details",
+    "add_to_trip": "Add to Trip",
+    "login_to_add_to_trip": "Register or login to create and save trips (it's FREE!)",
+    "km_away": "Approximately {{distance}} km away",
+    "visit_website": "Visit Website",
+    "directions": "Directions",
+    "read_on_wikipedia": "Read on Wikipedia",
+    "edit_place": "Edit Place",
+    "ai_travel_buddy": "AI Travel Buddy",
+    "ask_ai_buddy": "Ask AI Buddy for Details",
+    "ai_thinking": "AI Buddy is thinking...",
+    "sources": "Sources from the web:",
+    "speak_aloud": "Speak Aloud",
+    "stop_speaking": "Stop Speaking",
+    "route_id": "Route: {{routeId}}",
+    "translate_with_google": "Translate with Google"
+  },
+  "sidebar": {
+    "search_filters": "Search & Filters",
+    "nearby_places": "Nearby Places"
+  },
+  "events": {
+    "title": "Gozo & Comino Events",
+    "subtitle": "Discover festivals, exhibitions, and local gatherings happening across the islands.",
+    "no_events": "No Events Scheduled",
+    "check_back_later": "Please check back later for updates!",
+    "date_tbc": "Date TBC",
+    "starts": "Starts",
+    "visit_website": "Visit Website",
+    "show_on_map": "Show on Map",
+    "error": "Error: {{message}}",
+    "all_events": "All Events",
+    "no_events_in_category": "No events found in \"{{category}}\"",
+    "try_different_category": "Try selecting a different category or view all events.",
+    "show_less": "Show less",
+    "show_more": "Show more",
+    "categories": {
+      "Culture & Heritage": "Culture & Heritage",
+      "Music & Festivals": "Music & Festivals",
+      "Food & Drink": "Food & Drink",
+      "Outdoors & Adventure": "Outdoors & Adventure",
+      "Family, Arts & Wellness": "Family, Arts & Wellness"
+    }
+  },
+  "tours": {
+    "title": "Excursions",
+    "subtitle": "Explore Gozo through guided tours, hiking trails, and adventure experiences",
+    "main_title": "Best ways to Discover Gozo - Book direct & save 10%",
+    "main_subtitle": "Explore our curated tours and book your adventure with exclusive discounts",
+    "my_tickets": "My Tickets",
+    "available_tours": "Available Tours",
+    "loading_tours": "Loading tours...",
+    "try_again": "Try Again",
+    "no_tours_available": "No tours available for this category yet.",
+    "check_back_later": "Check back later or contact us for more information.",
+    "points_of_interest": "points of interest",
+    "waypoints": "waypoints",
+    "book_now_save": "🎫 Book Now & Save 10%",
+    "click_to_view_details": "Click to view details →",
+    "self_guided_hiking": "🥾 Self-guided hiking trail - no booking required",
+    "select_tour_category": "Select a Tour Category",
+    "choose_category_explore": "Choose a category above to explore available tours and experiences",
+    "from": "From",
+    "categories": {
+      "hiking": {
+        "description": "Explore scenic hiking trails across Gozo's beautiful landscapes"
+      },
+      "boat-tour": {
+        "description": "Discover Gozo from the sea with exciting boat tours"
+      },
+      "sightseeing": {
+        "description": "Visit the most beautiful and historic sites of Gozo"
+      },
+      "jeep-tour": {
+        "description": "Adventure through Gozo's countryside in a 4x4 jeep"
+      },
+      "quad-tour": {
+        "description": "Experience the thrill of quad biking across Gozo"
+      },
+      "custom": {
+        "description": "Create your own personalized tour experience"
+      }
+    }
+  },
+  "common": {
+    "show_less": "Show less",
+    "show_more": "Show more"
+  },
+  "bus": {
+    "next_departure": "Next Bus Departure",
+    "no_more_buses": "No more buses today.",
+    "departed": "Departed",
+    "timetable_error": "Timetable not available. The server sent an unexpected response."
+  }
+}

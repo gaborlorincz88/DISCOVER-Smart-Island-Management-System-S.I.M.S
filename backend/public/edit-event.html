@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event - Discover Gozo Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Edit Event</h1>
+        <nav>
+            <a href="admin.html">Dashboard</a>
+            <a href="maps.html">Map Manager</a>
+            <a href="places.html">Place Manager</a>
+            <a href="events.html">Event Manager</a>
+        </nav>
+    </header>
+    <main>
+        <section id="edit-event">
+            <form id="edit-event-form">
+                <input type="hidden" id="event-id" name="id">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"></textarea>
+                <label for="website">Website:</label>
+                <input type="url" id="website" name="website">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date">
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image">
+                <label for="custom_pin">Custom Pin:</label>
+                <input type="text" id="custom_pin" name="custom_pin">
+                <button type="submit">Save Event</button>
+            </form>
+            <div id="map" class="map-container"></div>
+        </section>
+    </main>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="edit-event.js"></script>
+</body>
+</html>

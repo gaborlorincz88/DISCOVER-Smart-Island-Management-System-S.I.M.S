@@ -1,0 +1,199 @@
+{
+  "header": {
+    "explorer": "EKSPLORATOR",
+    "events": "WYDARZENIA",
+    "excursions": "WYCIECZKI",
+    "my_trips": "MOJE WYCIECZKI",
+    "for_businesses": "KONTAKT",
+    "login": "Zaloguj się",
+    "logout": "Wyloguj się",
+    "welcome": "Witamy"
+  },
+  "search": {
+    "title": "Znajdź Miejsca i Wydarzenia",
+    "placeholder": "Szukaj miejsc, wydarzeń lub wycieczek",
+    "placeholder_input": "Szukaj miejsc, wydarzeń, wycieczek...",
+    "tooltip": "Szukaj niestandardowej lokalizacji (np. 'Paryż, Francja')",
+    "no_results": "Nie znaleziono wyników",
+    "results_found": "Znaleziono {{count}} wynik",
+    "results_found_plural": "Znaleziono {{count}} wyników"
+  },
+  "filters": {
+    "categories": "Kategorie",
+    "search_radius": "Promień wyszukiwania",
+    "clear_all": "Wyczyść wszystko",
+    "clear_route": "Wyczyść trasę",
+    "100m": "100m",
+    "200m": "200m",
+    "300m": "300m",
+    "500m": "500m",
+    "1 km": "1 km",
+    "5 km": "5 km",
+    "10 km": "10 km",
+    "All": "Wszystko",
+    "All Islands": "Wszystkie Wyspy"
+  },
+  "categories": {
+    "Landscape": "Krajobraz",
+    "Viewpoint": "Punkt widokowy",
+    "Historical Building": "Budynek historyczny",
+    "Nature Spot": "Miejsce przyrodnicze",
+    "Art & Culture": "Sztuka i Kultura",
+    "Food & Drink": "Jedzenie i Napoje",
+    "Shopping": "Zakupy",
+    "Diving Site": "Miejsce nurkowe",
+    "Beach": "Plaża",
+    "Public Toilet": "Toaleta publiczna",
+    "Ferry Terminal": "Terminal promowy",
+    "Bus Terminus": "Pętla autobusowa",
+    "BUS_STOP": "Przystanek autobusowy",
+    "Bus Route": "Trasa autobusowa",
+    "Event": "Wydarzenie",
+    "Tours": "Wycieczki",
+    "Public Transport Route": "Trasa transportu publicznego",
+    "Cities/Towns": "Miasta/Miasteczka",
+    "Other Site": "Inne miejsce",
+    "Hotels": "Hotele",
+    "Zoo": "Zoo",
+    "Circus": "Cyrk"
+  },
+  "reviews": {
+    "title": "Opinie i Oceny",
+    "loading": "Ładowanie opinii...",
+    "average_rating": "Średnia ocena",
+    "reviews_count": "{{count}} opinia",
+    "reviews_count_plural": "{{count}} opinii",
+    "your_review": "Twoja opinia",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "cancel": "Anuluj",
+    "write_review": "Napisz opinię",
+    "edit_review": "Edytuj swoją opinię",
+    "rating": "Ocena",
+    "title_label": "Tytuł (opcjonalnie)",
+    "title_placeholder": "Nadaj tytuł swojej opinii...",
+    "comment_label": "Komentarz (opcjonalnie)",
+    "comment_placeholder": "Podziel się swoim doświadczeniem...",
+    "submitting": "Wysyłanie...",
+    "update_review": "Aktualizuj opinię",
+    "submit_review": "Prześlij opinię",
+    "sign_in_to_review": "Chcesz podzielić się swoim doświadczeniem? Zaloguj się, aby napisać opinię!",
+    "sign_in_button": "Zaloguj się, aby ocenić",
+    "recent_reviews": "Ostatnie opinie ({{count}})",
+    "no_reviews": "Brak opinii. Bądź pierwszy, który podzieli się swoim doświadczeniem!",
+    "delete_confirm": "Czy na pewno chcesz usunąć swoją opinię?",
+    "failed_to_load": "Nie udało się załadować opinii"
+  },
+  "ai": {
+    "unlock_title": "Odblokuj Gozo AI",
+    "unlock_description": "Discover Gozo jest całkowicie darmowe! Jednak nasza niesamowita funkcja Gozo AI jest dostępna wyłącznie dla zarejestrowanych użytkowników. Zarejestruj się za darmo, aby otrzymać spersonalizowane rekomendacje podróży, szczegółowe informacje o miejscach i interaktywny czat z Twoim Gozo AI.",
+    "sign_up_button": "Zarejestruj się / Zaloguj (Darmowe)",
+    "ask_anything": "Zapytaj mnie o cokolwiek dotyczące tego miejsca lub wyspy Gozo! Mogę pomóc z rekomendacjami, historią, wskazówkami i nie tylko.",
+    "ask_placeholder": "Zapytaj o to miejsce...",
+    "thinking": "Myślę..."
+  },
+  "places": {
+    "no_places_found": "Nie znaleziono miejsc",
+    "try_changing_filters": "Spróbuj przesunąć mapę, zmienić kategorie lub zwiększyć promień wyszukiwania.",
+    "welcome": "Witamy na Gozo!",
+    "select_category": "Wybierz kategorię powyżej, aby rozpocząć eksplorację pobliskich miejsc.",
+    "enable_location": "Włącz swoją lokalizację lub długo naciśnij mapę, aby umieścić pinezkę i rozpocząć eksplorację.",
+    "nearby_places": "Pobliskie Miejsca ({{count}})",
+    "km_away": "{{distance}} km stąd"
+  },
+  "place_details": {
+    "ask_follow_up": "Zadaj kolejne pytanie...",
+    "send_message": "Wyślij wiadomość",
+    "view_gallery_aria": "Zobacz galerię zdjęć dla {{name}}",
+    "close_details": "Zamknij szczegóły",
+    "add_to_trip": "Dodaj do Wycieczki",
+    "login_to_add_to_trip": "Zarejestruj się lub zaloguj, aby tworzyć i zapisywać wycieczki (to DARMOWE!)",
+    "km_away": "Około {{distance}} km stąd",
+    "visit_website": "Odwiedź Stronę",
+    "directions": "Wskazówki dojazdu",
+    "read_on_wikipedia": "Przeczytaj na Wikipedii",
+    "edit_place": "Edytuj Miejsce",
+    "ai_travel_buddy": "Asystent Podróży AI",
+    "ask_ai_buddy": "Zapytaj Asystenta AI o Szczegóły",
+    "ai_thinking": "Asystent AI myśli...",
+    "sources": "Źródła z internetu:",
+    "speak_aloud": "Przeczytaj na głos",
+    "stop_speaking": "Przestań czytać",
+    "route_id": "Trasa: {{routeId}}",
+    "translate_with_google": "Tłumacz z Google"
+  },
+  "sidebar": {
+    "search_filters": "Wyszukiwanie i Filtry",
+    "nearby_places": "Pobliskie Miejsca"
+  },
+  "events": {
+    "title": "Wydarzenia na Gozo i Comino",
+    "subtitle": "Odkryj festiwale, wystawy i lokalne spotkania odbywające się na wyspach.",
+    "no_events": "Brak Zaplanowanych Wydarzeń",
+    "check_back_later": "Proszę sprawdzić później, aby zobaczyć aktualizacje!",
+    "date_tbc": "Data do potwierdzenia",
+    "starts": "Rozpoczyna się",
+    "visit_website": "Odwiedź Stronę",
+    "show_on_map": "Pokaż na Mapie",
+    "error": "Błąd: {{message}}",
+    "all_events": "Wszystkie wydarzenia",
+    "no_events_in_category": "Nie znaleziono wydarzeń w \"{{category}}\"",
+    "try_different_category": "Spróbuj wybrać inną kategorię lub zobacz wszystkie wydarzenia.",
+    "show_less": "Pokaż mniej",
+    "show_more": "Pokaż więcej",
+    "categories": {
+      "Culture & Heritage": "Kultura i Dziedzictwo",
+      "Music & Festivals": "Muzyka i Festiwale",
+      "Food & Drink": "Jedzenie i Napoje",
+      "Outdoors & Adventure": "Outdoor i Przygoda",
+      "Family, Arts & Wellness": "Rodzina, Sztuka i Wellness"
+    }
+  },
+  "tours": {
+    "title": "Wycieczki",
+    "subtitle": "Odkryj Gozo poprzez wycieczki z przewodnikiem, szlaki piesze i przygody",
+    "main_title": "Najlepsze sposoby odkrywania Gozo - Rezerwuj bezpośrednio i oszczędź 10%",
+    "main_subtitle": "Odkryj nasze wyselekcjonowane wycieczki i zarezerwuj swoją przygodę z ekskluzywnymi zniżkami",
+    "my_tickets": "Moje bilety",
+    "available_tours": "Dostępne wycieczki",
+    "loading_tours": "Ładowanie wycieczek...",
+    "try_again": "Spróbuj ponownie",
+    "no_tours_available": "Brak dostępnych wycieczek dla tej kategorii jeszcze.",
+    "check_back_later": "Sprawdź później lub skontaktuj się z nami, aby uzyskać więcej informacji.",
+    "points_of_interest": "miejsca zainteresowania",
+    "waypoints": "punkty trasy",
+    "book_now_save": "🎫 Zarezerwuj teraz i oszczędź 10%",
+    "click_to_view_details": "Kliknij, aby zobaczyć szczegóły →",
+    "self_guided_hiking": "🥾 Samodzielna trasa piesza - rezerwacja nie jest wymagana",
+    "select_tour_category": "Wybierz kategorię wycieczki",
+    "choose_category_explore": "Wybierz kategorię powyżej, aby odkryć dostępne wycieczki i doświadczenia",
+    "from": "Od",
+    "categories": {
+      "hiking": {
+        "description": "Eksploruj malownicze szlaki piesze w pięknych krajobrazach Gozo"
+      },
+      "boat-tour": {
+        "description": "Odkryj Gozo z morza dzięki ekscytującym wycieczkom łodzią"
+      },
+      "sightseeing": {
+        "description": "Odwiedź najpiękniejsze i najbardziej historyczne miejsca Gozo"
+      },
+      "jeep-tour": {
+        "description": "Przeżyj przygodę przez wiejskie tereny Gozo w jeepie 4x4"
+      },
+      "quad-tour": {
+        "description": "Doświadcz dreszczyku emocji podczas jazdy quadami po Gozo"
+      },
+      "custom": {
+        "description": "Stwórz własne spersonalizowane doświadczenie wycieczki"
+      }
+    }
+  },
+  "bus": {
+    "next_departure": "Następny Odjazd Autobusu",
+    "no_more_buses": "Brak kolejnych autobusów dzisiaj.",
+    "departed": "Odjechał",
+    "timetable_error": "Rozkład jazdy niedostępny. Serwer wysłał nieoczekiwaną odpowiedź."
+  }
+}
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager - Discover Gozo Admin</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="admin-check.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <h1><i class="fas fa-calendar-alt"></i> Event Manager</h1>
+        <nav class="top-menu">
+            <a href="/admin.html" class="btn btn-secondary"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="/analytics.html" class="btn btn-secondary"><i class="fas fa-chart-line"></i> Analytics</a>
+            <a href="/weather-admin.html" class="btn btn-secondary"><i class="fas fa-cloud-sun"></i> Weather</a>
+            <a href="/bus-editor.html" class="btn btn-secondary"><i class="fas fa-bus"></i> Bus Routes</a>
+            <a href="/new-route-editor.html" class="btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Tour Routes</a>
+            <a href="/category-editor.html" class="btn btn-secondary"><i class="fas fa-tags"></i> Category Editor</a>
+            <a href="/users.html" class="btn btn-secondary"><i class="fas fa-users"></i> Users</a>
+            <a href="/reservations.html" class="btn btn-secondary"><i class="fas fa-calendar-check"></i> Reservations</a>
+            <a href="/merchants.html" class="btn btn-secondary"><i class="fas fa-store"></i> Merchants</a>
+            <a href="/maps.html" class="btn btn-secondary"><i class="fas fa-map"></i> Map Manager</a>
+            <a href="/places.html" class="btn btn-secondary"><i class="fas fa-map-marker-alt"></i> Place Manager</a>
+            <a href="/events.html" class="btn btn-primary active"><i class="fas fa-calendar-alt"></i> Event Manager</a>
+        </nav>
+    </header>
+    <main>
+        <div class="sidebar">
+            <div class="card">
+                <h2>Events</h2>
+                <div id="events-list">
+                    <!-- Events will be loaded here -->
+                </div>
+            </div>
+            <div class="card" id="edit-event-card" style="display: none;">
+                <h2>Edit Event</h2>
+                <form id="edit-event-form">
+                    <!-- Form fields will be here -->
+                </form>
+            </div>
+        </div>
+        <div class="map-view">
+            <div id="map"></div>
+        </div>
+    </main>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="events.js"></script>
+    <script>
+        // Handle URL fragment scrolling to specific event
+        function scrollToEvent() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#event-')) {
+                const eventId = hash.replace('#event-', '');
+                // Wait for events to be loaded
+                setTimeout(() => {
+                    const eventItem = document.querySelector(`[data-id="${eventId}"]`);
+                    if (eventItem) {
+                        eventItem.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' 
+                        });
+                        // Highlight the event item
+                        eventItem.style.backgroundColor = '#e0e7ff';
+                        eventItem.style.border = '2px solid #3b82f6';
+                        // Remove highlight after 3 seconds
+                        setTimeout(() => {
+                            eventItem.style.backgroundColor = '';
+                            eventItem.style.border = '';
+                        }, 3000);
+                    }
+                }, 1000); // Wait 1 second for events to load
+            }
+        }
+        
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', scrollToEvent);
+        
+        // Run when hash changes (if user navigates with back/forward)
+        window.addEventListener('hashchange', scrollToEvent);
+    </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Image Upload Progress</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+        .test-section h2 {
+            color: #374151;
+            margin-top: 0;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        .file-input-wrapper {
+            margin: 20px 0;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .drop-zone {
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #f9fafb;
+        }
+        .drop-zone:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .drop-zone.dragover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .upload-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            color: #6b7280;
+        }
+        .instructions {
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        .file-info {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Image Upload Progress System</h1>
+        
+        <div class="test-section">
+            <h2>1. Test Progress Bar</h2>
+            <p>Click the button below to test the progress bar without file upload:</p>
+            <button onclick="testProgressBar()">Test Progress Bar</button>
+            <button onclick="testOptimization()">Test Optimization</button>
+        </div>
+
+        <div class="test-section">
+            <h2>2. Test File Upload</h2>
+            <p>Select an image file to test the upload progress:</p>
+            <div class="file-input-wrapper">
+                <input type="file" id="test-file-input" accept="image/*">
+                <div class="drop-zone" onclick="document.getElementById('test-file-input').click()">
+                    <div class="upload-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </div>
+                    <div class="instructions">
+                        <span style="color: #3b82f6; font-weight: 500;">Click to upload</span> or drag and drop
+                    </div>
+                    <div class="file-info">PNG, JPG, GIF up to 10MB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>3. Test Status Messages</h2>
+            <p>Test different types of status messages:</p>
+            <button onclick="testStatusMessage('success', 'This is a success message!')">Success Message</button>
+            <button onclick="testStatusMessage('error', 'This is an error message!')">Error Message</button>
+            <button onclick="testStatusMessage('warning', 'This is a warning message!')">Warning Message</button>
+            <button onclick="testStatusMessage('info', 'This is an info message!')">Info Message</button>
+        </div>
+
+        <div class="test-section">
+            <h2>4. Test Form Submission</h2>
+            <p>Test the form submission progress:</p>
+            <button onclick="testFormSubmission()">Test Form Save</button>
+        </div>
+    </div>
+
+    <script src="image-upload-progress.js"></script>
+    <script>
+        // Test functions
+        function testProgressBar() {
+            if (window.imageUploadProgress) {
+                window.imageUploadProgress.startUpload();
+                
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += Math.random() * 20;
+                    window.imageUploadProgress.updateUploadProgress(progress);
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                    }
+                }, 100);
+            }
+        }
+
+        function testOptimization() {
+            if (window.imageUploadProgress) {
+                window.imageUploadProgress.startUpload();
+                window.imageUploadProgress.completeUpload();
+                window.imageUploadProgress.startOptimization();
+            }
+        }
+
+        function testStatusMessage(type, message) {
+            if (window.showStatusMessage) {
+                window.showStatusMessage(message, type);
+            } else {
+                // Fallback if function doesn't exist
+                alert(`${type.toUpperCase()}: ${message}`);
+            }
+        }
+
+        function testFormSubmission() {
+            if (window.imageUploadProgress) {
+                window.imageUploadProgress.show();
+                window.imageUploadProgress.statusText.textContent = 'Saving place...';
+                window.imageUploadProgress.percentageText.textContent = '0%';
+                window.imageUploadProgress.progressBar.style.width = '0%';
+                window.imageUploadProgress.progressBar.style.background = '#3b82f6';
+                
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += Math.random() * 30;
+                    if (progress >= 90) progress = 90;
+                    
+                    window.imageUploadProgress.percentageText.textContent = `${Math.round(progress)}%`;
+                    window.imageUploadProgress.progressBar.style.width = `${progress}%`;
+                    
+                    if (progress >= 90) {
+                        clearInterval(interval);
+                        
+                        setTimeout(() => {
+                            window.imageUploadProgress.percentageText.textContent = '100%';
+                            window.imageUploadProgress.progressBar.style.width = '100%';
+                            window.imageUploadProgress.progressBar.style.background = '#10b981';
+                            window.imageUploadProgress.statusText.textContent = 'Place saved successfully!';
+                            window.imageUploadProgress.successNotification.style.display = 'block';
+                            
+                            setTimeout(() => {
+                                window.imageUploadProgress.hide();
+                            }, 3000);
+                        }, 1000);
+                    }
+                }, 200);
+            }
+        }
+
+        // File input handling
+        document.getElementById('test-file-input').addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                console.log('File selected:', e.target.files[0]);
+                
+                if (window.imageUploadProgress) {
+                    window.imageUploadProgress.startUpload();
+                    
+                    let progress = 0;
+                    const interval = setInterval(() => {
+                        progress += Math.random() * 20;
+                        window.imageUploadProgress.updateUploadProgress(progress);
+                        
+                        if (progress >= 100) {
+                            clearInterval(interval);
+                        }
+                    }, 100);
+                }
+            }
+        });
+
+        // Drag and drop for test file input
+        const dropZone = document.querySelector('.drop-zone');
+        
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        
+        dropZone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+        });
+        
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            
+            if (e.dataTransfer.files.length > 0) {
+                document.getElementById('test-file-input').files = e.dataTransfer.files;
+                document.getElementById('test-file-input').dispatchEvent(new Event('change'));
+            }
+        });
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Test page loaded. Image upload progress system:', !!window.imageUploadProgress);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "custom-1759610818026",
+    "name": "Hotels",
+    "icon": "🏨",
+    "isCustom": true,
+    "createdAt": "2025-10-04T20:46:58.026Z"
+  },
+  {
+    "id": "custom-1759611101528",
+    "name": "Zoo",
+    "icon": "🎡",
+    "isCustom": true,
+    "createdAt": "2025-10-04T20:51:41.528Z"
+  },
+  {
+    "id": "custom-1759612207277",
+    "name": "Circus",
+    "icon": "🎪",
+    "isCustom": true,
+    "createdAt": "2025-10-04T21:10:07.277Z"
+  },
+  {
+    "id": "custom-ferries",
+    "name": "Ferries",
+    "icon": "🚢",
+    "isCustom": true,
+    "createdAt": "2025-01-27T00:00:00.000Z"
+  }
+]

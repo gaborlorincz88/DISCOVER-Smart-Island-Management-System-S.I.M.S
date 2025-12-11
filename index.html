@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Discover Gozo</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0ea5e9">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Discover Gozo">
+  <!-- Force mobile browsers to cache images aggressively -->
+  <meta http-equiv="Cache-Control" content="max-age=31536000">
+  <meta http-equiv="Expires" content="31536000000">
+  <meta http-equiv="Pragma" content="public">
+  <link rel="apple-touch-icon" href="/icon-192x192.png" id="apple-touch-icon">
+  <!-- Resource hints for performance optimization -->
+  <link rel="dns-prefetch" href="//unpkg.com">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+  
+  <!-- Preload critical icons -->
+  <!-- Commented out to prevent preload warnings - icons are loaded when needed -->
+  <!-- <link rel="preload" href="/icon-192x192.png" as="image" type="image/png" id="preload-icon-192"> -->
+  <!-- <link rel="preload" href="/icon-512x512.png" as="image" type="image/png" id="preload-icon-512"> -->
+  <!-- <link rel="preload" href="/tours.svg" as="image" type="image/svg+xml"> -->
+  
+  <!-- Dynamic logo updater for loading screen -->
+  <script>
+    (function() {
+      // Determine API base URL
+      function getApiBaseUrl() {
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          return 'http://localhost:3003';
+        }
+        // Check if we're on the production domain
+        if (window.location.hostname.includes('discover-gozo.com')) {
+          return 'https://api.discover-gozo.com';
+        }
+        return 'https://api.discover-gozo.com';
+      }
+      
+      // Update logo in HTML head
+      function updateLogo(logoUrl) {
+        if (!logoUrl) return;
+        
+        const isAbsolute = /^https?:\/\//i.test(logoUrl);
+        const baseUrl = getApiBaseUrl();
+        const fullUrl = isAbsolute ? logoUrl : (baseUrl + (logoUrl.startsWith('/') ? logoUrl : '/' + logoUrl));
+        
+        // Update favicon
+        let favicon = document.querySelector('link[rel="icon"]');
+        if (favicon) {
+          favicon.setAttribute('href', fullUrl);
+        } else {
+          favicon = document.createElement('link');
+          favicon.setAttribute('rel', 'icon');
+          favicon.setAttribute('type', 'image/png');
+          favicon.setAttribute('href', fullUrl);
+          document.head.appendChild(favicon);
+        }
+        
+        // Update apple-touch-icon
+        let appleIcon = document.getElementById('apple-touch-icon');
+        if (appleIcon) {
+          appleIcon.setAttribute('href', fullUrl);
+        } else {
+          appleIcon = document.createElement('link');
+          appleIcon.setAttribute('rel', 'apple-touch-icon');
+          appleIcon.setAttribute('id', 'apple-touch-icon');
+          appleIcon.setAttribute('href', fullUrl);
+          document.head.appendChild(appleIcon);
+        }
+        
+        // Update preload links in head
+        const preload192 = document.getElementById('preload-icon-192');
+        if (preload192) {
+          preload192.setAttribute('href', fullUrl);
+        }
+        const preload512 = document.getElementById('preload-icon-512');
+        if (preload512) {
+          preload512.setAttribute('href', fullUrl);
+        }
+        
+        // Update preload link in body (if exists)
+        const preloadBody = document.getElementById('preload-logo-body');
+        if (preloadBody) {
+          preloadBody.setAttribute('href', fullUrl);
+        }
+      }
+      
+      // Fetch header settings and update logo
+      try {
+        const apiBase = getApiBaseUrl();
+        const url = apiBase.replace(/\/$/, '') + '/api/settings/header?v=' + Date.now();
+        
+        fetch(url, { 
+          credentials: 'include', 
+          cache: 'no-store' 
+        })
+          .then(res => res.ok ? res.json() : null)
+          .then(settings => {
+            if (!settings) return;
+            
+            // Determine theme (default to light)
+            const isDark = document.documentElement.classList.contains('dark');
+            const theme = isDark ? 'dark' : 'light';
+            
+            // Determine if desktop (default to desktop for loading screen)
+            const isDesktop = window.innerWidth >= 1024;
+            const breakpoint = isDesktop ? 'desktop' : 'mobile';
+            
+            // Get logo from settings
+            const ctx = settings[theme]?.[breakpoint];
+            const logoUrl = ctx?.logo?.url;
+            
+            if (logoUrl) {
+              updateLogo(logoUrl);
+              // Also update any visible img elements that might be used as loading screen
+              const visibleLogos = document.querySelectorAll('img[src*="icon-192"], img[src*="icon-512"], img[src*="logo"]');
+              visibleLogos.forEach(img => {
+                const isAbsolute = /^https?:\/\//i.test(logoUrl);
+                const baseUrl = getApiBaseUrl();
+                const fullUrl = isAbsolute ? logoUrl : (baseUrl + (logoUrl.startsWith('/') ? logoUrl : '/' + logoUrl));
+                img.src = fullUrl;
+              });
+            }
+          })
+          .catch(() => {
+            // Silently fail - fallback to default logo
+          });
+      } catch (e) {
+        // Silently fail - fallback to default logo
+      }
+      
+      // Apply theme early for loading screen
+      function updateLoadingScreenTheme() {
+        try {
+          const savedTheme = localStorage.getItem('theme');
+          const isDark = savedTheme === 'dark';
+          
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.body.style.backgroundColor = '#111827'; // gray-900
+            // Update loading screen background for dark theme
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+              loadingScreen.style.background = '#111827';
+              loadingScreen.style.color = '#ffffff';
+            }
+            // Update warning banner for dark theme
+            const warning = document.getElementById('construction-warning');
+            if (warning) {
+              warning.style.background = '#fbbf24';
+              warning.style.borderColor = '#f59e0b';
+            }
+            // Update loading logo for dark theme
+            const loadingLogo = document.getElementById('loading-logo');
+            if (loadingLogo) {
+              loadingLogo.src = '/bestlogowhite.png';
+              loadingLogo.style.display = 'block';
+            }
+            // Update spinner colors for dark theme
+            const spinner = document.getElementById('loading-spinner') || document.querySelector('.loading-spinner');
+            if (spinner) {
+              spinner.style.border = '4px solid rgba(34, 211, 238, 0.2)';
+              spinner.style.borderTopColor = 'rgb(34, 211, 238)';
+              spinner.style.display = 'block';
+              spinner.style.animation = 'loading-spin 1s linear infinite';
+            }
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.body.style.backgroundColor = '#ffffff'; // white
+            // Update loading screen background for light theme
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+              loadingScreen.style.background = 'linear-gradient(to bottom right, #eff6ff, #ffffff)';
+              loadingScreen.style.color = '#000000';
+            }
+            // Update warning banner for light theme (same yellow, but ensure visibility)
+            const warning = document.getElementById('construction-warning');
+            if (warning) {
+              warning.style.background = '#fbbf24';
+              warning.style.borderColor = '#f59e0b';
+            }
+            // Update loading logo for light theme
+            const loadingLogo = document.getElementById('loading-logo');
+            if (loadingLogo) {
+              loadingLogo.src = '/bestlogo.png';
+              loadingLogo.style.display = 'block';
+            }
+            // Update spinner colors for light theme
+            const spinner = document.getElementById('loading-spinner') || document.querySelector('.loading-spinner');
+            if (spinner) {
+              spinner.style.border = '4px solid rgba(14, 165, 233, 0.2)';
+              spinner.style.borderTopColor = 'rgb(14, 165, 233)';
+              spinner.style.display = 'block';
+              spinner.style.animation = 'loading-spin 1s linear infinite';
+            }
+          }
+        } catch (e) {
+          // Silently fail if localStorage is not available
+        }
+      }
+      
+      // Apply theme immediately - run after a tiny delay to ensure DOM is ready
+      setTimeout(updateLoadingScreenTheme, 0);
+      
+      // Also apply theme on DOMContentLoaded to ensure it's set before React loads
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateLoadingScreenTheme);
+      } else {
+        updateLoadingScreenTheme();
+      }
+      
+      // Construction warning acknowledgment - Show every time (no localStorage persistence)
+      let warningAcknowledged = false;
+      
+      // Show/hide warning based on acknowledgment
+      function updateWarningVisibility() {
+        const warning = document.getElementById('construction-warning');
+        if (warning) {
+          if (warningAcknowledged) {
+            warning.style.display = 'none';
+          } else {
+            warning.style.display = 'block';
+          }
+        }
+      }
+      
+      // Handle acknowledge button click
+      function initWarningButton() {
+        const acknowledgeBtn = document.getElementById('acknowledge-btn');
+        if (acknowledgeBtn) {
+          acknowledgeBtn.addEventListener('click', () => {
+            warningAcknowledged = true;
+            updateWarningVisibility();
+            // Check if we can hide the loading screen now
+            checkIfReadyToHide();
+          });
+        }
+        updateWarningVisibility();
+      }
+      
+      // Initialize warning button when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWarningButton);
+      } else {
+        initWarningButton();
+      }
+      
+      // Hide loading screen when React app is ready AND icons are loaded
+      let loadingScreenHidden = false;
+      let minDisplayTime = 800; // Minimum time to show loading screen (800ms)
+      let startTime = Date.now();
+      let reactReady = false;
+      let iconsReady = false;
+      
+      function checkIfReadyToHide() {
+        // Only hide when both React is ready AND icons are loaded AND warning is acknowledged
+        if (reactReady && iconsReady && warningAcknowledged && !loadingScreenHidden) {
+          hideLoadingScreen();
+        }
+      }
+      
+      function hideLoadingScreen() {
+        if (loadingScreenHidden) return;
+        loadingScreenHidden = true;
+        
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          // Ensure minimum display time
+          const elapsed = Date.now() - startTime;
+          const remainingTime = Math.max(0, minDisplayTime - elapsed);
+          
+          setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            // Remove from DOM after animation
+            setTimeout(() => {
+              if (loadingScreen.parentNode) {
+                loadingScreen.remove();
+              }
+            }, 300);
+          }, remainingTime);
+        }
+      }
+      
+      // Wait for DOM to be ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLoadingScreen);
+      } else {
+        initLoadingScreen();
+      }
+      
+      function initLoadingScreen() {
+        // Check when React root gets content
+        const rootElement = document.getElementById('root');
+        if (rootElement) {
+          const observer = new MutationObserver((mutations) => {
+            // Check if root has any children (React has rendered)
+            if (rootElement.children.length > 0 || rootElement.innerHTML.trim() !== '') {
+              observer.disconnect();
+              reactReady = true;
+              checkIfReadyToHide();
+            }
+          });
+          observer.observe(rootElement, { childList: true, subtree: true });
+          
+          // Fallback: mark React as ready after max 3 seconds
+          setTimeout(() => {
+            observer.disconnect();
+            reactReady = true;
+            checkIfReadyToHide();
+          }, 3000);
+        }
+        
+        // Listen for icon loading completion from React app
+        // The React app sets isLoadingIcons to false when icons are loaded
+        // We'll listen for a custom event or check the app state
+        window.addEventListener('icons-loaded', () => {
+          iconsReady = true;
+          checkIfReadyToHide();
+        });
+        
+        // Also check periodically if icons are loaded (fallback)
+        let checkCount = 0;
+        const iconCheckInterval = setInterval(() => {
+          checkCount++;
+          // Check if React app has set isLoadingIcons to false
+          // We can check by looking for map markers or icons in the DOM
+          const mapContainer = document.querySelector('.leaflet-container');
+          const hasMapMarkers = document.querySelectorAll('.leaflet-marker-icon').length > 0;
+          
+          // If map is visible and has markers, icons are likely loaded
+          if (mapContainer && hasMapMarkers) {
+            iconsReady = true;
+            clearInterval(iconCheckInterval);
+            checkIfReadyToHide();
+          }
+          
+          // Max wait time: 10 seconds
+          if (checkCount > 20) {
+            clearInterval(iconCheckInterval);
+            iconsReady = true; // Give up and show app anyway
+            checkIfReadyToHide();
+          }
+        }, 500);
+        
+        // Fallback: hide after max 10 seconds total
+        setTimeout(() => {
+          clearInterval(iconCheckInterval);
+          reactReady = true;
+          iconsReady = true;
+          checkIfReadyToHide();
+        }, 10000);
+      }
+      
+      // Also listen for theme changes and update logo
+      const observer = new MutationObserver(() => {
+        const isDark = document.documentElement.classList.contains('dark');
+        const theme = isDark ? 'dark' : 'light';
+        const isDesktop = window.innerWidth >= 1024;
+        const breakpoint = isDesktop ? 'desktop' : 'mobile';
+        
+        // Update loading screen logo
+        const loadingLogo = document.getElementById('loading-logo');
+        if (loadingLogo) {
+          loadingLogo.src = isDark ? '/bestlogowhite.png' : '/bestlogo.png';
+        }
+        
+        fetch(getApiBaseUrl().replace(/\/$/, '') + '/api/settings/header?v=' + Date.now(), { 
+          credentials: 'include', 
+          cache: 'no-store' 
+        })
+          .then(res => res.ok ? res.json() : null)
+          .then(settings => {
+            if (!settings) return;
+            const ctx = settings[theme]?.[breakpoint];
+            const logoUrl = ctx?.logo?.url;
+            if (logoUrl) {
+              updateLogo(logoUrl);
+            }
+          })
+          .catch(() => {});
+      });
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    })();
+  </script>
+  
+  <script src="/lib/tailwind.min.js"></script>
+  <style>
+    /* New Design System */
+    :root {
+      --color-primary: 14 165 233; /* sky-500 */
+      --color-secondary: 20 184 166; /* teal-500 */
+      --text-primary: 30 41 59; /* slate-800 */
+      --text-secondary: 71 85 105; /* slate-600 */
+      --bg-light: 241 245 249; /* slate-100 */
+      --card-bg: 255 255 255;
+      --border-color: 226 232 240; /* slate-200 */
+    }
+
+    html.dark {
+      --text-primary: 241 245 249; /* slate-100 */
+      --text-secondary: 161 173 192; /* slate-400 */
+      --bg-light: 15 23 42; /* slate-900 */
+      --card-bg: 30 41 59; /* slate-800 */
+      --border-color: 51 65 85; /* slate-700 */
+    }
+
+    /* Special Gothic Expanded One for menu buttons */
+    .menu-button-text {
+      font-family: 'Special Gothic Expanded One', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    body {
+        background-color: rgb(var(--bg-light));
+        color: rgb(var(--text-primary));
+        transition: background-color 0.3s, color 0.3s;
+    }
+    :root:not(.dark) body {
+        background: linear-gradient(to bottom right, #eff6ff, #ffffff) !important;
+    }
+    :root.dark body {
+        background: #111827 !important; /* gray-900 */
+    }
+    
+    /* Prevent white flash on page load - theme-aware */
+    #root {
+        min-height: 100vh;
+    }
+    :root:not(.dark) #root {
+        background: linear-gradient(to bottom right, #eff6ff, #ffffff);
+    }
+    :root.dark #root {
+        background: #111827; /* gray-900 */
+    }
+    
+    /* Modern Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgb(var(--bg-light));
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94a3b8; /* slate-500 */
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #cbd5e1; /* slate-300 */
+    }
+    
+    /* Collapsible Section Animation */
+    .collapsible-content {
+        max-height: 1000px; /* A large enough value */
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease-in-out, padding 0.5s ease-in-out;
+        opacity: 1;
+        will-change: max-height;
+    }
+
+    .collapsible-content.collapsed {
+        max-height: 0;
+        opacity: 0;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Leaflet Marker Popups */
+    .leaflet-popup-content-wrapper {
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .leaflet-popup-content {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-size: 14px;
+        margin: 15px 20px;
+    }
+
+    /* Styles for Map Image Preview Bubble */
+    .map-preview-bubble {
+      position: absolute;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      padding: 8px;
+      transform: translate(-50%, -100%) scale(0.8);
+      transform-origin: bottom center;
+      margin-bottom: 15px; /* space for the pointer */
+      pointer-events: none; /* so it doesn't interfere with map events */
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+      z-index: 1001; /* Above map markers */
+    }
+
+    .map-preview-bubble.visible {
+      opacity: 1;
+      transform: translate(-50%, -100%) scale(1);
+      animation: pump-up 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .map-preview-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid white;
+    }
+
+    .map-preview-bubble img {
+      width: 128px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .map-preview-bubble .loader {
+      width: 128px;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preview-title {
+      position: absolute;
+      top: -28px; /* Position it above the bubble */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(30, 41, 59, 0.8); /* slate-800 with opacity */
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    @keyframes pump-up {
+      0% { transform: translate(-50%, -100%) scale(0.8); }
+      70% { transform: translate(-50%, -100%) scale(1.1); }
+      100% { transform: translate(-50%, -100%) scale(1); }
+    }
+
+    .map-preview-spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border-left-color: rgb(var(--color-primary));
+        animation: spin 1s ease infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    /* Styles for Trip Map Preview */
+    .trip-map-preview {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 160px;
+    }
+    .trip-map-preview .header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .trip-map-preview .number {
+        background-color: rgb(var(--color-primary));
+        color: white;
+        font-weight: bold;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .trip-map-preview .name {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: #1f2937;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Styles for drag-and-drop */
+    .draggable-item {
+      cursor: grab;
+    }
+    .dragging {
+      opacity: 0.5;
+      background-color: #e0f2fe; /* Light blue */
+      cursor: grabbing;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    /* Styles for Notification Toasts */
+    .notification-enter {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    .notification-enter-active {
+        transform: translateX(0);
+        opacity: 1;
+        transition: transform 300ms, opacity 300ms;
+    }
+    .notification-exit {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .notification-exit-active {
+        transform: translateX(100%);
+        opacity: 0;
+        transition: transform 300ms, opacity 300ms;
+    }
+    
+    /* Fix for tile grid lines - must be here to override CDN leaflet.css */
+    .leaflet-container img.leaflet-tile {
+      mix-blend-mode: normal !important;
+      image-rendering: auto;
+      image-rendering: -webkit-optimize-contrast;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform: translate3d(0,0,0);
+      transform: translate3d(0,0,0);
+      display: block !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+    
+    /* Default tile size for 100% scaling */
+    @media (-webkit-max-device-pixel-ratio: 1), (max-resolution: 96dpi) {
+      .leaflet-container img.leaflet-tile,
+      .leaflet-tile {
+        width: 256px !important;
+        height: 256px !important;
+        margin: 0 !important;
+      }
+    }
+    
+    /* High DPI display fix - add slight overlap to prevent gaps */
+    @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+      .leaflet-container img.leaflet-tile {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        -ms-interpolation-mode: nearest-neighbor;
+        width: 257px !important;
+        height: 257px !important;
+        margin-left: -0.5px !important;
+        margin-top: -0.5px !important;
+      }
+      
+      .leaflet-tile {
+        width: 257px !important;
+        height: 257px !important;
+        margin-left: -0.5px !important;
+        margin-top: -0.5px !important;
+      }
+    }
+
+    /* Ensure tile containers have no gaps */
+    .leaflet-tile-container {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+
+    /* Prevent any potential gaps between tiles */
+    .leaflet-tile {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      display: block !important;
+      border: none !important;
+      outline: none !important;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    /* Force GPU acceleration and prevent subpixel rendering issues */
+    .leaflet-tile-pane {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform: translate3d(0,0,0);
+      transform: translate3d(0,0,0);
+      will-change: transform;
+    }
+    
+    /* Prevent fractional pixel positioning on scaled displays */
+    .leaflet-container {
+      -webkit-font-smoothing: subpixel-antialiased;
+      -moz-osx-font-smoothing: auto;
+      image-rendering: -webkit-optimize-contrast;
+    }
+    
+    /* Force exact pixel positioning */
+    .leaflet-tile-container img {
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+    }
+
+    /* Apple-style Map Controls */
+    .map-control-button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 1px solid rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15), 
+                  inset 0 1px 1px rgba(255,255,255,0.3);
+      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .map-control-button:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1), 
+                  inset 0 1px 2px rgba(0,0,0,0.2);
+    }
+    .map-control-button.zoom-control {
+      background: linear-gradient(145deg, #f9fafb, #e5e7eb); /* bg-slate-50 to bg-slate-200 */
+      color: #374151; /* text-slate-700 */
+    }
+    .map-control-button.zoom-control:hover {
+        background: linear-gradient(145deg, #ffffff, #d1d5db);
+    }
+    .map-control-button.gps-control {
+      background: linear-gradient(145deg, #4b5563, #1f2937); /* bg-slate-600 to bg-slate-800 */
+      color: white;
+    }
+    .map-control-button.gps-control.active {
+      background: linear-gradient(145deg, #22d3ee, #0891b2); /* bg-cyan-400 to bg-cyan-600 */
+    }
+    .map-control-button.center-control {
+      background: linear-gradient(145deg, #fde047, #facc15); /* bg-yellow-300 to bg-yellow-400 */
+      color: #4b5563; /* text-slate-600 */
+    }
+    .map-control-button.center-control:hover {
+        background: linear-gradient(145deg, #fef08a, #f59e0b);
+    }
+    .map-control-button.center-control:disabled {
+        background: #d1d5db; /* bg-slate-300 */
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+    .map-control-button svg, .map-control-button span {
+        filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+    }
+    
+    /* Custom Pin Marker - Final Fix for Placement */
+    /* This is the main wrapper positioned by Leaflet. It should have NO transform or animation styles. */
+    .leaflet-pin-container {
+      pointer-events: none;
+    }
+
+    /* This new inner container holds the animation, isolating it from Leaflet's positioning. */
+    .pin-animator {
+      width: 44px;
+      height: 59px;
+      position: relative;
+      animation: drop-and-bounce 0.6s ease-out forwards;
+      transform-origin: bottom center;
+    }
+    
+    .pin-circle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #0ea5e9;
+      border: 3px solid white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3), inset 2px -2px 4px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pin-circle svg {
+      fill: white;
+      width: 24px;
+      height: 24px;
+    }
+    
+    .pin-tail {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 15px solid #0ea5e9;
+      filter: drop-shadow(0 3px 2px rgba(0,0,0,0.3));
+    }
+
+    @keyframes drop-and-bounce {
+      0% { transform: translateY(-300px) scale(0.5); opacity: 0; }
+      60% { transform: translateY(0) scale(1.1); opacity: 1; }
+      80% { transform: translateY(-10px) scale(0.95); }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .remove-pin-button {
+        background-color: #ef4444; /* red-500 */
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        margin-top: 8px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        width: 100%;
+        text-align: center;
+    }
+    .remove-pin-button:hover {
+        background-color: #dc2626; /* red-600 */
+    }
+
+    /* AI Chat Styles */
+    .ai-chat-bubble-model {
+      background-color: #e0f2fe; /* sky-100 */
+      color: #1e293b; /* slate-800, always dark text */
+      border-radius: 1.25rem;
+      border-top-left-radius: 0.25rem;
+    }
+
+    .ai-chat-bubble-user {
+      background-color: #1e40af; /* blue-800 */
+      color: white;
+      border-radius: 1.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+    
+    @keyframes typing-dot {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+    }
+    .typing-indicator span {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #64748b; /* slate-500 */
+        animation: typing-dot 1.2s infinite ease-in-out;
+    }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Loading Screen Styles - Removed duplicate CSS, using inline styles and JS theme function */
+    
+    #loading-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .loading-logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 32px;
+      animation: logo-fade-in 0.6s ease-out;
+    }
+    
+    @keyframes logo-fade-in {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .loading-spinner {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      position: relative;
+      animation: spin 1s linear infinite;
+    }
+    
+    :root:not(.dark) .loading-spinner {
+      border: 4px solid rgba(14, 165, 233, 0.2); /* sky-500 with opacity */
+      border-top-color: rgb(14, 165, 233); /* sky-500 */
+    }
+    
+    :root.dark .loading-spinner {
+      border: 4px solid rgba(34, 211, 238, 0.2); /* cyan-400 with opacity */
+      border-top-color: rgb(34, 211, 238); /* cyan-400 */
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Pulse animation for loading spinner */
+    .loading-spinner::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 32px;
+      height: 32px;
+      margin-top: -16px;
+      margin-left: -16px;
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    :root:not(.dark) .loading-spinner::before {
+      background: rgba(14, 165, 233, 0.1); /* sky-500 with opacity */
+    }
+    
+    :root.dark .loading-spinner::before {
+      background: rgba(34, 211, 238, 0.1); /* cyan-400 with opacity */
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.2;
+      }
+    }
+
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.6.0",
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1/",
+    "react/": "https://esm.sh/react@18.3.1/"
+  }
+}
+</script>
+
+</head>
+<body>
+  <!-- Preload logo for instant display (will be updated dynamically) -->
+  <!-- Commented out to prevent preload warnings - logo is loaded when needed -->
+  <!-- <link rel="preload" href="/icon-192x192.png" as="image" type="image/png" id="preload-logo-body"> -->
+  
+  <!-- Loading Screen - Single loading screen with theme support -->
+  <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; display: flex !important; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; background: linear-gradient(to bottom right, #eff6ff, #ffffff);">
+    <!-- Construction Warning Banner -->
+    <div id="construction-warning" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); background: #fbbf24; border: 2px solid #f59e0b; border-radius: 12px; padding: 16px 24px; max-width: 90%; width: 600px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 100001; text-align: center;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px;">
+        <svg style="width: 24px; height: 24px; fill: #92400e;" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+        <strong style="color: #92400e; font-size: 18px;">⚠️ Site Under Construction</strong>
+      </div>
+      <p style="color: #78350f; font-size: 14px; line-height: 1.6; margin: 0 0 16px 0;">
+        This website is currently under construction. Not all data is correct. Events and tours are fictive. Payment system is not live.
+      </p>
+      <button id="acknowledge-btn" style="background: #78350f; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.2);" onmouseover="this.style.background='#92400e'" onmouseout="this.style.background='#78350f'">
+        I Understand, Continue
+      </button>
+    </div>
+    
+    <img id="loading-logo" class="loading-logo" src="/bestlogo.png" alt="Discover Gozo" style="width: 150px !important; height: 150px !important; margin-bottom: 40px !important; object-fit: contain !important; display: block !important; visibility: visible !important; opacity: 1 !important; z-index: 100000;" />
+    <div id="loading-spinner" class="loading-spinner" style="width: 50px !important; height: 50px !important; border-radius: 50% !important; border: 5px solid rgba(14, 165, 233, 0.2) !important; border-top-color: rgb(14, 165, 233) !important; position: relative !important; display: block !important; visibility: visible !important; opacity: 1 !important; box-sizing: border-box !important; z-index: 100000; animation: loading-spin 1s linear infinite !important;"></div>
+  </div>
+  
+  <style>
+    @keyframes loading-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    #loading-spinner {
+      animation: loading-spin 1s linear infinite !important;
+    }
+    #loading-logo {
+      animation: logo-fade-in 0.6s ease-out !important;
+    }
+    @keyframes logo-fade-in {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+  
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+  
+  <!-- Service Worker Registration - FIXED VERSION -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        // Clear old caches first
+        caches.keys().then(function(cacheNames) {
+          return Promise.all(
+            cacheNames.map(function(cacheName) {
+              console.log('Deleting old cache:', cacheName);
+              return caches.delete(cacheName);
+            })
+          );
+        }).then(() => {
+          console.log('Old caches cleared, registering new service worker...');
+          
+          // Register the fixed service worker
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('✅ SW registered successfully: ', registration);
+              
+              // Force update if there's a new version
+              if (registration.waiting) {
+                registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                window.location.reload();
+              }
+            })
+            .catch((registrationError) => {
+              console.log('❌ SW registration failed: ', registrationError);
+            });
+        });
+      });
+    }
+  </script>
+</body>
+</html>
