@@ -127,7 +127,7 @@
     ]
   },
   "apis": {
-    "openweathermap": "33dc9bcd77723d3fb5d69b22e20e99ca",
+    "openweathermap": "your-openweather-api-key",
     "stormglass": null
   }
 }
