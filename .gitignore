@@ -54,6 +54,9 @@ out/
 
 backend/uploads/
 
+# Map tiles (large binary files)
+backend/tiles/
+
 # ====================
 # GENERATED REPORTS
 # ====================
